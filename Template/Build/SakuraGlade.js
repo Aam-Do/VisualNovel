@@ -62,4 +62,4 @@ var Template;
     }
     Template.Scene = Scene;
 })(Template || (Template = {}));
-//# sourceMappingURL=Template.js.map
+//# sourceMappingURL=SakuraGlade.js.map
