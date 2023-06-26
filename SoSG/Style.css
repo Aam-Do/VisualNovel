@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  font-family: "Ysabeau Infant", sans-serif;
+}
+
 scene {
   width: 1280px;
   height: 720px;
@@ -5,6 +10,9 @@ scene {
 }
 
 dialog[type=splash] {
+  background-image: url(Images/Splash.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0px;
   padding: 0px;
   width: 100vw;
@@ -15,6 +23,61 @@ dialog[type=splash] {
   cursor: pointer;
   text-align: center;
 }
-dialog[type=splash]>img#FudgeStoryLogo {
-  width: 100%;
+
+dialog[type=splash] img#FudgeStoryLogo {
+  height: 2em;
+  vertical-align: middle;
 }
+
+.start {
+  position: absolute;
+  background-color: #401d6b56;
+  box-shadow: 0px 0px 150px 150px #401d6b56;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* backdrop-filter: blur(10px); */
+}
+
+.h1 {
+  margin: 0 0 0.75em 0;
+  font-family: "Water Brush", serif;
+  font-size: 10em;
+  font-weight: 400;
+  line-height: 1em;
+  text-shadow: 7px 5px 17px #18042e;
+}
+
+.start p {
+  font-size: 2em;
+  text-shadow: 4px 3px 10px #18042e;
+  margin: 0 0 2em 0;
+  opacity: 1;
+  animation-name: pulse;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.claim {
+  position: absolute;
+  bottom: 1em;
+  text-shadow: 4px 3px 10px #18042e;
+  right: 1em
+}
+
+@keyframes pulse {
+  10% { 
+      opacity: 1;
+  }
+  50% { 
+      opacity: 0.2;
+  }
+  90% { 
+      opacity: 1;
+  }
+}
+

@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Water+Brush&family=Ysabeau+Infant:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="Style.css">
   <script src="Fudge/FudgeCore.js"></script>
   <script src="FudgeStory/FudgeStory.js"></script>
@@ -16,9 +21,13 @@
   <scene>
 
     <dialog type="splash" open>
-      <img id="FudgeStoryLogo" theme="dark" /> <!-- use "light" or "dark" -->
-      <p>
-        Design your splash screen here. Reposition and rescale the logo above, but do not remove.
+      <div class="start">
+        <h1 class="h1"><small>Secrets of</small><br>Sakura Glade</h1>
+        <p>Click anywhere to start</p>
+
+      </div>
+      <p class="claim">
+        made with &nbsp; <img id="FudgeStoryLogo" theme="light" />
       </p>
     </dialog>
 
