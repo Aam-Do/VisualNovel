@@ -43,7 +43,7 @@ namespace Template {
         upset: "path"
       }
     }
-  }
+  };
 
   export let dataForSave = {
     nameProtagonist: ""
