@@ -1,7 +1,7 @@
 namespace SakuraGlade {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
-  console.log("FudgeStory template starting");
+  console.log("Secrets of Sakura Glade starting");
 
   // Preparation for needed media -> put into definitions
 
@@ -21,23 +21,24 @@ namespace SakuraGlade {
   };
 
   export let locations = {
-    beachDay: {
-      name: "Beach Day",
-      background: "path"
+    ForestHome: {
+      name: "Forest Home",
+      background: "Images/Locations/ForestHome.png"
     }
   };
 
   export let characters = {
     narrator: {
-      name: "path"
+      name: ""
     },
     protagonist: {
-      name: "path"
+      name: ""
     },
-    aisaka: {
-      name: "Aisaka",
+    nobu: {
+      name: "Nobu",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
+        neutral: "path",
         angry: "path",
         happy: "path",
         upset: "path"
@@ -45,12 +46,97 @@ namespace SakuraGlade {
     }
   };
 
-  export let dataForSave = {
-    nameProtagonist: ""
+  export let items = {
+    phone: {
+      name: "Phone",
+      description: "My phone. It ran out of battery about an hour ago. I really should have brought my powerbank.",
+      image: "Images/Items/path"
+      // static: true
+    },
+    idCard: {
+      name: "Student ID-Card",
+      description: "The ID-Card from my university.",
+      image: "Images/Items/path"
+      // static: true
+    }
   };
+
+  export let dataForSave = {
+    nameProtagonist: "",
+    nobuPoints: 0,
+    amayaPoints: 0,
+    kohanaPoints: 0,
+    fumikoPoints: 0
+  };
+
+  function credits(): void {
+    ƒS.Text.print("");
+  }
+
+  // Menu shortcuts
+  let inGameMenuButtons = {
+    save: "Save",
+    load: "Load",
+    close: "Close",
+    credits: "Credits"
+  };
+
+  let gameMenu: ƒS.Menu;
+
+  // open = Menü ist offen und false = Menü ist zu 
+  let menuIsOpen: boolean = true;
+
+  async function buttonFunctionalities(_option: string): Promise<void> {
+    console.log(_option);
+    switch (_option) {
+      case inGameMenuButtons.save:
+        await ƒS.Progress.save();
+        break;
+      case inGameMenuButtons.load:
+        await ƒS.Progress.load();
+        break;
+      case inGameMenuButtons.close:
+        gameMenu.close();
+        menuIsOpen = false;
+        break;
+      case inGameMenuButtons.credits:
+        credits();
+    }
+  }
+
+  //  Menu shortcuts
+  document.addEventListener("keydown", hndKeyPress);
+  async function hndKeyPress(_event: KeyboardEvent): Promise<void> {
+    switch (_event.code) {
+      case ƒ.KEYBOARD_CODE.F8:
+        console.log("Save");
+        await ƒS.Progress.save();
+        break;
+      case ƒ.KEYBOARD_CODE.F9:
+        console.log("Load");
+        await ƒS.Progress.load();
+        break;
+      case ƒ.KEYBOARD_CODE.M:
+        if (menuIsOpen) {
+          console.log("Close");
+          gameMenu.close();
+          menuIsOpen = false;
+        }
+        else {
+          console.log("Open");
+          gameMenu.open();
+          menuIsOpen = true;
+        }
+        break;
+    }
+  }
+
 
   window.addEventListener("load", start);
   function start(_event: Event): void {
+    gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSSClass");
+    buttonFunctionalities("Close");
+    // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
       { scene: Scene, name: "Scene" }
     ];

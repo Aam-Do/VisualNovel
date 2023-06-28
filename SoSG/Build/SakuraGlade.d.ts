@@ -13,7 +13,7 @@ declare namespace SakuraGlade {
         drop: string;
     };
     let locations: {
-        beachDay: {
+        ForestHome: {
             name: string;
             background: string;
         };
@@ -25,18 +25,35 @@ declare namespace SakuraGlade {
         protagonist: {
             name: string;
         };
-        aisaka: {
+        nobu: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
+                neutral: string;
                 angry: string;
                 happy: string;
                 upset: string;
             };
         };
     };
+    let items: {
+        phone: {
+            name: string;
+            description: string;
+            image: string;
+        };
+        idCard: {
+            name: string;
+            description: string;
+            image: string;
+        };
+    };
     let dataForSave: {
         nameProtagonist: string;
+        nobuPoints: number;
+        amayaPoints: number;
+        kohanaPoints: number;
+        fumikoPoints: number;
     };
 }
 declare namespace SakuraGlade {
