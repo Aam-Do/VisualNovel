@@ -1,6 +1,12 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: "Ysabeau Infant", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: black;
+  overflow: hidden;
 }
 
 scene {
@@ -37,7 +43,6 @@ dialog[type=splash] img#FudgeStoryLogo {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* backdrop-filter: blur(10px); */
 }
 
 .h1 {
@@ -70,14 +75,52 @@ dialog[type=splash] img#FudgeStoryLogo {
 }
 
 @keyframes pulse {
-  10% { 
-      opacity: 1;
+  10% {
+    opacity: 1;
   }
-  50% { 
-      opacity: 0.2;
+
+  50% {
+    opacity: 0.2;
   }
-  90% { 
-      opacity: 1;
+
+  90% {
+    opacity: 1;
   }
 }
 
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+scene {
+  position: absolute;
+}
+
+speech {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: beige;
+  background-color: rgb(1 8 6 / 84%);
+  width: 75%;
+  height: 13%;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+
+name {
+  position: absolute;
+  top: -61px;
+  font-weight: 400;
+  font-size: 28px;
+  padding: 10px 30px;
+  background-color: rgb(1 8 6 / 84%);
+  font-family: "Water Brush";
+}
+
+content {
+  margin: 15px 30px;
+  display: block;
+  font-size: 18px;
+}

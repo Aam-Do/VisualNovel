@@ -21,7 +21,11 @@ var SakuraGlade;
     SakuraGlade.locations = {
         forestHome: {
             name: "Forest Home",
-            background: "Images/Locations/ForestHome.png"
+            background: "Images/Locations/hiking-trail.png"
+        },
+        fairieForest: {
+            name: "Fairie Forest",
+            background: "Images/Locations/rainforest.png"
         }
     };
     SakuraGlade.characters = {
