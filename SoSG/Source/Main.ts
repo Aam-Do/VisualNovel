@@ -28,6 +28,10 @@ namespace SakuraGlade {
     fairieForest: {
       name: "Fairie Forest",
       background: "Images/Locations/rainforest.png"
+    },
+    blackout: {
+      name: "Blackout",
+      background: "Images/Locations/Blackout.png"
     }
   };
 

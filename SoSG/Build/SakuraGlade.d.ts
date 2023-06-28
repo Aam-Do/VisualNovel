@@ -10,6 +10,10 @@ declare namespace SakuraGlade {
             name: string;
             background: string;
         };
+        blackout: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         narrator: {

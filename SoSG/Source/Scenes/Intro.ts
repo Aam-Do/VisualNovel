@@ -71,6 +71,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, text.You.T0009);
         await ƒS.Speech.tell(characters.protagonist, text.You.T0011);
         await ƒS.Speech.tell(characters.protagonist, text.You.T0009);
+        await ƒS.Location.show(locations.blackout);
         await ƒS.Progress.delay(2);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
@@ -85,6 +86,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, text.You.T0009);
         await ƒS.Speech.tell(characters.protagonist, text.You.T0014);
         await ƒS.Speech.tell(characters.protagonist, text.You.T0009);
+        await ƒS.Location.show(locations.blackout);
         await ƒS.Progress.delay(2);
         ƒS.Speech.clear();
         ƒS.Speech.hide();

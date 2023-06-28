@@ -26,6 +26,10 @@ var SakuraGlade;
         fairieForest: {
             name: "Fairie Forest",
             background: "Images/Locations/rainforest.png"
+        },
+        blackout: {
+            name: "Blackout",
+            background: "Images/Locations/Blackout.png"
         }
     };
     SakuraGlade.characters = {
@@ -227,6 +231,7 @@ var SakuraGlade;
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0011);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
+                await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
                 await SakuraGlade.ƒS.Progress.delay(2);
                 SakuraGlade.ƒS.Speech.clear();
                 SakuraGlade.ƒS.Speech.hide();
@@ -241,6 +246,7 @@ var SakuraGlade;
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0014);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
+                await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
                 await SakuraGlade.ƒS.Progress.delay(2);
                 SakuraGlade.ƒS.Speech.clear();
                 SakuraGlade.ƒS.Speech.hide();
