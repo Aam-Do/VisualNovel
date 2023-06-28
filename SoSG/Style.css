@@ -117,6 +117,8 @@ name {
   padding: 10px 30px;
   background-color: rgb(1 8 6 / 84%);
   font-family: "Water Brush";
+  min-width: 33.775px;
+  min-height: 40.8px;
 }
 
 content {

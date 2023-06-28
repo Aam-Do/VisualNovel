@@ -45,5 +45,8 @@ declare namespace SakuraGlade {
     };
 }
 declare namespace SakuraGlade {
+    function FairieForest(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
     function Intro(): ƒS.SceneReturn;
 }
