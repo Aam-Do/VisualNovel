@@ -5,21 +5,21 @@ var SakuraGlade;
     SakuraGlade.ƒS = FudgeStory;
     console.log("Secrets of Sakura Glade starting");
     // Preparation for needed media -> put into definitions
-    SakuraGlade.transition = {
-        puzzle: {
-            duration: 1,
-            alpha: "path",
-            edge: 1
-        }
-    };
-    SakuraGlade.sound = {
-        // themes
-        music: "path",
-        // SFX
-        drop: "path"
-    };
+    // export let transition = {
+    //   puzzle: {
+    //     duration: 1,
+    //     alpha: "path",
+    //     edge: 1
+    //   }
+    // };
+    // export let sound = {
+    //   // themes
+    //   music: "path",
+    //   // SFX
+    //   drop: "path"
+    // };
     SakuraGlade.locations = {
-        ForestHome: {
+        forestHome: {
             name: "Forest Home",
             background: "Images/Locations/ForestHome.png"
         }
@@ -29,16 +29,16 @@ var SakuraGlade;
             name: ""
         },
         protagonist: {
-            name: ""
+            name: "You"
         },
         nobu: {
             name: "Nobu",
             origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                neutral: "path",
-                angry: "path",
-                happy: "path",
-                upset: "path"
+                neutral: "Images/Characters/NobuSketch.png",
+                // angry: "path",
+                // happy: "path",
+                // upset: "path"
             }
         }
     };
@@ -46,13 +46,13 @@ var SakuraGlade;
         phone: {
             name: "Phone",
             description: "My phone. It ran out of battery about an hour ago. I really should have brought my powerbank.",
-            image: "Images/Items/path"
+            // image: "Images/Items/path"
             // static: true
         },
         idCard: {
             name: "Student ID-Card",
             description: "The ID-Card from my university.",
-            image: "Images/Items/path"
+            // image: "Images/Items/path"
             // static: true
         }
     };
@@ -125,7 +125,7 @@ var SakuraGlade;
         buttonFunctionalities("Close");
         // Scene Hierarchy 
         let scenes = [
-            { scene: SakuraGlade.Scene, name: "Scene" }
+            { scene: SakuraGlade.Intro, name: "Intro Scene" }
         ];
         let uiElement = document.querySelector("[type=interface]");
         SakuraGlade.dataForSave = SakuraGlade.ƒS.Progress.setData(SakuraGlade.dataForSave, uiElement);
@@ -135,9 +135,35 @@ var SakuraGlade;
 })(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
 (function (SakuraGlade) {
-    async function Scene() {
-        console.log("SakuraGlade Scene starting");
+    async function Intro() {
+        console.log("Intro Scene starting");
+        let text = {
+            Nobu: {
+                T0000: "Dieser Text ist über die text-Variable definiert. <p>Dies hingegen ist ein Paragraph.</p>",
+                T0001: "",
+                T0002: ""
+            }
+        };
+        // cpms = characters per millisecond
+        SakuraGlade.ƒS.Speech.setTickerDelays(80, 5000);
+        // let signalDelay3: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(3)]);
+        SakuraGlade.ƒS.Speech.hide();
+        await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.forestHome);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positions.bottomcenter);
+        SakuraGlade.ƒS.update(1);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Hi, I'm Nobu!");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, text.Nobu.T0000);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Und wie heißt du?");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Hi ich bin der Protagonist aka der Spieler. " + "Ich heiße ", true, "Player");
+        SakuraGlade.dataForSave.nameProtagonist = await SakuraGlade.ƒS.Speech.getInput();
+        SakuraGlade.characters.protagonist.name = SakuraGlade.dataForSave.nameProtagonist;
+        console.log(SakuraGlade.dataForSave.nameProtagonist);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Hi " + SakuraGlade.dataForSave.nameProtagonist + "!");
+        SakuraGlade.ƒS.Speech.clear();
+        SakuraGlade.ƒS.Speech.hide();
+        SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
+        SakuraGlade.ƒS.update(1);
     }
-    SakuraGlade.Scene = Scene;
+    SakuraGlade.Intro = Intro;
 })(SakuraGlade || (SakuraGlade = {}));
 //# sourceMappingURL=SakuraGlade.js.map

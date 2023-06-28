@@ -1,19 +1,8 @@
 declare namespace SakuraGlade {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
-    let transition: {
-        puzzle: {
-            duration: number;
-            alpha: string;
-            edge: number;
-        };
-    };
-    let sound: {
-        music: string;
-        drop: string;
-    };
     let locations: {
-        ForestHome: {
+        forestHome: {
             name: string;
             background: string;
         };
@@ -30,9 +19,6 @@ declare namespace SakuraGlade {
             origin: ƒ.ORIGIN2D;
             pose: {
                 neutral: string;
-                angry: string;
-                happy: string;
-                upset: string;
             };
         };
     };
@@ -40,12 +26,10 @@ declare namespace SakuraGlade {
         phone: {
             name: string;
             description: string;
-            image: string;
         };
         idCard: {
             name: string;
             description: string;
-            image: string;
         };
     };
     let dataForSave: {
@@ -57,5 +41,5 @@ declare namespace SakuraGlade {
     };
 }
 declare namespace SakuraGlade {
-    function Scene(): ƒS.SceneReturn;
+    function Intro(): ƒS.SceneReturn;
 }

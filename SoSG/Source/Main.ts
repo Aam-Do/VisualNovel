@@ -5,23 +5,23 @@ namespace SakuraGlade {
 
   // Preparation for needed media -> put into definitions
 
-  export let transition = {
-    puzzle: {
-      duration: 1,
-      alpha: "path",
-      edge: 1
-    }
-  };
+  // export let transition = {
+  //   puzzle: {
+  //     duration: 1,
+  //     alpha: "path",
+  //     edge: 1
+  //   }
+  // };
 
-  export let sound = {
-    // themes
-    music: "path",
-    // SFX
-    drop: "path"
-  };
+  // export let sound = {
+  //   // themes
+  //   music: "path",
+  //   // SFX
+  //   drop: "path"
+  // };
 
   export let locations = {
-    ForestHome: {
+    forestHome: {
       name: "Forest Home",
       background: "Images/Locations/ForestHome.png"
     }
@@ -32,16 +32,16 @@ namespace SakuraGlade {
       name: ""
     },
     protagonist: {
-      name: ""
+      name: "You"
     },
     nobu: {
       name: "Nobu",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        neutral: "path",
-        angry: "path",
-        happy: "path",
-        upset: "path"
+        neutral: "Images/Characters/NobuSketch.png",
+        // angry: "path",
+        // happy: "path",
+        // upset: "path"
       }
     }
   };
@@ -50,13 +50,13 @@ namespace SakuraGlade {
     phone: {
       name: "Phone",
       description: "My phone. It ran out of battery about an hour ago. I really should have brought my powerbank.",
-      image: "Images/Items/path"
+      // image: "Images/Items/path"
       // static: true
     },
     idCard: {
       name: "Student ID-Card",
       description: "The ID-Card from my university.",
-      image: "Images/Items/path"
+      // image: "Images/Items/path"
       // static: true
     }
   };
@@ -138,7 +138,7 @@ namespace SakuraGlade {
     buttonFunctionalities("Close");
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
-      { scene: Scene, name: "Scene" }
+      { scene: Intro, name: "Intro Scene" }
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
