@@ -1,4 +1,4 @@
-declare namespace Template {
+declare namespace SakuraGlade {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let transition: {
@@ -39,6 +39,6 @@ declare namespace Template {
         nameProtagonist: string;
     };
 }
-declare namespace Template {
+declare namespace SakuraGlade {
     function Scene(): ƒS.SceneReturn;
 }

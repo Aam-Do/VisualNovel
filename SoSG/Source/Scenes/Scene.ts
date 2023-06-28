@@ -1,5 +1,5 @@
-namespace Template {
+namespace SakuraGlade {
   export async function Scene(): ƒS.SceneReturn {
-    console.log("FudgeStory Template Scene starting");
+    console.log("FudgeStory SakuraGlade Scene starting");
   }
 }

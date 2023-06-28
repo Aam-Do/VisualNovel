@@ -1,30 +1,30 @@
 "use strict";
-var Template;
-(function (Template) {
-    Template.ƒ = FudgeCore;
-    Template.ƒS = FudgeStory;
+var SakuraGlade;
+(function (SakuraGlade) {
+    SakuraGlade.ƒ = FudgeCore;
+    SakuraGlade.ƒS = FudgeStory;
     console.log("FudgeStory template starting");
     // Preparation for needed media -> put into definitions
-    Template.transition = {
+    SakuraGlade.transition = {
         puzzle: {
             duration: 1,
             alpha: "path",
             edge: 1
         }
     };
-    Template.sound = {
+    SakuraGlade.sound = {
         // themes
         music: "path",
         // SFX
         drop: "path"
     };
-    Template.locations = {
+    SakuraGlade.locations = {
         beachDay: {
             name: "Beach Day",
             background: "path"
         }
     };
-    Template.characters = {
+    SakuraGlade.characters = {
         narrator: {
             name: "path"
         },
@@ -33,7 +33,7 @@ var Template;
         },
         aisaka: {
             name: "Aisaka",
-            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
                 angry: "path",
                 happy: "path",
@@ -41,25 +41,25 @@ var Template;
             }
         }
     };
-    Template.dataForSave = {
+    SakuraGlade.dataForSave = {
         nameProtagonist: ""
     };
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene, name: "Scene" }
+            { scene: SakuraGlade.Scene, name: "Scene" }
         ];
         let uiElement = document.querySelector("[type=interface]");
-        Template.dataForSave = Template.ƒS.Progress.setData(Template.dataForSave, uiElement);
+        SakuraGlade.dataForSave = SakuraGlade.ƒS.Progress.setData(SakuraGlade.dataForSave, uiElement);
         // start the sequence
-        Template.ƒS.Progress.go(scenes);
+        SakuraGlade.ƒS.Progress.go(scenes);
     }
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
+})(SakuraGlade || (SakuraGlade = {}));
+var SakuraGlade;
+(function (SakuraGlade) {
     async function Scene() {
-        console.log("FudgeStory Template Scene starting");
+        console.log("FudgeStory SakuraGlade Scene starting");
     }
-    Template.Scene = Scene;
-})(Template || (Template = {}));
+    SakuraGlade.Scene = Scene;
+})(SakuraGlade || (SakuraGlade = {}));
 //# sourceMappingURL=SakuraGlade.js.map
