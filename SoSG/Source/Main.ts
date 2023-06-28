@@ -31,7 +31,7 @@ namespace SakuraGlade {
     },
     blackout: {
       name: "Blackout",
-      background: "Images/Locations/Blackout.png"
+      background: "Images/Locations/Blackout.jpg"
     }
   };
 
@@ -146,7 +146,8 @@ namespace SakuraGlade {
     buttonFunctionalities("Close");
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
-      { scene: Intro, name: "Intro Scene" }
+      { scene: Intro, name: "Intro Scene" },
+      { scene: FairieForest, name: "Fairie Forest" }
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");

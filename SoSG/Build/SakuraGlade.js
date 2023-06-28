@@ -29,7 +29,7 @@ var SakuraGlade;
         },
         blackout: {
             name: "Blackout",
-            background: "Images/Locations/Blackout.png"
+            background: "Images/Locations/Blackout.jpg"
         }
     };
     SakuraGlade.characters = {
@@ -133,7 +133,8 @@ var SakuraGlade;
         buttonFunctionalities("Close");
         // Scene Hierarchy 
         let scenes = [
-            { scene: SakuraGlade.Intro, name: "Intro Scene" }
+            { scene: SakuraGlade.Intro, name: "Intro Scene" },
+            { scene: SakuraGlade.FairieForest, name: "Fairie Forest" }
         ];
         let uiElement = document.querySelector("[type=interface]");
         SakuraGlade.dataForSave = SakuraGlade.ƒS.Progress.setData(SakuraGlade.dataForSave, uiElement);
@@ -145,9 +146,16 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function FairieForest() {
         console.log("Intro Scene starting");
+        // cpms = characters per millisecond
+        SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+        SakuraGlade.ƒS.Speech.hide();
+        await SakuraGlade.ƒS.Progress.delay(5);
+        SakuraGlade.ƒS.Speech.show();
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>What</i>)");
+        await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.fairieForest);
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positions.bottomright);
+        SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Hi, I'm Nobu!");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, text.Nobu.T0000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Und wie heißt du?");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Hi ich bin der Protagonist aka der Spieler. " + "Ich heiße ", true, "Player");
         SakuraGlade.dataForSave.nameProtagonist = await SakuraGlade.ƒS.Speech.getInput();
@@ -164,54 +172,30 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function Intro() {
         console.log("Intro Scene starting");
-        let text = {
-            You: {
-                T0000: "(<i>Whew, what a day!</i>)",
-                T0001: "(<i>Three lectures of Advanced Biology and no breaks... And I’ve got the presentation coming up soon too...<br>Ugh, I still need a good topic. Guess I’ll have to hit the books first when I get home.</i>)",
-                T0002: "(<i>Yeesh, I can’t wait to go to bed!</i>)",
-                T0003: "(<i>Ah... the cool spring air is so refreshing. Feels like I sat in stuffy lecture halls all day!<br>I used to hate having to walk home through the forest, but on a day like this it’s almost a blessing.</i>)",
-                T0004: "(<i>... what’s that?</i>)",
-                T0005: "(<i>There’s a faint light coming from the forest. Did someone get lost in the woods again?<br>I should go check it out.</i>)",
-                T0006: "(<i>Hmm... no one to be seen.</i>)",
-                T0007: "(<i>Just this...<br>tree stump that appears to be glowing?</i>)",
-                T0008: "(<i>I’ve never seen that before! Maybe I can use this in my presentation.<br>Let’s take a closer look...</i>)",
-                T0009: "(<i>...</i>)",
-                T0010: "(<i>It seems like little fluorescent mushrooms are growing on this part of the stump.<br>They smell sweet, almost floral...</i>)",
-                T0011: "(<i>What’s going on?<br>... everything’s suddenly so blurry...</i>)",
-                T0012: "(<i>No way I’m touching that. Best hurry back to the trail.</i>)",
-                T0013: "(<i>What's that smell...? Everything’s suddenly so blurry...</i>)",
-                T0014: "(<i>... oh...</i>)",
-            },
-            Nobu: {
-                T0000: "Dieser Text ist über die text-Variable definiert. <p>Dies hingegen ist ein Paragraph.</p>",
-                T0001: "",
-                T0002: ""
-            }
-        };
         // cpms = characters per millisecond
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         SakuraGlade.ƒS.Speech.hide();
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.forestHome);
         SakuraGlade.ƒS.update(1);
-        await SakuraGlade.ƒS.Progress.delay(2);
+        // await ƒS.Progress.delay(2);
         SakuraGlade.ƒS.Speech.show();
-        await SakuraGlade.ƒS.Progress.delay(1);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0000);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0001);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0002);
+        // await ƒS.Progress.delay(1);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Whew, what a day!</i>)");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Three lectures of Advanced Biology and no breaks... And I’ve got the presentation coming up soon too...<br>Ugh, I still need a good topic. Guess I’ll have to hit the books first when I get home.</i>)");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Yeesh, I can’t wait to go to bed!</i>)");
         SakuraGlade.ƒS.Speech.hide();
-        await SakuraGlade.ƒS.Progress.delay(2);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0003);
+        // await ƒS.Progress.delay(2);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Ah... the cool spring air is so refreshing. Feels like I sat in stuffy lecture halls all day!<br>I used to hate having to walk home through the forest, but on a day like this it’s almost a blessing.</i>)");
         SakuraGlade.ƒS.Speech.hide();
-        await SakuraGlade.ƒS.Progress.delay(2);
+        // await ƒS.Progress.delay(2);
         SakuraGlade.ƒS.Speech.setTickerDelays(100, 5000);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0004);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>... what’s that?</i>)");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0005);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>There’s a faint light coming from the forest. Did someone get lost in the woods again?<br>I should go check it out.</i>)");
         SakuraGlade.ƒS.Speech.hide();
-        await SakuraGlade.ƒS.Progress.delay(2);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0006);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0007);
+        // await ƒS.Progress.delay(2);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Hmm... no one to be seen.</i>)");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Just this...<br>tree stump that appears to be glowing?</i>)");
         SakuraGlade.ƒS.Speech.hide();
         let dialogue = {
             inspect: "Inspect the stump",
@@ -222,15 +206,15 @@ var SakuraGlade;
             case dialogue.inspect:
                 // continue path here
                 console.log(dialogue.inspect);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0008);
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>I’ve never seen that before! Maybe I can use this in my presentation.<br>Let’s take a closer look...</i>)");
                 SakuraGlade.ƒS.Speech.setTickerDelays(100, 5000);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>...</i>)");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0010);
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>It seems like little fluorescent mushrooms are growing on this part of the stump.<br>They smell sweet, almost floral...</i>)");
                 SakuraGlade.ƒS.Speech.setTickerDelays(100, 5000);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0011);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>...</i>)");
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>What’s going on?<br>... everything’s suddenly so blurry...</i>)");
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>...</i>)");
                 await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
                 await SakuraGlade.ƒS.Progress.delay(2);
                 SakuraGlade.ƒS.Speech.clear();
@@ -239,13 +223,13 @@ var SakuraGlade;
             case dialogue.leave:
                 // continue path here
                 console.log(dialogue.leave);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0012);
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>No way I’m touching that. I better hurry back to the trail.</i>)");
                 SakuraGlade.ƒS.Speech.setTickerDelays(100, 5000);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0013);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0014);
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, text.You.T0009);
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>...</i>)");
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>What's that smell...? Everything’s suddenly so blurry...</i>)");
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>...</i>)");
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>... oh...</i>)");
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>...</i>)");
                 await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
                 await SakuraGlade.ƒS.Progress.delay(2);
                 SakuraGlade.ƒS.Speech.clear();
