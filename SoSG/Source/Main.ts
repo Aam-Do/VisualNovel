@@ -146,6 +146,7 @@ namespace SakuraGlade {
     buttonFunctionalities("Close");
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
+      { scene: Start, name: "Start Scene" },
       { scene: Intro, name: "Intro Scene" },
       { scene: FairieForest, name: "Fairie Forest" }
     ];
