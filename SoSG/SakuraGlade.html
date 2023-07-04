@@ -44,6 +44,19 @@
     <dialog type="text">
       The content of a page of text for reading
     </dialog>
+    <dialog id="start">
+      <form>
+        <label for='name'>Please input your name (max. 15 characters)
+          <input type='text' name='name' id='name' placeholder='Name' required maxlength='15'></label>
+        <label for='name'>Please select your pronouns
+          <select name='pronouns' id='select'>
+            <option value='diverse' selected>they/them</option>
+            <option value='female'>she/her</option>
+            <option value='male'> he/him</option>
+          </select></label>
+      </form>
+      <button type="button">Start</button>
+    </dialog>
 
   </scene>
 

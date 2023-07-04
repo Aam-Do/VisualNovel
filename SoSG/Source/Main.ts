@@ -71,6 +71,7 @@ namespace SakuraGlade {
 
   export let dataForSave = {
     nameProtagonist: "",
+    genderProtagonist: "",
     nobuPoints: 0,
     amayaPoints: 0,
     kohanaPoints: 0,

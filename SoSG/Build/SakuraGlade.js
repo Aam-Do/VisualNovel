@@ -66,6 +66,7 @@ var SakuraGlade;
     };
     SakuraGlade.dataForSave = {
         nameProtagonist: "",
+        genderProtagonist: "",
         nobuPoints: 0,
         amayaPoints: 0,
         kohanaPoints: 0,
@@ -296,9 +297,32 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function Start() {
         console.log("Start Scene starting");
-        let form = "<form> <label for='name'>Please input your name (max. 15 characters)</label> <input type='text' name='name' id='name' placeholder='Name' required maxlength='15'> <label for='name'>Please select your pronouns</label> <select name='pronouns' id='select'> <option value='diverse' selected>they/them</option> <option value='female'>she/her</option> <option value='male'> he/him</option> </select> <button type='button' name='start' id='start'>Start</button> </form>";
-        SakuraGlade.ƒS.Text.addClass("input");
-        await SakuraGlade.ƒS.Text.print(form);
+        let input = document.querySelector("dialog#start");
+        input.showModal();
+        await new Promise((_resolve) => {
+            input.querySelector("button").addEventListener("click", _resolve);
+        });
+        let form = new FormData(document.forms[0]);
+        do {
+            form = new FormData(document.forms[0]);
+            if (form.get("name") == "") {
+                alert('You have to input a name!');
+                await new Promise((_resolve) => {
+                    input.querySelector("button").addEventListener("click", _resolve);
+                });
+            }
+            else {
+                console.log(form.get("name"));
+                SakuraGlade.dataForSave.nameProtagonist = form.get("name");
+                SakuraGlade.dataForSave.genderProtagonist = form.get("pronouns");
+                console.log(SakuraGlade.dataForSave.genderProtagonist);
+                SakuraGlade.characters.protagonist.name = SakuraGlade.dataForSave.nameProtagonist;
+                input.close();
+            }
+        } while (form.get("name") == "");
+        // let form: string = ""
+        // ƒS.Text.addClass("input");
+        // await ƒS.Text.print(form);
         // dataForSave.nameProtagonist = 
         // characters.protagonist.name = dataForSave.nameProtagonist;
         // console.log(dataForSave.nameProtagonist);

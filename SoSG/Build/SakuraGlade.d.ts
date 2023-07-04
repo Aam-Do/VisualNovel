@@ -42,6 +42,7 @@ declare namespace SakuraGlade {
     };
     let dataForSave: {
         nameProtagonist: string;
+        genderProtagonist: string;
         nobuPoints: number;
         amayaPoints: number;
         kohanaPoints: number;
