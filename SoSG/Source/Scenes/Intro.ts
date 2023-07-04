@@ -4,8 +4,7 @@ namespace SakuraGlade {
 
     // cpms = characters per millisecond
     ƒS.Speech.setTickerDelays(40, 5000);
-
-    ƒS.Speech.hide();
+    await ƒS.Progress.delay(1);
     await ƒS.Location.show(locations.forestHome);
     ƒS.update(1);
     // await ƒS.Progress.delay(2);

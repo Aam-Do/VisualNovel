@@ -126,3 +126,69 @@ content {
   display: block;
   font-size: 18px;
 }
+
+#start {
+  padding: 3em;
+  min-width: 25%;
+  max-width: 100%;
+  background: #eeaeca20;
+  border: 2px solid #eeaeca;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(to left, #94bbe9, #eeaeca);
+  color: white;
+  box-shadow: 0 0 20px 2px #eeaeca60;
+}
+
+#start>form {
+  display: flex;
+  flex-direction: column;
+}
+
+#start>form>label {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+#start>form>label:not(:first-child) {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+#start>form>label input,
+#start>form>label select {
+  padding: 8px 12px 10px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-family: inherit;
+  font-size: 16px;
+  margin-top: 0.4em;
+}
+
+#start>form>label input::placeholder {
+  color: #ffffff80;
+}
+
+#pronouns option {
+  background-color: #1e161a;
+  color: white;
+}
+
+#start>button {
+  font-family: 'Ysabeau Infant';
+  border: 1px solid white;
+  border-radius: 0;
+  background-color: transparent;
+  color: white;
+  padding: 8px 36px 10px;
+  margin-left: 50%;
+  transform: translate(-50%);
+  font-size: 20px;
+  transition-duration: .3s;
+}
+
+#start>button:hover {
+  background-color: #eeaeca40;
+}

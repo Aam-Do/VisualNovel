@@ -225,7 +225,7 @@ var SakuraGlade;
         console.log("Intro Scene starting");
         // cpms = characters per millisecond
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-        SakuraGlade.ƒS.Speech.hide();
+        await SakuraGlade.ƒS.Progress.delay(1);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.forestHome);
         SakuraGlade.ƒS.update(1);
         // await ƒS.Progress.delay(2);
@@ -297,36 +297,24 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function Start() {
         console.log("Start Scene starting");
+        SakuraGlade.ƒS.Speech.hide();
         let input = document.querySelector("dialog#start");
         input.showModal();
         await new Promise((_resolve) => {
             input.querySelector("button").addEventListener("click", _resolve);
         });
         let form = new FormData(document.forms[0]);
-        do {
+        while (form.get("name") == "") {
+            alert('You have to input a name!');
+            await new Promise((_resolve) => {
+                input.querySelector("button").addEventListener("click", _resolve);
+            });
             form = new FormData(document.forms[0]);
-            if (form.get("name") == "") {
-                alert('You have to input a name!');
-                await new Promise((_resolve) => {
-                    input.querySelector("button").addEventListener("click", _resolve);
-                });
-            }
-            else {
-                console.log(form.get("name"));
-                SakuraGlade.dataForSave.nameProtagonist = form.get("name");
-                SakuraGlade.dataForSave.genderProtagonist = form.get("pronouns");
-                console.log(SakuraGlade.dataForSave.genderProtagonist);
-                SakuraGlade.characters.protagonist.name = SakuraGlade.dataForSave.nameProtagonist;
-                input.close();
-            }
-        } while (form.get("name") == "");
-        // let form: string = ""
-        // ƒS.Text.addClass("input");
-        // await ƒS.Text.print(form);
-        // dataForSave.nameProtagonist = 
-        // characters.protagonist.name = dataForSave.nameProtagonist;
-        // console.log(dataForSave.nameProtagonist);
-        // await ƒS.Speech.tell(characters.nobu, "Hi " + dataForSave.nameProtagonist + "!");
+        }
+        SakuraGlade.dataForSave.nameProtagonist = form.get("name");
+        SakuraGlade.characters.protagonist.name = SakuraGlade.dataForSave.nameProtagonist;
+        SakuraGlade.dataForSave.genderProtagonist = form.get("pronouns");
+        input.close();
         SakuraGlade.ƒS.update(1);
     }
     SakuraGlade.Start = Start;
