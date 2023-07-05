@@ -1,6 +1,13 @@
 namespace SakuraGlade {
   export async function Start(): ƒS.SceneReturn {
     console.log("Start Scene starting");
+    document.onkeypress = stopReloadKey;
+    function stopReloadKey(_e: KeyboardEvent) {
+      if (_e.keyCode == 13) {
+        return false;
+      }
+      return true;
+    }
     ƒS.Speech.hide();
     let input: HTMLDialogElement = document.querySelector("dialog#start");
     input.showModal();
@@ -16,7 +23,6 @@ namespace SakuraGlade {
       form = new FormData(document.forms[0]);
     }
     dataForSave.nameProtagonist = (form.get("name") as string);
-    characters.protagonist.name = dataForSave.nameProtagonist;
     dataForSave.genderProtagonist = (form.get("pronouns") as string);
     input.close();
     ƒS.update(1);

@@ -31,7 +31,7 @@ namespace SakuraGlade {
       inspect: "Inspect the stump",
       leave: "Leave"
     };
-    let dialogueElement = await ƒS.Menu.getInput(dialogue, "choicesCSSClass");
+    let dialogueElement = await ƒS.Menu.getInput(dialogue, "choices");
     switch (dialogueElement) {
       case dialogue.inspect:
         // continue path here
@@ -47,9 +47,10 @@ namespace SakuraGlade {
         ƒS.Speech.tell(characters.protagonist, "(<i>...</i>)");
         await ƒS.Location.show(locations.blackout);
         ƒS.update(1);
-        await ƒS.Progress.delay(3);
+        await ƒS.Progress.delay(2);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+        await ƒS.update(1);
         break;
       case dialogue.leave:
         // continue path here
@@ -66,9 +67,9 @@ namespace SakuraGlade {
         await ƒS.Progress.delay(2);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+        await ƒS.update(1);
         break;
     }
-
     ƒS.update(1);
   }
 }

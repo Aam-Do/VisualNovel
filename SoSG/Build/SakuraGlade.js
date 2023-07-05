@@ -150,7 +150,6 @@ var SakuraGlade;
         console.log("Intro Scene starting");
         // cpms = characters per millisecond
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-        SakuraGlade.ƒS.Speech.hide();
         await SakuraGlade.ƒS.Progress.delay(1);
         SakuraGlade.ƒS.Speech.show();
         SakuraGlade.ƒS.Speech.setTickerDelays(100, 5000);
@@ -164,58 +163,82 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.setTickerDelays(100, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Someone is talking to me...</i>)");
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.fairieForest);
-        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positions.bottomright);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
         SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>Where... am I?</i>)");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell("???", "There we go... I was worried for a moment there.<br>Are you alright?");
         await SakuraGlade.ƒS.Speech.tell("???", "Oh... what's that?");
         await SakuraGlade.ƒS.Speech.tell("???", "My, my... I almost mistook you for a fairy!<br>But you've got no wings...");
-        let dialogue = {
-            weird: "You look weird! What are you?",
-            talking: "You're... a talking mushroom?"
+        let choice1 = {
+            neutral: "You look weird! What are you?",
+            good: "You're... a talking mushroom?"
         };
-        let dialogueElement = await SakuraGlade.ƒS.Menu.getInput(dialogue, "choicesCSSClass");
-        switch (dialogueElement) {
-            case dialogue.weird:
+        let choice1Element = await SakuraGlade.ƒS.Menu.getInput(choice1, "choices");
+        switch (choice1Element) {
+            case choice1.neutral:
                 // continue path here
-                console.log(dialogue.weird);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "You look weird! What are you?");
                 SakuraGlade.ƒS.Speech.setTickerDelays(80, 5000);
-                await SakuraGlade.ƒS.Speech.tell("???", "Ahem... now that’s not a very kind thing to say...");
+                await SakuraGlade.ƒS.Speech.tell("???", "Ahem... now that's not a very kind thing to say...");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-                await SakuraGlade.ƒS.Speech.tell("???", "I’m a Capfolk. We live here in the Forest of Fairie.");
-                await SakuraGlade.ƒS.Speech.tell("???", "It’s strange you’ve never seen one like me before.<br>How did you get here?");
+                await SakuraGlade.ƒS.Speech.tell("???", "I'm a Capfolk. We live here in the Forest of Fairie.");
+                await SakuraGlade.ƒS.Speech.tell("???", "It's strange you've never seen one like me before.<br>How did you get here?");
                 break;
-            case dialogue.talking:
+            case choice1.good:
                 // continue path here
-                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "You’re… a talking mushroom?");
+                SakuraGlade.dataForSave.nobuPoints += 1;
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "You're... a talking mushroom?");
                 await SakuraGlade.ƒS.Speech.tell("???", "Ohohoh!");
-                await SakuraGlade.ƒS.Speech.tell("???", "You’re a strange one!");
-                await SakuraGlade.ƒS.Speech.tell("???", "Never seen a Capfolk before? You’re not from the Forest of Fairie then.");
+                await SakuraGlade.ƒS.Speech.tell("???", "You're a strange one!");
+                await SakuraGlade.ƒS.Speech.tell("???", "Never seen a Capfolk before? You're not from the Forest of Fairie then.");
                 await SakuraGlade.ƒS.Speech.tell("???", "How did you end up all on the ground here?");
                 break;
         }
         SakuraGlade.ƒS.Speech.setTickerDelays(100, 5000);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I…");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I...");
         SakuraGlade.ƒS.Speech.setTickerDelays(80, 5000);
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I can’t remember clearly… ");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I was just going home… and then…");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "…");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I can't remember clearly... ");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I was just going home... and then...");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "...");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-        await SakuraGlade.ƒS.Speech.tell("???", "Oh dear, it seems you’re quite confused. You don’t look so well either…");
+        await SakuraGlade.ƒS.Speech.tell("???", "Oh dear, it seems you're quite confused. You don't look so well either...");
         await SakuraGlade.ƒS.Speech.tell("???", "Oh I almost forgot!");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I’m Nobu, it’s a pleasure to meet you.");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I’m… " + SakuraGlade.dataForSave.nameProtagonist + ".");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I'm Nobu, it's a pleasure to meet you.");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I'm... " + SakuraGlade.dataForSave.nameProtagonist + ".");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "How did you find me?");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "What a pretty sounding name you’ve got there!");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "What a pretty sounding name you've got there, " + SakuraGlade.dataForSave.nameProtagonist + "!");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I was just on my way back from collecting firewood when I stumbled upon you laying here.");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Either way, it's starting to get quite dark in these woods…<br>We’re not too far from the village.");
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You can rest up there if you want and we’ll figure it out.");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Either way, it's starting to get quite dark in these woods...<br>We're not too far from the village.");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You can rest up there if you want and we'll figure it out.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "What do you say, " + SakuraGlade.dataForSave.nameProtagonist + "? Can you walk on your own?");
+        let choice2 = {
+            good: "A little help would be nice, actually.",
+            neutral: "I can walk on my own, thank you."
+        };
+        let choice2Element = await SakuraGlade.ƒS.Menu.getInput(choice2, "choices");
+        switch (choice2Element) {
+            case choice2.neutral:
+                // continue path here
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I can walk on my own, thank you.");
+                SakuraGlade.ƒS.Speech.setTickerDelays(80, 5000);
+                await SakuraGlade.ƒS.Speech.tell("???", "Ohohoh!");
+                SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                await SakuraGlade.ƒS.Speech.tell("???", "Young ones are always so full of energy!");
+                await SakuraGlade.ƒS.Speech.tell("???", "Well, if you insist.<br>Stay close, grasshopper.");
+                break;
+            case choice2.good:
+                // continue path here
+                SakuraGlade.dataForSave.nobuPoints += 1;
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "A little help would be nice, actually.");
+                await SakuraGlade.ƒS.Speech.tell("???", " Here, take my cane for support.<br>It’s not too far, but we can take breaks if you need them.");
+                await SakuraGlade.ƒS.Speech.tell("???", "Come along now, grasshopper!");
+                break;
+        }
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
         SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
+        SakuraGlade.ƒS.update(1);
     }
     SakuraGlade.FairieForest = FairieForest;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -252,7 +275,7 @@ var SakuraGlade;
             inspect: "Inspect the stump",
             leave: "Leave"
         };
-        let dialogueElement = await SakuraGlade.ƒS.Menu.getInput(dialogue, "choicesCSSClass");
+        let dialogueElement = await SakuraGlade.ƒS.Menu.getInput(dialogue, "choices");
         switch (dialogueElement) {
             case dialogue.inspect:
                 // continue path here
@@ -268,9 +291,10 @@ var SakuraGlade;
                 SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "(<i>...</i>)");
                 await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
                 SakuraGlade.ƒS.update(1);
-                await SakuraGlade.ƒS.Progress.delay(3);
+                await SakuraGlade.ƒS.Progress.delay(2);
                 SakuraGlade.ƒS.Speech.clear();
                 SakuraGlade.ƒS.Speech.hide();
+                await SakuraGlade.ƒS.update(1);
                 break;
             case dialogue.leave:
                 // continue path here
@@ -287,6 +311,7 @@ var SakuraGlade;
                 await SakuraGlade.ƒS.Progress.delay(2);
                 SakuraGlade.ƒS.Speech.clear();
                 SakuraGlade.ƒS.Speech.hide();
+                await SakuraGlade.ƒS.update(1);
                 break;
         }
         SakuraGlade.ƒS.update(1);
@@ -297,6 +322,13 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function Start() {
         console.log("Start Scene starting");
+        document.onkeypress = stopReloadKey;
+        function stopReloadKey(_e) {
+            if (_e.keyCode == 13) {
+                return false;
+            }
+            return true;
+        }
         SakuraGlade.ƒS.Speech.hide();
         let input = document.querySelector("dialog#start");
         input.showModal();
@@ -312,7 +344,6 @@ var SakuraGlade;
             form = new FormData(document.forms[0]);
         }
         SakuraGlade.dataForSave.nameProtagonist = form.get("name");
-        SakuraGlade.characters.protagonist.name = SakuraGlade.dataForSave.nameProtagonist;
         SakuraGlade.dataForSave.genderProtagonist = form.get("pronouns");
         input.close();
         SakuraGlade.ƒS.update(1);
