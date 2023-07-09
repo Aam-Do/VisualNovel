@@ -70,6 +70,8 @@ namespace SakuraGlade {
   };
 
   export let dataForSave = {
+    // save item description updates
+    // save first times in open order scenes
     nameProtagonist: "",
     genderProtagonist: "",
     nobuPoints: 0,
