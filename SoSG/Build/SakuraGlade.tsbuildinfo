@@ -3,6 +3,7 @@
     "commonSourceDirectory": "..",
     "sourceFiles": [
       "../Source/Main.ts",
+      "../Source/Definitions/Texts.ts",
       "../Source/Scenes/FairieForest.ts",
       "../Source/Scenes/Intro.ts",
       "../Source/Scenes/Start.ts"
@@ -17,7 +18,7 @@
         },
         {
           "pos": 15,
-          "end": 18634,
+          "end": 18795,
           "kind": "text"
         }
       ],

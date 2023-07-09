@@ -65,6 +65,8 @@ var SakuraGlade;
         }
     };
     SakuraGlade.dataForSave = {
+        // save item description updates
+        // save first times in open order scenes
         nameProtagonist: "",
         genderProtagonist: "",
         nobuPoints: 0,
@@ -144,6 +146,8 @@ var SakuraGlade;
         SakuraGlade.ƒS.Progress.go(scenes);
     }
 })(SakuraGlade || (SakuraGlade = {}));
+// character dialogues regarding items
+// item description updates
 var SakuraGlade;
 (function (SakuraGlade) {
     async function FairieForest() {
