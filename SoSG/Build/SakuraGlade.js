@@ -54,16 +54,22 @@ var SakuraGlade;
         phone: {
             name: "Phone",
             description: "My phone. It ran out of battery about an hour ago. I really should have brought my powerbank.",
-            // image: "Images/Items/path"
-            // static: true
+            image: "Images/Characters/NobuSketch.png",
+            static: true
         },
         idCard: {
             name: "Student ID-Card",
             description: "The ID-Card from my university.",
-            // image: "Images/Items/path"
-            // static: true
+            image: "Images/Characters/NobuSketch.png",
+            static: true,
+            handler: hndItem,
         }
     };
+    function hndItem(_event) {
+        console.log(_event);
+        console.log(SakuraGlade.currentCharacter);
+        // reagiert auf pointer down und up
+    }
     SakuraGlade.dataForSave = {
         // save item description updates
         // save first times in open order scenes
@@ -81,8 +87,8 @@ var SakuraGlade;
     let inGameMenuButtons = {
         save: "Save",
         load: "Load",
-        close: "Close",
-        credits: "Credits"
+        credits: "Credits",
+        close: "Close"
     };
     let gameMenu;
     // open = Menü ist offen und false = Menü ist zu 
@@ -132,8 +138,23 @@ var SakuraGlade;
     }
     window.addEventListener("load", start);
     function start(_event) {
-        gameMenu = SakuraGlade.ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSSClass");
+        gameMenu = SakuraGlade.ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenu");
         buttonFunctionalities("Close");
+        // Menu button 
+        let button = document.querySelector("#openMenu");
+        button.addEventListener("pointerdown", function (_event) {
+            _event.stopPropagation();
+            if (menuIsOpen) {
+                console.log("Close");
+                gameMenu.close();
+                menuIsOpen = false;
+            }
+            else {
+                console.log("Open");
+                gameMenu.open();
+                menuIsOpen = true;
+            }
+        });
         // Scene Hierarchy 
         let scenes = [
             { scene: SakuraGlade.Start, name: "Start Scene" },
@@ -250,6 +271,9 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function Intro() {
         console.log("Intro Scene starting");
+        // currentCharacter = characters.nobu;
+        // ƒS.Inventory.add(items.idCard);
+        // await ƒS.Inventory.open();
         // cpms = characters per millisecond
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Progress.delay(1);

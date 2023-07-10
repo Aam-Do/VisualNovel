@@ -58,16 +58,25 @@ namespace SakuraGlade {
     phone: {
       name: "Phone",
       description: "My phone. It ran out of battery about an hour ago. I really should have brought my powerbank.",
-      // image: "Images/Items/path"
-      // static: true
+      image: "Images/Characters/NobuSketch.png",
+      static: true
     },
     idCard: {
       name: "Student ID-Card",
       description: "The ID-Card from my university.",
-      // image: "Images/Items/path"
-      // static: true
+      image: "Images/Characters/NobuSketch.png",
+      static: true,
+      handler: hndItem,
     }
   };
+
+  function hndItem(_event: CustomEvent): void {
+    console.log(_event);
+    console.log(currentCharacter);
+    // reagiert auf pointer down und up
+  }
+
+  export let currentCharacter: ƒS.CharacterDefinition;
 
   export let dataForSave = {
     // save item description updates
@@ -88,8 +97,8 @@ namespace SakuraGlade {
   let inGameMenuButtons = {
     save: "Save",
     load: "Load",
-    close: "Close",
-    credits: "Credits"
+    credits: "Credits",
+    close: "Close"
   };
 
   let gameMenu: ƒS.Menu;
@@ -145,8 +154,23 @@ namespace SakuraGlade {
 
   window.addEventListener("load", start);
   function start(_event: Event): void {
-    gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSSClass");
+    gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenu");
     buttonFunctionalities("Close");
+    // Menu button 
+    let button: HTMLElement = document.querySelector("#openMenu");
+    button.addEventListener("pointerdown", function (_event: Event) {
+      _event.stopPropagation();
+      if (menuIsOpen) {
+        console.log("Close");
+        gameMenu.close();
+        menuIsOpen = false;
+      }
+      else {
+        console.log("Open");
+        gameMenu.open();
+        menuIsOpen = true;
+      }
+    });
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
       { scene: Start, name: "Start Scene" },

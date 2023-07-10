@@ -145,7 +145,8 @@ name {
   border-bottom: none;
 }
 
-.choices {
+.choices,
+.gameMenu {
   background: #1e161acf;
   border: 2px solid #eeaeca;
   border-image-slice: 1;
@@ -159,7 +160,12 @@ name {
   padding: 3em 4em;
 }
 
-.choices button {
+.choices:not([open]) {
+  display: none;
+}
+
+.choices button,
+.gameMenu button {
   font-family: 'Ysabeau Infant';
   border: 1px solid white;
   border-radius: 0;
@@ -171,6 +177,12 @@ name {
   font-size: 18px;
   transition-duration: .5s;
   cursor: pointer;
+}
+
+.gameMenu {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 content {
@@ -250,7 +262,26 @@ content {
 }
 
 #start>button:hover,
-.choices button:hover {
+.choices button:hover,
+.gameMenu button:hover {
   /* background: #eeaeca; */
   background-position: 100% 0;
+}
+
+#openMenu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#openMenu:hover {
+  opacity: 0.7;
 }

@@ -1,7 +1,7 @@
 declare namespace SakuraGlade {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
-    let locations: {
+    export let locations: {
         forestHome: {
             name: string;
             background: string;
@@ -15,7 +15,7 @@ declare namespace SakuraGlade {
             background: string;
         };
     };
-    let characters: {
+    export let characters: {
         narrator: {
             name: string;
         };
@@ -30,17 +30,24 @@ declare namespace SakuraGlade {
             };
         };
     };
-    let items: {
+    export let items: {
         phone: {
             name: string;
             description: string;
+            image: string;
+            static: boolean;
         };
         idCard: {
             name: string;
             description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
         };
     };
-    let dataForSave: {
+    function hndItem(_event: CustomEvent): void;
+    export let currentCharacter: ƒS.CharacterDefinition;
+    export let dataForSave: {
         nameProtagonist: string;
         genderProtagonist: string;
         nobuPoints: number;
@@ -48,6 +55,7 @@ declare namespace SakuraGlade {
         kohanaPoints: number;
         fumikoPoints: number;
     };
+    export {};
 }
 declare namespace SakuraGlade {
     function FairieForest(): ƒS.SceneReturn;
