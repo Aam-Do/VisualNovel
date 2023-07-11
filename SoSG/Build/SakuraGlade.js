@@ -272,8 +272,8 @@ var SakuraGlade;
     async function Intro() {
         console.log("Intro Scene starting");
         // currentCharacter = characters.nobu;
-        // ƒS.Inventory.add(items.idCard);
-        // await ƒS.Inventory.open();
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.idCard);
+        await SakuraGlade.ƒS.Inventory.open();
         // cpms = characters per millisecond
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Progress.delay(1);
