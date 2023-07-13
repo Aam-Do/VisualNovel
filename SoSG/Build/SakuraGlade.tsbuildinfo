@@ -6,7 +6,8 @@
       "../Source/Definitions/Texts.ts",
       "../Source/Scenes/FairieForest.ts",
       "../Source/Scenes/Intro.ts",
-      "../Source/Scenes/Start.ts"
+      "../Source/Scenes/Start.ts",
+      "../Source/Scenes/WelcomeSakuraGlade.ts"
     ],
     "js": {
       "sections": [
@@ -18,7 +19,7 @@
         },
         {
           "pos": 15,
-          "end": 22942,
+          "end": 25924,
           "kind": "text"
         }
       ],
@@ -46,7 +47,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 3489,
+          "end": 4528,
           "kind": "text"
         }
       ]

@@ -1,6 +1,6 @@
 namespace SakuraGlade {
     export async function FairieForest(): ƒS.SceneReturn {
-        console.log("Intro Scene starting");
+        console.log("Fairie Forest Scene starting");
 
         // cpms = characters per millisecond
         ƒS.Speech.setTickerDelays(40, 5000);
@@ -25,6 +25,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell("???", "There we go... I was worried for a moment there.<br>Are you alright?");
         await ƒS.Speech.tell("???", "Oh... what's that?");
         await ƒS.Speech.tell("???", "My, my... I almost mistook you for a fairy!<br>But you've got no wings...");
+        await ƒS.Speech.tell(characters.protagonist, "(<i>Woah... what is that thing??</i>)");
         let choice1 = {
             neutral: "You look weird! What are you?",
             good: "You're... a talking mushroom?"
@@ -42,7 +43,6 @@ namespace SakuraGlade {
                 break;
             case choice1.good:
                 // continue path here
-                dataForSave.nobuPoints += 1;
                 await ƒS.Speech.tell(characters.protagonist, "You're... a talking mushroom?");
                 await ƒS.Speech.tell("???", "Ohohoh!");
                 await ƒS.Speech.tell("???", "You're a strange one!");
@@ -58,14 +58,17 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "...");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell("???", "Oh dear, it seems you're quite confused. You don't look so well either...");
+        await ƒS.Speech.tell("???", "Are you hurt?");
+        await ƒS.Speech.tell(characters.protagonist, "...No I don't think so.");
+        await ƒS.Speech.tell("???", "That's a relief!");
         await ƒS.Speech.tell("???", "Oh I almost forgot!");
         await ƒS.Speech.tell(characters.nobu, "I'm Nobu, it's a pleasure to meet you.");
         await ƒS.Speech.tell(characters.protagonist, "I'm... " + dataForSave.nameProtagonist + ".");
         await ƒS.Speech.tell(characters.protagonist, "How did you find me?");
         await ƒS.Speech.tell(characters.nobu, "What a pretty sounding name you've got there, " + dataForSave.nameProtagonist + "!");
-        await ƒS.Speech.tell(characters.nobu, "I was just on my way back from collecting firewood when I stumbled upon you laying here.");
-        await ƒS.Speech.tell(characters.nobu, "Either way, it's starting to get quite dark in these woods...<br>We're not too far from the village.");
-        await ƒS.Speech.tell(characters.nobu, "You can rest up there if you want and we'll figure it out.");
+        await ƒS.Speech.tell(characters.nobu, "I was just on my way back from collecting firewood when I stumbled upon you laying here. You don't see folks like you around here often.");
+        await ƒS.Speech.tell(characters.nobu, "Either way, it's starting to get quite dark in these woods... It'll be hard to see the way once night falls.");
+        await ƒS.Speech.tell(characters.nobu, "We're not too far from the village, you can rest up there if you want and we'll figure it out.");
         await ƒS.Speech.tell(characters.nobu, "What do you say, " + dataForSave.nameProtagonist + "? Can you walk on your own?");
 
         let choice2 = {
@@ -78,22 +81,22 @@ namespace SakuraGlade {
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "I can walk on my own, thank you.");
                 ƒS.Speech.setTickerDelays(80, 5000);
-                await ƒS.Speech.tell("???", "Ohohoh!");
+                await ƒS.Speech.tell(characters.nobu, "Ohohoh!");
                 ƒS.Speech.setTickerDelays(40, 5000);
-                await ƒS.Speech.tell("???", "Young ones are always so full of energy!");
-                await ƒS.Speech.tell("???", "Well, if you insist.<br>Stay close, grasshopper.");
+                await ƒS.Speech.tell(characters.nobu, "Young ones are always so full of energy!");
+                await ƒS.Speech.tell(characters.nobu, "Well, if you insist.<br>Stay close, Grasshopper.");
                 break;
             case choice2.good:
                 // continue path here
-                dataForSave.nobuPoints += 1;
                 await ƒS.Speech.tell(characters.protagonist, "A little help would be nice, actually.");
-                await ƒS.Speech.tell("???", " Here, take my cane for support.<br>It’s not too far, but we can take breaks if you need them.");
-                await ƒS.Speech.tell("???", "Come along now, grasshopper!");
+                await ƒS.Speech.tell(characters.nobu, "Of course. Here, take my cane for support.<br>It's not too far, but we can take breaks if you need them.");
+                await ƒS.Speech.tell(characters.nobu, "Come along now, Grasshopper!");
                 break;
         }
         ƒS.Speech.clear();
         ƒS.Speech.hide();
         ƒS.Character.hide(characters.nobu);
+        ƒS.Location.show(locations.blackout);
         ƒS.update(1);
     }
 }

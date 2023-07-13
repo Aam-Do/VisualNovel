@@ -10,6 +10,46 @@ declare namespace SakuraGlade {
             name: string;
             background: string;
         };
+        sakuraGladeDay: {
+            name: string;
+            background: string;
+        };
+        sakuraGladeEvening: {
+            name: string;
+            background: string;
+        };
+        sakuraGladeNight: {
+            name: string;
+            background: string;
+        };
+        innDay: {
+            name: string;
+            background: string;
+        };
+        innNight: {
+            name: string;
+            background: string;
+        };
+        nobuHome: {
+            name: string;
+            background: string;
+        };
+        sacredTree: {
+            name: string;
+            background: string;
+        };
+        temple: {
+            name: string;
+            background: string;
+        };
+        festival: {
+            name: string;
+            background: string;
+        };
+        bedroom: {
+            name: string;
+            background: string;
+        };
         blackout: {
             name: string;
             background: string;
@@ -133,4 +173,7 @@ declare namespace SakuraGlade {
 }
 declare namespace SakuraGlade {
     function Start(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function WelcomeSakuraGlade(): ƒS.SceneReturn;
 }

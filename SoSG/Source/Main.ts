@@ -29,6 +29,46 @@ namespace SakuraGlade {
       name: "Fairie Forest",
       background: "Images/Locations/forest.png"
     },
+    sakuraGladeDay: {
+      name: "Sakura Glade (Day)",
+      background: "Images/Locations/park.png"
+    },
+    sakuraGladeEvening: {
+      name: "Sakura Glade (Evening)",
+      background: "Images/Locations/park.png"
+    },
+    sakuraGladeNight: {
+      name: "Sakura Glade (Night)",
+      background: "Images/Locations/park.png"
+    },
+    innDay: {
+      name: "Cherrywood Lodge (Day)",
+      background: "Images/Locations/isolated-japanese-room.png"
+    },
+    innNight: {
+      name: "Cherrywood Lodge (Night)",
+      background: "Images/Locations/isolated-japanese-room.png"
+    },
+    nobuHome: {
+      name: "Nobu's Home",
+      background: "Images/Locations/isolated-japanese-room.png"
+    },
+    sacredTree: {
+      name: "Sacred Tree",
+      background: "Images/Locations/sakura-tree-hill.png"
+    },
+    temple: {
+      name: "Temple",
+      background: "Images/Locations/shrine.png"
+    },
+    festival: {
+      name: "Festival",
+      background: "Images/Locations/japanese-festival.png"
+    },
+    bedroom: {
+      name: "Bedroom",
+      background: "Images/Locations/bedroom-evening.png"
+    },
     blackout: {
       name: "Blackout",
       background: "Images/Locations/Blackout.jpg"
@@ -252,7 +292,8 @@ namespace SakuraGlade {
     let scenes: ƒS.Scenes = [
       { scene: Start, name: "Start Scene" },
       { scene: Intro, name: "Intro Scene" },
-      { scene: FairieForest, name: "Fairie Forest" }
+      { scene: FairieForest, name: "Fairie Forest" },
+      { scene: WelcomeSakuraGlade, name: "Weclome to Sakura Glade" }
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
