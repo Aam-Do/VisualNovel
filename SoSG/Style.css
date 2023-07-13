@@ -57,14 +57,14 @@ dialog {
 .h1 {
   margin: 0 0 0.75em 0;
   font-family: "Water Brush", serif;
-  font-size: 10em;
+  font-size: 10vw;
   font-weight: 400;
   line-height: 1em;
   text-shadow: 7px 5px 17px #18042e;
 }
 
 .start p {
-  font-size: 2em;
+  font-size: 2vw;
   text-shadow: 4px 3px 10px #18042e;
   margin: 0 0 2em 0;
   opacity: 1;
@@ -277,11 +277,11 @@ content {
   color: white;
   font-size: 20px;
   padding: 10px;
-  opacity: 0.5;
+  opacity: 0.7;
   cursor: pointer;
   z-index: 1;
 }
 
 #openMenu:hover {
-  opacity: 0.7;
+  opacity: 0.9;
 }

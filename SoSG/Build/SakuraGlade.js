@@ -25,7 +25,7 @@ var SakuraGlade;
         },
         fairieForest: {
             name: "Fairie Forest",
-            background: "Images/Locations/rainforest.png"
+            background: "Images/Locations/forest.png"
         },
         blackout: {
             name: "Blackout",
@@ -39,11 +39,41 @@ var SakuraGlade;
         protagonist: {
             name: "You"
         },
+        amaya: {
+            name: "Amaya",
+            origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                neutral: "Images/Characters/Amaya.png",
+                // angry: "path",
+                // happy: "path",
+                // upset: "path"
+            }
+        },
         nobu: {
             name: "Nobu",
             origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                neutral: "Images/Characters/NobuSketch.png",
+                neutral: "Images/Characters/Nobu.png",
+                // angry: "path",
+                // happy: "path",
+                // upset: "path"
+            }
+        },
+        kohana: {
+            name: "Kohana",
+            origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                neutral: "Images/Characters/Kohana.png",
+                // angry: "path",
+                // happy: "path",
+                // upset: "path"
+            }
+        },
+        fumiko: {
+            name: "Fumiko",
+            origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                neutral: "Images/Characters/Fumiko.png",
                 // angry: "path",
                 // happy: "path",
                 // upset: "path"
@@ -54,13 +84,63 @@ var SakuraGlade;
         phone: {
             name: "Phone",
             description: "My phone. It ran out of battery about an hour ago. I really should have brought my powerbank.",
-            image: "Images/Characters/NobuSketch.png",
-            static: true
+            image: "Images/Items/phone.png",
+            static: true,
+            handler: hndItem,
         },
         idCard: {
             name: "Student ID-Card",
             description: "The ID-Card from my university.",
-            image: "Images/Characters/NobuSketch.png",
+            image: "Images/Items/idcard.png",
+            static: true,
+            handler: hndItem,
+        },
+        permit: {
+            name: "Permit",
+            description: "A permit, handwritten by Amaya, authorizes me to enter the area around the Sacred Tree. Let the investigations begin!",
+            image: "Images/Items/permit.png",
+            static: true,
+            handler: hndItem,
+        },
+        blackOoze: {
+            name: "Black Ooze",
+            description: "A gooey black slime I found at the Sacred Tree. I wonder where it came from?",
+            image: "Images/Items/blackgoo.png",
+            static: true,
+            handler: hndItem,
+        },
+        brokenEarring: {
+            name: "Crystal Earring (broken)",
+            description: "A beautiful crystal earring I picked up near the Sacred Tree. It seems to have broken and its counterpart is nowhere to be found. How did it get there?",
+            image: "Images/Items/crystalearring.png",
+            static: true,
+            handler: hndItem,
+        },
+        medicalNotice: {
+            name: "Medical Notice",
+            description: "A medical record that factually explains a rare and incurable disease. It’s addressed to someone called “Hina”. It’s dated the day before the incident.",
+            image: "Images/Items/medicalnotice.png",
+            static: true,
+            handler: hndItem,
+        },
+        replica: {
+            name: "Replica of the Moon Bead",
+            description: "A glass replica of the Moon Bead. It was found in place of the original at the Sacred Tree. It’s smooth and quite heavy, I can only imagine what the original looks like!",
+            image: "Images/Items/replica.png",
+            static: true,
+            handler: hndItem,
+        },
+        moonBead: {
+            name: "The Moon Bead",
+            description: "The Moon Bead. It’s perfectly round and smooth and made from a material I’ve never seen before. Legend has it it’s a tear from the Moon God and can fulfill wishes.",
+            image: "Images/Items/replica.png",
+            static: true,
+            handler: hndItem,
+        },
+        crystalEarring: {
+            name: "Crystal Earring",
+            description: "The undamaged counterpart of Fumiko’s crystal earring. She gave it to me to remember her. ",
+            image: "Images/Items/replica.png",
             static: true,
             handler: hndItem,
         }
@@ -75,10 +155,7 @@ var SakuraGlade;
         // save first times in open order scenes
         nameProtagonist: "",
         genderProtagonist: "",
-        nobuPoints: 0,
-        amayaPoints: 0,
-        kohanaPoints: 0,
-        fumikoPoints: 0
+        investigationPoints: 0,
     };
     function credits() {
         SakuraGlade.ƒS.Text.print("");

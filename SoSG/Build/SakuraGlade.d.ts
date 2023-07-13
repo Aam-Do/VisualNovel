@@ -22,7 +22,28 @@ declare namespace SakuraGlade {
         protagonist: {
             name: string;
         };
+        amaya: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                neutral: string;
+            };
+        };
         nobu: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                neutral: string;
+            };
+        };
+        kohana: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                neutral: string;
+            };
+        };
+        fumiko: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -36,8 +57,58 @@ declare namespace SakuraGlade {
             description: string;
             image: string;
             static: boolean;
+            handler: typeof hndItem;
         };
         idCard: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
+        };
+        permit: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
+        };
+        blackOoze: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
+        };
+        brokenEarring: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
+        };
+        medicalNotice: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
+        };
+        replica: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
+        };
+        moonBead: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            handler: typeof hndItem;
+        };
+        crystalEarring: {
             name: string;
             description: string;
             image: string;
@@ -50,10 +121,7 @@ declare namespace SakuraGlade {
     export let dataForSave: {
         nameProtagonist: string;
         genderProtagonist: string;
-        nobuPoints: number;
-        amayaPoints: number;
-        kohanaPoints: number;
-        fumikoPoints: number;
+        investigationPoints: number;
     };
     export {};
 }
