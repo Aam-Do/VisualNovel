@@ -166,6 +166,9 @@ declare namespace SakuraGlade {
     export {};
 }
 declare namespace SakuraGlade {
+    function Day1Morning(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
     function FairieForest(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {

@@ -1,0 +1,80 @@
+namespace SakuraGlade {
+    export async function Day1Morning(): ƒS.SceneReturn {
+        console.log("Day 1 Morning starting");
+
+        // await ƒS.Progress.delay(1);
+        await ƒS.Location.show(locations.innDay);
+        await ƒS.update(2);
+        // await ƒS.Progress.delay(1);
+        ƒS.Speech.show();
+        await ƒS.Speech.tell(characters.protagonist, "<i>(I slept pretty good, the bed is more comfortable than I expected. But I woke up to a loud commotion outside in the town square. I wonder what’s going on out there?)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(I’ll go check it out.)</i>");
+        ƒS.Speech.clear();
+        ƒS.Speech.hide();
+        await ƒS.Location.show(locations.sakuraGladeDay);
+        // SHOW VILLAGERS
+        await ƒS.update(1);
+        ƒS.Speech.show();
+        await ƒS.Speech.tell("Villager 1", "Have you heard the news already?");
+        await ƒS.Speech.tell("Villager 2", "Who would do something like that?");
+        await ƒS.Speech.tell("Villager 3", "I bet it was that little wrench! Acting all innocent won’t help her anymore.");
+        await ƒS.Speech.tell("Villager 4", "How could something like this happen? Right before the festival too!");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(People are crowding the streets, everyone seems to be very agitated.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "Uhm, excuse me?");
+        await ƒS.Speech.tell(characters.protagonist, "...");
+        await ƒS.Speech.tell(characters.protagonist, "What is going on?");
+        await ƒS.Speech.tell(characters.protagonist, "...");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(No one’s paying attention to me!)</i>");
+        await ƒS.Speech.tell(characters.nobu, dataForSave.nameProtagonist + "! There you are!");
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
+        ƒS.update(1);
+        await ƒS.Speech.tell(characters.nobu, "I’ve been looking for you! I’m glad to see you’re okay.");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(He seems different today… maybe I’m just imagining things…)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "I’m fine, thank you. But what is going on here? Why is everyone so upset?");
+        await ƒS.Speech.tell(characters.nobu, "Oh, it’s terrible, Grasshopper-");
+        await ƒS.Speech.tell("Villager 3", "You! It was you, wasn’t it? Admit it!");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(They’re not talking to me. There’s a little girl everyone is surrounding…)</i>");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.update(1);
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+        ƒS.update(1);
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "… n-no it wasn’t! I promise…");
+        ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Speech.tell("Villager 1", "There she goes, I don’t believe a word she’s saying!");
+        await ƒS.Speech.tell("Villager 4", "She shouldn’t even be here.");
+        await ƒS.Speech.tell("Villager 2", "How dare she lie right to our faces?!");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(The poor girl looks so helpless… They’re not even giving her a chance to speak…!)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "Hey! Calm down everyone! Let her explain!");
+        await ƒS.Speech.tell("Villager 2", "Who is…?");
+        await ƒS.Speech.tell("Villager 4", "Shh!");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Finally, they’ve stopped talking all over each other.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "I’m sorry, I know I shouldn’t interfere since I’m not from here. But I can’t just stand by and watch this! Look, there will be a solution to whatever is going on right now, but all this commotion will lead to nothing!");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Woah. It seems like they’re actually listening to me!)</i>");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "…Thank you, Worldleaper.");
+        ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Oh, she’s talking to me!)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Her voice is so quiet I almost didn’t notice. What did she call me? Worldleaper?)</i>");
+        await ƒS.Speech.tell(characters.protagonist, " O-of course! Uhm, my name is " + dataForSave.nameProtagonist + ". It’s nice to meet you!");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "Hmm… " + dataForSave.nameProtagonist + "...");
+        await ƒS.Speech.tell(characters.kohana, "...");
+        ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Speech.tell(characters.protagonist, "<i>(What is it?)</i>");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "My name is Kohana. The pleasure is	mine… is that how you say that? I get confused sometimes...");
+        ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Ah…)</i> Don’t worry about it. Now, what is all this about?");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "Ah!");
+        await ƒS.Speech.tell(characters.kohana, "Well… it’s about the Moon Bead. Did Nobu tell you about it? It’s our village’s sacred treasure, kept in the shrine at the Sacred Tree.");
+        await ƒS.Speech.tell(characters.kohana, "It’s been stolen in the night…");
+        ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Speech.tell(characters.protagonist, "<i>(The Moon Bead?)</i> And everyone thinks it was you?");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "Mh, it seems so…");
+        ƒS.Speech.setTickerDelays(40, 5000);
+
+    }
+}

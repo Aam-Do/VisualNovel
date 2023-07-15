@@ -293,7 +293,8 @@ namespace SakuraGlade {
       { scene: Start, name: "Start Scene" },
       { scene: Intro, name: "Intro Scene" },
       { scene: FairieForest, name: "Fairie Forest" },
-      { scene: WelcomeSakuraGlade, name: "Weclome to Sakura Glade" }
+      { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
+      { scene: Day1Morning, name: "Day 1 Morning" }
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
