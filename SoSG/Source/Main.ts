@@ -124,6 +124,8 @@ namespace SakuraGlade {
     }
   };
 
+  export let currentCharacter: ƒS.CharacterDefinition;
+
   export let items = {
     phone: {
       name: "Phone",
@@ -192,25 +194,29 @@ namespace SakuraGlade {
 
   function hndItem(_event: CustomEvent): void {
     if (_event.type == "pointerdown") {
-      console.log(_event);
-      console.log(currentCharacter);
       let targetId: string = _event.detail.replace(/ /g, "_");
       let targetDescription: HTMLElement = document.querySelector('#' + targetId + '> description');
-      console.log(targetDescription);
+      let present: HTMLButtonElement = document.querySelector('#present');
       let descriptions = document.querySelectorAll('.show');
       if (targetDescription.classList.contains('show')) {
         targetDescription.classList.remove('show');
+        present.classList.add('hidden');
       }
       else {
         for (let description of descriptions) {
           description.classList.remove('show');
         }
         targetDescription.classList.add('show');
+
+        if (currentCharacter) {
+          present.classList.remove('hidden');
+        }
+
       }
     }
   }
 
-  export let currentCharacter: ƒS.CharacterDefinition;
+
 
   export let dataForSave = {
     // save item description updates

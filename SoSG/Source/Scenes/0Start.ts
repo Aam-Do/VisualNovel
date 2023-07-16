@@ -8,6 +8,7 @@ namespace SakuraGlade {
       }
       return true;
     }
+    // ^ ???
     ƒS.Speech.hide();
     let input: HTMLDialogElement = document.querySelector("dialog#start");
     input.showModal();

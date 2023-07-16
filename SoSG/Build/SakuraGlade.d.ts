@@ -91,6 +91,7 @@ declare namespace SakuraGlade {
             };
         };
     };
+    export let currentCharacter: ƒS.CharacterDefinition;
     export let items: {
         phone: {
             name: string;
@@ -157,7 +158,6 @@ declare namespace SakuraGlade {
         };
     };
     function hndItem(_event: CustomEvent): void;
-    export let currentCharacter: ƒS.CharacterDefinition;
     export let dataForSave: {
         nameProtagonist: string;
         genderProtagonist: string;

@@ -1,3 +1,19 @@
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #050f1b90;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #94bce9d6;
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -147,7 +163,7 @@ speech name {
 
 .choices,
 .gameMenu,
-dialog[type="inventory"] {
+.inventory {
   background: #1e161acf;
   border: 2px solid #eeaeca;
   border-image-slice: 1;
@@ -161,7 +177,7 @@ dialog[type="inventory"] {
   padding: 3em 4em;
 }
 
-.choices:not([open]) {
+dialog:not([open]) {
   display: none;
 }
 
@@ -246,7 +262,8 @@ content {
   cursor: pointer;
 }
 
-#start>button {
+#start>button,
+#present {
   font-family: 'Ysabeau Infant';
   border: 1px solid white;
   border-radius: 0;
@@ -264,7 +281,8 @@ content {
 
 #start>button:hover,
 .choices button:hover,
-.gameMenu button:hover {
+.gameMenu button:hover,
+#present:hover {
   /* background: #eeaeca; */
   background-position: 100% 0;
 }
@@ -287,15 +305,27 @@ content {
   opacity: 0.9;
 }
 
-dialog[type="inventory"] {
+.inventory {
   max-width: 50%;
+  max-height: 75%;
 }
 
-dialog[type="inventory"] button {
-  max-width: 4em;
+#inv-close {
+  width: fit-content;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  opacity: 0.7;
+  cursor: pointer;
+  line-height: 0;
+  position: absolute;
+  left: 5px;
+  top: 5px;
 }
 
-dialog[type="inventory"] ul {
+.inventory ul {
   list-style: none;
   padding: 0;
   display: flex;
@@ -303,13 +333,15 @@ dialog[type="inventory"] ul {
   flex-wrap: wrap;
   justify-content: flex-start;
   max-width: 100%;
-  gap: 1em;
+  gap: .9em;
+  margin: unset;
 }
 
-dialog[type="inventory"] ul li {
+.inventory ul li {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-evenly;
+  align-content: center;
   max-width: 10em;
   padding: 0.5em;
   border: 2px solid #eeaeca;
@@ -318,14 +350,22 @@ dialog[type="inventory"] ul li {
   border-image-source: linear-gradient(111deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
   background-color: #ffffff1a;
   position: relative;
+  flex-wrap: wrap;
+  cursor: pointer;
 }
 
-dialog[type="inventory"] ul li amount,
-dialog[type="inventory"] ul li description {
+.inventory ul li img {
+  width: 75%;
+  align-self: center;
+}
+
+
+.inventory ul li amount,
+.inventory ul li description {
   display: none;
 }
 
-dialog[type="inventory"] ul li description.show {
+.inventory ul li description.show {
   display: block;
   position: absolute;
   left: 50%;
@@ -333,10 +373,21 @@ dialog[type="inventory"] ul li description.show {
   transform: translate(-50%, -50%);
   padding: 0.5em;
   background-color: #15040dcf;
-  height: 93%;
-  width: 91%;
+  height: 95%;
+  width: 95%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 2px solid #fdf5bf;
 }
 
-dialog[type="inventory"] ul li name {
+.inventory ul li name {
   text-align: center;
+}
+
+.inventory .present {
+  align-self: center;
+}
+
+#present.hidden {
+  display: none;
 }

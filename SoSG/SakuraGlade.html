@@ -29,10 +29,11 @@
         <!-- The text the character says -->
       </content>
     </speech>
-    <dialog type="inventory">
-      <button type="button">close</button>
+    <dialog type="inventory" class="inventory">
+      <button type="button" id="inv-close"><i class="fa-solid fa-xmark"></i></button>
       <ul>
       </ul>
+      <button type="button" id="present" class="hidden">Present</button>
     </dialog>
     <dialog type="text">
       The content of a page of text for reading

@@ -47,7 +47,7 @@ namespace SakuraGlade {
                         delete options.nobu;
                         console.log(dataForSave.day1TalkedTo);
                     } else {
-                        await ƒS.Speech.tell(characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him)</i>");
+                        await ƒS.Speech.tell(characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him...)</i>");
                         day1Locations();
                     }
                     break;
