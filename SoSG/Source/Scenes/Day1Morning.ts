@@ -2,10 +2,16 @@ namespace SakuraGlade {
     export async function Day1Morning(): ƒS.SceneReturn {
         console.log("Day 1 Morning starting");
 
+
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.innDay);
         await ƒS.update(2);
         // await ƒS.Progress.delay(1);
+        ƒS.Inventory.add(items.replica);
+        ƒS.Inventory.add(items.blackOoze);
+        ƒS.Inventory.add(items.brokenEarring);
+        ƒS.Inventory.add(items.phone);
+        await ƒS.Inventory.open();
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(I slept pretty good, the bed is more comfortable than I expected. But I woke up to a loud commotion outside in the town square. I wonder what’s going on out there?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I’ll go check it out.)</i>");

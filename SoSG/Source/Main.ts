@@ -154,7 +154,7 @@ namespace SakuraGlade {
       handler: hndItem,
     },
     brokenEarring: {
-      name: "Crystal Earring (broken)",
+      name: "Broken Crystal Earring",
       description: "A beautiful crystal earring I picked up near the Sacred Tree. It seems to have broken and its counterpart is nowhere to be found. How did it get there?",
       image: "Images/Items/crystalearring.png",
       static: true,
@@ -191,9 +191,23 @@ namespace SakuraGlade {
   };
 
   function hndItem(_event: CustomEvent): void {
-    console.log(_event);
-    console.log(currentCharacter);
-    // reagiert auf pointer down und up
+    if (_event.type == "pointerdown") {
+      console.log(_event);
+      console.log(currentCharacter);
+      let targetId: string = _event.detail.replace(/ /g, "_");
+      let targetDescription: HTMLElement = document.querySelector('#' + targetId + '> description');
+      console.log(targetDescription);
+      let descriptions = document.querySelectorAll('.show');
+      if (targetDescription.classList.contains('show')) {
+        targetDescription.classList.remove('show');
+      }
+      else {
+        for (let description of descriptions) {
+          description.classList.remove('show');
+        }
+        targetDescription.classList.add('show');
+      }
+    }
   }
 
   export let currentCharacter: ƒS.CharacterDefinition;

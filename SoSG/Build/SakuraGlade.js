@@ -150,7 +150,7 @@ var SakuraGlade;
             handler: hndItem,
         },
         brokenEarring: {
-            name: "Crystal Earring (broken)",
+            name: "Broken Crystal Earring",
             description: "A beautiful crystal earring I picked up near the Sacred Tree. It seems to have broken and its counterpart is nowhere to be found. How did it get there?",
             image: "Images/Items/crystalearring.png",
             static: true,
@@ -186,9 +186,23 @@ var SakuraGlade;
         }
     };
     function hndItem(_event) {
-        console.log(_event);
-        console.log(SakuraGlade.currentCharacter);
-        // reagiert auf pointer down und up
+        if (_event.type == "pointerdown") {
+            console.log(_event);
+            console.log(SakuraGlade.currentCharacter);
+            let targetId = _event.detail.replace(/ /g, "_");
+            let targetDescription = document.querySelector('#' + targetId + '> description');
+            console.log(targetDescription);
+            let descriptions = document.querySelectorAll('.show');
+            if (targetDescription.classList.contains('show')) {
+                targetDescription.classList.remove('show');
+            }
+            else {
+                for (let description of descriptions) {
+                    description.classList.remove('show');
+                }
+                targetDescription.classList.add('show');
+            }
+        }
     }
     SakuraGlade.dataForSave = {
         // save item description updates
@@ -863,6 +877,11 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.innDay);
         await SakuraGlade.ƒS.update(2);
         // await ƒS.Progress.delay(1);
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.replica);
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.blackOoze);
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.brokenEarring);
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.phone);
+        await SakuraGlade.ƒS.Inventory.open();
         SakuraGlade.ƒS.Speech.show();
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I slept pretty good, the bed is more comfortable than I expected. But I woke up to a loud commotion outside in the town square. I wonder what’s going on out there?)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I’ll go check it out.)</i>");

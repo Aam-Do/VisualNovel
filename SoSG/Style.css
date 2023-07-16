@@ -125,7 +125,7 @@ speech {
   border-bottom: none;
 }
 
-name {
+speech name {
   position: absolute;
   top: -63px;
   left: -2px;
@@ -146,7 +146,8 @@ name {
 }
 
 .choices,
-.gameMenu {
+.gameMenu,
+dialog[type="inventory"] {
   background: #1e161acf;
   border: 2px solid #eeaeca;
   border-image-slice: 1;
@@ -284,4 +285,58 @@ content {
 
 #openMenu:hover {
   opacity: 0.9;
+}
+
+dialog[type="inventory"] {
+  max-width: 50%;
+}
+
+dialog[type="inventory"] button {
+  max-width: 4em;
+}
+
+dialog[type="inventory"] ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 100%;
+  gap: 1em;
+}
+
+dialog[type="inventory"] ul li {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  max-width: 10em;
+  padding: 0.5em;
+  border: 2px solid #eeaeca;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(111deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  background-color: #ffffff1a;
+  position: relative;
+}
+
+dialog[type="inventory"] ul li amount,
+dialog[type="inventory"] ul li description {
+  display: none;
+}
+
+dialog[type="inventory"] ul li description.show {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5em;
+  background-color: #15040dcf;
+  height: 93%;
+  width: 91%;
+}
+
+dialog[type="inventory"] ul li name {
+  text-align: center;
 }
