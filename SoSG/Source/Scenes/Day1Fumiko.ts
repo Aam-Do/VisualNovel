@@ -18,7 +18,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(I made her drop the lantern she was holding. I'll pick it up.)</i> Here you go.");
         await ƒS.Speech.tell("???", "You're too kind, thank you.");
         await ƒS.Speech.tell(characters.protagonist, "No problem at all. Who are you, if I may ask?");
-        await ƒS.Speech.tell(characters.fumiko, "Oh, of course, Precious! I'm Fumiko, lovely to meet you");
+        await ƒS.Speech.tell(characters.fumiko, "Oh, of course, Precious! I'm Fumiko, lovely to meet you.");
         await ƒS.Speech.tell(characters.fumiko, "And you are?");
         await ƒS.Speech.tell(characters.protagonist, "I'm " + dataForSave.nameProtagonist + ". You're still out and about rather late...?");
         await ƒS.Speech.tell(characters.fumiko, "Oh, yes. But don't worry. I'll be home in a minute.");

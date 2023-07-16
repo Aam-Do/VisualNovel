@@ -9,7 +9,7 @@ namespace SakuraGlade {
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.protagonist, "<i>(This time, he’s home and answered right away when I knocked.)</i>");
             await ƒS.Speech.tell(characters.nobu, "Sprout! Good to see you.");
-            await ƒS.Speech.tell(characters.nobu, "How are you doing?.");
+            await ƒS.Speech.tell(characters.nobu, "How are you doing?");
             await ƒS.Speech.tell(characters.protagonist, "<i>(He seems better than yesterday.)</i>");
             await ƒS.Speech.tell(characters.protagonist, "I’m doing good, thank you. But I have a lot of questions in my head and I don’t think I’m any closer to finding the thief, to be honest.");
             await ƒS.Speech.tell(characters.nobu, "Don’t look so down. I’m sure you’re doing a great job!");
@@ -42,7 +42,7 @@ namespace SakuraGlade {
 
         // if back
         // await ƒS.Speech.tell(characters.protagonist, "That’s all the info I needed for now, thank you.");
-        // await ƒS.Speech.tell(characters.nobu, "Good luck, Sprout! I’ll wait here if you need me");
+        // await ƒS.Speech.tell(characters.nobu, "Good luck, Sprout! I’ll wait here if you need me.");
         // hide nobu
         // day2Locations();
     }

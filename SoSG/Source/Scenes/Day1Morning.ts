@@ -12,7 +12,7 @@ namespace SakuraGlade {
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.sakuraGladeDay);
         // SHOW VILLAGERS
-        await ƒS.update(1);
+        await ƒS.update(2);
         ƒS.Speech.show();
         await ƒS.Speech.tell("Villager 1", "Have you heard the news already?");
         await ƒS.Speech.tell("Villager 2", "Who would do something like that?");
