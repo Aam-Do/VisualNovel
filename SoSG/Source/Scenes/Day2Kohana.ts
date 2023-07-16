@@ -44,6 +44,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.kohana, "Do you have anything else to ask me...?");
             ƒS.Speech.setTickerDelays(40, 5000);
             // [either open inventory and present items or go back]
+            dataForSave.day2TalkedTo.push(characters.kohana);
         } else {
             // await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.temple);

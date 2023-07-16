@@ -1115,6 +1115,7 @@ var SakuraGlade;
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Do you have anything else to ask me...?");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             // [either open inventory and present items or go back]
+            SakuraGlade.dataForSave.day2TalkedTo.push(SakuraGlade.characters.kohana);
         }
         else {
             // await ƒS.Progress.delay(1);
@@ -1164,6 +1165,55 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.hide();
     }
     SakuraGlade.Day2Morning = Day2Morning;
+})(SakuraGlade || (SakuraGlade = {}));
+var SakuraGlade;
+(function (SakuraGlade) {
+    async function Day2Nobu() {
+        console.log("Day 2 Nobu starting");
+        if (!SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.nobu)) {
+            await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.nobuHome);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(2);
+            SakuraGlade.ƒS.Speech.show();
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(This time, he’s home and answered right away when I knocked.)</i>");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Sprout! Good to see you.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "How are you doing?.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(He seems better than yesterday.)</i>");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I’m doing good, thank you. But I have a lot of questions in my head and I don’t think I’m any closer to finding the thief, to be honest.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Don’t look so down. I’m sure you’re doing a great job!");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Did you come here to ask me something?");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Yes, actually. I haven’t had the chance to ask you questions about the incident at all. I hope you understand.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Oh, of course. Go ahead, Grasshopper.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Can you state your name and occupation again for me?");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Surely, I’m Nobu and I’m retired.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I used to be an adventurer, wandering the forest, but now I spend most of my days at home or doing whatever I can for the village.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Enjoying life, you know?");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>That... sounds pretty cool!</i> I see. So, what did you do on the day of the incident?");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Well, I went about my day as usual, then went to gather some firewood for the Irori, which is where I found you.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You pretty much know the rest. I dropped you off at the Inn and went home.");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Alright. I collected some clues about the theft, would you be alright answering some questions about these?");
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Of course, Sprout. I’ll try to tell you as much as I can.");
+            // [either open inventory and present items or go back]
+            SakuraGlade.dataForSave.day2TalkedTo.push(SakuraGlade.characters.nobu);
+        }
+        else {
+            // await ƒS.Progress.delay(1);
+            await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.nobuHome);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(2);
+            SakuraGlade.ƒS.Speech.show();
+            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "There you are again, Grasshopper. Busy as always. Find something new?");
+            // [either choose from inventory or go back]
+        }
+        SakuraGlade.ƒS.Speech.clear();
+        SakuraGlade.ƒS.Speech.hide();
+        // if back
+        // await ƒS.Speech.tell(characters.protagonist, "That’s all the info I needed for now, thank you.");
+        // await ƒS.Speech.tell(characters.nobu, "Good luck, Sprout! I’ll wait here if you need me");
+        // hide nobu
+        // day2Locations();
+    }
+    SakuraGlade.Day2Nobu = Day2Nobu;
 })(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
 (function (SakuraGlade) {
