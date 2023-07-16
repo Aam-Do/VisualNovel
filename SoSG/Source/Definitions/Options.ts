@@ -6,13 +6,13 @@ namespace SakuraGlade {
             nobu: "Search for Nobu"
         }
 
-        if (dataForSave.day1TalkedTo.includes('kohana')) {
+        if (dataForSave.day1TalkedTo.includes(characters.kohana)) {
             delete options.kohana;
         }
-        if (dataForSave.day1TalkedTo.includes('amaya')) {
+        if (dataForSave.day1TalkedTo.includes(characters.amaya)) {
             delete options.amaya;
         }
-        if (dataForSave.day1TalkedTo.includes('nobu')) {
+        if (dataForSave.day1TalkedTo.includes(characters.nobu)) {
             delete options.nobu;
         }
 
@@ -21,7 +21,7 @@ namespace SakuraGlade {
             switch (optionsElement) {
                 case options.kohana:
                     // continue path here
-                    dataForSave.day1TalkedTo.push("kohana");
+                    dataForSave.day1TalkedTo.push(characters.kohana);
                     ƒS.Speech.clear();
                     ƒS.Speech.hide();
                     Day1Kohana();
@@ -30,7 +30,7 @@ namespace SakuraGlade {
                     break;
                 case options.amaya:
                     // continue path here
-                    dataForSave.day1TalkedTo.push("amaya");
+                    dataForSave.day1TalkedTo.push(characters.amaya);
                     ƒS.Speech.clear();
                     ƒS.Speech.hide();
                     Day1Amaya();
@@ -39,8 +39,8 @@ namespace SakuraGlade {
                     break;
                 case options.nobu:
                     // continue path here
-                    if (dataForSave.day1TalkedTo.includes('kohana')) {
-                        dataForSave.day1TalkedTo.push("nobu");
+                    if (dataForSave.day1TalkedTo.includes(characters.kohana)) {
+                        dataForSave.day1TalkedTo.push(characters.nobu);
                         ƒS.Speech.clear();
                         ƒS.Speech.hide();
                         Day1Nobu();

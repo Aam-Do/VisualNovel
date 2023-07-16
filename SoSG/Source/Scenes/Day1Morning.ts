@@ -1,8 +1,6 @@
 namespace SakuraGlade {
     export async function Day1Morning(): ƒS.SceneReturn {
         console.log("Day 1 Morning starting");
-
-
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.innDay);
         await ƒS.update(2);

@@ -14,7 +14,10 @@
       "../Source/Scenes/Day1Kohana.ts",
       "../Source/Scenes/Day1Morning.ts",
       "../Source/Scenes/Day1Nobu.ts",
-      "../Source/Scenes/Day2Morning.ts"
+      "../Source/Scenes/Day2Amaya.ts",
+      "../Source/Scenes/Day2Kohana.ts",
+      "../Source/Scenes/Day2Morning.ts",
+      "../Source/Scenes/Day2SacredTree.ts"
     ],
     "js": {
       "sections": [
@@ -26,7 +29,7 @@
         },
         {
           "pos": 15,
-          "end": 74724,
+          "end": 88742,
           "kind": "text"
         }
       ],
@@ -54,7 +57,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 5118,
+          "end": 5391,
           "kind": "text"
         }
       ]

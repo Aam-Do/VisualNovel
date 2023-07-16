@@ -163,6 +163,7 @@ declare namespace SakuraGlade {
         genderProtagonist: string;
         investigationPoints: number;
         day1TalkedTo: any[];
+        day2TalkedTo: any[];
     };
     export {};
 }
@@ -197,5 +198,14 @@ declare namespace SakuraGlade {
     function Day1Nobu(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
+    function Day2Amaya(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day2Kohana(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
     function Day2Morning(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day2SacredTree(): ƒS.SceneReturn;
 }

@@ -227,6 +227,7 @@ namespace SakuraGlade {
     genderProtagonist: "",
     investigationPoints: 0,
     day1TalkedTo: Array(),
+    day2TalkedTo: Array(),
   };
 
   function credits(): void {
