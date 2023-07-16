@@ -162,11 +162,27 @@ declare namespace SakuraGlade {
         nameProtagonist: string;
         genderProtagonist: string;
         investigationPoints: number;
+        day1TalkedTo: any[];
     };
     export {};
 }
 declare namespace SakuraGlade {
+    function day1Locations(): Promise<any>;
+}
+declare namespace SakuraGlade {
+    function Day1Amaya(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day1Fumiko(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day1Kohana(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
     function Day1Morning(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day1Nobu(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
     function FairieForest(): ƒS.SceneReturn;

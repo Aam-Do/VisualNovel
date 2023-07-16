@@ -35,11 +35,22 @@ namespace SakuraGlade {
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "Actually, I have a few questions… Would you mind?");
                 await ƒS.Speech.tell(characters.nobu, "Of course not. Ask ahead!");
-                let questions = {
+                interface MyType {
+                    sakuraGlade: string;
+                    festival: string;
+                    [keyX: string]: string;
+                    leave: string;
+                }
+                let questions: MyType = {
                     sakuraGlade: "Sakura Glade?",
                     festival: "What festival?",
                     leave: "That's all."
                 };
+                // let questions = {
+                //     sakuraGlade: "Sakura Glade?",
+                //     festival: "What festival?",
+                //     leave: "That's all."
+                // }
                 let leave: boolean = false;
                 do {
                     let questionsElement = await ƒS.Menu.getInput(questions, "choices");
@@ -65,8 +76,18 @@ namespace SakuraGlade {
                             await ƒS.Speech.tell(characters.nobu, "The whole village gets together and starts decorating and preparing for it beginning tomorrow, and on the third day, we celebrate with the Moon Ritual and fireworks.");
                             await ƒS.Speech.tell(characters.protagonist, "The Moon Ritual?");
                             await ƒS.Speech.tell(characters.nobu, "A sacred dance performed by the village priest, before holding the Moon Bead into the full moon’s light to wish for yet another plentiful harvest in autumn and a year of good health.");
-                            // questions.bead = "The Moon Bead?";
+                            // Reflect.set(questions, "moonBead", "The Moon Bead?");
+                            questions.moonBead = "The Moon Bead?"
+                            delete questions.leave;
+                            questions.leave = "That's all.";
                             delete questions.festival;
+                            break;
+                        case questions.moonBead:
+                            // continue path here
+                            await ƒS.Speech.tell(characters.protagonist, "What is the Moon Bead you spoke of?");
+                            await ƒS.Speech.tell(characters.nobu, "The Moon Bead is our most precious possession. It’s kept in the shrine of the Moon God at the Sacred Tree.");
+                            await ƒS.Speech.tell(characters.nobu, "They say it’s a tear from the Moon God himself, shed for the plague and illness that haunted this land eons ago, and since protecting the village from harm. Legend has it that it can fulfill any wish the bearer asks for.");
+                            delete questions.moonBead;
                             break;
                         case questions.leave:
                             // continue path here

@@ -201,9 +201,12 @@ namespace SakuraGlade {
   export let dataForSave = {
     // save item description updates
     // save first times in open order scenes
+    // save scenes already played on day 1
+    // save points already gotten / items already showed
     nameProtagonist: "",
     genderProtagonist: "",
     investigationPoints: 0,
+    day1TalkedTo: Array(),
   };
 
   function credits(): void {

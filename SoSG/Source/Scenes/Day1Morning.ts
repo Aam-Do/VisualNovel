@@ -39,7 +39,7 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
         ƒS.update(1);
         ƒS.Speech.setTickerDelays(60, 5000);
-        await ƒS.Speech.tell(characters.kohana, "… n-no it wasn’t! I promise…");
+        await ƒS.Speech.tell("???", "… n-no it wasn’t! I promise…");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell("Villager 1", "There she goes, I don’t believe a word she’s saying!");
         await ƒS.Speech.tell("Villager 4", "She shouldn’t even be here.");
@@ -52,14 +52,14 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "I’m sorry, I know I shouldn’t interfere since I’m not from here. But I can’t just stand by and watch this! Look, there will be a solution to whatever is going on right now, but all this commotion will lead to nothing!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah. It seems like they’re actually listening to me!)</i>");
         ƒS.Speech.setTickerDelays(60, 5000);
-        await ƒS.Speech.tell(characters.kohana, "…Thank you, Worldleaper.");
+        await ƒS.Speech.tell("???", "…Thank you, Worldleaper.");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Oh, she’s talking to me!)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Her voice is so quiet I almost didn’t notice. What did she call me? Worldleaper?)</i>");
         await ƒS.Speech.tell(characters.protagonist, " O-of course! Uhm, my name is " + dataForSave.nameProtagonist + ". It’s nice to meet you!");
         ƒS.Speech.setTickerDelays(60, 5000);
-        await ƒS.Speech.tell(characters.kohana, "Hmm… " + dataForSave.nameProtagonist + "...");
-        await ƒS.Speech.tell(characters.kohana, "...");
+        await ƒS.Speech.tell("???", "Hmm… " + dataForSave.nameProtagonist + "...");
+        await ƒS.Speech.tell("???", "...");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "<i>(What is it?)</i>");
         ƒS.Speech.setTickerDelays(60, 5000);
@@ -75,6 +75,55 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Mh, it seems so…");
         ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(20, 100));
+        ƒS.update(1);
+        await ƒS.Speech.tell(characters.nobu, "Sprout, can I talk to you for a moment?");
+        await ƒS.Speech.tell(characters.protagonist, "Sure.");
+        await ƒS.Character.hide(characters.kohana);
+        ƒS.update(1);
+        await ƒS.Speech.tell(characters.nobu, "That was some real courage you had there!");
+        await ƒS.Speech.tell(characters.nobu, "You have an aura, I can’t explain it. But I feel it too. And the villagers listened to you as well!");
+        await ƒS.Speech.tell(characters.nobu, "They can be so cruel sometimes, jumping to conclusions like that. Kohana isn’t very well-liked among them, she’s… a little eccentric sometimes.");
+        await ƒS.Speech.tell(characters.nobu, "But I’ve known her since she came here and I don’t think she stole the Bead.");
+        await ƒS.Speech.tell(characters.protagonist, "She definitely doesn’t look like someone who’d steal something so important…");
+        await ƒS.Speech.tell(characters.nobu, "I’m glad you think so too!");
+        await ƒS.Speech.tell(characters.nobu, "Well, Grasshopper, who was it if not her? They won’t let her go until they’ve found the real culprit.");
+        await ƒS.Speech.tell(characters.nobu, "And oh, the festival! How will it be held without the Moon Bead? We need the blessing for the coming harvest…");
+        await ƒS.Speech.tell(characters.nobu, "The village listens to you, and Kohana seems to enjoy your company as well. It might be a big ask since you just arrived here, but…");
+        await ƒS.Speech.tell(characters.nobu, "Would you help investigate and find the true culprit?");
 
+        let options = {
+            yes: "Of course!",
+            fine: "Do I really have to?"
+        }
+
+        let optionsElement = await ƒS.Menu.getInput(options, "choices");
+        switch (optionsElement) {
+            case options.yes:
+                // continue path here
+                await ƒS.Speech.tell(characters.protagonist, "Of course!");
+                await ƒS.Speech.tell(characters.nobu, "Thank you, Sprout! I knew you would say yes to a new adventure.");
+                await ƒS.Speech.tell(characters.nobu, "Well then, I have to be somewhere now.");
+                await ƒS.Speech.tell(characters.nobu, "You should talk to Kohana some more. Return the Moon Bead before it’s too late for the festival! Good luck, Grasshopper!");
+                break;
+            case options.fine:
+                // continue path here
+                await ƒS.Speech.tell(characters.protagonist, "Do I really have to?");
+                await ƒS.Speech.tell(characters.nobu, "Oh well… I was hoping you’d be excited by a little adventure.");
+                await ƒS.Speech.tell(characters.nobu, "Please, Sprout. You’ve already managed to get the villagers to stop hunting her down, it would make an old man very happy if you could help Kohana a little more and find out who was behind this.");
+                await ƒS.Speech.tell(characters.protagonist, "… fine, I’ll do it.");
+                await ƒS.Speech.tell(characters.nobu, "Thank you! I know you can do it.");
+                await ƒS.Speech.tell(characters.nobu, "Well then, I have to go somewhere now.");
+                await ƒS.Speech.tell(characters.nobu, "Please talk to Kohana. Return the Moon Bead before it’s too late for the festival! I’m counting on you, Grasshopper!");
+                break;
+        }
+
+        await ƒS.Speech.tell(characters.protagonist, "Wait!");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.update(1);
+        await ƒS.Speech.tell(characters.protagonist, "…");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(He left… There was definitely something off about him… and where did he have to hurry to so suddenly? I guess I’ll ask him later. I should talk to Kohana and find out why she was suspected in the first place.)</i>");
+
+        day1Locations();
     }
 }
