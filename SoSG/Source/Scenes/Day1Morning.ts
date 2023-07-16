@@ -27,7 +27,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(No one’s paying attention to me!)</i>");
         await ƒS.Speech.tell(characters.nobu, dataForSave.nameProtagonist + "! There you are!");
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
-        ƒS.update(1);
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "I’ve been looking for you! I’m glad to see you’re okay.");
         await ƒS.Speech.tell(characters.protagonist, "<i>(He seems different today… maybe I’m just imagining things…)</i>");
         await ƒS.Speech.tell(characters.protagonist, "I’m fine, thank you. But what is going on here? Why is everyone so upset?");
@@ -37,7 +37,7 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.nobu);
         await ƒS.update(1);
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
-        ƒS.update(1);
+        await ƒS.update(1);
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell("???", "… n-no it wasn’t! I promise…");
         ƒS.Speech.setTickerDelays(40, 5000);
@@ -76,11 +76,11 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.kohana, "Mh, it seems so…");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(20, 100));
-        ƒS.update(1);
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "Sprout, can I talk to you for a moment?");
         await ƒS.Speech.tell(characters.protagonist, "Sure.");
         await ƒS.Character.hide(characters.kohana);
-        ƒS.update(1);
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "That was some real courage you had there!");
         await ƒS.Speech.tell(characters.nobu, "You have an aura, I can’t explain it. But I feel it too. And the villagers listened to you as well!");
         await ƒS.Speech.tell(characters.nobu, "They can be so cruel sometimes, jumping to conclusions like that. Kohana isn’t very well-liked among them, she’s… a little eccentric sometimes.");

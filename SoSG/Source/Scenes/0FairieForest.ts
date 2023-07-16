@@ -19,7 +19,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "(<i>Someone is talking to me...</i>)");
         await ƒS.Location.show(locations.fairieForest);
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
-        ƒS.update(1);
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "(<i>Where... am I?</i>)");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell("???", "There we go... I was worried for a moment there.<br>Are you alright?");
@@ -97,6 +97,6 @@ namespace SakuraGlade {
         ƒS.Speech.hide();
         ƒS.Character.hide(characters.nobu);
         ƒS.Location.show(locations.blackout);
-        ƒS.update(1);
+        await ƒS.update(1);
     }
 }

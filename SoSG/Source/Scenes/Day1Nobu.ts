@@ -3,27 +3,33 @@ namespace SakuraGlade {
         console.log("Day 1 Nobu starting");
 
         // await ƒS.Progress.delay(1);
-        await ƒS.Location.show(locations.innDay);
+        await ƒS.Location.show(locations.sakuraGladeDay);
         await ƒS.update(2);
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
-        await ƒS.Speech.tell(characters.protagonist, "<i>(I slept pretty good, the bed is more comfortable than I expected. But I woke up to a loud commotion outside in the town square. I wonder what’s going on out there?)</i>");
-        await ƒS.Speech.tell(characters.protagonist, "<i>(I’ll go check it out.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(After searching for him in the village without any luck I was able to find my way back to his house.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm... there’s no doorbell… they probably don’t have those here.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "Nobu?");
+        await ƒS.Speech.tell(characters.protagonist, "...");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(No answer. I’ll knock- Oh, it’s not locked. The doors just slide open. Maybe he’s inside and just didn’t hear me?)</i>");
         ƒS.Speech.clear();
         ƒS.Speech.hide();
-        await ƒS.Location.show(locations.sakuraGladeDay);
-        ƒS.Speech.setTickerDelays(60, 5000);
-        await ƒS.Speech.tell(characters.kohana, "My name is Kohana. The pleasure is	mine… is that how you say that? I get confused sometimes...");
-        ƒS.Speech.setTickerDelays(40, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "<i>(Ah…)</i> Don’t worry about it. Now, what is all this about?");
-        ƒS.Speech.setTickerDelays(60, 5000);
-        await ƒS.Speech.tell(characters.kohana, "Ah!");
-        await ƒS.Speech.tell(characters.kohana, "Well… it’s about the Moon Bead. Did Nobu tell you about it? It’s our village’s sacred treasure, kept in the shrine at the Sacred Tree.");
-        await ƒS.Speech.tell(characters.kohana, "It’s been stolen in the night…");
-        ƒS.Speech.setTickerDelays(40, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "…");
-        await ƒS.Speech.tell(characters.protagonist, "<i>(He left… There was definitely something off about him… and where did he have to hurry to so suddenly? I guess I’ll ask him later. I should talk to Kohana and find out why she was suspected in the first place.)</i>");
-
-        // day1Locations();
+        await ƒS.Location.show(locations.nobuHome);
+        ƒS.Speech.show();
+        await ƒS.Speech.tell(characters.protagonist, "Nobu?");
+        await ƒS.Speech.tell(characters.protagonist, "...");
+        await ƒS.Speech.tell(characters.protagonist, "Nobu!");
+        await ƒS.Speech.tell(characters.protagonist, "...");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(What a nice little house… But he doesn’t seem to be here. I should leave-)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(There’s a piece of paper lying on the table.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(…)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Ah, come on, just a little look won’t hurt.)</i>");
+        //    show inventory!!
+        ƒS.Inventory.add(items.medicalNotice);
+        await ƒS.Inventory.open();
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm… who is Hina?)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(This might actually become important. I should ask him about it when I see him again. For now, I better leave.)</i>");
+        
+        day1Locations();
     }
 }

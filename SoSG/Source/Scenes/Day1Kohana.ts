@@ -4,6 +4,7 @@ namespace SakuraGlade {
 
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.sakuraGladeDay);
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
         await ƒS.update(2);
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
@@ -58,7 +59,7 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "No… I cleansed the Bead yesterday evening. It was still there then.");
         ƒS.Speech.setTickerDelays(40, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "I see... <i>(That narrows it down to this night, but all of this isn’t really telling me anything.)<i> What did you do the night of the incident?");
+        await ƒS.Speech.tell(characters.protagonist, "I see... <i>(That narrows it down to this night, but all of this isn’t really telling me anything.)</i> What did you do the night of the incident?");
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "… Sleeping…");
         ƒS.Speech.setTickerDelays(40, 5000);
@@ -67,10 +68,11 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.kohana, "Yes… Onee-sama does…");
         await ƒS.Speech.tell(characters.kohana, "I thank you for your efforts, Dreamer. I’m tired and I have other duties… please excuse me now…");
         ƒS.Speech.setTickerDelays(40, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "Oh, uhm. Of course. Thank you for all the information");
+        await ƒS.Speech.tell(characters.protagonist, "Oh, uhm. Of course. Thank you for all the information.");
         await ƒS.Character.hide(characters.kohana);
-        ƒS.update(1);
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(She left. I need to get better at this. I know more now, but it all still makes her the number one suspect. Maybe I can find out more elsewhere.)</i>");
-        // day1Locations();
+        
+        day1Locations();
     }
 }

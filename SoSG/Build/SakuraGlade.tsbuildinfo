@@ -5,15 +5,16 @@
       "../Source/Main.ts",
       "../Source/Definitions/Options.ts",
       "../Source/Definitions/Texts.ts",
+      "../Source/Scenes/0FairieForest.ts",
+      "../Source/Scenes/0Intro.ts",
+      "../Source/Scenes/0Start.ts",
+      "../Source/Scenes/0WelcomeSakuraGlade.ts",
       "../Source/Scenes/Day1Amaya.ts",
       "../Source/Scenes/Day1Fumiko.ts",
       "../Source/Scenes/Day1Kohana.ts",
       "../Source/Scenes/Day1Morning.ts",
       "../Source/Scenes/Day1Nobu.ts",
-      "../Source/Scenes/FairieForest.ts",
-      "../Source/Scenes/Intro.ts",
-      "../Source/Scenes/Start.ts",
-      "../Source/Scenes/WelcomeSakuraGlade.ts"
+      "../Source/Scenes/Day2Morning.ts"
     ],
     "js": {
       "sections": [
@@ -25,7 +26,7 @@
         },
         {
           "pos": 15,
-          "end": 63573,
+          "end": 70569,
           "kind": "text"
         }
       ],

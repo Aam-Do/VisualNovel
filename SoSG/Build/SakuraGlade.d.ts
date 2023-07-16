@@ -170,6 +170,18 @@ declare namespace SakuraGlade {
     function day1Locations(): Promise<any>;
 }
 declare namespace SakuraGlade {
+    function FairieForest(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Intro(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Start(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function WelcomeSakuraGlade(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
     function Day1Amaya(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
@@ -183,16 +195,4 @@ declare namespace SakuraGlade {
 }
 declare namespace SakuraGlade {
     function Day1Nobu(): ƒS.SceneReturn;
-}
-declare namespace SakuraGlade {
-    function FairieForest(): ƒS.SceneReturn;
-}
-declare namespace SakuraGlade {
-    function Intro(): ƒS.SceneReturn;
-}
-declare namespace SakuraGlade {
-    function Start(): ƒS.SceneReturn;
-}
-declare namespace SakuraGlade {
-    function WelcomeSakuraGlade(): ƒS.SceneReturn;
 }

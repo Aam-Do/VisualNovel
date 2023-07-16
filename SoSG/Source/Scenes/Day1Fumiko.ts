@@ -3,27 +3,46 @@ namespace SakuraGlade {
         console.log("Day 1 Fumiko starting");
 
         // await ƒS.Progress.delay(1);
-        await ƒS.Location.show(locations.innDay);
+        await ƒS.Location.show(locations.sakuraGladeEvening);
         await ƒS.update(2);
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
-        await ƒS.Speech.tell(characters.protagonist, "<i>(I slept pretty good, the bed is more comfortable than I expected. But I woke up to a loud commotion outside in the town square. I wonder what’s going on out there?)</i>");
-        await ƒS.Speech.tell(characters.protagonist, "<i>(I’ll go check it out.)</i>");
-        ƒS.Speech.clear();
-        ƒS.Speech.hide();
-        await ƒS.Location.show(locations.sakuraGladeDay);
-        ƒS.Speech.setTickerDelays(60, 5000);
-        await ƒS.Speech.tell(characters.kohana, "My name is Kohana. The pleasure is	mine… is that how you say that? I get confused sometimes...");
-        ƒS.Speech.setTickerDelays(40, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "<i>(Ah…)</i> Don’t worry about it. Now, what is all this about?");
-        ƒS.Speech.setTickerDelays(60, 5000);
-        await ƒS.Speech.tell(characters.kohana, "Ah!");
-        await ƒS.Speech.tell(characters.kohana, "Well… it’s about the Moon Bead. Did Nobu tell you about it? It’s our village’s sacred treasure, kept in the shrine at the Sacred Tree.");
-        await ƒS.Speech.tell(characters.kohana, "It’s been stolen in the night…");
-        ƒS.Speech.setTickerDelays(40, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "…");
-        await ƒS.Speech.tell(characters.protagonist, "<i>(He left… There was definitely something off about him… and where did he have to hurry to so suddenly? I guess I’ll ask him later. I should talk to Kohana and find out why she was suspected in the first place.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Oh, today went by really quickly. I don’t feel like I’m any smarter now though. Well, time to head back to the inn to sleep over it and really start through tomorrow!)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(OH!)</i>");
+        // shake/flash screen animation
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Someone bumped into me…?)</i>");
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.update(1);
+        await ƒS.Speech.tell("???", "Ah! I’m so sorry!");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Wow, she is really pretty!)</i> No, don’t apologize, I was lost in thought. I should’ve seen you coming.");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(I made her drop the lantern she was holding. I’ll pick it up.)</i> Here you go.");
+        await ƒS.Speech.tell("???", "You’re too kind, thank you.");
+        await ƒS.Speech.tell(characters.protagonist, "No problem at all. Who are you, if I may ask?");
+        await ƒS.Speech.tell(characters.fumiko, "Oh, of course, Precious! I’m Fumiko, lovely to meet you");
+        await ƒS.Speech.tell(characters.fumiko, "And you are?");
+        await ƒS.Speech.tell(characters.protagonist, "I’m " + dataForSave.nameProtagonist + ". You’re still out and about rather late…?");
+        await ƒS.Speech.tell(characters.fumiko, "Oh, yes. But don’t worry. I’ll be home in a minute.");
+        await ƒS.Speech.tell(characters.fumiko, "I just needed some fresh air.");
+        await ƒS.Speech.tell(characters.fumiko, "And these lanterns won’t put themselves up on their own!");
+        await ƒS.Speech.tell(characters.protagonist, "You’re decorating for the Spring Festival?");
+        await ƒS.Speech.tell(characters.fumiko, "Indeed I am. I’m in charge of the decorations this year. It’s proven a challenge, but I have many helping hands.");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(I’m sure she does. Anyone would be happy to just be in her presence.</i>) You’re not worried about the festival?");
+        await ƒS.Speech.tell(characters.fumiko, "Worried? Why would I-");
+        await ƒS.Speech.tell(characters.fumiko, "Oh, you mean because of the Moon Bead.");
+        await ƒS.Speech.tell(characters.fumiko, "No, I don’t have the time to worry about such things. The village will look stunning regardless of whether it will be found or not. If I wait for it to show up I won’t have enough time to decorate everything.");
+        await ƒS.Speech.tell(characters.fumiko, "And regardless… the decorations can be taken down again...");
+        await ƒS.Speech.tell(characters.protagonist, "You don’t seem too fond of the festival?");
+        await ƒS.Speech.tell(characters.fumiko, "Oh no, don’t get me wrong, I love the festival. It’s wonderful.");
+        await ƒS.Speech.tell(characters.fumiko, "I…");
+        await ƒS.Speech.tell(characters.fumiko, "Well, there are a lot of expectations for me this year, so I’m just making sure I do everything perfectly.");
+        await ƒS.Speech.tell(characters.protagonist, "That sounds… stressful.");
+        await ƒS.Speech.tell(characters.fumiko, "Ah, don’t worry about it. I love doing the village service.");
+        await ƒS.Speech.tell(characters.fumiko, "Well then, Precious, I better get going before it gets too late. My parents will worry. I’ll see you around!");
+        await ƒS.Speech.tell(characters.protagonist, "See you!");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.update(1);
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Well… that was nice. She seems lovely.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Now, I should head back to the inn. It’s been a pretty long day and I need all the rest I can get before continuing my investigations tomorrow. The festival is coming closer, I have to hurry up if I want to find the Moon Bead in time!)</i>");
 
-        // day1Locations();
     }
 }
