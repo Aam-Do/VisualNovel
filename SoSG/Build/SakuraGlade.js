@@ -312,6 +312,8 @@ var SakuraGlade;
                 case options.kohana:
                     // continue path here
                     SakuraGlade.dataForSave.day1TalkedTo.push("kohana");
+                    SakuraGlade.ƒS.Speech.clear();
+                    SakuraGlade.ƒS.Speech.hide();
                     SakuraGlade.Day1Kohana();
                     delete options.kohana;
                     console.log(SakuraGlade.dataForSave.day1TalkedTo);
@@ -319,6 +321,8 @@ var SakuraGlade;
                 case options.amaya:
                     // continue path here
                     SakuraGlade.dataForSave.day1TalkedTo.push("amaya");
+                    SakuraGlade.ƒS.Speech.clear();
+                    SakuraGlade.ƒS.Speech.hide();
                     SakuraGlade.Day1Amaya();
                     delete options.amaya;
                     console.log(SakuraGlade.dataForSave.day1TalkedTo);
@@ -327,6 +331,8 @@ var SakuraGlade;
                     // continue path here
                     if (SakuraGlade.dataForSave.day1TalkedTo.includes('kohana')) {
                         SakuraGlade.dataForSave.day1TalkedTo.push("nobu");
+                        SakuraGlade.ƒS.Speech.clear();
+                        SakuraGlade.ƒS.Speech.hide();
                         SakuraGlade.Day1Nobu();
                         delete options.nobu;
                         console.log(SakuraGlade.dataForSave.day1TalkedTo);
@@ -339,6 +345,8 @@ var SakuraGlade;
             }
         }
         else {
+            SakuraGlade.ƒS.Speech.clear();
+            SakuraGlade.ƒS.Speech.hide();
             SakuraGlade.Day1Fumiko();
         }
     }
@@ -458,7 +466,7 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Progress.delay(1);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.forestHome);
-        SakuraGlade.ƒS.update(1);
+        await SakuraGlade.ƒS.update(1);
         // await ƒS.Progress.delay(2);
         SakuraGlade.ƒS.Speech.show();
         // await ƒS.Progress.delay(1);
@@ -761,6 +769,11 @@ var SakuraGlade;
         await SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Well… that was nice. She seems lovely.)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Now, I should head back to the inn. It’s been a pretty long day and I need all the rest I can get before continuing my investigations tomorrow. The festival is coming closer, I have to hurry up if I want to find the Moon Bead in time!)</i>");
+        SakuraGlade.ƒS.Speech.clear();
+        SakuraGlade.ƒS.Speech.hide();
+        await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
+        await SakuraGlade.ƒS.update(2);
+        SakuraGlade.Day2Morning();
     }
     SakuraGlade.Day1Fumiko = Day1Fumiko;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1002,5 +1015,31 @@ var SakuraGlade;
         SakuraGlade.day1Locations();
     }
     SakuraGlade.Day1Nobu = Day1Nobu;
+})(SakuraGlade || (SakuraGlade = {}));
+var SakuraGlade;
+(function (SakuraGlade) {
+    async function Day2Morning() {
+        console.log("Day 2 Morning starting");
+        // await ƒS.Progress.delay(1);
+        await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.innDay);
+        await SakuraGlade.ƒS.update(2);
+        // await ƒS.Progress.delay(1);
+        SakuraGlade.ƒS.Speech.show();
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(What a night… I was lying awake thinking about who it could’ve been forever. I have so much to find out.)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Ah, and service came by earlier and brought me a letter! Let’s see what’s inside.)</i>");
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.permit);
+        await SakuraGlade.ƒS.Inventory.open();
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Well there we go! Now I can finally have a look around the Sacred Tree.)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Let’s backtrack...)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Kohana is the priestess and has access to the tree at all times. She also holds on to the Replica, so she could’ve easily swapped them. But she seems really worried about the festival. Why would she steal the Bead if she can just grab it anytime?)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Nobu was acting strange yesterday and I didn’t get to interrogate him at all…)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(And that girl, Fumiko, maybe I should have a chat with her again too.)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Amaya definitely was at the Tree in the night as the Warden. She could’ve gotten the Bead while everyone was asleep and removed all traces while pretending to secure the area...)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(But even if she’s not the culprit, shouldn’t she have seen something? I need to ask her more about what she was doing and what she saw last night…)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I better head out!)</i>");
+        SakuraGlade.ƒS.Speech.clear();
+        SakuraGlade.ƒS.Speech.hide();
+    }
+    SakuraGlade.Day2Morning = Day2Morning;
 })(SakuraGlade || (SakuraGlade = {}));
 //# sourceMappingURL=SakuraGlade.js.map

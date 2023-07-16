@@ -9,7 +9,7 @@ namespace SakuraGlade {
     ƒS.Speech.setTickerDelays(40, 5000);
     await ƒS.Progress.delay(1);
     await ƒS.Location.show(locations.forestHome);
-    ƒS.update(1);
+    await ƒS.update(1);
     // await ƒS.Progress.delay(2);
     ƒS.Speech.show()
     // await ƒS.Progress.delay(1);

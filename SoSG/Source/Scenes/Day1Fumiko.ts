@@ -44,5 +44,11 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well… that was nice. She seems lovely.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Now, I should head back to the inn. It’s been a pretty long day and I need all the rest I can get before continuing my investigations tomorrow. The festival is coming closer, I have to hurry up if I want to find the Moon Bead in time!)</i>");
 
+        ƒS.Speech.clear();
+        ƒS.Speech.hide();
+        await ƒS.Location.show(locations.blackout);
+        await ƒS.update(2);
+
+        Day2Morning();
     }
 }

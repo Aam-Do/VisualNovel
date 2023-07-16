@@ -196,3 +196,6 @@ declare namespace SakuraGlade {
 declare namespace SakuraGlade {
     function Day1Nobu(): ƒS.SceneReturn;
 }
+declare namespace SakuraGlade {
+    function Day2Morning(): ƒS.SceneReturn;
+}

@@ -22,6 +22,8 @@ namespace SakuraGlade {
                 case options.kohana:
                     // continue path here
                     dataForSave.day1TalkedTo.push("kohana");
+                    ƒS.Speech.clear();
+                    ƒS.Speech.hide();
                     Day1Kohana();
                     delete options.kohana;
                     console.log(dataForSave.day1TalkedTo);
@@ -29,6 +31,8 @@ namespace SakuraGlade {
                 case options.amaya:
                     // continue path here
                     dataForSave.day1TalkedTo.push("amaya");
+                    ƒS.Speech.clear();
+                    ƒS.Speech.hide();
                     Day1Amaya();
                     delete options.amaya;
                     console.log(dataForSave.day1TalkedTo);
@@ -37,6 +41,8 @@ namespace SakuraGlade {
                     // continue path here
                     if (dataForSave.day1TalkedTo.includes('kohana')) {
                         dataForSave.day1TalkedTo.push("nobu");
+                        ƒS.Speech.clear();
+                        ƒS.Speech.hide();
                         Day1Nobu();
                         delete options.nobu;
                         console.log(dataForSave.day1TalkedTo);
@@ -48,6 +54,8 @@ namespace SakuraGlade {
             }
         }
         else {
+            ƒS.Speech.clear();
+            ƒS.Speech.hide();
             Day1Fumiko();
         }
     }
