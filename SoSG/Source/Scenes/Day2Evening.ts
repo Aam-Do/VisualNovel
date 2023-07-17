@@ -13,5 +13,11 @@ namespace SakuraGlade {
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.blackout);
         await ƒS.update(2);
+
+        // depending on points
+        // return "Day2FumikoBreakdown"
+        // or
+        // return "Day3Morning"
+
     }
 }

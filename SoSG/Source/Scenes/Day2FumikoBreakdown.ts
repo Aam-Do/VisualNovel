@@ -85,8 +85,7 @@ namespace SakuraGlade {
                 await ƒS.Location.show(locations.blackout);
                 await ƒS.update(2);
                 // skip to good ending
-                // goodEnding();
-                break;
+                return "GoodEnding";
             case options.no:
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "I… can’t promise before I know what it is. I’m sorry.");
@@ -103,8 +102,7 @@ namespace SakuraGlade {
                 ƒS.Speech.hide();
                 await ƒS.Location.show(locations.blackout);
                 await ƒS.update(2);
-                // continue with next morning
-                break;
+                return "Day3Morning";
         }
     }
 }

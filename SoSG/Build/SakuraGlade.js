@@ -208,8 +208,6 @@ var SakuraGlade;
     }
     SakuraGlade.dataForSave = {
         // save item description updates
-        // save first times in open order scenes
-        // save scenes already played on day 1
         // save points already gotten / items already showed
         nameProtagonist: "",
         genderProtagonist: "",
@@ -298,13 +296,13 @@ var SakuraGlade;
             // { scene: Intro, name: "Intro Scene" },
             // { scene: FairieForest, name: "Fairie Forest" },
             // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-            { scene: SakuraGlade.Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
-            { id: "Day1Locations", scene: SakuraGlade.day1Locations, name: "Day 1 Locations" },
-            { id: "Day1Kohana", scene: SakuraGlade.Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
-            { id: "Day1Amaya", scene: SakuraGlade.Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
-            { id: "Day1Nobu", scene: SakuraGlade.Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
-            { id: "Day1Fumiko", scene: SakuraGlade.Day1Fumiko, name: "Day 1 Fumiko" },
-            { scene: SakuraGlade.Day2Morning, name: "Day 2 Morning" },
+            // { scene: Day1Morning, name: "Day 1 Morning", next:"Day1Locations" },
+            // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+            // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next:"Day1Locations" },
+            // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next:"Day1Locations" },
+            // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next:"Day1Locations" },
+            // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+            // { scene: Day2Morning, name: "Day 2 Morning" },
             { scene: SakuraGlade.Day2SacredTree, name: "Day 2 Sacred Tree" },
             { id: "Day2Locations", scene: SakuraGlade.day2Locations, name: "Day 2 Locations" },
             { id: "Day2Amaya", scene: SakuraGlade.Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
@@ -407,14 +405,21 @@ var SakuraGlade;
                 return "Day2Nobu";
             case options.inn:
                 // continue path here
-                if (SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.kohana)) {
-                    SakuraGlade.ƒS.Speech.clear();
-                    SakuraGlade.ƒS.Speech.hide();
-                    return "Day1Nobu";
+                if (SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.kohana) && SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.amaya) && SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.fumiko) && SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.nobu)) {
+                    // check if all relevant items updated
+                    if (SakuraGlade.ƒS.Inventory.getAmount(SakuraGlade.items.moonBead) > 0) {
+                        SakuraGlade.ƒS.Speech.clear();
+                        SakuraGlade.ƒS.Speech.hide();
+                        return "Day2Evening";
+                    }
+                    else {
+                        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I still have questions about the things I found, I shouldn’t head back yet...)</i>");
+                        return "Day2Locations";
+                    }
                 }
                 else {
-                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him...)</i>");
-                    return "Day1Locations";
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I don’t think I should go back to the inn yet, I haven’t even talked to everyone...)</i>");
+                    return "Day2Locations";
                 }
         }
     }
@@ -1141,6 +1146,10 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.hide();
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
         await SakuraGlade.ƒS.update(2);
+        // depending on points
+        // return "Day2FumikoBreakdown"
+        // or
+        // return "Day3Morning"
     }
     SakuraGlade.Day2Evening = Day2Evening;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1291,8 +1300,7 @@ var SakuraGlade;
                 await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
                 await SakuraGlade.ƒS.update(2);
                 // skip to good ending
-                // goodEnding();
-                break;
+                return "GoodEnding";
             case options.no:
                 // continue path here
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I… can’t promise before I know what it is. I’m sorry.");
@@ -1309,8 +1317,7 @@ var SakuraGlade;
                 SakuraGlade.ƒS.Speech.hide();
                 await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
                 await SakuraGlade.ƒS.update(2);
-                // continue with next morning
-                break;
+                return "Day3Morning";
         }
     }
     SakuraGlade.Day2Breakdown = Day2Breakdown;

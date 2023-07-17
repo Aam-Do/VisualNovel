@@ -81,13 +81,19 @@ namespace SakuraGlade {
                 return "Day2Nobu";
             case options.inn:
                 // continue path here
-                if (dataForSave.day1TalkedTo.includes(characters.kohana)) {
-                    ƒS.Speech.clear();
-                    ƒS.Speech.hide();
-                    return "Day1Nobu";
+                if (dataForSave.day1TalkedTo.includes(characters.kohana) && dataForSave.day1TalkedTo.includes(characters.amaya) && dataForSave.day1TalkedTo.includes(characters.fumiko) && dataForSave.day1TalkedTo.includes(characters.nobu)) {
+                    // check if all relevant items updated
+                    if (ƒS.Inventory.getAmount(items.moonBead) > 0) {
+                        ƒS.Speech.clear();
+                        ƒS.Speech.hide();
+                        return "Day2Evening";
+                    } else {
+                        await ƒS.Speech.tell(characters.protagonist, "<i>(I still have questions about the things I found, I shouldn’t head back yet...)</i>");
+                        return "Day2Locations";
+                    }
                 } else {
-                    await ƒS.Speech.tell(characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him...)</i>");
-                    return "Day1Locations";
+                    await ƒS.Speech.tell(characters.protagonist, "<i>(I don’t think I should go back to the inn yet, I haven’t even talked to everyone...)</i>");
+                    return "Day2Locations";
                 }
         }
     }
