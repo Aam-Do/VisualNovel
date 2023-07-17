@@ -13,7 +13,6 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.fumiko, "Ah, the wingless fairy from yesterday!");
             await ƒS.Speech.tell(characters.fumiko, "What are you doing here, Precious?");
             await ƒS.Speech.tell(characters.protagonist, "<i>(I feel better just by looking at her.)</i> I was looking for you.");
-            await ƒS.Speech.tell(characters.protagonist, "I’m doing good, thank you. But I have a lot of questions in my head and I don’t think I’m any closer to finding the thief, to be honest.");
             await ƒS.Speech.tell(characters.fumiko, "Oh you were?");
             await ƒS.Speech.tell(characters.fumiko, "What can I do for you?");
             await ƒS.Speech.tell(characters.protagonist, "Well, I’m investigating the theft of the Moon Bead, and I wondered if maybe you’ve seen something.");
@@ -45,7 +44,9 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.fumiko, "Ah, you’re back, Precious. Is there something else you’d like to ask me about");
             // [either choose from inventory or go back]
         }
-
+        // for testing 
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.update(1);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
 

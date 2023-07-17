@@ -52,7 +52,7 @@ namespace SakuraGlade {
                 await ƒS.Speech.tell(characters.protagonist, "<i>(I can’t believe my eyes… it’s the real Moon Bead…!)</i> You…!?");
                 await ƒS.Speech.tell(characters.fumiko, "Yes. It was me. I know. I’m sorry. I shouldn’t have.");
                 await ƒS.Speech.tell(characters.fumiko, "And I shouldn’t have lied to you. I… I just didn’t know any better.");
-                await ƒS.Speech.tell(characters.protagonist, "<i>(Wow… that’s one confession I didn’t think I’d hear.</i>) Why did you steal it?");
+                await ƒS.Speech.tell(characters.protagonist, "<i>(Wow… that’s one confession I didn’t think I’d hear.)</i> Why did you steal it?");
                 await ƒS.Speech.tell(characters.fumiko, "You’ll actually… listen to me?");
                 await ƒS.Speech.tell(characters.protagonist, "Of course. I promised you, didn’t I?");
                 await ƒS.Speech.tell(characters.fumiko, "I’m glad. I don’t expect to be forgiven. But maybe you can understand me.");
@@ -66,7 +66,7 @@ namespace SakuraGlade {
                 await ƒS.Speech.tell(characters.fumiko, "I want to see the forest behind the village walls. I want to have a bakery and not care when my kimono gets full of flour or when I bruise myself or when a bread turns out burnt or crooked. I just want to be able to live my own life.");
                 await ƒS.Speech.tell(characters.fumiko, "And if the Spring Festival takes place tomorrow, all hope I have left to actually do that? It’ll all be gone. So that’s why…");
                 await ƒS.Speech.tell(characters.fumiko, "That’s why I was hoping that without the Moon Bead, it won’t happen. I didn’t want anything bad to happen to Kohana! I thought I could just bring it back after tomorrow and have another year to sort things out with my parents…");
-                await ƒS.Speech.tell(characters.protagonist, "I see… That’s a really important confession, Fumiko. Not just because of the Moon Bead, but because of your entire being…)");
+                await ƒS.Speech.tell(characters.protagonist, "I see… That’s a really important confession, Fumiko. Not just because of the Moon Bead, but because of your entire being…");
                 await ƒS.Speech.tell(characters.fumiko, "Well, it doesn’t matter anymore. It’s over anyways.");
                 await ƒS.Speech.tell(characters.protagonist, "What do you mean?");
                 await ƒS.Speech.tell(characters.fumiko, "My parents said they’ll marry me off no matter if the festival takes place or not. So, I don’t have a reason to stop it from happening anymore…");
@@ -85,7 +85,7 @@ namespace SakuraGlade {
                 await ƒS.Location.show(locations.blackout);
                 await ƒS.update(2);
                 // skip to good ending
-                goodEnding();
+                // goodEnding();
                 break;
             case options.no:
                 // continue path here

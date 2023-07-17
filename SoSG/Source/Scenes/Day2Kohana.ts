@@ -6,7 +6,7 @@ namespace SakuraGlade {
             await ƒS.Location.show(locations.temple);
             await ƒS.update(2);
             ƒS.Speech.show();
-            await ƒS.Speech.tell(characters.protagonist, "<i>(I don't know what I expected, but it was quite a long walk from the village center to here. She lives here all by herself? It must get lonely up here...)</i>");
+            await ƒS.Speech.tell(characters.protagonist, "<i>(I don't know what I expected, but it was quite a long walk from the village center to here. Kohana lives here all by herself? It must get lonely up here...)</i>");
             await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
             await ƒS.update(1);
             ƒS.Speech.setTickerDelays(60, 5000);
@@ -19,7 +19,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.protagonist, "<i>(I'll take that as a yes...)</i> You seem very attached to the Spring Festival, but the villagers don't seem to put much faith in you...");
             await ƒS.Speech.tell(characters.protagonist, "I've been wondering, why is that?");
             ƒS.Speech.setTickerDelays(60, 5000);
-            await ƒS.Speech.tell(characters.kohana, "They don't... understand");
+            await ƒS.Speech.tell(characters.kohana, "They don't... understand.");
             await ƒS.Speech.tell(characters.kohana, "I'm not from here. I'm... weird, they say.");
             await ƒS.Speech.tell(characters.kohana, "Onee-sama found me. I think she needed me... she raised me like her own.");
             ƒS.Speech.setTickerDelays(40, 5000);
@@ -56,6 +56,9 @@ namespace SakuraGlade {
             ƒS.Speech.setTickerDelays(40, 5000);
             // [either choose from inventory or go back]
         }
+        // for testing 
+        await ƒS.Character.hide(characters.kohana);
+        await ƒS.update(1);
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();

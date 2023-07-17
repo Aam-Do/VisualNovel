@@ -161,6 +161,10 @@ speech name {
   border-bottom: none;
 }
 
+speech.You i {
+  color: #b0d0f4;
+}
+
 .choices,
 .gameMenu,
 .inventory {
@@ -168,7 +172,7 @@ speech name {
   border: 2px solid #eeaeca;
   border-image-slice: 1;
   border-width: 2px;
-  border-image-source: linear-gradient(111deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  border-image-source: linear-gradient(111deg, rgba(238, 174, 202, 1) 0%, #94bbe9 100%);
   color: white;
   box-shadow: 0 0 10px 1px #eeaeca60;
   display: flex;

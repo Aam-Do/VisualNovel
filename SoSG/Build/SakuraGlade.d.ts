@@ -201,6 +201,15 @@ declare namespace SakuraGlade {
     function Day2Amaya(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
+    function Day2Evening(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day2Fumiko(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day2Breakdown(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
     function Day2Kohana(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
@@ -211,4 +220,19 @@ declare namespace SakuraGlade {
 }
 declare namespace SakuraGlade {
     function Day2SacredTree(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day3Morning(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Day3Showdown(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function badEnding(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function bittersweetEnding(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function goodEnding(): ƒS.SceneReturn;
 }

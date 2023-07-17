@@ -41,7 +41,7 @@
     <dialog id="start">
       <form>
         <label for='name'>Please input your name (max. 15 characters)
-          <input type='text' name='name' id='name' placeholder='Name' required maxlength='15'></label>
+          <input type='text' name='name' id='name' placeholder='Name' required pattern="[A-Za-z]{3}" title="Name (no special characters)"></label>
         <label for='pronouns'>Please select your preferred pronouns
           <select name='pronouns' id='pronouns'>
             <option value='diverse' selected>they/them</option>

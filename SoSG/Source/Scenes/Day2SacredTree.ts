@@ -27,6 +27,8 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "Whoever stole the Bead must have skillfully evaded my watchful eye.");
         await ƒS.Speech.tell(characters.amaya, "Now go and do your investigations. But don't touch anything!");
         await ƒS.Speech.tell(characters.protagonist, "Yes, ma'am!");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(She gets very defensive when I bring that up. I wonder if it's her pride or something else...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well then, before all else... let's have a look around!)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(...)</i>");
@@ -37,7 +39,6 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm what's that?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I see something strangely black on the ground between some roots. Did someone litter?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ew... gross, it's sticky.)</i>");
-
         ƒS.Inventory.add(items.blackOoze);
         await ƒS.Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, evidence is evidence. I'll keep it with me.)</i>");
@@ -52,6 +53,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Such a pretty little hanger. Someone definitely lost this here. This should prove insightful.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, that wraps it up then, nothing left to find here.)</i>");
 
-        Day2Amaya();
+        ƒS.Speech.clear();
+        // Day2Amaya();
     }
 }

@@ -32,13 +32,14 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "Fumiko…");
         await ƒS.Speech.tell(characters.amaya, "Don’t bother. You’ve done enough. We’ll take care of the rest.");
         await ƒS.Speech.tell(characters.protagonist, "But... I-");
-        await ƒS.Speech.tell(characters.amaya, "Leave");
+        await ƒS.Speech.tell(characters.amaya, "Leave.");
         await ƒS.Character.hide(characters.amaya);
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "I’m sorry, Sprout. I’m sure you tried.");
         await ƒS.Speech.tell(characters.protagonist, "I… <i>(In the end, I wasn’t able to help at all. I suppose sometimes that’s how it goes. At least the real culprit revealed herself…)</i>");
         await ƒS.Character.hide(characters.nobu);
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.kohana, "… It’s alright, Dreamer. We learn from our mistakes.");
         await ƒS.Speech.tell(characters.kohana, "...");
         await ƒS.Speech.tell(characters.kohana, "Now, it’s time…");

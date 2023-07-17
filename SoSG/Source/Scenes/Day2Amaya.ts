@@ -22,6 +22,9 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.amaya, "Back from sniffing around, Cub? Did you find anything interesting?");
             // [either choose from inventory or go back]
         }
+        // for testing 
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.update(1);
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();

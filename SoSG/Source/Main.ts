@@ -315,10 +315,23 @@ namespace SakuraGlade {
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
       { scene: Start, name: "Start Scene" },
-      { scene: Intro, name: "Intro Scene" },
-      { scene: FairieForest, name: "Fairie Forest" },
-      { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-      { scene: Day1Morning, name: "Day 1 Morning" }
+      // { scene: Intro, name: "Intro Scene" },
+      // { scene: FairieForest, name: "Fairie Forest" },
+      // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
+      // { scene: Day1Morning, name: "Day 1 Morning" },
+      // { scene: Day2Morning, name: "Test" },
+      // { scene: Day2SacredTree, name: "Test" },
+      // { scene: Day2Amaya, name: "Test" },
+      // { scene: Day2Kohana, name: "Test" },
+      // { scene: Day2Nobu, name: "Test" },
+      // { scene: Day2Fumiko, name: "Test" },
+      // { scene: Day2Evening, name: "Test" },
+      // { scene: Day2Breakdown, name: "Test" },
+      // { scene: Day3Morning, name: "Test" },
+      // { scene: Day3Showdown, name: "Test" },
+      // { scene: badEnding, name: "Test" },
+      { scene: bittersweetEnding, name: "Test" },
+      { scene: goodEnding, name: "Test" },
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");

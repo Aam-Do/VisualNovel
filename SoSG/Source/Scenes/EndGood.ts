@@ -22,7 +22,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "Good morning everyone.");
         await ƒS.Speech.tell(characters.nobu, "Good morning, Grasshopper!");
         await ƒS.Speech.tell(characters.fumiko, "Good morning…");
-        await ƒS.Speech.tell(characters.kohana, "...Mh");
+        await ƒS.Speech.tell(characters.kohana, "...Mh.");
         await ƒS.Speech.tell(characters.amaya, "Well then, Cub. We’ve put our trust in you. So? Tell us. Who was the real culprit behind the theft of the Moon Bead?");
         await ƒS.Speech.tell(characters.protagonist, "Actually, we’ve got something to tell you.");
         await ƒS.Speech.tell(characters.nobu, "We?");

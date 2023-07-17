@@ -15,10 +15,18 @@
       "../Source/Scenes/Day1Morning.ts",
       "../Source/Scenes/Day1Nobu.ts",
       "../Source/Scenes/Day2Amaya.ts",
+      "../Source/Scenes/Day2Evening.ts",
+      "../Source/Scenes/Day2Fumiko.ts",
+      "../Source/Scenes/Day2FumikoBreakdown.ts",
       "../Source/Scenes/Day2Kohana.ts",
       "../Source/Scenes/Day2Morning.ts",
       "../Source/Scenes/Day2Nobu.ts",
-      "../Source/Scenes/Day2SacredTree.ts"
+      "../Source/Scenes/Day2SacredTree.ts",
+      "../Source/Scenes/Day3Morning.ts",
+      "../Source/Scenes/Day3Showdown.ts",
+      "../Source/Scenes/EndBad.ts",
+      "../Source/Scenes/EndBittersweet.ts",
+      "../Source/Scenes/EndGood.ts"
     ],
     "js": {
       "sections": [
@@ -30,7 +38,7 @@
         },
         {
           "pos": 15,
-          "end": 93291,
+          "end": 148093,
           "kind": "text"
         }
       ],
@@ -58,7 +66,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 5469,
+          "end": 6122,
           "kind": "text"
         }
       ]

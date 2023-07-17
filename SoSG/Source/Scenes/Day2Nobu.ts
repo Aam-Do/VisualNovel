@@ -37,6 +37,10 @@ namespace SakuraGlade {
             // [either choose from inventory or go back]
         }
 
+        // for testing 
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.update(1);
+
         ƒS.Speech.clear();
         ƒS.Speech.hide();
 
