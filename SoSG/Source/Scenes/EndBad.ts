@@ -64,7 +64,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(I’m back in my room? When did I get here? … was it all just a dream?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(It’s all so hazy… What was I doing again…?)</i>");
-
-        // THE END or smth
+        ƒS.Speech.clear();
+        ƒS.Speech.hide();
     }
 }

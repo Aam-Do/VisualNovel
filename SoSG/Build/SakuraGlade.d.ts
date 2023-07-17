@@ -164,6 +164,8 @@ declare namespace SakuraGlade {
         investigationPoints: number;
         day1TalkedTo: any[];
         day2TalkedTo: any[];
+        itemsUpdated: any[];
+        pointsReceived: any[];
     };
     export {};
 }
@@ -173,6 +175,18 @@ declare namespace SakuraGlade {
 }
 declare namespace SakuraGlade {
     function Start(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    let updatedItemDescriptions: {
+        blackOoze: string;
+        brokenEarring: string;
+        medicalNotice: string;
+        replica: string;
+    };
+    function AmayaReactToItem(_item: any): Promise<void>;
+    function KohanaReactToItem(_item: any): Promise<void>;
+    function FumikoReactToItem(_item: any): Promise<void>;
+    function NobuReactToItem(_item: any): Promise<void>;
 }
 declare namespace SakuraGlade {
     function FairieForest(): ƒS.SceneReturn;

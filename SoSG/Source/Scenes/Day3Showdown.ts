@@ -35,8 +35,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.kohana, "…Onee-sama?");
             ƒS.Speech.setTickerDelays(40, 5000);
             await ƒS.Speech.tell(characters.nobu, "Our warden? That can’t be!");
-                // bad ending
-                break;
+                return "BadEnding";
             case options.kohana:
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "It was, after all, Kohana. She has the replica at all times, and since she’s close to Amaya, she convinced her to cover up her theft.");
@@ -45,8 +44,7 @@ namespace SakuraGlade {
             ƒS.Speech.setTickerDelays(40, 5000);
             await ƒS.Speech.tell(characters.nobu, "Sprout? Are you sure?");
                 await ƒS.Speech.tell(characters.amaya, "How dare you…!");
-                // bad ending
-                break;
+                return "BadEnding";
             case options.nobu:
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "It was Nobu. He snuck to the Tree at night pretending to pray, but in reality, it was all just a scheme!");
@@ -55,12 +53,10 @@ namespace SakuraGlade {
             ƒS.Speech.setTickerDelays(60, 5000);
             await ƒS.Speech.tell(characters.kohana, "…is that true?");
             ƒS.Speech.setTickerDelays(40, 5000);
-            // bad ending
-                break;
+            return "BadEnding";
             case options.fumiko:
                 // continue path here
-                // bittersweet ending
-                break;
+                return "BittersweetEnding"
         }
     }
 }

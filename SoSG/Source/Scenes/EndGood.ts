@@ -154,7 +154,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Wait… there’s something in my hand. What’s that?)</i>");
         // close up of crystal earring
         await ƒS.Speech.tell(characters.protagonist, "<i>(... so it wasn’t just a dream…?)</i>");
-
-        // THE END or smth
+        ƒS.Speech.clear();
+        ƒS.Speech.hide();
     }
 }

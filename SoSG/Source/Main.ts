@@ -3,6 +3,9 @@ namespace SakuraGlade {
   export import ƒS = FudgeStory;
   console.log("Secrets of Sakura Glade starting");
 
+  // cpms = characters per millisecond
+  ƒS.Speech.setTickerDelays(40, 5000);
+
   // Preparation for needed media -> put into definitions
 
   // export let transition = {
@@ -199,6 +202,7 @@ namespace SakuraGlade {
       let present: HTMLButtonElement = document.querySelector('#present');
       if (currentCharacter) {
         present.classList.remove('hidden');
+        // AWAIT character reaction
       }
     }
   }
@@ -214,6 +218,8 @@ namespace SakuraGlade {
     investigationPoints: 0,
     day1TalkedTo: Array(),
     day2TalkedTo: Array(),
+    itemsUpdated: Array(),
+    pointsReceived: Array()
   };
 
   function credits(): void {
@@ -278,7 +284,6 @@ namespace SakuraGlade {
     }
   }
 
-
   window.addEventListener("load", start);
   function start(_event: Event): void {
     gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenu");
@@ -329,7 +334,7 @@ namespace SakuraGlade {
       // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
 
       // { scene: Day2Morning, name: "Day 2 Morning" },
-      { scene: Day2SacredTree, name: "Day 2 Sacred Tree", next:"Day2Amaya"},
+      { scene: Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
 
       { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },
       { id: "Day2Amaya", scene: Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
@@ -340,16 +345,16 @@ namespace SakuraGlade {
       { id: "Day2Evening", scene: Day2Evening, name: "Day 2 Evening", next: "Day3Morning" },
 
       { id: "Day2Breakdown", scene: Day2Breakdown, name: "Day 2 Breakdown", next: "Day3Morning" },
-      
-      { id: "Day3Morning", scene: Day3Morning, name: "Day 3 Morning", next: "Day3Showdown"  },
+
+      { id: "Day3Morning", scene: Day3Morning, name: "Day 3 Morning", next: "Day3Showdown" },
       { id: "Day3Showdown", scene: Day3Showdown, name: "Day 3 Showdown" },
-      
-      { id: "BadEnding", scene: BadEnding, name: "Bad Ending", next: "EndScene"  },
-      { id: "BittersweetEnding", scene: BittersweetEnding, name: "Bittersweet Ending", next: "EndScene"  },
-      { id: "GoodEnding", scene: GoodEnding, name: "Good Ending", next: "EndScene"  },
-      
+
+      { id: "BadEnding", scene: BadEnding, name: "Bad Ending", next: "EndScene" },
+      { id: "BittersweetEnding", scene: BittersweetEnding, name: "Bittersweet Ending", next: "EndScene" },
+      { id: "GoodEnding", scene: GoodEnding, name: "Good Ending", next: "EndScene" },
+
       // empty scene to stop the program
-      {  id: "EndScene", scene: EndScene, name: "End Scene" }
+      { id: "EndScene", scene: EndScene, name: "End Scene" }
 
     ];
 

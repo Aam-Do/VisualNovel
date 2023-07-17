@@ -4,6 +4,8 @@ var SakuraGlade;
     SakuraGlade.ƒ = FudgeCore;
     SakuraGlade.ƒS = FudgeStory;
     console.log("Secrets of Sakura Glade starting");
+    // cpms = characters per millisecond
+    SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
     // Preparation for needed media -> put into definitions
     // export let transition = {
     //   puzzle: {
@@ -192,6 +194,7 @@ var SakuraGlade;
             let present = document.querySelector('#present');
             if (SakuraGlade.currentCharacter) {
                 present.classList.remove('hidden');
+                // AWAIT character reaction
             }
         }
     }
@@ -204,6 +207,8 @@ var SakuraGlade;
         investigationPoints: 0,
         day1TalkedTo: Array(),
         day2TalkedTo: Array(),
+        itemsUpdated: Array(),
+        pointsReceived: Array()
     };
     function credits() {
         SakuraGlade.ƒS.Text.print("");
@@ -410,9 +415,9 @@ var SakuraGlade;
                 return "Day2Nobu";
             case options.inn:
                 // continue path here
-                if (SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.kohana) && SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.amaya) && SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.fumiko) && SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.nobu)) {
+                if (SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.kohana) && SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.amaya) && SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.fumiko) && SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.nobu)) {
                     // check if all relevant items updated
-                    if (SakuraGlade.ƒS.Inventory.getAmount(SakuraGlade.items.moonBead) > 0) {
+                    if (SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.blackOoze) && SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.medicalNotice) && SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.replica) && SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.brokenEarring)) {
                         SakuraGlade.ƒS.Speech.clear();
                         SakuraGlade.ƒS.Speech.hide();
                         return "Day2Evening";
@@ -471,8 +476,130 @@ var SakuraGlade;
     }
     SakuraGlade.Start = Start;
 })(SakuraGlade || (SakuraGlade = {}));
-// character dialogues regarding items
-// item description updates
+var SakuraGlade;
+(function (SakuraGlade) {
+    // item description updates
+    SakuraGlade.updatedItemDescriptions = {
+        blackOoze: "Black slime that must have drooped from Amaya’s cap while she was patrolling the Sacred Tree on the night of the incident. Why didn’t she notice it fall down?",
+        brokenEarring: "A beautiful crystal earring that Fumiko lost near the Sacred Tree. It’s broken, unfortunately. When did she lose it there?",
+        medicalNotice: "A medical record that factually explains Hina’s incurable “mummy disease”. The news must have been heartbreaking… He claims to have gone out for a stroll and prayed at the Sacred Tree around 1:30 am.",
+        replica: "A glass replica of the Moon Bead. It was found in place of the original at the Sacred Tree. I believe it was stolen from the temple some time after midnight while Kohana was bathing."
+    };
+    // character dialogues regarding items
+    async function AmayaReactToItem(_item) {
+        switch (_item) {
+            case SakuraGlade.items.phone:
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Is this a fairy device?");
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "If it’s not going to help us find the culprit I don’t know why you’re showing me this.");
+                break;
+            case SakuraGlade.items.idCard:
+                await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Interesting… What does this have to do with anything?");
+                break;
+            case SakuraGlade.items.blackOoze:
+                if (SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.blackOoze)) {
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "We’ve talked about this before, Cub. I probably lost this while patrolling.");
+                }
+                else {
+                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.blackOoze);
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Oh… where did you get that from?");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "It was on the ground near the Sacred Tree. Do you know what it is?");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Look, Cub, I’m not particularly proud of it, but as you can see my cap dissolves at the edges.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Sometimes a drop falls down. I try to clean up after myself, but eventually, I’ll miss one. Don’t worry. It’s not unsanitary.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I found it quite a bit away from the shrine, what were you doing over there?");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "I don’t stand in one spot like a statue all night, Cub.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "This might’ve dropped down during my patrol. I must’ve been too busy to notice it.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Busy…?)</i>");
+                }
+                break;
+            case SakuraGlade.items.brokenEarring:
+                if (SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.brokenEarring)) {
+                    if (!SakuraGlade.dataForSave.pointsReceived.includes(SakuraGlade.characters.amaya.name + SakuraGlade.items.brokenEarring.name)) {
+                        SakuraGlade.dataForSave.investigationPoints += 5;
+                        SakuraGlade.dataForSave.pointsReceived.push(SakuraGlade.characters.amaya.name + SakuraGlade.items.brokenEarring.name);
+                    }
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "So this belongs to Fumiko?");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "…");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "That is strange. I didn’t see her around here that day… And it certainly didn’t get here yesterday. I was guarding the area meticulously.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Could she have lost it before the day of the incident?");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "That’s unlikely… the place was cleaned just the day before.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Hmm... thank you.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(This means Fumiko definitely lost it on the night of the incident…)</i>");
+                }
+                else {
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "That is a stunning earring. A shame that it’s broken.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Why are you showing me this, Cub?");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Interesting…");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "I’m afraid I do not. But Fumiko’s family runs the jewelry shop. Maybe she knows who bought it.");
+                }
+                break;
+            case SakuraGlade.items.medicalNotice:
+                break;
+            case SakuraGlade.items.permit:
+                break;
+            case SakuraGlade.items.replica:
+                break;
+        }
+    }
+    SakuraGlade.AmayaReactToItem = AmayaReactToItem;
+    async function KohanaReactToItem(_item) {
+        switch (_item) {
+            case SakuraGlade.items.phone:
+                break;
+            case SakuraGlade.items.idCard:
+                break;
+            case SakuraGlade.items.blackOoze:
+                break;
+            case SakuraGlade.items.brokenEarring:
+                break;
+            case SakuraGlade.items.medicalNotice:
+                break;
+            case SakuraGlade.items.permit:
+                break;
+            case SakuraGlade.items.replica:
+                break;
+        }
+    }
+    SakuraGlade.KohanaReactToItem = KohanaReactToItem;
+    async function FumikoReactToItem(_item) {
+        switch (_item) {
+            case SakuraGlade.items.phone:
+                break;
+            case SakuraGlade.items.idCard:
+                break;
+            case SakuraGlade.items.blackOoze:
+                break;
+            case SakuraGlade.items.brokenEarring:
+                break;
+            case SakuraGlade.items.medicalNotice:
+                break;
+            case SakuraGlade.items.permit:
+                break;
+            case SakuraGlade.items.replica:
+                break;
+        }
+    }
+    SakuraGlade.FumikoReactToItem = FumikoReactToItem;
+    async function NobuReactToItem(_item) {
+        switch (_item) {
+            case SakuraGlade.items.phone:
+                break;
+            case SakuraGlade.items.idCard:
+                break;
+            case SakuraGlade.items.blackOoze:
+                break;
+            case SakuraGlade.items.brokenEarring:
+                break;
+            case SakuraGlade.items.medicalNotice:
+                break;
+            case SakuraGlade.items.permit:
+                break;
+            case SakuraGlade.items.replica:
+                break;
+        }
+    }
+    SakuraGlade.NobuReactToItem = NobuReactToItem;
+})(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
 (function (SakuraGlade) {
     async function FairieForest() {
@@ -1136,7 +1263,6 @@ var SakuraGlade;
         // await ƒS.Speech.tell(characters.protagonist, "That's all I have for now.");
         // await ƒS.Speech.tell(characters.amaya, "If you find out anything new, you know where to find me.");
         // hide amaya
-        // day2Locations();
     }
     SakuraGlade.Day2Amaya = Day2Amaya;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1156,9 +1282,12 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
         await SakuraGlade.ƒS.update(2);
         // depending on points
-        // return "Day2FumikoBreakdown"
-        // or
-        // return "Day3Morning"
+        if (SakuraGlade.dataForSave.investigationPoints >= 15) {
+            return "Day2FumikoBreakdown";
+        }
+        else {
+            return "Day3Morning";
+        }
     }
     SakuraGlade.Day2Evening = Day2Evening;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1591,8 +1720,7 @@ var SakuraGlade;
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "…Onee-sama?");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Our warden? That can’t be!");
-                // bad ending
-                break;
+                return "BadEnding";
             case options.kohana:
                 // continue path here
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "It was, after all, Kohana. She has the replica at all times, and since she’s close to Amaya, she convinced her to cover up her theft.");
@@ -1601,8 +1729,7 @@ var SakuraGlade;
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Sprout? Are you sure?");
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "How dare you…!");
-                // bad ending
-                break;
+                return "BadEnding";
             case options.nobu:
                 // continue path here
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "It was Nobu. He snuck to the Tree at night pretending to pray, but in reality, it was all just a scheme!");
@@ -1611,12 +1738,10 @@ var SakuraGlade;
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "…is that true?");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-                // bad ending
-                break;
+                return "BadEnding";
             case options.fumiko:
                 // continue path here
-                // bittersweet ending
-                break;
+                return "BittersweetEnding";
         }
     }
     SakuraGlade.Day3Showdown = Day3Showdown;
@@ -1688,7 +1813,8 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I’m back in my room? When did I get here? … was it all just a dream?)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(...)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(It’s all so hazy… What was I doing again…?)</i>");
-        // THE END or smth
+        SakuraGlade.ƒS.Speech.clear();
+        SakuraGlade.ƒS.Speech.hide();
     }
     SakuraGlade.BadEnding = BadEnding;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1776,7 +1902,8 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(...)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I don’t remember what happened.)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(But for some reason… I feel… warm. It’s nice…)</i>");
-        // THE END or smth
+        SakuraGlade.ƒS.Speech.clear();
+        SakuraGlade.ƒS.Speech.hide();
     }
     SakuraGlade.BittersweetEnding = BittersweetEnding;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1936,7 +2063,8 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Wait… there’s something in my hand. What’s that?)</i>");
         // close up of crystal earring
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(... so it wasn’t just a dream…?)</i>");
-        // THE END or smth
+        SakuraGlade.ƒS.Speech.clear();
+        SakuraGlade.ƒS.Speech.hide();
     }
     SakuraGlade.GoodEnding = GoodEnding;
 })(SakuraGlade || (SakuraGlade = {}));

@@ -15,9 +15,10 @@ namespace SakuraGlade {
         await ƒS.update(2);
 
         // depending on points
-        // return "Day2FumikoBreakdown"
-        // or
-        // return "Day3Morning"
-
+        if (dataForSave.investigationPoints >= 15) {
+            return "Day2FumikoBreakdown"
+        } else {
+            return "Day3Morning"
+        }
     }
 }

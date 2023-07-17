@@ -81,9 +81,9 @@ namespace SakuraGlade {
                 return "Day2Nobu";
             case options.inn:
                 // continue path here
-                if (dataForSave.day1TalkedTo.includes(characters.kohana) && dataForSave.day1TalkedTo.includes(characters.amaya) && dataForSave.day1TalkedTo.includes(characters.fumiko) && dataForSave.day1TalkedTo.includes(characters.nobu)) {
+                if (dataForSave.day2TalkedTo.includes(characters.kohana) && dataForSave.day2TalkedTo.includes(characters.amaya) && dataForSave.day2TalkedTo.includes(characters.fumiko) && dataForSave.day2TalkedTo.includes(characters.nobu)) {
                     // check if all relevant items updated
-                    if (ƒS.Inventory.getAmount(items.moonBead) > 0) {
+                    if (dataForSave.itemsUpdated.includes(items.blackOoze) && dataForSave.itemsUpdated.includes(items.medicalNotice) && dataForSave.itemsUpdated.includes(items.replica) && dataForSave.itemsUpdated.includes(items.brokenEarring)) {
                         ƒS.Speech.clear();
                         ƒS.Speech.hide();
                         return "Day2Evening";

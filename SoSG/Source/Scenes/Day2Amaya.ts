@@ -33,6 +33,5 @@ namespace SakuraGlade {
         // await ƒS.Speech.tell(characters.protagonist, "That's all I have for now.");
         // await ƒS.Speech.tell(characters.amaya, "If you find out anything new, you know where to find me.");
         // hide amaya
-        // day2Locations();
     }
 }
