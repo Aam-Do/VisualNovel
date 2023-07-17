@@ -41,7 +41,7 @@ namespace SakuraGlade {
             await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
             await ƒS.update(2);
             ƒS.Speech.show();
-            await ƒS.Speech.tell(characters.fumiko, "Ah, you’re back, Precious. Is there something else you’d like to ask me about");
+            await ƒS.Speech.tell(characters.fumiko, "Ah, you’re back, Precious. Is there something else you’d like to ask me about?");
             // [either choose from inventory or go back]
         }
         // for testing 

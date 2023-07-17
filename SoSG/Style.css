@@ -307,7 +307,7 @@ content {
 }
 
 #openMenu:hover {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .inventory {
@@ -365,13 +365,17 @@ content {
 }
 
 
-.inventory ul li amount,
-.inventory ul li description {
+.inventory ul li amount {
   display: none;
 }
 
 .inventory ul li:hover description {
-  display: block;
+  opacity: 1;
+}
+
+.inventory ul li description {
+  transition: .3s;
+  opacity: 0;
   position: absolute;
   left: 50%;
   top: 50%;

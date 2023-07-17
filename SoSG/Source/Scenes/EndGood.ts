@@ -1,5 +1,5 @@
 namespace SakuraGlade {
-    export async function goodEnding(): ƒS.SceneReturn {
+    export async function GoodEnding(): ƒS.SceneReturn {
         console.log("Good Ending starting");
 
         // await ƒS.Progress.delay(1);
@@ -22,7 +22,9 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "Good morning everyone.");
         await ƒS.Speech.tell(characters.nobu, "Good morning, Grasshopper!");
         await ƒS.Speech.tell(characters.fumiko, "Good morning…");
+        ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "...Mh.");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.amaya, "Well then, Cub. We’ve put our trust in you. So? Tell us. Who was the real culprit behind the theft of the Moon Bead?");
         await ƒS.Speech.tell(characters.protagonist, "Actually, we’ve got something to tell you.");
         await ƒS.Speech.tell(characters.nobu, "We?");
@@ -31,7 +33,9 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "What is the meaning of this…?");
         await ƒS.Speech.tell(characters.protagonist, "Please listen to her. She entrusted herself to me yesterday. I’m sure you’ll all feel the same as me when she’s done explaining.");
         await ƒS.Speech.tell(characters.nobu, "I’m listening. Go ahead.");
+        ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Me too.");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.amaya, "As you were.");
         await ƒS.Speech.tell(characters.fumiko, "Thank you.");
         await ƒS.Speech.tell(characters.fumiko, "Well… To put it briefly, it was me. I stole the Moon Bead.");
@@ -43,7 +47,9 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "She’s telling the truth. Now please continue, Fumiko.");
         await ƒS.Speech.tell(characters.fumiko, "Y-yes. I know it was wrong of me to do. I lied to a lot of people.");
         await ƒS.Speech.tell(characters.fumiko, "I stole the replica from you, Kohana. I’m truly sorry. I didn’t expect the reaction of the village to be so extreme. I never wanted to cause you any harm.");
+        ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Mh… it’s alright.");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.fumiko, "Well, I knew when the Tree would be unguarded. I accidentally noticed it one night, but I’ve never ever told anyone, Amaya. I couldn’t dream to.");
         await ƒS.Speech.tell(characters.fumiko, "I think you’re the best warden the village has ever had.");
         await ƒS.Speech.tell(characters.amaya, "Fumiko…");
@@ -58,7 +64,9 @@ namespace SakuraGlade {
         // pause
         await ƒS.Speech.tell(characters.nobu, "We all make mistakes in life. I think we’re all happy that you brought the Moon Bead back in time.");
         await ƒS.Speech.tell(characters.amaya, "I never knew… how much pain you were holding in.");
+        ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "…you deserve to be seen as a person. Everyone does.");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.fumiko, "Thank you everyone… Thank you, Kohana. I see you.");
         await ƒS.Speech.tell(characters.protagonist, "Nobody can be perfect. You’ve piled up all that anger and pain until it burst out. But you’ve mended your ways. You brought the Bead back.");
         await ƒS.Speech.tell(characters.fumiko, "I still understand if you can’t let me go freely, Amaya.");
@@ -93,7 +101,9 @@ namespace SakuraGlade {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.amaya, "We wanted to take a moment to thank you, " + dataForSave.nameProtagonist + ". Without you, who knows if the festival could have taken place.");
         await ƒS.Speech.tell(characters.amaya, "And thank you for clearing Kohana’s name. We won’t forget this.");
+        ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "… thank you for helping me, Dreamer. You’ve made me feel… welcomed. It’s nice.");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.nobu, "You’ve done the village a great service, Sprout. Us all.");
         await ƒS.Speech.tell(characters.nobu, "I think Fumiko is waiting for you. She’s got a special thanks for you.");
         await ƒS.Character.hide(characters.amaya);
@@ -111,9 +121,13 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(35, 100));
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(55, 100));
         await ƒS.update(1);
+        ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Now… You can probably feel it too… It’s time for you to say goodbye.");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "Wait…");
+        ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Goodbye, Worldleaper!");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.nobu, "You’re already leaving?");
         await ƒS.Speech.tell(characters.nobu, "I hope you get home safely, wherever that is, Sprout!");
         await ƒS.Speech.tell(characters.amaya, "Farewell, Cub.");

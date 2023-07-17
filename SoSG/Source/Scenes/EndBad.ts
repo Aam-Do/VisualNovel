@@ -1,5 +1,5 @@
 namespace SakuraGlade {
-    export async function badEnding(): ƒS.SceneReturn {
+    export async function BadEnding(): ƒS.SceneReturn {
         console.log("Bad Ending starting");
 
         await ƒS.Speech.tell(characters.fumiko, "Stop it!");
@@ -20,8 +20,10 @@ namespace SakuraGlade {
         await ƒS.Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "How?");
         await ƒS.Speech.tell(characters.fumiko, "I stole the replica when Kohana was bathing… I’m sorry, Kohana. I didn’t think they’d immediately suspect you.");
-        await ƒS.Speech.tell(characters.kohana, "…Mh.");
-        await ƒS.Speech.tell(characters.fumiko, "Then I waited for Amaya to leave for her… break.");
+            ƒS.Speech.setTickerDelays(60, 5000);
+            await ƒS.Speech.tell(characters.kohana, "…Mh.");
+            ƒS.Speech.setTickerDelays(40, 5000);
+            await ƒS.Speech.tell(characters.fumiko, "Then I waited for Amaya to leave for her… break.");
         await ƒS.Speech.tell(characters.amaya, "You were watching me? You knew all this time?");
         await ƒS.Speech.tell(characters.fumiko, "It was the perfect opportunity.");
         await ƒS.Speech.tell(characters.fumiko, "But then Nobu came by, and I lost my earring. I couldn’t go back to get it anymore.");
@@ -40,12 +42,14 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "I… <i>(In the end, I wasn’t able to help at all. I suppose sometimes that’s how it goes. At least the real culprit revealed herself…)</i>");
         await ƒS.Character.hide(characters.nobu);
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.kohana, "… It’s alright, Dreamer. We learn from our mistakes.");
+            ƒS.Speech.setTickerDelays(60, 5000);
+            await ƒS.Speech.tell(characters.kohana, "… It’s alright, Dreamer. We learn from our mistakes.");
         await ƒS.Speech.tell(characters.kohana, "...");
         await ƒS.Speech.tell(characters.kohana, "Now, it’s time…");
         await ƒS.Speech.tell(characters.kohana, "...");
         await ƒS.Speech.tell(characters.kohana, "Goodbye, Worldleaper…");
-        await ƒS.Character.hide(characters.kohana);
+            ƒS.Speech.setTickerDelays(40, 5000);
+            await ƒS.Character.hide(characters.kohana);
         await ƒS.Location.show(locations.blackout);
         ƒS.update(5);
         // disable inventory

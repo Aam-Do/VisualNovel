@@ -229,11 +229,14 @@ declare namespace SakuraGlade {
     function Day3Showdown(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
-    function badEnding(): ƒS.SceneReturn;
+    function BadEnding(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
-    function bittersweetEnding(): ƒS.SceneReturn;
+    function BittersweetEnding(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
-    function goodEnding(): ƒS.SceneReturn;
+    function GoodEnding(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function EndScene(): ƒS.SceneReturn;
 }

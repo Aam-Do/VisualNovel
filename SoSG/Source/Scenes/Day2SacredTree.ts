@@ -54,6 +54,5 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, that wraps it up then, nothing left to find here.)</i>");
 
         ƒS.Speech.clear();
-        // Day2Amaya();
     }
 }

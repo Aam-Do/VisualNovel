@@ -1,5 +1,5 @@
 namespace SakuraGlade {
-    export async function bittersweetEnding(): ƒS.SceneReturn {
+    export async function BittersweetEnding(): ƒS.SceneReturn {
         console.log("Bittersweet Ending starting");
 
         await ƒS.Speech.tell(characters.protagonist, "It was Fumiko. She stole the replica from Kohana while she was taking a bath, snuck to the Tree while Amaya wasn’t looking and exchanged the Beads.");
@@ -16,8 +16,10 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "I just, couldn’t take it anymore. Don’t you know what it’s like to long to live? All I wanted was one more chance.");
         await ƒS.Speech.tell(characters.fumiko, "But. I guess that’s all over now. It doesn’t matter anymore.");
         await ƒS.Speech.tell(characters.fumiko, "I’m sorry Kohana. I didn’t mean to cause any harm.");
-        await ƒS.Speech.tell(characters.kohana, "It’s… alright. You’ve been hurting…");
-        await ƒS.Speech.tell(characters.nobu, "I understand that you were desperate, Fumiko. But stealing our sacred artifact… There must have been another way.");
+            ƒS.Speech.setTickerDelays(60, 5000);
+            await ƒS.Speech.tell(characters.kohana, "It’s… alright. You’ve been hurting…");
+            ƒS.Speech.setTickerDelays(40, 5000);
+            await ƒS.Speech.tell(characters.nobu, "I understand that you were desperate, Fumiko. But stealing our sacred artifact… There must have been another way.");
         await ƒS.Speech.tell(characters.fumiko, "I know. It was… stupid. But I’ve made my peace. I’m ready for the consequences.");
         await ƒS.Speech.tell(characters.amaya, "You’ll be trialed by Sakura Glade law.");
         await ƒS.Speech.tell(characters.amaya, "But, since you’ve complied so readily, I think we should end this on a good note. We should celebrate that the Moon Bead is back and the Spring Festival can take place.");
@@ -50,11 +52,15 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "And thank you for clearing Kohana’s name. We won’t forget this.");
         await ƒS.Speech.tell(characters.nobu, "You’ve done the village a great service, Sprout. Us all.");
         await ƒS.Speech.tell(characters.nobu, "Even Fumiko, even though she needs her space right now, I know is grateful to you. Thank you.");
-        await ƒS.Speech.tell(characters.kohana, "… Thank you for helping me, Dreamer. You’ve made me feel… welcomed. It’s nice.");
+            ƒS.Speech.setTickerDelays(60, 5000);
+            await ƒS.Speech.tell(characters.kohana, "… Thank you for helping me, Dreamer. You’ve made me feel… welcomed. It’s nice.");
         await ƒS.Speech.tell(characters.kohana, "Now… You can probably feel it too… It’s time for you to say goodbye.");
-        await ƒS.Speech.tell(characters.protagonist, "Wait…");
-        await ƒS.Speech.tell(characters.kohana, "Goodbye, Worldleaper!");
-        await ƒS.Speech.tell(characters.nobu, "You’re already leaving?");
+            ƒS.Speech.setTickerDelays(40, 5000);
+            await ƒS.Speech.tell(characters.protagonist, "Wait…");
+            ƒS.Speech.setTickerDelays(60, 5000);
+            await ƒS.Speech.tell(characters.kohana, "Goodbye, Worldleaper!");
+            ƒS.Speech.setTickerDelays(40, 5000);
+            await ƒS.Speech.tell(characters.nobu, "You’re already leaving?");
         await ƒS.Speech.tell(characters.nobu, "I hope you get home safely, wherever that is, Sprout!");
         await ƒS.Speech.tell(characters.amaya, "Farewell, Cub.");
         await ƒS.Character.hide(characters.amaya);
