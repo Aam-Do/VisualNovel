@@ -195,23 +195,10 @@ namespace SakuraGlade {
   function hndItem(_event: CustomEvent): void {
     if (_event.type == "pointerdown") {
       let targetId: string = _event.detail.replace(/ /g, "_");
-      let targetDescription: HTMLElement = document.querySelector('#' + targetId + '> description');
+      let target: HTMLElement = document.querySelector('#' + targetId);
       let present: HTMLButtonElement = document.querySelector('#present');
-      let descriptions = document.querySelectorAll('.show');
-      if (targetDescription.classList.contains('show')) {
-        targetDescription.classList.remove('show');
-        present.classList.add('hidden');
-      }
-      else {
-        for (let description of descriptions) {
-          description.classList.remove('show');
-        }
-        targetDescription.classList.add('show');
-
-        if (currentCharacter) {
-          present.classList.remove('hidden');
-        }
-
+      if (currentCharacter) {
+        present.classList.remove('hidden');
       }
     }
   }
@@ -310,6 +297,21 @@ namespace SakuraGlade {
         menuIsOpen = true;
       }
     });
+
+    // Inventory button 
+    let invButton: HTMLElement = document.querySelector("#inv-open");
+    invButton.addEventListener("pointerdown", function (_event: Event) {
+      _event.stopPropagation();
+      if (menuIsOpen) {
+        console.log("Close");
+        ƒS.Inventory.close();
+      }
+      else {
+        console.log("Open");
+        ƒS.Inventory.open();
+      }
+    });
+
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
       { scene: Start, name: "Start Scene" },
@@ -327,12 +329,12 @@ namespace SakuraGlade {
 
       // { scene: Day2Morning, name: "Day 2 Morning" },
       { scene: Day2SacredTree, name: "Day 2 Sacred Tree" },
-      
+
       { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },
-      { id: "Day2Amaya", scene: Day2Amaya, name: "Day 2 Amaya", next:"Day2Locations" },
-      { id: "Day2Kohana", scene: Day2Kohana, name: "Day 2 Kohana", next:"Day2Locations" },
-      { id: "Day2Nobu", scene: Day2Nobu, name: "Day 2 Nobu", next:"Day2Locations" },
-      { id: "Day2Fumiko", scene: Day2Fumiko, name: "Fumiko", next:"Day2Locations" },
+      { id: "Day2Amaya", scene: Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
+      { id: "Day2Kohana", scene: Day2Kohana, name: "Day 2 Kohana", next: "Day2Locations" },
+      { id: "Day2Nobu", scene: Day2Nobu, name: "Day 2 Nobu", next: "Day2Locations" },
+      { id: "Day2Fumiko", scene: Day2Fumiko, name: "Fumiko", next: "Day2Locations" },
 
       { id: "Day2Evening", scene: Day2Evening, name: "Day 2 Evening" },
 

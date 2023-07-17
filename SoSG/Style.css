@@ -303,6 +303,7 @@ content {
   opacity: 0.7;
   cursor: pointer;
   z-index: 1;
+  transition: .2s;
 }
 
 #openMenu:hover {
@@ -369,7 +370,7 @@ content {
   display: none;
 }
 
-.inventory ul li description.show {
+.inventory ul li:hover description {
   display: block;
   position: absolute;
   left: 50%;
@@ -377,11 +378,14 @@ content {
   transform: translate(-50%, -50%);
   padding: 0.5em;
   background-color: #15040dcf;
-  height: 95%;
-  width: 95%;
+  height: 90%;
+  width: 91%;
   overflow-y: auto;
   overflow-x: hidden;
-  border: 2px solid #fdf5bf;
+  border: 2px solid #eeaeca;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(111deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
 .inventory ul li name {
@@ -394,4 +398,30 @@ content {
 
 #present.hidden {
   display: none;
+}
+
+#inv-open {
+  position: absolute;
+  top: -2px;
+  right: -42px;
+  font-size: 18px;
+  padding: 20px 10px;
+  background: #1e161acf;
+  border: 2px solid #eeaeca;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-image-source: linear-gradient(111deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  box-shadow: 0 0 10px 1px #eeaeca60;
+  border-left: none;
+  cursor: pointer;
+}
+
+#inv-open i {
+  opacity: 0.7;
+  color: white;
+  transition: .2s;
+}
+
+#inv-open:hover i {
+  opacity: 1;
 }

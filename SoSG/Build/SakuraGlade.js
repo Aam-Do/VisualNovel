@@ -188,21 +188,10 @@ var SakuraGlade;
     function hndItem(_event) {
         if (_event.type == "pointerdown") {
             let targetId = _event.detail.replace(/ /g, "_");
-            let targetDescription = document.querySelector('#' + targetId + '> description');
+            let target = document.querySelector('#' + targetId);
             let present = document.querySelector('#present');
-            let descriptions = document.querySelectorAll('.show');
-            if (targetDescription.classList.contains('show')) {
-                targetDescription.classList.remove('show');
-                present.classList.add('hidden');
-            }
-            else {
-                for (let description of descriptions) {
-                    description.classList.remove('show');
-                }
-                targetDescription.classList.add('show');
-                if (SakuraGlade.currentCharacter) {
-                    present.classList.remove('hidden');
-                }
+            if (SakuraGlade.currentCharacter) {
+                present.classList.remove('hidden');
             }
         }
     }
@@ -288,6 +277,19 @@ var SakuraGlade;
                 console.log("Open");
                 gameMenu.open();
                 menuIsOpen = true;
+            }
+        });
+        // Inventory button 
+        let invButton = document.querySelector("#inv-open");
+        invButton.addEventListener("pointerdown", function (_event) {
+            _event.stopPropagation();
+            if (menuIsOpen) {
+                console.log("Close");
+                SakuraGlade.ƒS.Inventory.close();
+            }
+            else {
+                console.log("Open");
+                SakuraGlade.ƒS.Inventory.open();
             }
         });
         // Scene Hierarchy 
@@ -460,6 +462,9 @@ var SakuraGlade;
         SakuraGlade.dataForSave.genderProtagonist = form.get("pronouns");
         input.close();
         SakuraGlade.ƒS.update(1);
+        // for testing
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.phone);
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.idCard);
     }
     SakuraGlade.Start = Start;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -571,7 +576,8 @@ var SakuraGlade;
     async function Intro() {
         console.log("Intro Scene starting");
         // currentCharacter = characters.nobu;
-        // ƒS.Inventory.add(items.idCard);
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.phone);
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.idCard);
         // await ƒS.Inventory.open();
         // cpms = characters per millisecond
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);

@@ -32,5 +32,9 @@ namespace SakuraGlade {
     dataForSave.genderProtagonist = (form.get("pronouns") as string);
     input.close();
     ƒS.update(1);
+
+    // for testing
+    ƒS.Inventory.add(items.phone);
+    ƒS.Inventory.add(items.idCard);
   }
 }

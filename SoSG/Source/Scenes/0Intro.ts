@@ -2,7 +2,8 @@ namespace SakuraGlade {
   export async function Intro(): ƒS.SceneReturn {
     console.log("Intro Scene starting");
     // currentCharacter = characters.nobu;
-    // ƒS.Inventory.add(items.idCard);
+    ƒS.Inventory.add(items.phone);
+    ƒS.Inventory.add(items.idCard);
     // await ƒS.Inventory.open();
 
     // cpms = characters per millisecond
