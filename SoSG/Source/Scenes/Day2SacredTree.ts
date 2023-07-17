@@ -2,10 +2,10 @@ namespace SakuraGlade {
     export async function Day2SacredTree(): ƒS.SceneReturn {
         console.log("Day 2 Sacred Tree starting");
 
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.sacredTree);
         await ƒS.update(2);
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah... it's still just as beautiful as yesterday.)</i>");
         await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
