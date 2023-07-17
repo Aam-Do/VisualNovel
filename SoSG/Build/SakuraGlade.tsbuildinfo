@@ -4,10 +4,10 @@
     "sourceFiles": [
       "../Source/Main.ts",
       "../Source/Definitions/Options.ts",
+      "../Source/Definitions/Start.ts",
       "../Source/Definitions/Texts.ts",
       "../Source/Scenes/0FairieForest.ts",
       "../Source/Scenes/0Intro.ts",
-      "../Source/Scenes/0Start.ts",
       "../Source/Scenes/0WelcomeSakuraGlade.ts",
       "../Source/Scenes/Day1Amaya.ts",
       "../Source/Scenes/Day1Fumiko.ts",
@@ -38,7 +38,7 @@
         },
         {
           "pos": 15,
-          "end": 148093,
+          "end": 150436,
           "kind": "text"
         }
       ],
@@ -66,7 +66,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 6122,
+          "end": 6171,
           "kind": "text"
         }
       ]

@@ -259,7 +259,7 @@ var SakuraGlade;
                 console.log("Load");
                 await SakuraGlade.ƒS.Progress.load();
                 break;
-            case SakuraGlade.ƒ.KEYBOARD_CODE.M:
+            case SakuraGlade.ƒ.KEYBOARD_CODE.ESC:
                 if (menuIsOpen) {
                     console.log("Close");
                     gameMenu.close();
@@ -298,20 +298,26 @@ var SakuraGlade;
             // { scene: Intro, name: "Intro Scene" },
             // { scene: FairieForest, name: "Fairie Forest" },
             // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-            // { scene: Day1Morning, name: "Day 1 Morning" },
-            // { scene: Day2Morning, name: "Test" },
-            // { scene: Day2SacredTree, name: "Test" },
-            // { scene: Day2Amaya, name: "Test" },
-            // { scene: Day2Kohana, name: "Test" },
-            // { scene: Day2Nobu, name: "Test" },
-            // { scene: Day2Fumiko, name: "Test" },
-            // { scene: Day2Evening, name: "Test" },
+            { scene: SakuraGlade.Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
+            { id: "Day1Locations", scene: SakuraGlade.day1Locations, name: "Day 1 Locations" },
+            { id: "Day1Kohana", scene: SakuraGlade.Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+            { id: "Day1Amaya", scene: SakuraGlade.Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+            { id: "Day1Nobu", scene: SakuraGlade.Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
+            { id: "Day1Fumiko", scene: SakuraGlade.Day1Fumiko, name: "Day 1 Fumiko" },
+            { scene: SakuraGlade.Day2Morning, name: "Day 2 Morning" },
+            { scene: SakuraGlade.Day2SacredTree, name: "Day 2 Sacred Tree" },
+            { id: "Day2Locations", scene: SakuraGlade.day2Locations, name: "Day 2 Locations" },
+            { id: "Day2Amaya", scene: SakuraGlade.Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
+            { id: "Day2Kohana", scene: SakuraGlade.Day2Kohana, name: "Day 2 Kohana", next: "Day2Locations" },
+            { id: "Day2Nobu", scene: SakuraGlade.Day2Nobu, name: "Day 2 Nobu", next: "Day2Locations" },
+            { id: "Day2Fumiko", scene: SakuraGlade.Day2Fumiko, name: "Fumiko", next: "Day2Locations" },
+            { id: "Day2Evening", scene: SakuraGlade.Day2Evening, name: "Day 2 Evening" },
             // { scene: Day2Breakdown, name: "Test" },
             // { scene: Day3Morning, name: "Test" },
             // { scene: Day3Showdown, name: "Test" },
             // { scene: badEnding, name: "Test" },
-            { scene: SakuraGlade.bittersweetEnding, name: "Test" },
-            { scene: SakuraGlade.goodEnding, name: "Test" },
+            // { scene: bittersweetEnding, name: "Test" },
+            // { scene: goodEnding, name: "Test" },
         ];
         let uiElement = document.querySelector("[type=interface]");
         SakuraGlade.dataForSave = SakuraGlade.ƒS.Progress.setData(SakuraGlade.dataForSave, uiElement);
@@ -341,46 +347,116 @@ var SakuraGlade;
             switch (optionsElement) {
                 case options.kohana:
                     // continue path here
-                    SakuraGlade.dataForSave.day1TalkedTo.push(SakuraGlade.characters.kohana);
                     SakuraGlade.ƒS.Speech.clear();
                     SakuraGlade.ƒS.Speech.hide();
-                    SakuraGlade.Day1Kohana();
-                    delete options.kohana;
-                    console.log(SakuraGlade.dataForSave.day1TalkedTo);
-                    break;
+                    return "Day1Kohana";
                 case options.amaya:
                     // continue path here
-                    SakuraGlade.dataForSave.day1TalkedTo.push(SakuraGlade.characters.amaya);
                     SakuraGlade.ƒS.Speech.clear();
                     SakuraGlade.ƒS.Speech.hide();
-                    SakuraGlade.Day1Amaya();
-                    delete options.amaya;
-                    console.log(SakuraGlade.dataForSave.day1TalkedTo);
-                    break;
+                    return "Day1Amaya";
                 case options.nobu:
                     // continue path here
                     if (SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.kohana)) {
-                        SakuraGlade.dataForSave.day1TalkedTo.push(SakuraGlade.characters.nobu);
                         SakuraGlade.ƒS.Speech.clear();
                         SakuraGlade.ƒS.Speech.hide();
-                        SakuraGlade.Day1Nobu();
-                        delete options.nobu;
-                        console.log(SakuraGlade.dataForSave.day1TalkedTo);
+                        return "Day1Nobu";
                     }
                     else {
                         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him...)</i>");
-                        day1Locations();
+                        return "Day1Locations";
                     }
-                    break;
             }
         }
         else {
             SakuraGlade.ƒS.Speech.clear();
             SakuraGlade.ƒS.Speech.hide();
-            SakuraGlade.Day1Fumiko();
+            return "Day1Fumiko";
         }
     }
     SakuraGlade.day1Locations = day1Locations;
+    async function day2Locations() {
+        let options = {
+            amaya: "Sacred Tree",
+            kohana: "Temple",
+            fumiko: "Village Square",
+            nobu: "Nobu’s Home",
+            inn: "Back to Inn"
+        };
+        let optionsElement = await SakuraGlade.ƒS.Menu.getInput(options, "choices");
+        switch (optionsElement) {
+            case options.amaya:
+                // continue path here
+                SakuraGlade.ƒS.Speech.clear();
+                SakuraGlade.ƒS.Speech.hide();
+                return "Day2Amaya";
+            case options.kohana:
+                // continue path here
+                SakuraGlade.ƒS.Speech.clear();
+                SakuraGlade.ƒS.Speech.hide();
+                return "Day2Kohana";
+            case options.fumiko:
+                // continue path here
+                SakuraGlade.ƒS.Speech.clear();
+                SakuraGlade.ƒS.Speech.hide();
+                return "Day2Fumiko";
+            case options.nobu:
+                // continue path here
+                SakuraGlade.ƒS.Speech.clear();
+                SakuraGlade.ƒS.Speech.hide();
+                return "Day2Nobu";
+            case options.inn:
+                // continue path here
+                if (SakuraGlade.dataForSave.day1TalkedTo.includes(SakuraGlade.characters.kohana)) {
+                    SakuraGlade.ƒS.Speech.clear();
+                    SakuraGlade.ƒS.Speech.hide();
+                    return "Day1Nobu";
+                }
+                else {
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him...)</i>");
+                    return "Day1Locations";
+                }
+        }
+    }
+    SakuraGlade.day2Locations = day2Locations;
+})(SakuraGlade || (SakuraGlade = {}));
+var SakuraGlade;
+(function (SakuraGlade) {
+    async function Start() {
+        console.log("Start Scene starting");
+        document.onkeypress = stopReloadKey;
+        function stopReloadKey(_e) {
+            if (_e.keyCode == 13) {
+                return false;
+            }
+            return true;
+        }
+        // ^ ???
+        SakuraGlade.ƒS.Speech.hide();
+        let input = document.querySelector("dialog#start");
+        input.showModal();
+        await new Promise((_resolve) => {
+            input.querySelector("button").addEventListener("click", _resolve);
+        });
+        let form = new FormData(document.forms[0]);
+        while (!document.forms[0].checkValidity() || form.get("name") == "") {
+            if (form.get("name") == "") {
+                alert('You have to input a name!');
+            }
+            if (!document.forms[0].checkValidity()) {
+                alert('Your name may not contain special characters!');
+            }
+            await new Promise((_resolve) => {
+                input.querySelector("button").addEventListener("click", _resolve);
+            });
+            form = new FormData(document.forms[0]);
+        }
+        SakuraGlade.dataForSave.nameProtagonist = form.get("name");
+        SakuraGlade.dataForSave.genderProtagonist = form.get("pronouns");
+        input.close();
+        SakuraGlade.ƒS.update(1);
+    }
+    SakuraGlade.Start = Start;
 })(SakuraGlade || (SakuraGlade = {}));
 // character dialogues regarding items
 // item description updates
@@ -566,39 +642,6 @@ var SakuraGlade;
 })(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
 (function (SakuraGlade) {
-    async function Start() {
-        console.log("Start Scene starting");
-        document.onkeypress = stopReloadKey;
-        function stopReloadKey(_e) {
-            if (_e.keyCode == 13) {
-                return false;
-            }
-            return true;
-        }
-        // ^ ???
-        SakuraGlade.ƒS.Speech.hide();
-        let input = document.querySelector("dialog#start");
-        input.showModal();
-        await new Promise((_resolve) => {
-            input.querySelector("button").addEventListener("click", _resolve);
-        });
-        let form = new FormData(document.forms[0]);
-        while (form.get("name") == "") {
-            alert('You have to input a name!');
-            await new Promise((_resolve) => {
-                input.querySelector("button").addEventListener("click", _resolve);
-            });
-            form = new FormData(document.forms[0]);
-        }
-        SakuraGlade.dataForSave.nameProtagonist = form.get("name");
-        SakuraGlade.dataForSave.genderProtagonist = form.get("pronouns");
-        input.close();
-        SakuraGlade.ƒS.update(1);
-    }
-    SakuraGlade.Start = Start;
-})(SakuraGlade || (SakuraGlade = {}));
-var SakuraGlade;
-(function (SakuraGlade) {
     async function WelcomeSakuraGlade() {
         console.log("Welcome to Sakura Glade starting");
         await SakuraGlade.ƒS.Progress.delay(1);
@@ -751,7 +794,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.amaya);
         await SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(She's impossible to get more information from. I guess I'll have to wait for my permit before I come back here.)</i>");
-        SakuraGlade.day1Locations();
+        SakuraGlade.dataForSave.day1TalkedTo.push(SakuraGlade.characters.amaya);
     }
     SakuraGlade.Day1Amaya = Day1Amaya;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -804,7 +847,6 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.hide();
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
         await SakuraGlade.ƒS.update(2);
-        SakuraGlade.Day2Morning();
     }
     SakuraGlade.Day1Fumiko = Day1Fumiko;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -882,7 +924,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
         await SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(She left. I need to get better at this. I know more now, but it all still makes her the number one suspect. Maybe I can find out more elsewhere.)</i>");
-        SakuraGlade.day1Locations();
+        SakuraGlade.dataForSave.day1TalkedTo.push(SakuraGlade.characters.kohana);
     }
     SakuraGlade.Day1Kohana = Day1Kohana;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1008,7 +1050,6 @@ var SakuraGlade;
         await SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "...");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(He left... There was definitely something off about him... and where did he have to hurry to so suddenly? I guess I'll ask him later. I should talk to Kohana and find out why she was suspected in the first place.)</i>");
-        SakuraGlade.day1Locations();
     }
     SakuraGlade.Day1Morning = Day1Morning;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1043,7 +1084,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Inventory.open();
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Hmm... who is Hina?)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(This might actually become important. I should ask him about it when I see him again. For now, I better leave.)</i>");
-        SakuraGlade.day1Locations();
+        SakuraGlade.dataForSave.day1TalkedTo.push(SakuraGlade.characters.nobu);
     }
     SakuraGlade.Day1Nobu = Day1Nobu;
 })(SakuraGlade || (SakuraGlade = {}));

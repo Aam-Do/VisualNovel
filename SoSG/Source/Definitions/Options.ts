@@ -1,5 +1,5 @@
 namespace SakuraGlade {
-    export async function day1Locations(): Promise<any> {
+    export async function day1Locations(): ƒS.SceneReturn {
         let options = {
             kohana: "Talk to Kohana",
             amaya: "Go to the Sacred Tree",
@@ -21,42 +21,74 @@ namespace SakuraGlade {
             switch (optionsElement) {
                 case options.kohana:
                     // continue path here
-                    dataForSave.day1TalkedTo.push(characters.kohana);
                     ƒS.Speech.clear();
                     ƒS.Speech.hide();
-                    Day1Kohana();
-                    delete options.kohana;
-                    console.log(dataForSave.day1TalkedTo);
-                    break;
+                    return "Day1Kohana";
                 case options.amaya:
                     // continue path here
-                    dataForSave.day1TalkedTo.push(characters.amaya);
                     ƒS.Speech.clear();
                     ƒS.Speech.hide();
-                    Day1Amaya();
-                    delete options.amaya;
-                    console.log(dataForSave.day1TalkedTo);
-                    break;
+                    return "Day1Amaya";
                 case options.nobu:
                     // continue path here
                     if (dataForSave.day1TalkedTo.includes(characters.kohana)) {
-                        dataForSave.day1TalkedTo.push(characters.nobu);
                         ƒS.Speech.clear();
                         ƒS.Speech.hide();
-                        Day1Nobu();
-                        delete options.nobu;
-                        console.log(dataForSave.day1TalkedTo);
+                        return "Day1Nobu";
                     } else {
                         await ƒS.Speech.tell(characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him...)</i>");
-                        day1Locations();
+                        return "Day1Locations";
                     }
-                    break;
             }
         }
         else {
             ƒS.Speech.clear();
             ƒS.Speech.hide();
-            Day1Fumiko();
+            return "Day1Fumiko";
+        }
+    }
+
+    export async function day2Locations(): ƒS.SceneReturn {
+        let options = {
+            amaya: "Sacred Tree",
+            kohana: "Temple",
+            fumiko: "Village Square",
+            nobu: "Nobu’s Home",
+            inn: "Back to Inn"
+        }
+
+        let optionsElement = await ƒS.Menu.getInput(options, "choices");
+        switch (optionsElement) {
+            case options.amaya:
+                // continue path here
+                ƒS.Speech.clear();
+                ƒS.Speech.hide();
+                return "Day2Amaya";
+            case options.kohana:
+                // continue path here
+                ƒS.Speech.clear();
+                ƒS.Speech.hide();
+                return "Day2Kohana";
+            case options.fumiko:
+                // continue path here
+                ƒS.Speech.clear();
+                ƒS.Speech.hide();
+                return "Day2Fumiko";
+            case options.nobu:
+                // continue path here
+                ƒS.Speech.clear();
+                ƒS.Speech.hide();
+                return "Day2Nobu";
+            case options.inn:
+                // continue path here
+                if (dataForSave.day1TalkedTo.includes(characters.kohana)) {
+                    ƒS.Speech.clear();
+                    ƒS.Speech.hide();
+                    return "Day1Nobu";
+                } else {
+                    await ƒS.Speech.tell(characters.protagonist, "<i>(Nobu asked me to talk to Kohana. I should do that before I start looking for him...)</i>");
+                    return "Day1Locations";
+                }
         }
     }
 }

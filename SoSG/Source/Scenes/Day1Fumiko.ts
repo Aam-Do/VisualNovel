@@ -49,6 +49,5 @@ namespace SakuraGlade {
         await ƒS.Location.show(locations.blackout);
         await ƒS.update(2);
 
-        Day2Morning();
     }
 }

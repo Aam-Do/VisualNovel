@@ -30,6 +30,6 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm... who is Hina?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This might actually become important. I should ask him about it when I see him again. For now, I better leave.)</i>");
         
-        day1Locations();
+        dataForSave.day1TalkedTo.push(characters.nobu);
     }
 }

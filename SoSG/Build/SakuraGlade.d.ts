@@ -168,16 +168,17 @@ declare namespace SakuraGlade {
     export {};
 }
 declare namespace SakuraGlade {
-    function day1Locations(): Promise<any>;
+    function day1Locations(): ƒS.SceneReturn;
+    function day2Locations(): ƒS.SceneReturn;
+}
+declare namespace SakuraGlade {
+    function Start(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
     function FairieForest(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
     function Intro(): ƒS.SceneReturn;
-}
-declare namespace SakuraGlade {
-    function Start(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
     function WelcomeSakuraGlade(): ƒS.SceneReturn;

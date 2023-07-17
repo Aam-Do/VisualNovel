@@ -16,8 +16,13 @@ namespace SakuraGlade {
       input.querySelector("button").addEventListener("click", _resolve)
     });
     let form: FormData = new FormData(document.forms[0]);
-    while (form.get("name") == "") {
-      alert('You have to input a name!');
+    while (!document.forms[0].checkValidity() || form.get("name") == "") {
+      if(form.get("name") == "") {
+        alert('You have to input a name!');
+      }
+      if(!document.forms[0].checkValidity()) {
+      alert('Your name may not contain special characters!');
+      }
       await new Promise((_resolve) => {
         input.querySelector("button").addEventListener("click", _resolve)
       });

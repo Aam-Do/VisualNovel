@@ -73,6 +73,6 @@ namespace SakuraGlade {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(She left. I need to get better at this. I know more now, but it all still makes her the number one suspect. Maybe I can find out more elsewhere.)</i>");
         
-        day1Locations();
+        dataForSave.day1TalkedTo.push(characters.kohana);
     }
 }

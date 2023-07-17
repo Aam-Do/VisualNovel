@@ -28,6 +28,7 @@
       <content>
         <!-- The text the character says -->
       </content>
+      <button id="inv-open"><i class="fa-solid fa-toolbox"></i></button>
     </speech>
     <dialog type="inventory" class="inventory">
       <button type="button" id="inv-close"><i class="fa-solid fa-xmark"></i></button>
@@ -41,7 +42,7 @@
     <dialog id="start">
       <form>
         <label for='name'>Please input your name (max. 15 characters)
-          <input type='text' name='name' id='name' placeholder='Name' required pattern="[A-Za-z]{3}" title="Name (no special characters)"></label>
+          <input type='text' name='name' id='name' placeholder='Name' required maxlength="15" pattern="[A-Za-z]{0,}"></label>
         <label for='pronouns'>Please select your preferred pronouns
           <select name='pronouns' id='pronouns'>
             <option value='diverse' selected>they/them</option>

@@ -122,7 +122,5 @@ namespace SakuraGlade {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "...");
         await ƒS.Speech.tell(characters.protagonist, "<i>(He left... There was definitely something off about him... and where did he have to hurry to so suddenly? I guess I'll ask him later. I should talk to Kohana and find out why she was suspected in the first place.)</i>");
-
-        day1Locations();
     }
 }

@@ -45,6 +45,6 @@ namespace SakuraGlade {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(She's impossible to get more information from. I guess I'll have to wait for my permit before I come back here.)</i>");
 
-        day1Locations();
+        dataForSave.day1TalkedTo.push(characters.amaya);
     }
 }

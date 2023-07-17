@@ -277,7 +277,7 @@ namespace SakuraGlade {
         console.log("Load");
         await ƒS.Progress.load();
         break;
-      case ƒ.KEYBOARD_CODE.M:
+      case ƒ.KEYBOARD_CODE.ESC:
         if (menuIsOpen) {
           console.log("Close");
           gameMenu.close();
@@ -318,20 +318,32 @@ namespace SakuraGlade {
       // { scene: Intro, name: "Intro Scene" },
       // { scene: FairieForest, name: "Fairie Forest" },
       // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-      // { scene: Day1Morning, name: "Day 1 Morning" },
-      // { scene: Day2Morning, name: "Test" },
-      // { scene: Day2SacredTree, name: "Test" },
-      // { scene: Day2Amaya, name: "Test" },
-      // { scene: Day2Kohana, name: "Test" },
-      // { scene: Day2Nobu, name: "Test" },
-      // { scene: Day2Fumiko, name: "Test" },
-      // { scene: Day2Evening, name: "Test" },
+      { scene: Day1Morning, name: "Day 1 Morning", next:"Day1Locations" },
+
+      { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+      { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next:"Day1Locations" },
+      { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next:"Day1Locations" },
+      { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next:"Day1Locations" },
+
+      { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+
+      { scene: Day2Morning, name: "Day 2 Morning" },
+      { scene: Day2SacredTree, name: "Day 2 Sacred Tree" },
+      
+      { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },
+      { id: "Day2Amaya", scene: Day2Amaya, name: "Day 2 Amaya", next:"Day2Locations" },
+      { id: "Day2Kohana", scene: Day2Kohana, name: "Day 2 Kohana", next:"Day2Locations" },
+      { id: "Day2Nobu", scene: Day2Nobu, name: "Day 2 Nobu", next:"Day2Locations" },
+      { id: "Day2Fumiko", scene: Day2Fumiko, name: "Fumiko", next:"Day2Locations" },
+
+      { id: "Day2Evening", scene: Day2Evening, name: "Day 2 Evening" },
+      
       // { scene: Day2Breakdown, name: "Test" },
       // { scene: Day3Morning, name: "Test" },
       // { scene: Day3Showdown, name: "Test" },
       // { scene: badEnding, name: "Test" },
-      { scene: bittersweetEnding, name: "Test" },
-      { scene: goodEnding, name: "Test" },
+      // { scene: bittersweetEnding, name: "Test" },
+      // { scene: goodEnding, name: "Test" },
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
