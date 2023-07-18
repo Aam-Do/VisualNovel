@@ -396,6 +396,10 @@ content {
   text-align: center;
 }
 
+.inventory ul li.selected {
+outline: 2px solid #FCF6BD;
+}
+
 .inventory .present {
   align-self: center;
 }

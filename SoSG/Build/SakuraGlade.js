@@ -187,14 +187,41 @@ var SakuraGlade;
             handler: hndItem,
         }
     };
-    function hndItem(_event) {
+    async function hndItem(_event) {
         if (_event.type == "pointerdown") {
-            let targetId = _event.detail.replace(/ /g, "_");
-            let target = document.querySelector('#' + targetId);
+            let targetName = _event.detail;
+            let targetId = targetName.replace(/ /g, "_");
+            let targetElement = document.querySelector('#' + targetId);
             let present = document.querySelector('#present');
+            if (targetElement.classList.contains('selected')) {
+                targetElement.classList.remove('selected');
+            }
+            else {
+                if (document.querySelector('.selected')) {
+                    document.querySelector('.selected').classList.remove('selected');
+                }
+                targetElement.classList.add('selected');
+            }
+            // vvv most of that should be checked when opening the inventory!!
+            // if during day2 investigations
             if (SakuraGlade.currentCharacter) {
                 present.classList.remove('hidden');
+                // hide close button / disable inventroy close
                 // AWAIT character reaction
+            }
+            // if good ending final scene
+            if (SakuraGlade.extraItemInteraction == SakuraGlade.items.moonBead) {
+                // hide close button / disable inventroy close
+            }
+            // if amaya permnit scene
+            if (SakuraGlade.extraItemInteraction == SakuraGlade.items.permit) {
+                // hide close button / disable inventroy close
+                if (targetName == SakuraGlade.items.permit.name && targetElement.classList.contains('selected')) {
+                    present.classList.remove('hidden');
+                }
+                else {
+                    present.classList.add('hidden');
+                }
             }
         }
     }
@@ -1944,8 +1971,12 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Have you received my permit?");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Yes, ma'am.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Show it to me.");
+        // for testing
+        SakuraGlade.ƒS.Inventory.add(SakuraGlade.items.permit);
+        SakuraGlade.extraItemInteraction = SakuraGlade.items.permit;
         await SakuraGlade.ƒS.Inventory.open();
         // wait for player to present permit
+        SakuraGlade.extraItemInteraction = undefined;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Good. Don't lose it.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I wasn't intending to...)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Can I ask you another question?");

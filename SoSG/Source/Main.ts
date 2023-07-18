@@ -127,8 +127,6 @@ namespace SakuraGlade {
     }
   };
 
-  export let currentCharacter: ƒS.CharacterDefinition;
-
   export let items = {
     phone: {
       name: "Phone",
@@ -195,14 +193,48 @@ namespace SakuraGlade {
     }
   };
 
-  function hndItem(_event: CustomEvent): void {
+  export let extraItemInteraction: any;
+  export let currentCharacter: ƒS.CharacterDefinition;
+
+  async function hndItem(_event: CustomEvent): Promise<void> {
     if (_event.type == "pointerdown") {
-      let targetId: string = _event.detail.replace(/ /g, "_");
-      let target: HTMLElement = document.querySelector('#' + targetId);
+      let targetName = _event.detail;
+      let targetId: string = targetName.replace(/ /g, "_");
+      let targetElement: HTMLElement = document.querySelector('#' + targetId);
       let present: HTMLButtonElement = document.querySelector('#present');
+
+      if (targetElement.classList.contains('selected')) {
+        targetElement.classList.remove('selected');
+      } else {
+        if (document.querySelector('.selected')) {
+          document.querySelector('.selected').classList.remove('selected');
+        }
+        targetElement.classList.add('selected');
+      }
+
+      // vvv most of that should be checked when opening the inventory!!
+
+      // if during day2 investigations
       if (currentCharacter) {
         present.classList.remove('hidden');
+        // hide close button / disable inventroy close
         // AWAIT character reaction
+      }
+
+      // if good ending final scene
+      if (extraItemInteraction == items.moonBead) {
+        // hide close button / disable inventroy close
+
+      }
+
+      // if amaya permnit scene
+      if (extraItemInteraction == items.permit) {
+        // hide close button / disable inventroy close
+        if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
+          present.classList.remove('hidden');
+        } else {
+          present.classList.add('hidden');
+        }
       }
     }
   }

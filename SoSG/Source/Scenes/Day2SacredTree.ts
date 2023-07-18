@@ -14,8 +14,12 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "Have you received my permit?");
         await ƒS.Speech.tell(characters.protagonist, "Yes, ma'am.");
         await ƒS.Speech.tell(characters.amaya, "Show it to me.");
+        // for testing
+        ƒS.Inventory.add(items.permit);
+        extraItemInteraction = items.permit;
         await ƒS.Inventory.open();
         // wait for player to present permit
+        extraItemInteraction = undefined;
         await ƒS.Speech.tell(characters.amaya, "Good. Don't lose it.");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I wasn't intending to...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "Can I ask you another question?");
