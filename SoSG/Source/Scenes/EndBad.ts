@@ -2,6 +2,7 @@ namespace SakuraGlade {
     export async function BadEnding(): ƒS.SceneReturn {
         console.log("Bad Ending starting");
 
+        ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.Speech.tell(characters.fumiko, "Stop it!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Fumiko…?)</i>");
         let pronouns: string = "He is";
@@ -10,6 +11,7 @@ namespace SakuraGlade {
         } else if (dataForSave.genderProtagonist == "diverse") {
             pronouns = "They are";
         }
+        ƒS.Sound.play(sound.sad, .5, true);
         await ƒS.Speech.tell(characters.fumiko, "Just stop… " + pronouns + " wrong!");
         await ƒS.Speech.tell(characters.amaya, "How would you know that, Fumiko?");
         await ƒS.Speech.tell(characters.fumiko, "I… I can’t sit by and watch while someone innocent has to take the blame for something that I did…");
@@ -20,10 +22,10 @@ namespace SakuraGlade {
         await ƒS.Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "How?");
         await ƒS.Speech.tell(characters.fumiko, "I stole the replica when Kohana was bathing… I’m sorry, Kohana. I didn’t think they’d immediately suspect you.");
-            ƒS.Speech.setTickerDelays(60, 5000);
-            await ƒS.Speech.tell(characters.kohana, "…Mh.");
-            ƒS.Speech.setTickerDelays(40, 5000);
-            await ƒS.Speech.tell(characters.fumiko, "Then I waited for Amaya to leave for her… break.");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "…Mh.");
+        ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Speech.tell(characters.fumiko, "Then I waited for Amaya to leave for her… break.");
         await ƒS.Speech.tell(characters.amaya, "You were watching me? You knew all this time?");
         await ƒS.Speech.tell(characters.fumiko, "It was the perfect opportunity.");
         await ƒS.Speech.tell(characters.fumiko, "But then Nobu came by, and I lost my earring. I couldn’t go back to get it anymore.");
@@ -42,14 +44,14 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "I… <i>(In the end, I wasn’t able to help at all. I suppose sometimes that’s how it goes. At least the real culprit revealed herself…)</i>");
         await ƒS.Character.hide(characters.nobu);
         await ƒS.update(1);
-            ƒS.Speech.setTickerDelays(60, 5000);
-            await ƒS.Speech.tell(characters.kohana, "… It’s alright, Dreamer. We learn from our mistakes.");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "… It’s alright, Dreamer. We learn from our mistakes.");
         await ƒS.Speech.tell(characters.kohana, "...");
         await ƒS.Speech.tell(characters.kohana, "Now, it’s time…");
         await ƒS.Speech.tell(characters.kohana, "...");
         await ƒS.Speech.tell(characters.kohana, "Goodbye, Worldleaper…");
-            ƒS.Speech.setTickerDelays(40, 5000);
-            await ƒS.Character.hide(characters.kohana);
+        ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Character.hide(characters.kohana);
         await ƒS.Location.show(locations.blackout);
         ƒS.update(5);
         // disable inventory
@@ -64,6 +66,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(I’m back in my room? When did I get here? … was it all just a dream?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(It’s all so hazy… What was I doing again…?)</i>");
+        ƒS.Sound.fade(sound.sad, 0, 2);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
     }

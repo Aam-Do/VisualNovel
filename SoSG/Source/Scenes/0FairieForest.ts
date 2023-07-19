@@ -59,8 +59,10 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell("???", "Oh dear, it seems you're quite confused. You don't look so well either...");
         await ƒS.Speech.tell("???", "Are you hurt?");
+        ƒS.Sound.fade(sound.forest, 0, 2)
         await ƒS.Speech.tell(characters.protagonist, "...No I don't think so.");
         await ƒS.Speech.tell("???", "That's a relief!");
+        ƒS.Sound.play(sound.nobu, .4, true);
         await ƒS.Speech.tell("???", "Oh I almost forgot!");
         await ƒS.Speech.tell(characters.nobu, "I'm Nobu, it's a pleasure to meet you.");
         await ƒS.Speech.tell(characters.protagonist, "I'm... " + dataForSave.nameProtagonist + ".");
@@ -97,6 +99,7 @@ namespace SakuraGlade {
         ƒS.Speech.hide();
         ƒS.Character.hide(characters.nobu);
         ƒS.Location.show(locations.blackout);
+        ƒS.Sound.fade(sound.nobu, 0, 2)
         await ƒS.update(1);
     }
 }

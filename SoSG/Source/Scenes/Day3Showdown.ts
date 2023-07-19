@@ -7,6 +7,7 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(35, 100));
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(55, 100));
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+        ƒS.Sound.play(sound.village, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Everyone’s gathered… Amaya, Kohana, Nobu, Fumiko.)</i>");

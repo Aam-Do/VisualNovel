@@ -9,25 +9,26 @@ namespace SakuraGlade {
     // cpms = characters per millisecond
     ƒS.Speech.setTickerDelays(40, 5000);
     await ƒS.Progress.delay(1);
+    ƒS.Sound.play(sound.forest, .5, true);
     await ƒS.Location.show(locations.forestHome);
     await ƒS.update(1);
-    // await ƒS.Progress.delay(2);
+    await ƒS.Progress.delay(2);
     ƒS.Speech.show()
-    // await ƒS.Progress.delay(1);
+    await ƒS.Progress.delay(1);
     await ƒS.Speech.tell(characters.protagonist, "(<i>Whew, what a day!</i>)");
     await ƒS.Speech.tell(characters.protagonist, "(<i>Three lectures of Advanced Biology and no breaks... And I've got the presentation coming up soon too...<br>Ugh, I still need a good topic. Guess I'll have to hit the books first when I get home.</i>)");
     await ƒS.Speech.tell(characters.protagonist, "(<i>Yeesh, I can't wait to go to bed!</i>)");
     ƒS.Speech.hide();
-    // await ƒS.Progress.delay(2);
+    await ƒS.Progress.delay(2);
     await ƒS.Speech.tell(characters.protagonist, "(<i>Ah... the cool spring air is so refreshing. Feels like I sat in stuffy lecture halls all day!<br>I used to hate having to walk home through the forest, but on a day like this it's almost a blessing.</i>)");
     ƒS.Speech.hide();
-    // await ƒS.Progress.delay(2);
+    await ƒS.Progress.delay(2);
     ƒS.Speech.setTickerDelays(100, 5000);
     await ƒS.Speech.tell(characters.protagonist, "(<i>... what's that?</i>)");
     ƒS.Speech.setTickerDelays(40, 5000);
     await ƒS.Speech.tell(characters.protagonist, "(<i>There's a faint light coming from the forest. Did someone get lost in the woods again?<br>I should go check it out.</i>)");
     ƒS.Speech.hide();
-    // await ƒS.Progress.delay(2);
+    await ƒS.Progress.delay(2);
     await ƒS.Speech.tell(characters.protagonist, "(<i>Hmm... no one to be seen.</i>)");
     await ƒS.Speech.tell(characters.protagonist, "(<i>Just this...<br>tree stump that appears to be glowing?</i>)");
     ƒS.Speech.hide();

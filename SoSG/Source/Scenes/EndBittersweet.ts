@@ -2,9 +2,11 @@ namespace SakuraGlade {
     export async function BittersweetEnding(): ƒS.SceneReturn {
         console.log("Bittersweet Ending starting");
 
+        ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.Speech.tell(characters.protagonist, "It was Fumiko. She stole the replica from Kohana while she was taking a bath, snuck to the Tree while Amaya wasn’t looking and exchanged the Beads.");
         await ƒS.Speech.tell(characters.protagonist, "But she didn’t anticipate Nobu coming by for a midnight stroll, so she had to leave hurriedly, which is where she lost her earring!");
         await ƒS.Speech.tell(characters.amaya, "Is that true? Look at me, Fumiko. Is that true?");
+        ƒS.Sound.play(sound.fumiko, .5, true);
         await ƒS.Speech.tell(characters.fumiko, "…Yes. It’s true.");
         // don't forget surprised reactions!
         await ƒS.Speech.tell(characters.fumiko, "I… didn’t have another choice. Please. Believe me.");
@@ -32,12 +34,14 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.nobu, "Now, let’s celebrate! You don’t want to miss this!");
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Character.hide(characters.kohana);
+        ƒS.Sound.fade(sound.fumiko, 0, 2)
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, that’s good news. Kohana has been declared not guilty and the Spring Festival can take place.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(And, I’ll get to attend it as well!</i>");
         ƒS.Speech.clear();
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.festival);
+        ƒS.Sound.play(sound.festival, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah… the festival is enormous, for such a small village. There’s music and booths and everyone contributed something.)</i>");
@@ -67,6 +71,7 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Location.show(locations.blackout);
+        ƒS.Sound.fade(sound.festival, 0, 5)
         ƒS.update(5);
         // disable inventory
         await ƒS.Speech.tell(characters.protagonist, "You guys… Goodbye!");

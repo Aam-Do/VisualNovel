@@ -14,7 +14,8 @@ namespace SakuraGlade {
             await ƒS.Inventory.open();
             dataForSave.day2TalkedTo.push(characters.amaya);
         } else {
-            // await ƒS.Progress.delay(1);
+            ƒS.Sound.play(sound.amaya, .5, true);
+            await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.sacredTree);
             await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
             await ƒS.update(2);
@@ -24,6 +25,7 @@ namespace SakuraGlade {
         }
         // for testing 
         await ƒS.Character.hide(characters.amaya);
+        ƒS.Sound.fade(sound.amaya, 0, 2)
         await ƒS.update(1);
 
         ƒS.Speech.clear();

@@ -3,6 +3,7 @@ namespace SakuraGlade {
         console.log("Welcome to Sakura Glade starting");
 
         await ƒS.Progress.delay(1);
+        ƒS.Sound.play(sound.village, .5, true);
         await ƒS.Location.show(locations.sakuraGladeNight);
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
         await ƒS.update(1);
@@ -97,6 +98,7 @@ namespace SakuraGlade {
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+        ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Location.show(locations.innNight);
         await ƒS.update(1);

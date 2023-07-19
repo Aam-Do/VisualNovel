@@ -2,10 +2,10 @@ namespace SakuraGlade {
     export async function GoodEnding(): ƒS.SceneReturn {
         console.log("Good Ending starting");
 
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.innDay);
         await ƒS.update(2);
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(I fell asleep immediately the second I got back to my bed.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well then. If all goes well now, I can clear Kohana’s name and help Fumiko out. Let’s get going!)</i>");
@@ -16,6 +16,7 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(35, 100));
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(55, 100));
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+        ƒS.Sound.play(sound.village, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Everyone’s gathered… Amaya, Kohana, Nobu, Fumiko.)</i>");
@@ -27,8 +28,10 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.amaya, "Well then, Cub. We’ve put our trust in you. So? Tell us. Who was the real culprit behind the theft of the Moon Bead?");
         await ƒS.Speech.tell(characters.protagonist, "Actually, we’ve got something to tell you.");
+        ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.Speech.tell(characters.nobu, "We?");
         await ƒS.Speech.tell(characters.protagonist, "Fumiko, would you come to me?");
+        ƒS.Sound.play(sound.fumiko, .5, true);
         await ƒS.Speech.tell(characters.fumiko, "Yes. … I have something to tell you.");
         await ƒS.Speech.tell(characters.amaya, "What is the meaning of this…?");
         await ƒS.Speech.tell(characters.protagonist, "Please listen to her. She entrusted herself to me yesterday. I’m sure you’ll all feel the same as me when she’s done explaining.");
@@ -83,12 +86,14 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.amaya);
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.hide(characters.fumiko);
+        ƒS.Sound.fade(sound.fumiko, 0, 2)
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(That went even better than expected! I’m glad I could convince Fumiko to speak up for herself. Even though the Moon Bead can’t actually fulfill wishes, it seems her wish did come true after all. She’ll finally be able to have a chance at her own life…)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(And now, I even get to attend the festival! I better get going.)</i>");
         ƒS.Speech.clear();
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.festival);
+        ƒS.Sound.play(sound.festival, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah… the festival is enormous, for such a small village. There’s music and booths and everyone contributed something.)</i>");
@@ -137,6 +142,7 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Character.hide(characters.fumiko);
+        ƒS.Sound.fade(sound.festival, 0, 5)
         ƒS.update(5);
         // disable inventory
         await ƒS.Speech.tell(characters.protagonist, "You guys… Goodbye!");

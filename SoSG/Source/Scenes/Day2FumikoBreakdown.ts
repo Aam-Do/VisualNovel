@@ -2,6 +2,7 @@ namespace SakuraGlade {
     export async function Day2Breakdown(): ƒS.SceneReturn {
         console.log("Day 2 Breakdown starting");
         await ƒS.Location.show(locations.innNight);
+        ƒS.Sound.play(sound.sad, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>((Something woke me up... Is it morning yet? No, it’s still dark out.)</i>");
@@ -83,6 +84,7 @@ namespace SakuraGlade {
                 ƒS.Speech.hide();
                 await ƒS.Character.hide(characters.fumiko);
                 await ƒS.Location.show(locations.blackout);
+                ƒS.Sound.fade(sound.sad, 0, 2);
                 await ƒS.update(2);
                 // skip to good ending
                 return "GoodEnding";
@@ -101,6 +103,7 @@ namespace SakuraGlade {
                 ƒS.Speech.clear();
                 ƒS.Speech.hide();
                 await ƒS.Location.show(locations.blackout);
+                ƒS.Sound.fade(sound.sad, 0, 2);
                 await ƒS.update(2);
                 return "Day3Morning";
         }

@@ -4,6 +4,7 @@ namespace SakuraGlade {
 
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.sakuraGladeDay);
+        ƒS.Sound.play(sound.village, .5, true);
         await ƒS.update(2);
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
@@ -29,6 +30,7 @@ namespace SakuraGlade {
         await ƒS.Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm... who is Hina?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This might actually become important. I should ask him about it when I see him again. For now, I better leave.)</i>");
+        ƒS.Sound.fade(sound.village, 0, 2)
         
         dataForSave.day1TalkedTo.push(characters.nobu);
     }

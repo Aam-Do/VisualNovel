@@ -2,15 +2,18 @@ namespace SakuraGlade {
     export async function Day1Fumiko(): ƒS.SceneReturn {
         console.log("Day 1 Fumiko starting");
 
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
+        ƒS.Sound.play(sound.village, .5, true);
         await ƒS.Location.show(locations.sakuraGladeEvening);
         await ƒS.update(2);
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Oh, today went by really quickly. I don't feel like I'm any smarter now though. Well, time to head back to the inn to sleep over it and really start through tomorrow!)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(OH!)</i>");
+        ƒS.Sound.fade(sound.village, 0, 1)
         // shake/flash screen animation
         await ƒS.Speech.tell(characters.protagonist, "<i>(Someone bumped into me...?)</i>");
+        ƒS.Sound.play(sound.fumiko, .5, true);
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell("???", "Ah! I'm so sorry!");
@@ -39,6 +42,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "Ah, don't worry about it. I love doing the village service.");
         await ƒS.Speech.tell(characters.fumiko, "Well then, Precious, I better get going before it gets too late. My parents will worry. I'll see you around!");
         await ƒS.Speech.tell(characters.protagonist, "See you!");
+        ƒS.Sound.fade(sound.fumiko, 0, 2)
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well... that was nice. She seems lovely.)</i>");

@@ -5,6 +5,7 @@ namespace SakuraGlade {
         if (!dataForSave.day2TalkedTo.includes(characters.nobu)) {
             await ƒS.Location.show(locations.nobuHome);
             await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
+            ƒS.Sound.play(sound.nobu, .4, true);
             await ƒS.update(2);
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.protagonist, "<i>(This time, he’s home and answered right away when I knocked.)</i>");
@@ -31,6 +32,7 @@ namespace SakuraGlade {
             // await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.nobuHome);
             await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
+            ƒS.Sound.play(sound.nobu, .4, true);
             await ƒS.update(2);
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.nobu, "There you are again, Grasshopper. Busy as always. Find something new?");
@@ -39,6 +41,7 @@ namespace SakuraGlade {
 
         // for testing 
         await ƒS.Character.hide(characters.nobu);
+        ƒS.Sound.fade(sound.nobu, 0, 2)
         await ƒS.update(1);
 
         ƒS.Speech.clear();

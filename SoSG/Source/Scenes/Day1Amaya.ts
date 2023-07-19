@@ -2,15 +2,16 @@ namespace SakuraGlade {
     export async function Day1Amaya(): ƒS.SceneReturn {
         console.log("Day 1 Amaya starting");
 
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.sacredTree);
         await ƒS.update(2);
-        // await ƒS.Progress.delay(1);
+        await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah... the Sacred Tree. I see why it's such a holy place. This tree is gigantic! And the cherry blossoms fill the air with a nice sweet scent...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I can see a little shrine at its roots, that's probably where the Moon Bead is usually kept. Let me take a closer look...)</i>");
         await ƒS.Speech.tell("???", "You can't go here.");
         await ƒS.Speech.tell(characters.protagonist, "What?");
+        ƒS.Sound.play(sound.amaya, .5, true);
         await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell("???", "A flightless fairy! Are your eyes broken as well? Can't you see this area is restricted at the moment?");
@@ -42,6 +43,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "Very good strategy. I shall look forward to the fruits of your investigations.");
         await ƒS.Speech.tell(characters.amaya, "I must ask you to leave now though. Come back another time when I've finished securing the area.");
         await ƒS.Character.hide(characters.amaya);
+        ƒS.Sound.fade(sound.amaya, 0, 2)
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(She's impossible to get more information from. I guess I'll have to wait for my permit before I come back here.)</i>");
 

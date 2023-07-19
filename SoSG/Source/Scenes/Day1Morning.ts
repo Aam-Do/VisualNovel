@@ -12,6 +12,7 @@ namespace SakuraGlade {
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.sakuraGladeDay);
         // SHOW VILLAGERS
+        ƒS.Sound.play(sound.village, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
         await ƒS.Speech.tell("Villager 1", "Have you heard the news already?");
@@ -58,10 +59,12 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, " O-of course! Uhm, my name is " + dataForSave.nameProtagonist + ". It's nice to meet you!");
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell("???", "Hmm... " + dataForSave.nameProtagonist + "...");
+        ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.Speech.tell("???", "...");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "<i>(What is it?)</i>");
         ƒS.Speech.setTickerDelays(60, 5000);
+        ƒS.Sound.play(sound.kohana, .5, true);
         await ƒS.Speech.tell(characters.kohana, "My name is Kohana. The pleasure is	mine... is that how you say that? I get confused sometimes...");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah...)</i> Don't worry about it. Now, what is all this about?");
@@ -79,7 +82,9 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.nobu, "Sprout, can I talk to you for a moment?");
         await ƒS.Speech.tell(characters.protagonist, "Sure.");
         await ƒS.Character.hide(characters.kohana);
+        ƒS.Sound.fade(sound.kohana, 0, 2)
         await ƒS.update(1);
+        ƒS.Sound.play(sound.village, .5, true);
         await ƒS.Speech.tell(characters.nobu, "That was some real courage you had there!");
         await ƒS.Speech.tell(characters.nobu, "You have an aura, I can't explain it. But I feel it too. And the villagers listened to you as well!");
         await ƒS.Speech.tell(characters.nobu, "They can be so cruel sometimes, jumping to conclusions like that. Kohana isn't very well-liked among them, she's... a little eccentric sometimes.");
@@ -119,6 +124,7 @@ namespace SakuraGlade {
 
         await ƒS.Speech.tell(characters.protagonist, "Wait!");
         await ƒS.Character.hide(characters.nobu);
+        ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "...");
         await ƒS.Speech.tell(characters.protagonist, "<i>(He left... There was definitely something off about him... and where did he have to hurry to so suddenly? I guess I'll ask him later. I should talk to Kohana and find out why she was suspected in the first place.)</i>");

@@ -18,9 +18,16 @@ namespace SakuraGlade {
 
   export let sound = {
     // themes
-    music: "path",
+    forest: "Audio/fantasy-classical-themes.mp3",
+    village: "Audio/koto.mp3",
+    festival: "Audio/ongaku.mp3",
+    nobu: "Audio/japan-origami.mp3",
+    kohana: "Audio/among-the-cherry-blossom.mp3",
+    amaya: "Audio/the-shinning-moon-princess.mp3",
+    fumiko: "Audio/in-the-place-far-away.mp3",
+    sad: "Audio/the-garden-of-ajisai.mp3",
     // SFX
-    drop: "path"
+    item: "Audio/pick-up-item.mp3"
   };
 
   export let locations = {
@@ -360,19 +367,19 @@ namespace SakuraGlade {
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
       { scene: Start, name: "Start Scene" },
-      // { scene: Intro, name: "Intro Scene" },
-      // { scene: FairieForest, name: "Fairie Forest" },
-      // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-      // { scene: Day1Morning, name: "Day 1 Morning", next:"Day1Locations" },
+      { scene: Intro, name: "Intro Scene" },
+      { scene: FairieForest, name: "Fairie Forest" },
+      { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
+      { scene: Day1Morning, name: "Day 1 Morning", next:"Day1Locations" },
 
-      // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
-      // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next:"Day1Locations" },
-      // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next:"Day1Locations" },
-      // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next:"Day1Locations" },
+      { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+      { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next:"Day1Locations" },
+      { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next:"Day1Locations" },
+      { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next:"Day1Locations" },
 
-      // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+      { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
 
-      // { scene: Day2Morning, name: "Day 2 Morning" },
+      { scene: Day2Morning, name: "Day 2 Morning" },
       { scene: Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
 
       { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },

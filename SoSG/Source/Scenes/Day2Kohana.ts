@@ -8,6 +8,7 @@ namespace SakuraGlade {
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.protagonist, "<i>(I don't know what I expected, but it was quite a long walk from the village center to here. Kohana lives here all by herself? It must get lonely up here...)</i>");
             await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+            ƒS.Sound.play(sound.kohana, .5, true);
             await ƒS.update(1);
             ƒS.Speech.setTickerDelays(60, 5000);
             await ƒS.Speech.tell(characters.kohana, "...you've come to see me, Dreamer?");
@@ -49,6 +50,7 @@ namespace SakuraGlade {
             // await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.temple);
             await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+            ƒS.Sound.play(sound.kohana, .5, true);
             await ƒS.update(2);
             ƒS.Speech.show();
             ƒS.Speech.setTickerDelays(60, 5000);
@@ -58,6 +60,7 @@ namespace SakuraGlade {
         }
         // for testing 
         await ƒS.Character.hide(characters.kohana);
+        ƒS.Sound.fade(sound.kohana, 0, 2)
         await ƒS.update(1);
 
         ƒS.Speech.clear();

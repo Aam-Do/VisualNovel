@@ -9,6 +9,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm… I was hoping to find Fumiko here somewhere, but it’s hard to make out anyone in this crowd…)</i>");
             await ƒS.Speech.tell(characters.protagonist, "<i>(Ah, there she is!)</i>");
             await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+            ƒS.Sound.play(sound.fumiko, .5, true);
             await ƒS.update(1);
             await ƒS.Speech.tell(characters.fumiko, "Ah, the wingless fairy from yesterday!");
             await ƒS.Speech.tell(characters.fumiko, "What are you doing here, Precious?");
@@ -39,6 +40,7 @@ namespace SakuraGlade {
             // await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.sakuraGladeDay);
             await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+            ƒS.Sound.play(sound.fumiko, .5, true);
             await ƒS.update(2);
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.fumiko, "Ah, you’re back, Precious. Is there something else you’d like to ask me about?");
@@ -46,6 +48,7 @@ namespace SakuraGlade {
         }
         // for testing 
         await ƒS.Character.hide(characters.fumiko);
+        ƒS.Sound.fade(sound.fumiko, 0, 2)
         await ƒS.update(1);
         ƒS.Speech.clear();
         ƒS.Speech.hide();

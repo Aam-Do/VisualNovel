@@ -5,6 +5,7 @@ namespace SakuraGlade {
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.sakuraGladeDay);
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+        ƒS.Sound.play(sound.kohana, .5, true);
         await ƒS.update(2);
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
@@ -70,6 +71,7 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "Oh, uhm. Of course. Thank you for all the information.");
         await ƒS.Character.hide(characters.kohana);
+        ƒS.Sound.fade(sound.kohana, 0, 2)
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(She left. I need to get better at this. I know more now, but it all still makes her the number one suspect. Maybe I can find out more elsewhere.)</i>");
         

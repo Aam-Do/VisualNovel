@@ -3,6 +3,7 @@ namespace SakuraGlade {
         console.log("Day 2 Sacred Tree starting");
 
         await ƒS.Progress.delay(1);
+        ƒS.Sound.play(sound.amaya, .5, true);
         await ƒS.Location.show(locations.sacredTree);
         await ƒS.update(2);
         await ƒS.Progress.delay(1);
