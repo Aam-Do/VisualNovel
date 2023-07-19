@@ -16,12 +16,12 @@ namespace SakuraGlade {
   //   }
   // };
 
-  // export let sound = {
-  //   // themes
-  //   music: "path",
-  //   // SFX
-  //   drop: "path"
-  // };
+  export let sound = {
+    // themes
+    music: "path",
+    // SFX
+    drop: "path"
+  };
 
   export let locations = {
     forestHome: {
@@ -38,19 +38,19 @@ namespace SakuraGlade {
     },
     sakuraGladeEvening: {
       name: "Sakura Glade (Evening)",
-      background: "Images/Locations/park.png"
+      background: "Images/Locations/park_evening.png"
     },
     sakuraGladeNight: {
       name: "Sakura Glade (Night)",
-      background: "Images/Locations/park.png"
+      background: "Images/Locations/park_night.png"
     },
     innDay: {
       name: "Cherrywood Lodge (Day)",
-      background: "Images/Locations/isolated-japanese-room.png"
+      background: "Images/Locations/inn.png"
     },
     innNight: {
       name: "Cherrywood Lodge (Night)",
-      background: "Images/Locations/isolated-japanese-room.png"
+      background: "Images/Locations/inn_night.png"
     },
     nobuHome: {
       name: "Nobu's Home",
@@ -180,14 +180,14 @@ namespace SakuraGlade {
     moonBead: {
       name: "The Moon Bead",
       description: "The Moon Bead. It’s perfectly round and smooth and made from a material I’ve never seen before. Legend has it it’s a tear from the Moon God and can fulfill wishes.",
-      image: "Images/Items/replica.png",
+      image: "Images/Items/moonBead.png",
       static: true,
       handler: hndItem,
     },
     crystalEarring: {
       name: "Crystal Earring",
       description: "The undamaged counterpart of Fumiko’s crystal earring. She gave it to me to remember her. ",
-      image: "Images/Items/replica.png",
+      image: "Images/Items/earring.png",
       static: true,
       handler: hndItem,
     }
@@ -223,15 +223,22 @@ namespace SakuraGlade {
 
       // if good ending final scene
       if (extraItemInteraction == items.moonBead) {
-        // hide close button / disable inventroy close
+        // hide close button / disable inventroy close (do that before opening!)
+        if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
+          present.classList.remove('hidden');
+          // do something
+        } else {
+          present.classList.add('hidden');
+        }
 
       }
 
       // if amaya permnit scene
       if (extraItemInteraction == items.permit) {
-        // hide close button / disable inventroy close
+        // hide close button / disable inventroy close (do that before opening!)
         if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
           present.classList.remove('hidden');
+          // do something
         } else {
           present.classList.add('hidden');
         }

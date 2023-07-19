@@ -1,6 +1,10 @@
 declare namespace SakuraGlade {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
+    export let sound: {
+        music: string;
+        drop: string;
+    };
     export let locations: {
         forestHome: {
             name: string;
