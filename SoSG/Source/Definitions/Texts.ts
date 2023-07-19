@@ -78,8 +78,10 @@ namespace SakuraGlade {
                             await ƒS.Speech.tell(characters.amaya, "Listen, Cub. I’d prefer this to be kept quiet.");
                             await ƒS.Speech.tell(characters.amaya, "I’m only telling you because, well, I don’t think I would’ve been able to keep it secret from you for long. It had to come out at some point.");
                             await ƒS.Speech.tell(characters.amaya, "…");
+                            ƒS.Sound.fade(sound.amaya, 0, 2);
                             await ƒS.Speech.tell(characters.amaya, "I might’ve not been on my post at that time.");
                             await ƒS.Speech.tell(characters.protagonist, "What were you doing then?");
+                            ƒS.Sound.play(sound.sad, .5, true);
                             await ƒS.Speech.tell(characters.amaya, "…");
                             await ƒS.Speech.tell(characters.amaya, "You know… I used to have a family.");
                             await ƒS.Speech.tell(characters.amaya, "A husband. A child on its way…");
@@ -104,6 +106,8 @@ namespace SakuraGlade {
                             await ƒS.Speech.tell(characters.amaya, "I’m sorry I couldn’t tell you this earlier. Please keep it quiet. My life depends on this job.");
                             await ƒS.Speech.tell(characters.protagonist, "Of course. I’m in no position to talk about what you just told me.");
                             await ƒS.Speech.tell(characters.amaya, "Thank you, Cub.");
+                            ƒS.Sound.fade(sound.sad, 0, 2);
+                            ƒS.Sound.play(sound.amaya, .5, true);
                         } else {
                             await ƒS.Speech.tell(characters.amaya, "Please don't make me repeat myself...");
                             await ƒS.Speech.tell(characters.protagonist, "Could you just remind me when exactly you were absent from your post?");
@@ -378,7 +382,9 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.protagonist, "I was searching for you yesterday and stumbled upon it.");
                     await ƒS.Speech.tell(characters.nobu, "You shouldn’t go through other people’s things so carelessly…");
                     await ƒS.Speech.tell(characters.protagonist, " I know, I’m sorry… But… You asked me to investigate, so I have to ask. Who is Hina?");
+                    ƒS.Sound.fade(sound.nobu, 0, 2);
                     await ƒS.Speech.tell(characters.nobu, "I guess you had to find out sooner or later.");
+                    ƒS.Sound.play(sound.sad, .5, true);
                     await ƒS.Speech.tell(characters.nobu, "She’s my daughter. Her mother and I used to travel the Forest together with her until my wife fell sick with the mummy disease about ten years ago. We settled down here in Sakura Glade.");
                     await ƒS.Speech.tell(characters.nobu, "Now it’s just me and Hina… She hadn’t been feeling well for a few weeks, so I took her to the doctor.");
                     await ƒS.Speech.tell(characters.nobu, "I…");
@@ -410,6 +416,8 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.protagonist, "Thank you for being honest and telling me, Nobu. This has helped me greatly.");
                     await ƒS.Speech.tell(characters.nobu, "I’m glad to be of help.");
                     await ƒS.Speech.tell(characters.protagonist, "<i>(Now the real question is, why didn’t he see Amaya guarding the tree if she was supposedly there the entire night?)</i>");
+                    ƒS.Sound.fade(sound.sad, 0, 2);
+                    ƒS.Sound.play(sound.nobu, .4, true);
                     // update item description
                 }
                 break;

@@ -27,6 +27,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah, come on, just a little look won't hurt.)</i>");
         //    show inventory!!
         ƒS.Inventory.add(items.medicalNotice);
+        ƒS.Sound.play(sound.item, .5);
         await ƒS.Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm... who is Hina?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This might actually become important. I should ask him about it when I see him again. For now, I better leave.)</i>");

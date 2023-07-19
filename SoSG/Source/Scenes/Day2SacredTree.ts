@@ -18,6 +18,7 @@ namespace SakuraGlade {
         // for testing
         ƒS.Inventory.add(items.permit);
         extraItemInteraction = items.permit;
+        ƒS.Sound.play(sound.item, .5);
         await ƒS.Inventory.open();
         // wait for player to present permit
         extraItemInteraction = undefined;
@@ -45,6 +46,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(I see something strangely black on the ground between some roots. Did someone litter?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ew... gross, it's sticky.)</i>");
         ƒS.Inventory.add(items.blackOoze);
+        ƒS.Sound.play(sound.item, .5);
         await ƒS.Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, evidence is evidence. I'll keep it with me.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This is the only thing I could find out of place. The rest of the area looks very well-kept and tidy. I guess that's it for my big hopes of finding useful stuff here.)</i>");
@@ -53,6 +55,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(I almost stepped on something! It reflected the sun in my eyes, else I wouldn't have seen it at all. What is this?)</i>");
 
         ƒS.Inventory.add(items.brokenEarring);
+        ƒS.Sound.play(sound.item, .5);
         await ƒS.Inventory.open();
 
         await ƒS.Speech.tell(characters.protagonist, "<i>(Such a pretty little hanger. Someone definitely lost this here. This should prove insightful.)</i>");

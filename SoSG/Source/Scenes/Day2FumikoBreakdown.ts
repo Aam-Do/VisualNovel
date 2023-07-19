@@ -48,6 +48,7 @@ namespace SakuraGlade {
                 await ƒS.Speech.tell(characters.protagonist, "So, what’s bothering you?");
                 await ƒS.Speech.tell(characters.fumiko, "It’s… this. Here. Take it.");
                 await ƒS.Speech.tell(characters.fumiko, "I can’t hold on to it anymore.");
+                ƒS.Sound.play(sound.item, .5);
                 ƒS.Inventory.add(items.moonBead);
                 await ƒS.Inventory.open();
                 await ƒS.Speech.tell(characters.protagonist, "<i>(I can’t believe my eyes… it’s the real Moon Bead…!)</i> You…!?");

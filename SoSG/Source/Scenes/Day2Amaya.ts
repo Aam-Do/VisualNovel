@@ -11,6 +11,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.amaya, "You did indeed?");
             await ƒS.Speech.tell(characters.amaya, "If you will show me, we can figure out what it tells us.");
             // [open inventory and present at least one item - dialogue according to items then either go back or show more]
+            ƒS.Sound.play(sound.item, .5);
             await ƒS.Inventory.open();
             dataForSave.day2TalkedTo.push(characters.amaya);
         } else {

@@ -19,6 +19,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "It was me! Okay? It was me... I stole the Moon Bead.");
         await ƒS.Speech.tell(characters.fumiko, "And I can prove it. I have it. Here, take it... I don’t want it anymore.");
         ƒS.Inventory.add(items.moonBead);
+        ƒS.Sound.play(sound.item, .5);
         await ƒS.Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "How?");
         await ƒS.Speech.tell(characters.fumiko, "I stole the replica when Kohana was bathing… I’m sorry, Kohana. I didn’t think they’d immediately suspect you.");
