@@ -45,7 +45,9 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "What? Where is it?");
         // don't forget to update character expressions :)
         await ƒS.Speech.tell(characters.protagonist, "Please, let her finish. I have it. She gave it to me. Here.");
-        await ƒS.Inventory.open();
+        extraItemInteraction = items.moonBead;
+        await Inventory.open();
+        extraItemInteraction = undefined;
         // select moon bead
         await ƒS.Speech.tell(characters.protagonist, "She’s telling the truth. Now please continue, Fumiko.");
         await ƒS.Speech.tell(characters.fumiko, "Y-yes. I know it was wrong of me to do. I lied to a lot of people.");
@@ -95,6 +97,7 @@ namespace SakuraGlade {
         await ƒS.Location.show(locations.festival);
         ƒS.Sound.play(sound.festival, .5, true);
         await ƒS.update(2);
+        ƒS.Sound.play(sound.crowd, .5, true);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah… the festival is enormous, for such a small village. There’s music and booths and everyone contributed something.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(The Moon Ritual performed by Kohana was beautiful as well. I’m so glad I got to experience this!)</i>");
@@ -119,8 +122,8 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "Yes, I wanted to thank you again.");
         await ƒS.Speech.tell(characters.fumiko, "You’ve shown me that there are more people here for me than I thought, and that I have the strength to be my own person. I’ll always remember that.");
         await ƒS.Speech.tell(characters.fumiko, "So, I wanted to give you something to remember me by as well. Here, take this");
-        ƒS.Inventory.add(items.crystalEarring);
-        await ƒS.Inventory.open();
+        Inventory.add(items.crystalEarring);
+        await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "Thank you…");
         await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(20, 100));
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(35, 100));
@@ -142,6 +145,7 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Character.hide(characters.fumiko);
+        ƒS.Sound.fade(sound.crowd, 0, 3)
         ƒS.Sound.fade(sound.festival, 0, 5)
         ƒS.update(5);
         // disable inventory

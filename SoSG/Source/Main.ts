@@ -27,7 +27,8 @@ namespace SakuraGlade {
     fumiko: "Audio/in-the-place-far-away.mp3",
     sad: "Audio/the-garden-of-ajisai.mp3",
     // SFX
-    item: "Audio/pick-up-item.mp3"
+    item: "Audio/pick-up-item.wav",
+    crowd: "Audio/crowd.mp3"
   };
 
   export let locations = {
@@ -203,57 +204,6 @@ namespace SakuraGlade {
   export let extraItemInteraction: ƒS.ItemDefinition;
   export let currentCharacter: ƒS.CharacterDefinition;
 
-  async function hndItem(_event: CustomEvent): Promise<void> {
-    if (_event.type == "pointerdown") {
-      let targetName = _event.detail;
-      let targetId: string = targetName.replace(/ /g, "_");
-      let targetElement: HTMLElement = document.querySelector('#' + targetId);
-      let present: HTMLButtonElement = document.querySelector('#present');
-
-      if (targetElement.classList.contains('selected')) {
-        targetElement.classList.remove('selected');
-      } else {
-        if (document.querySelector('.selected')) {
-          document.querySelector('.selected').classList.remove('selected');
-        }
-        targetElement.classList.add('selected');
-      }
-
-      // vvv most of that should be checked when opening the inventory!!
-
-      // if during day2 investigations
-      if (currentCharacter) {
-        present.classList.remove('hidden');
-        // hide close button / disable inventroy close
-        // AWAIT character reaction
-      }
-
-      // if good ending final scene
-      if (extraItemInteraction == items.moonBead) {
-        // hide close button / disable inventroy close (do that before opening!)
-        if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
-          present.classList.remove('hidden');
-          // do something
-        } else {
-          present.classList.add('hidden');
-        }
-
-      }
-
-      // if amaya permnit scene
-      if (extraItemInteraction == items.permit) {
-        // hide close button / disable inventroy close (do that before opening!)
-        if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
-          present.classList.remove('hidden');
-          // do something
-
-        } else {
-          present.classList.add('hidden');
-        }
-      }
-    }
-  }
-
   // item description updates
   export let updatedItemDescriptions = {
     blackOoze: "Black slime that must have drooped from Amaya’s cap while she was patrolling the Sacred Tree on the night of the incident. Why didn’t she notice it fall down?",
@@ -289,6 +239,53 @@ namespace SakuraGlade {
       case items.brokenEarring:
         items.brokenEarring.description = updatedItemDescriptions.brokenEarring;
         break;
+    }
+  }
+
+  export function hndItem(_event: CustomEvent): void {
+    if (_event.type == "pointerdown") {
+      console.log('clicked on the item (new class)');
+      let targetName = _event.detail;
+      let targetId: string = targetName.replace(/ /g, "_");
+      let targetElement: HTMLElement = document.querySelector('#' + targetId);
+      let present: HTMLButtonElement = document.querySelector('#present');
+
+      if (targetElement.classList.contains('selected')) {
+        targetElement.classList.remove('selected');
+      } else {
+        if (document.querySelector('.selected')) {
+          document.querySelector('.selected').classList.remove('selected');
+        }
+        targetElement.classList.add('selected');
+      }
+
+      // if during day2 investigations
+      if (currentCharacter) {
+        if (targetElement.classList.contains('selected')) {
+          present.classList.remove('hidden');
+        } else {
+          present.classList.add('hidden');
+        }
+      }
+
+      // if good ending final scene
+      if (extraItemInteraction == items.moonBead) {
+        if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
+          present.classList.remove('hidden');
+        } else {
+          present.classList.add('hidden');
+        }
+
+      }
+
+      // if amaya permit scene
+      if (extraItemInteraction == items.permit) {
+        if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
+          present.classList.remove('hidden');
+        } else {
+          present.classList.add('hidden');
+        }
+      }
     }
   }
 
@@ -380,30 +377,30 @@ namespace SakuraGlade {
       _event.stopPropagation();
       if (menuIsOpen) {
         console.log("Close");
-        ƒS.Inventory.close();
+        Inventory.close();
       }
       else {
         console.log("Open");
-        ƒS.Inventory.open();
+        Inventory.open();
       }
     });
 
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
-      { scene: Start, name: "Start Scene" },
-      { scene: Intro, name: "Intro Scene" },
-      { scene: FairieForest, name: "Fairie Forest" },
-      { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-      { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
+      // { scene: Start, name: "Start Scene" },
+      // { scene: Intro, name: "Intro Scene" },
+      // { scene: FairieForest, name: "Fairie Forest" },
+      // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
+      // { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
 
-      { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
-      { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
-      { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
-      { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
+      // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+      // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+      // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+      // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
 
-      { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+      // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
 
-      { scene: Day2Morning, name: "Day 2 Morning" },
+      // { scene: Day2Morning, name: "Day 2 Morning" },
       { scene: Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
 
       { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },

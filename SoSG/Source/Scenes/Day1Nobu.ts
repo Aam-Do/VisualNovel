@@ -16,6 +16,7 @@ namespace SakuraGlade {
         ƒS.Speech.clear();
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.nobuHome);
+        await ƒS.update(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "Nobu?");
         await ƒS.Speech.tell(characters.protagonist, "...");
@@ -26,12 +27,14 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah, come on, just a little look won't hurt.)</i>");
         //    show inventory!!
-        ƒS.Inventory.add(items.medicalNotice);
-        ƒS.Sound.play(sound.item, .5);
-        await ƒS.Inventory.open();
+        Inventory.add(items.medicalNotice);
+        ƒS.Sound.play(sound.item, .7);
+        await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm... who is Hina?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This might actually become important. I should ask him about it when I see him again. For now, I better leave.)</i>");
         ƒS.Sound.fade(sound.village, 0, 2)
+        await ƒS.Location.show(locations.sakuraGladeDay);
+        await ƒS.update(1);
         
         dataForSave.day1TalkedTo.push(characters.nobu);
     }

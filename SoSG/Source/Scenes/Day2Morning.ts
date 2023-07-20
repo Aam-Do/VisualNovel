@@ -9,8 +9,8 @@ namespace SakuraGlade {
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(What a night... I was lying awake thinking about who it could've been forever. I have so much to find out.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah, and service came by earlier and brought me a letter! Let's see what's inside.)</i>");
-        ƒS.Inventory.add(items.permit);
-        await ƒS.Inventory.open();
+        Inventory.add(items.permit);
+        await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well there we go! Now I can finally have a look around the Sacred Tree.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Let's backtrack...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Kohana is the priestess and has access to the tree at all times. She also holds on to the Replica, so she could've easily swapped them. But she seems really worried about the festival. Why would she steal the Bead if she can just grab it anytime?)</i>");

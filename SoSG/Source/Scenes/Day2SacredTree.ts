@@ -16,10 +16,10 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "Yes, ma'am.");
         await ƒS.Speech.tell(characters.amaya, "Show it to me.");
         // for testing
-        ƒS.Inventory.add(items.permit);
+        Inventory.add(items.permit);
         extraItemInteraction = items.permit;
-        ƒS.Sound.play(sound.item, .5);
-        await ƒS.Inventory.open();
+        ƒS.Sound.play(sound.item, .7);
+        await Inventory.open();
         // wait for player to present permit
         extraItemInteraction = undefined;
         await ƒS.Speech.tell(characters.amaya, "Good. Don't lose it.");
@@ -45,18 +45,18 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm what's that?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I see something strangely black on the ground between some roots. Did someone litter?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ew... gross, it's sticky.)</i>");
-        ƒS.Inventory.add(items.blackOoze);
-        ƒS.Sound.play(sound.item, .5);
-        await ƒS.Inventory.open();
+        Inventory.add(items.blackOoze);
+        ƒS.Sound.play(sound.item, .7);
+        await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, evidence is evidence. I'll keep it with me.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This is the only thing I could find out of place. The rest of the area looks very well-kept and tidy. I guess that's it for my big hopes of finding useful stuff here.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Let's head back...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Oh!)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I almost stepped on something! It reflected the sun in my eyes, else I wouldn't have seen it at all. What is this?)</i>");
 
-        ƒS.Inventory.add(items.brokenEarring);
-        ƒS.Sound.play(sound.item, .5);
-        await ƒS.Inventory.open();
+        Inventory.add(items.brokenEarring);
+        ƒS.Sound.play(sound.item, .7);
+        await Inventory.open();
 
         await ƒS.Speech.tell(characters.protagonist, "<i>(Such a pretty little hanger. Someone definitely lost this here. This should prove insightful.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, that wraps it up then, nothing left to find here.)</i>");

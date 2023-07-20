@@ -1,6 +1,7 @@
 namespace SakuraGlade {
     export async function Day2Nobu(): ƒS.SceneReturn {
         console.log("Day 2 Nobu starting");
+        currentCharacter = characters.nobu;
 
         if (!dataForSave.day2TalkedTo.includes(characters.nobu)) {
             await ƒS.Location.show(locations.nobuHome);
@@ -43,6 +44,8 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.nobu);
         ƒS.Sound.fade(sound.nobu, 0, 2)
         await ƒS.update(1);
+
+        currentCharacter = characters.nobu;
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();

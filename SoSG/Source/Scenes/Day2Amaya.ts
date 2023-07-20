@@ -1,6 +1,7 @@
 namespace SakuraGlade {
     export async function Day2Amaya(): ƒS.SceneReturn {
         console.log("Day 2 Amaya starting");
+        currentCharacter = characters.amaya;
 
         if (!dataForSave.day2TalkedTo.includes(characters.amaya)) {
             await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
@@ -11,8 +12,8 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.amaya, "You did indeed?");
             await ƒS.Speech.tell(characters.amaya, "If you will show me, we can figure out what it tells us.");
             // [open inventory and present at least one item - dialogue according to items then either go back or show more]
-            ƒS.Sound.play(sound.item, .5);
-            await ƒS.Inventory.open();
+            ƒS.Sound.play(sound.item, .7);
+            await Inventory.open();
             dataForSave.day2TalkedTo.push(characters.amaya);
         } else {
             ƒS.Sound.play(sound.amaya, .5, true);
@@ -31,6 +32,8 @@ namespace SakuraGlade {
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+
+        currentCharacter = undefined;
 
         // if back
         // await ƒS.Speech.tell(characters.protagonist, "That's all I have for now.");

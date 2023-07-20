@@ -1,6 +1,7 @@
 namespace SakuraGlade {
     export async function Day2Fumiko(): ƒS.SceneReturn {
         console.log("Day 2 Fumiko starting");
+        currentCharacter = characters.fumiko;
 
         if (!dataForSave.day2TalkedTo.includes(characters.fumiko)) {
             await ƒS.Location.show(locations.sakuraGladeDay);
@@ -52,6 +53,8 @@ namespace SakuraGlade {
         await ƒS.update(1);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+
+        currentCharacter = undefined;
 
         // if back
         // await ƒS.Speech.tell(characters.protagonist, "That’s all for now, I might come back later.");

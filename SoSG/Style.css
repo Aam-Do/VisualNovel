@@ -403,7 +403,7 @@ content {
   align-self: center;
 }
 
-#present.hidden {
+.hidden {
   display: none;
 }
 

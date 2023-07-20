@@ -1,7 +1,7 @@
 declare namespace SakuraGlade {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
-    export let sound: {
+    let sound: {
         forest: string;
         village: string;
         festival: string;
@@ -11,8 +11,9 @@ declare namespace SakuraGlade {
         fumiko: string;
         sad: string;
         item: string;
+        crowd: string;
     };
-    export let locations: {
+    let locations: {
         forestHome: {
             name: string;
             background: string;
@@ -66,7 +67,7 @@ declare namespace SakuraGlade {
             background: string;
         };
     };
-    export let characters: {
+    let characters: {
         narrator: {
             name: string;
         };
@@ -102,7 +103,7 @@ declare namespace SakuraGlade {
             };
         };
     };
-    export let items: {
+    let items: {
         phone: {
             name: string;
             description: string;
@@ -167,16 +168,15 @@ declare namespace SakuraGlade {
             handler: typeof hndItem;
         };
     };
-    export let extraItemInteraction: ƒS.ItemDefinition;
-    export let currentCharacter: ƒS.CharacterDefinition;
-    function hndItem(_event: CustomEvent): Promise<void>;
-    export let updatedItemDescriptions: {
+    let extraItemInteraction: ƒS.ItemDefinition;
+    let currentCharacter: ƒS.CharacterDefinition;
+    let updatedItemDescriptions: {
         blackOoze: string;
         brokenEarring: string;
         medicalNotice: string;
         replica: string;
     };
-    export let dataForSave: {
+    let dataForSave: {
         nameProtagonist: string;
         genderProtagonist: string;
         investigationPoints: number;
@@ -185,7 +185,7 @@ declare namespace SakuraGlade {
         itemsUpdated: any[];
         pointsReceived: any[];
     };
-    export {};
+    function hndItem(_event: CustomEvent): void;
 }
 declare namespace SakuraGlade {
     function day1Locations(): ƒS.SceneReturn;
@@ -203,6 +203,7 @@ declare namespace SakuraGlade {
 declare namespace SakuraGlade {
     class Inventory extends ƒS.Inventory {
         static open(): Promise<string[]>;
+        static close(): void;
     }
 }
 declare namespace SakuraGlade {

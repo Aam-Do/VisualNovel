@@ -53,9 +53,9 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "It had been replaced... with this. A replica. It's used for practicing.");
         //    show inventory!!
-        ƒS.Inventory.add(items.replica);
-        ƒS.Sound.play(sound.item, .5);
-        await ƒS.Inventory.open();
+        Inventory.add(items.replica);
+        ƒS.Sound.play(sound.item, .7);
+        await Inventory.open();
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "Oh... but then, couldn't it have been replaced days before?");
         ƒS.Speech.setTickerDelays(60, 5000);

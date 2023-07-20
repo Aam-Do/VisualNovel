@@ -11,9 +11,9 @@ namespace SakuraGlade {
         // don't forget surprised reactions!
         await ƒS.Speech.tell(characters.fumiko, "I… didn’t have another choice. Please. Believe me.");
         await ƒS.Speech.tell(characters.fumiko, "I was going to give it back after the festival. Here, you can have it again.");
-        ƒS.Inventory.add(items.moonBead);
-        ƒS.Sound.play(sound.item, .5);
-        await ƒS.Inventory.open();
+        Inventory.add(items.moonBead);
+        ƒS.Sound.play(sound.item, .7);
+        await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(I was right! It was her!)</i> But… why?");
         await ƒS.Speech.tell(characters.fumiko, "My parents were going to seal my fate at the Spring Festival, marry me to some random snob and confine me in this picture perfect life forever!");
         await ƒS.Speech.tell(characters.fumiko, "I just, couldn’t take it anymore. Don’t you know what it’s like to long to live? All I wanted was one more chance.");
@@ -44,6 +44,7 @@ namespace SakuraGlade {
         await ƒS.Location.show(locations.festival);
         ƒS.Sound.play(sound.festival, .5, true);
         await ƒS.update(2);
+        ƒS.Sound.play(sound.crowd, .5, true);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah… the festival is enormous, for such a small village. There’s music and booths and everyone contributed something.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(The Moon Ritual performed by Kohana was beautiful as well. I’m so glad I got to experience this!)</i>");
@@ -72,6 +73,7 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Location.show(locations.blackout);
+        ƒS.Sound.fade(sound.crowd, 0, 3)
         ƒS.Sound.fade(sound.festival, 0, 5)
         ƒS.update(5);
         // disable inventory

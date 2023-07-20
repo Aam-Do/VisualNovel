@@ -12,9 +12,10 @@ namespace SakuraGlade {
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.sakuraGladeDay);
         // SHOW VILLAGERS
-        ƒS.Sound.play(sound.village, .5, true);
+        ƒS.Sound.play(sound.village, .3, true);
         await ƒS.update(2);
         ƒS.Speech.show();
+        ƒS.Sound.play(sound.crowd, .6, true);
         await ƒS.Speech.tell("Villager 1", "Have you heard the news already?");
         await ƒS.Speech.tell("Villager 2", "Who would do something like that?");
         await ƒS.Speech.tell("Villager 3", "I bet it was that little wrench! Acting all innocent won't help her anymore.");
@@ -48,6 +49,8 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "Hey! Calm down everyone! Let her explain!");
         await ƒS.Speech.tell("Villager 2", "Who is...?");
         await ƒS.Speech.tell("Villager 4", "Shh!");
+        ƒS.Sound.fade(sound.crowd, 0, .5)
+        ƒS.Sound.fade(sound.village, .5, 2)
         await ƒS.Speech.tell(characters.protagonist, "<i>(Finally, they've stopped talking all over each other.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "I'm sorry, I know I shouldn't interfere since I'm not from here. But I can't just stand by and watch this! Look, there will be a solution to whatever is going on right now, but all this commotion will lead to nothing!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah. It seems like they're actually listening to me!)</i>");

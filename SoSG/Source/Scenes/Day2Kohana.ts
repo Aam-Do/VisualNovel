@@ -1,6 +1,7 @@
 namespace SakuraGlade {
     export async function Day2Kohana(): ƒS.SceneReturn {
         console.log("Day 2 Kohana starting");
+        currentCharacter = characters.kohana;
 
         if (!dataForSave.day2TalkedTo.includes(characters.kohana)) {
             await ƒS.Location.show(locations.temple);
@@ -62,6 +63,8 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.kohana);
         ƒS.Sound.fade(sound.kohana, 0, 2)
         await ƒS.update(1);
+
+        currentCharacter = undefined;
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();
