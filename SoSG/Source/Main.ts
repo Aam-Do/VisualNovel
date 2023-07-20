@@ -373,16 +373,10 @@ namespace SakuraGlade {
 
     // Inventory button 
     let invButton: HTMLElement = document.querySelector("#inv-open");
-    invButton.addEventListener("pointerdown", function (_event: Event) {
+    invButton.addEventListener("pointerdown", async function (_event: Event) {
       _event.stopPropagation();
-      if (menuIsOpen) {
-        console.log("Close");
-        Inventory.close();
-      }
-      else {
-        console.log("Open");
-        Inventory.open();
-      }
+      console.log("Open Inventory");
+      await Inventory.open();
     });
 
     // Scene Hierarchy 

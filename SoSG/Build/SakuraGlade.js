@@ -353,16 +353,10 @@ var SakuraGlade;
         });
         // Inventory button 
         let invButton = document.querySelector("#inv-open");
-        invButton.addEventListener("pointerdown", function (_event) {
+        invButton.addEventListener("pointerdown", async function (_event) {
             _event.stopPropagation();
-            if (menuIsOpen) {
-                console.log("Close");
-                SakuraGlade.Inventory.close();
-            }
-            else {
-                console.log("Open");
-                SakuraGlade.Inventory.open();
-            }
+            console.log("Open Inventory");
+            await SakuraGlade.Inventory.open();
         });
         // Scene Hierarchy 
         let scenes = [
@@ -994,11 +988,11 @@ var SakuraGlade;
             console.log("Opened with custom class");
             // @ts-ignore
             let dialog = Inventory.dialog;
+            if (dialog.open) {
+                dialog.close();
+            }
             let present = document.querySelector('#present');
             dialog.showModal();
-            // if during day2 investigations
-            if (SakuraGlade.currentCharacter) {
-            }
             // if good ending final scene
             if (SakuraGlade.extraItemInteraction) {
                 // hide close button / disable inventroy close
@@ -1015,10 +1009,11 @@ var SakuraGlade;
                 });
             }
             else if (SakuraGlade.currentCharacter) {
+                // if during day2 investigations
                 return new Promise((_resolve) => {
-                    let hndClose = async (_event) => {
+                    let hndPresentClose = async (_event) => {
                         dialog.querySelector("button").removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
-                        present.removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
+                        present.removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndPresentClose);
                         let itemId = dialog.querySelector('.selected').getAttribute('id');
                         let targetValue = itemId.replace(/_/g, " ");
                         let item;
@@ -1050,8 +1045,15 @@ var SakuraGlade;
                         //@ts-ignore
                         _resolve(SakuraGlade.ƒS.Inventory.ƒused);
                     };
+                    let hndClose = (_event) => {
+                        dialog.querySelector("button").removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
+                        present.removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndPresentClose);
+                        Inventory.close();
+                        //@ts-ignore
+                        _resolve(SakuraGlade.ƒS.Inventory.ƒused);
+                    };
                     dialog.querySelector("button").addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
-                    present.addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
+                    present.addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndPresentClose);
                 });
             }
             else {

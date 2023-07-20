@@ -2,15 +2,14 @@ namespace SakuraGlade {
     export class Inventory extends ƒS.Inventory {
         public static async open(): Promise<string[]> {
             console.log("Opened with custom class");
+
             // @ts-ignore
             let dialog: HTMLDialogElement = Inventory.dialog;
+            if (dialog.open) {
+                dialog.close();
+            }
             let present: HTMLButtonElement = document.querySelector('#present');
             dialog.showModal();
-
-            // if during day2 investigations
-            if (currentCharacter) {
-
-            }
 
             // if good ending final scene
             if (extraItemInteraction) {
@@ -28,10 +27,11 @@ namespace SakuraGlade {
                     present.addEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
                 });
             } else if (currentCharacter) {
+                // if during day2 investigations
                 return new Promise((_resolve) => {
-                    let hndClose = async (_event: Event) => {
+                    let hndPresentClose = async (_event: Event) => {
                         dialog.querySelector("button").removeEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
-                        present.removeEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
+                        present.removeEventListener(ƒS.EVENT.POINTERDOWN, hndPresentClose);
                         let itemId = dialog.querySelector('.selected').getAttribute('id');
                         let targetValue = itemId.replace(/_/g, " ");
                         let item: ƒS.ItemDefinition;
@@ -63,8 +63,15 @@ namespace SakuraGlade {
                         //@ts-ignore
                         _resolve(ƒS.Inventory.ƒused);
                     };
+                    let hndClose = (_event: Event) => {
+                        dialog.querySelector("button").removeEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
+                        present.removeEventListener(ƒS.EVENT.POINTERDOWN, hndPresentClose);
+                        Inventory.close();
+                        //@ts-ignore
+                        _resolve(ƒS.Inventory.ƒused);
+                    };
                     dialog.querySelector("button").addEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
-                    present.addEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
+                    present.addEventListener(ƒS.EVENT.POINTERDOWN, hndPresentClose);
                 });
             }
             else {
