@@ -29,7 +29,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "And these lanterns won't put themselves up on their own!");
         await ƒS.Speech.tell(characters.protagonist, "You're decorating for the Spring Festival?");
         await ƒS.Speech.tell(characters.fumiko, "Indeed I am. I'm in charge of the decorations this year. It's proven a challenge, but I have many helping hands.");
-        await ƒS.Speech.tell(characters.protagonist, "<i>(I'm sure she does. Anyone would be happy to just be in her presence.</i>) You're not worried about the festival?");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(I'm sure she does. Anyone would be happy to just be in her presence.)</i> You're not worried about the festival?");
         await ƒS.Speech.tell(characters.fumiko, "Worried? Why would I-");
         await ƒS.Speech.tell(characters.fumiko, "Oh, you mean because of the Moon Bead.");
         await ƒS.Speech.tell(characters.fumiko, "No, I don't have the time to worry about such things. The village will look stunning regardless of whether it will be found or not. If I wait for it to show up I won't have enough time to decorate everything.");

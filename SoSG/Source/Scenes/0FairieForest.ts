@@ -8,24 +8,24 @@ namespace SakuraGlade {
         await ƒS.Progress.delay(1);
         ƒS.Speech.show()
         ƒS.Speech.setTickerDelays(100, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "(<i>Ouch... my head hurts...</i>)");
-        await ƒS.Speech.tell(characters.protagonist, "(<i>...</i>)");
-        await ƒS.Speech.tell(characters.protagonist, "(<i>Huh? ... What's that?</i>)");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Ouch... my head hurts...)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(...)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Huh? ... What's that?)</i>");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell("???", "Hello?");
         await ƒS.Speech.tell("???", "...");
         await ƒS.Speech.tell("???", "Hello there? Are you awake?");
         ƒS.Speech.setTickerDelays(100, 5000);
-        await ƒS.Speech.tell(characters.protagonist, "(<i>Someone is talking to me...</i>)");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Someone is talking to me...)</i>");
         await ƒS.Location.show(locations.fairieForest);
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.protagonist, "(<i>Where... am I?</i>)");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Where... am I?)</i>");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell("???", "There we go... I was worried for a moment there.<br>Are you alright?");
         await ƒS.Speech.tell("???", "Oh... what's that?");
         await ƒS.Speech.tell("???", "My, my... I almost mistook you for a fairy!<br>But you've got no wings...");
-        await ƒS.Speech.tell(characters.protagonist, "(<i>Woah... what is that thing??</i>)");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Woah... what is that thing??)</i>");
         let choice1 = {
             neutral: "You look weird! What are you?",
             good: "You're... a talking mushroom?"
