@@ -240,6 +240,13 @@ var SakuraGlade;
             }
         }
     }
+    // item description updates
+    SakuraGlade.updatedItemDescriptions = {
+        blackOoze: "Black slime that must have drooped from Amaya’s cap while she was patrolling the Sacred Tree on the night of the incident. Why didn’t she notice it fall down?",
+        brokenEarring: "An earring belonging to Fumiko that I found near the Sacred Tree. It’s broken, unfortunately. She claims to have lost it during the day of the incident.",
+        medicalNotice: "A medical record that factually explains Hina’s incurable “mummy disease”. The news must have been heartbreaking… He claims to have gone out for a stroll and prayed at the Sacred Tree around 1:30 am.",
+        replica: "A glass replica of the Moon Bead. It was found in place of the original at the Sacred Tree. I believe it was stolen from the temple sometime after midnight while Kohana was bathing."
+    };
     SakuraGlade.dataForSave = {
         // save items
         // save item description updates
@@ -252,8 +259,24 @@ var SakuraGlade;
         itemsUpdated: Array(),
         pointsReceived: Array()
     };
+    for (let updatedItem of SakuraGlade.dataForSave.itemsUpdated) {
+        switch (updatedItem) {
+            case SakuraGlade.items.blackOoze:
+                SakuraGlade.items.blackOoze.description = SakuraGlade.updatedItemDescriptions.blackOoze;
+                break;
+            case SakuraGlade.items.replica:
+                SakuraGlade.items.replica.description = SakuraGlade.updatedItemDescriptions.replica;
+                break;
+            case SakuraGlade.items.medicalNotice:
+                SakuraGlade.items.medicalNotice.description = SakuraGlade.updatedItemDescriptions.medicalNotice;
+                break;
+            case SakuraGlade.items.brokenEarring:
+                SakuraGlade.items.brokenEarring.description = SakuraGlade.updatedItemDescriptions.brokenEarring;
+                break;
+        }
+    }
     function credits() {
-        SakuraGlade.ƒS.Text.print("");
+        SakuraGlade.ƒS.Text.print("<h2>Credits</h2><div class='credits-text'><li><span><b>Concept, Characterdesign, Script: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Character Sprites: </b></span><span>Amélie Dell'Oro (<i class='fa-brands fa-instagram'></i> @ivy_arts03)<br>GinGin<br>Anna Borisovich (<i class='fa-brands fa-instagram'></i> @_alluusion)</span></li><li><span><b>Item Sprites: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Backgrounds: </b></span><span>Amélie Dell'Oro<br>Midjourney</span></li><li><span><b>Music: </b></span></li><ul><li><span><b>In the Place Far Away, The Garden of Ajisai: </b></span><span>HarumachiMusic on Pixabay</span></li><li><span><b>Ongaku, Koto: </b></span><span>Monument_Music on Pixabay</span></li><li><span><b>Japan Origami: </b></span><span>FreeGroove on Pixabay</span></li><li><span><b>Among The Cherry Blossom: </b></span><span>kaazoom on Pixabay</span></li><li><span><b>The Shinning Moon Princess: </b></span><span>OB-LIX on Pixabay</span></li></ul><li><span><b>SFX: </b></span><span>FreeSound.org</span></li></div><span><b>Special thanks to GinGin and TimTim for their input, support and playtesting!</b></span>");
     }
     // Menu shortcuts
     let inGameMenuButtons = {
@@ -520,13 +543,6 @@ var SakuraGlade;
 })(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
 (function (SakuraGlade) {
-    // item description updates
-    SakuraGlade.updatedItemDescriptions = {
-        blackOoze: "Black slime that must have drooped from Amaya’s cap while she was patrolling the Sacred Tree on the night of the incident. Why didn’t she notice it fall down?",
-        brokenEarring: "An earring belonging to Fumiko that I found near the Sacred Tree. It’s broken, unfortunately. She claims to have lost it during the day of the incident.",
-        medicalNotice: "A medical record that factually explains Hina’s incurable “mummy disease”. The news must have been heartbreaking… He claims to have gone out for a stroll and prayed at the Sacred Tree around 1:30 am.",
-        replica: "A glass replica of the Moon Bead. It was found in place of the original at the Sacred Tree. I believe it was stolen from the temple sometime after midnight while Kohana was bathing."
-    };
     // character dialogues regarding items
     async function AmayaReactToItem(_item) {
         switch (_item) {
@@ -545,7 +561,6 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "We’ve talked about this before, Cub. I probably lost this while patrolling.");
                 }
                 else {
-                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.blackOoze);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Oh… where did you get that from?");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "It was on the ground near the Sacred Tree. Do you know what it is?");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Look, Cub, I’m not particularly proud of it, but as you can see my cap dissolves at the edges.");
@@ -555,6 +570,8 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "This might’ve dropped down during my patrol. I must’ve been too busy to notice it.");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Busy…?)</i>");
                     // update item description
+                    SakuraGlade.items.blackOoze.description = SakuraGlade.updatedItemDescriptions.blackOoze;
+                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.blackOoze);
                 }
                 break;
             case SakuraGlade.items.brokenEarring:
@@ -726,7 +743,6 @@ var SakuraGlade;
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                 }
                 else {
-                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.replica);
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "… Keep it.");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
@@ -768,6 +784,8 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(So the culprit could have stolen the replica from the temple to replace the Moon Bead at some point after midnight…)</i>");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Thank you.");
                     // update item description
+                    SakuraGlade.items.replica.description = SakuraGlade.updatedItemDescriptions.replica;
+                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.replica);
                 }
                 break;
         }
@@ -827,7 +845,6 @@ var SakuraGlade;
                     }
                 }
                 else {
-                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.brokenEarring);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Oh my- where did you find that?");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Why yes, that’s mine!");
@@ -836,6 +853,8 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, " I often pass the Tree, especially since I’m in charge of the decorations for the Spring Festival this year.");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "This might’ve dropped down during my patrol. I must’ve been too busy to notice it.");
                     // update item description
+                    SakuraGlade.items.brokenEarring.description = SakuraGlade.updatedItemDescriptions.brokenEarring;
+                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.brokenEarring);
                 }
                 break;
             case SakuraGlade.items.medicalNotice:
@@ -914,7 +933,6 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "We’ve talked about this before, Cub. I probably lost this while patrolling.");
                 }
                 else {
-                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.medicalNotice);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Wh.. where did you find this?");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I was searching for you yesterday and stumbled upon it.");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You shouldn’t go through other people’s things so carelessly…");
@@ -956,6 +974,8 @@ var SakuraGlade;
                     SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.sad, 0, 2);
                     SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.nobu, .4, true);
                     // update item description
+                    SakuraGlade.items.medicalNotice.description = SakuraGlade.updatedItemDescriptions.medicalNotice;
+                    SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.medicalNotice);
                 }
                 break;
             case SakuraGlade.items.replica:
@@ -965,6 +985,29 @@ var SakuraGlade;
         }
     }
     SakuraGlade.NobuReactToItem = NobuReactToItem;
+})(SakuraGlade || (SakuraGlade = {}));
+var SakuraGlade;
+(function (SakuraGlade) {
+    class Inventory extends SakuraGlade.ƒS.Inventory {
+        static async open() {
+            //@ts-ignore
+            let dialog = SakuraGlade.ƒS.Inventory.dialog;
+            dialog.showModal();
+            //@ts-ignore
+            SakuraGlade.ƒS.Inventory.ƒused = [];
+            return new Promise((_resolve) => {
+                let hndClose = (_event) => {
+                    dialog.querySelector("button").removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
+                    //@ts-ignore
+                    dialog.close();
+                    //@ts-ignore
+                    _resolve(SakuraGlade.ƒS.Inventory.ƒused);
+                };
+                dialog.querySelector("button").addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
+            });
+        }
+    }
+    SakuraGlade.Inventory = Inventory;
 })(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
 (function (SakuraGlade) {

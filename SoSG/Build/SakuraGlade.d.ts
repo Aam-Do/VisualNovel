@@ -167,9 +167,15 @@ declare namespace SakuraGlade {
             handler: typeof hndItem;
         };
     };
-    export let extraItemInteraction: any;
+    export let extraItemInteraction: ƒS.ItemDefinition;
     export let currentCharacter: ƒS.CharacterDefinition;
     function hndItem(_event: CustomEvent): Promise<void>;
+    export let updatedItemDescriptions: {
+        blackOoze: string;
+        brokenEarring: string;
+        medicalNotice: string;
+        replica: string;
+    };
     export let dataForSave: {
         nameProtagonist: string;
         genderProtagonist: string;
@@ -189,16 +195,15 @@ declare namespace SakuraGlade {
     function Start(): ƒS.SceneReturn;
 }
 declare namespace SakuraGlade {
-    let updatedItemDescriptions: {
-        blackOoze: string;
-        brokenEarring: string;
-        medicalNotice: string;
-        replica: string;
-    };
-    function AmayaReactToItem(_item: any): Promise<void>;
-    function KohanaReactToItem(_item: any): Promise<void>;
-    function FumikoReactToItem(_item: any): Promise<void>;
-    function NobuReactToItem(_item: any): Promise<void>;
+    function AmayaReactToItem(_item: ƒS.ItemDefinition): Promise<void>;
+    function KohanaReactToItem(_item: ƒS.ItemDefinition): Promise<void>;
+    function FumikoReactToItem(_item: ƒS.ItemDefinition): Promise<void>;
+    function NobuReactToItem(_item: ƒS.ItemDefinition): Promise<void>;
+}
+declare namespace SakuraGlade {
+    class Inventory extends ƒS.Inventory {
+        static open(): Promise<string[]>;
+    }
 }
 declare namespace SakuraGlade {
     function FairieForest(): ƒS.SceneReturn;

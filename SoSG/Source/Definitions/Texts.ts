@@ -1,15 +1,7 @@
 
 namespace SakuraGlade {
-    // item description updates
-    export let updatedItemDescriptions = {
-        blackOoze: "Black slime that must have drooped from Amaya’s cap while she was patrolling the Sacred Tree on the night of the incident. Why didn’t she notice it fall down?",
-        brokenEarring: "An earring belonging to Fumiko that I found near the Sacred Tree. It’s broken, unfortunately. She claims to have lost it during the day of the incident.",
-        medicalNotice: "A medical record that factually explains Hina’s incurable “mummy disease”. The news must have been heartbreaking… He claims to have gone out for a stroll and prayed at the Sacred Tree around 1:30 am.",
-        replica: "A glass replica of the Moon Bead. It was found in place of the original at the Sacred Tree. I believe it was stolen from the temple sometime after midnight while Kohana was bathing."
-    };
-
     // character dialogues regarding items
-    export async function AmayaReactToItem(_item: any): Promise<void> {
+    export async function AmayaReactToItem(_item: ƒS.ItemDefinition): Promise<void> {
         switch (_item) {
             case items.phone:
                 await ƒS.Speech.tell(characters.amaya, "Is this a fairy device?");
@@ -25,7 +17,6 @@ namespace SakuraGlade {
                 if (dataForSave.itemsUpdated.includes(items.blackOoze)) {
                     await ƒS.Speech.tell(characters.amaya, "We’ve talked about this before, Cub. I probably lost this while patrolling.");
                 } else {
-                    dataForSave.itemsUpdated.push(items.blackOoze);
                     await ƒS.Speech.tell(characters.amaya, "Oh… where did you get that from?");
                     await ƒS.Speech.tell(characters.protagonist, "It was on the ground near the Sacred Tree. Do you know what it is?");
                     await ƒS.Speech.tell(characters.amaya, "Look, Cub, I’m not particularly proud of it, but as you can see my cap dissolves at the edges.");
@@ -35,6 +26,8 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.amaya, "This might’ve dropped down during my patrol. I must’ve been too busy to notice it.");
                     await ƒS.Speech.tell(characters.protagonist, "<i>(Busy…?)</i>");
                     // update item description
+                    items.blackOoze.description = updatedItemDescriptions.blackOoze;
+                    dataForSave.itemsUpdated.push(items.blackOoze);
                 }
                 break;
             case items.brokenEarring:
@@ -145,7 +138,7 @@ namespace SakuraGlade {
                 break;
         }
     }
-    export async function KohanaReactToItem(_item: any): Promise<void> {
+    export async function KohanaReactToItem(_item: ƒS.ItemDefinition): Promise<void> {
         switch (_item) {
             case items.phone:
                 ƒS.Speech.setTickerDelays(60, 5000);
@@ -198,7 +191,6 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.kohana, "… Keep it.");
                     ƒS.Speech.setTickerDelays(40, 5000);
                 } else {
-                    dataForSave.itemsUpdated.push(items.replica);
                     ƒS.Speech.setTickerDelays(60, 5000);
                     await ƒS.Speech.tell(characters.kohana, "… Keep it.");
                     ƒS.Speech.setTickerDelays(40, 5000);
@@ -240,11 +232,13 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.protagonist, "<i>(So the culprit could have stolen the replica from the temple to replace the Moon Bead at some point after midnight…)</i>");
                     await ƒS.Speech.tell(characters.protagonist, "Thank you.");
                     // update item description
+                    items.replica.description = updatedItemDescriptions.replica;
+                    dataForSave.itemsUpdated.push(items.replica);
                 }
                 break;
         }
     }
-    export async function FumikoReactToItem(_item: any): Promise<void> {
+    export async function FumikoReactToItem(_item: ƒS.ItemDefinition): Promise<void> {
         switch (_item) {
             case items.phone:
                 await ƒS.Speech.tell(characters.fumiko, "Precious, I’m not sure what you’re trying to show me here…");
@@ -295,7 +289,6 @@ namespace SakuraGlade {
                         // more dialogue here would be nice if I have enough time
                     }
                 } else {
-                    dataForSave.itemsUpdated.push(items.brokenEarring);
                     await ƒS.Speech.tell(characters.fumiko, "Oh my- where did you find that?");
                     await ƒS.Speech.tell(characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
                     await ƒS.Speech.tell(characters.fumiko, "Why yes, that’s mine!");
@@ -304,6 +297,8 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.fumiko, " I often pass the Tree, especially since I’m in charge of the decorations for the Spring Festival this year.");
                     await ƒS.Speech.tell(characters.fumiko, "This might’ve dropped down during my patrol. I must’ve been too busy to notice it.");
                     // update item description
+                    items.brokenEarring.description = updatedItemDescriptions.brokenEarring;
+                    dataForSave.itemsUpdated.push(items.brokenEarring);
                 }
                 break;
             case items.medicalNotice:
@@ -345,7 +340,7 @@ namespace SakuraGlade {
                 break;
         }
     }
-    export async function NobuReactToItem(_item: any): Promise<void> {
+    export async function NobuReactToItem(_item: ƒS.ItemDefinition): Promise<void> {
         switch (_item) {
             case items.phone:
                 await ƒS.Speech.tell(characters.nobu, "Oh such intricate design! What is it?");
@@ -377,7 +372,6 @@ namespace SakuraGlade {
                 if (dataForSave.itemsUpdated.includes(items.medicalNotice)) {
                     await ƒS.Speech.tell(characters.nobu, "We’ve talked about this before, Cub. I probably lost this while patrolling.");
                 } else {
-                    dataForSave.itemsUpdated.push(items.medicalNotice);
                     await ƒS.Speech.tell(characters.nobu, "Wh.. where did you find this?");
                     await ƒS.Speech.tell(characters.protagonist, "I was searching for you yesterday and stumbled upon it.");
                     await ƒS.Speech.tell(characters.nobu, "You shouldn’t go through other people’s things so carelessly…");
@@ -419,6 +413,8 @@ namespace SakuraGlade {
                     ƒS.Sound.fade(sound.sad, 0, 2);
                     ƒS.Sound.play(sound.nobu, .4, true);
                     // update item description
+                    items.medicalNotice.description = updatedItemDescriptions.medicalNotice;
+                    dataForSave.itemsUpdated.push(items.medicalNotice);
                 }
                 break;
             case items.replica:

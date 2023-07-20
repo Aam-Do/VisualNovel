@@ -200,7 +200,7 @@ namespace SakuraGlade {
     }
   };
 
-  export let extraItemInteraction: any;
+  export let extraItemInteraction: ƒS.ItemDefinition;
   export let currentCharacter: ƒS.CharacterDefinition;
 
   async function hndItem(_event: CustomEvent): Promise<void> {
@@ -246,6 +246,7 @@ namespace SakuraGlade {
         if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
           present.classList.remove('hidden');
           // do something
+
         } else {
           present.classList.add('hidden');
         }
@@ -253,7 +254,13 @@ namespace SakuraGlade {
     }
   }
 
-
+  // item description updates
+  export let updatedItemDescriptions = {
+    blackOoze: "Black slime that must have drooped from Amaya’s cap while she was patrolling the Sacred Tree on the night of the incident. Why didn’t she notice it fall down?",
+    brokenEarring: "An earring belonging to Fumiko that I found near the Sacred Tree. It’s broken, unfortunately. She claims to have lost it during the day of the incident.",
+    medicalNotice: "A medical record that factually explains Hina’s incurable “mummy disease”. The news must have been heartbreaking… He claims to have gone out for a stroll and prayed at the Sacred Tree around 1:30 am.",
+    replica: "A glass replica of the Moon Bead. It was found in place of the original at the Sacred Tree. I believe it was stolen from the temple sometime after midnight while Kohana was bathing."
+  };
 
   export let dataForSave = {
     // save items
@@ -268,8 +275,25 @@ namespace SakuraGlade {
     pointsReceived: Array()
   };
 
+  for (let updatedItem of dataForSave.itemsUpdated) {
+    switch (updatedItem) {
+      case items.blackOoze:
+        items.blackOoze.description = updatedItemDescriptions.blackOoze;
+        break;
+      case items.replica:
+        items.replica.description = updatedItemDescriptions.replica;
+        break;
+      case items.medicalNotice:
+        items.medicalNotice.description = updatedItemDescriptions.medicalNotice;
+        break;
+      case items.brokenEarring:
+        items.brokenEarring.description = updatedItemDescriptions.brokenEarring;
+        break;
+    }
+  }
+
   function credits(): void {
-    ƒS.Text.print("");
+    ƒS.Text.print("<h2>Credits</h2><div class='credits-text'><li><span><b>Concept, Characterdesign, Script: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Character Sprites: </b></span><span>Amélie Dell'Oro (<i class='fa-brands fa-instagram'></i> @ivy_arts03)<br>GinGin<br>Anna Borisovich (<i class='fa-brands fa-instagram'></i> @_alluusion)</span></li><li><span><b>Item Sprites: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Backgrounds: </b></span><span>Amélie Dell'Oro<br>Midjourney</span></li><li><span><b>Music: </b></span></li><ul><li><span><b>In the Place Far Away, The Garden of Ajisai: </b></span><span>HarumachiMusic on Pixabay</span></li><li><span><b>Ongaku, Koto: </b></span><span>Monument_Music on Pixabay</span></li><li><span><b>Japan Origami: </b></span><span>FreeGroove on Pixabay</span></li><li><span><b>Among The Cherry Blossom: </b></span><span>kaazoom on Pixabay</span></li><li><span><b>The Shinning Moon Princess: </b></span><span>OB-LIX on Pixabay</span></li></ul><li><span><b>SFX: </b></span><span>FreeSound.org</span></li></div><span><b>Special thanks to GinGin and TimTim for their input, support and playtesting!</b></span>");
   }
 
   // Menu shortcuts
@@ -370,12 +394,12 @@ namespace SakuraGlade {
       { scene: Intro, name: "Intro Scene" },
       { scene: FairieForest, name: "Fairie Forest" },
       { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-      { scene: Day1Morning, name: "Day 1 Morning", next:"Day1Locations" },
+      { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
 
       { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
-      { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next:"Day1Locations" },
-      { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next:"Day1Locations" },
-      { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next:"Day1Locations" },
+      { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+      { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+      { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
 
       { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
 
