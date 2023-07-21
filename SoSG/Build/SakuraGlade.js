@@ -365,13 +365,13 @@ var SakuraGlade;
             // { scene: Intro, name: "Intro Scene" },
             // { scene: FairieForest, name: "Fairie Forest" },
             // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-            { scene: SakuraGlade.Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
-            { id: "Day1Locations", scene: SakuraGlade.day1Locations, name: "Day 1 Locations" },
-            { id: "Day1Kohana", scene: SakuraGlade.Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
-            { id: "Day1Amaya", scene: SakuraGlade.Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
-            { id: "Day1Nobu", scene: SakuraGlade.Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
-            { id: "Day1Fumiko", scene: SakuraGlade.Day1Fumiko, name: "Day 1 Fumiko" },
-            { scene: SakuraGlade.Day2Morning, name: "Day 2 Morning" },
+            // { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
+            // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+            // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+            // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+            // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
+            // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+            // { scene: Day2Morning, name: "Day 2 Morning" },
             { scene: SakuraGlade.Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
             { id: "Day2Locations", scene: SakuraGlade.day2Locations, name: "Day 2 Locations" },
             { id: "Day2Amaya", scene: SakuraGlade.Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
@@ -580,6 +580,8 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Busy...?)</i>");
                     // update item description
                     SakuraGlade.items.blackOoze.description = SakuraGlade.updatedItemDescriptions.blackOoze;
+                    let targetElementDescription = document.querySelector("#Black_Ooze>description");
+                    targetElementDescription.innerHTML = SakuraGlade.items.blackOoze.description;
                     SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.blackOoze);
                 }
                 break;
@@ -863,6 +865,8 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Thank you.");
                     // update item description
                     SakuraGlade.items.replica.description = SakuraGlade.updatedItemDescriptions.replica;
+                    let targetElementDescription = document.querySelector("#Replica_of_the_Moon_Bead>description");
+                    targetElementDescription.innerHTML = SakuraGlade.items.replica.description;
                     SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.replica);
                 }
                 break;
@@ -929,9 +933,11 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I've been searching for this since... well, yesterday.");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "How did you lose it at the Sacred Tree?");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, " I often pass the Tree, especially since I'm in charge of the decorations for the Spring Festival this year.");
-                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "This might've dropped down during my patrol. I must've been too busy to notice it.");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I must’ve not noticed it fall off…");
                     // update item description
                     SakuraGlade.items.brokenEarring.description = SakuraGlade.updatedItemDescriptions.brokenEarring;
+                    let targetElementDescription = document.querySelector("Broken_Crystal_Earring>description");
+                    targetElementDescription.innerHTML = SakuraGlade.items.brokenEarring.description;
                     SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.brokenEarring);
                 }
                 break;
@@ -996,7 +1002,7 @@ var SakuraGlade;
                 break;
             case SakuraGlade.items.brokenEarring:
                 if (SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.brokenEarring)) {
-                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Ohoh! What a precious piece of jewelry");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Ohoh! What a precious piece of jewelry!");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I'm sorry, Grasshopper, I'm not one to pay attention to such things.");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Maybe Fumiko can tell you something, she works at the jewelry shop.");
@@ -1053,6 +1059,8 @@ var SakuraGlade;
                     SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.nobu, .4, true);
                     // update item description
                     SakuraGlade.items.medicalNotice.description = SakuraGlade.updatedItemDescriptions.medicalNotice;
+                    let targetElementDescription = document.querySelector("#Medical_Notice>description");
+                    targetElementDescription.innerHTML = SakuraGlade.items.medicalNotice.description;
                     SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.medicalNotice);
                 }
                 break;
@@ -1889,10 +1897,7 @@ var SakuraGlade;
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Well, I certainly did find some stuff.");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "You did indeed?");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "If you will show me, we can figure out what it tells us.");
-            // [open inventory and present at least one item - dialogue according to items then either go back or show more]
             await SakuraGlade.day2Inventory();
-            // ƒS.Sound.play(sound.item, .7);
-            // await Inventory.open();
             SakuraGlade.dataForSave.day2TalkedTo.push(SakuraGlade.characters.amaya);
         }
         else {
@@ -1903,19 +1908,16 @@ var SakuraGlade;
             await SakuraGlade.ƒS.update(2);
             SakuraGlade.ƒS.Speech.show();
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Back from sniffing around, Cub? Did you find anything interesting?");
-            // [either choose from inventory or go back]
+            await SakuraGlade.day2Inventory();
         }
+        SakuraGlade.currentCharacter = undefined;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "That's all I have for now.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "If you find out anything new, you know where to find me.");
-        // for testing 
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.amaya);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.amaya, 0, 2);
         await SakuraGlade.ƒS.update(1);
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
-        SakuraGlade.currentCharacter = undefined;
-        // if back
-        // hide amaya
     }
     SakuraGlade.Day2Amaya = Day2Amaya;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -1981,7 +1983,7 @@ var SakuraGlade;
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I’m afraid our walls are quite thick, and I’m a rather heavy sleeper.");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I guess not then.)</i> I have some things I’d like to ask you about, may I?");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Of course. Go ahead, Precious.");
-            // [either open inventory and present items or go back]
+            await SakuraGlade.day2Inventory();
             SakuraGlade.dataForSave.day2TalkedTo.push(SakuraGlade.characters.fumiko);
         }
         else {
@@ -1992,20 +1994,16 @@ var SakuraGlade;
             await SakuraGlade.ƒS.update(2);
             SakuraGlade.ƒS.Speech.show();
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Ah, you’re back, Precious. Is there something else you’d like to ask me about?");
-            // [either choose from inventory or go back]
+            await SakuraGlade.day2Inventory();
         }
-        // for testing 
+        SakuraGlade.currentCharacter = undefined;
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "That’s all for now, I might come back later.");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Surely. I’ll be here in the meantime.");
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.fumiko);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.fumiko, 0, 2);
         await SakuraGlade.ƒS.update(1);
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
-        SakuraGlade.currentCharacter = undefined;
-        // if back
-        // await ƒS.Speech.tell(characters.protagonist, "That’s all for now, I might come back later.");
-        // await ƒS.Speech.tell(characters.fumiko, "Surely. I’ll be here in the meantime.");
-        // hide fumiko
-        // day2Locations();
     }
     SakuraGlade.Day2Fumiko = Day2Fumiko;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -2193,7 +2191,7 @@ var SakuraGlade;
             await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Do you have anything else to ask me...?");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-            // [either open inventory and present items or go back]
+            await SakuraGlade.day2Inventory();
             SakuraGlade.dataForSave.day2TalkedTo.push(SakuraGlade.characters.kohana);
         }
         else {
@@ -2206,22 +2204,18 @@ var SakuraGlade;
             SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Do you have anything new to show me, Dreamer?");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-            // [either choose from inventory or go back]
+            await SakuraGlade.day2Inventory();
         }
-        // for testing 
+        SakuraGlade.currentCharacter = undefined;
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I'll come back when I have more information.");
+        SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... I'll be here...");
+        SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.kohana, 0, 2);
         await SakuraGlade.ƒS.update(1);
-        SakuraGlade.currentCharacter = undefined;
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
-        // if back
-        // await ƒS.Speech.tell(characters.protagonist, "I'll come back when I have more information.");
-        // ƒS.Speech.setTickerDelays(60, 5000);
-        // await ƒS.Speech.tell(characters.kohana, "... I'll be here...");
-        // ƒS.Speech.setTickerDelays(40, 5000);
-        // hide kohana
-        // day2Locations();
     }
     SakuraGlade.Day2Kohana = Day2Kohana;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -2280,7 +2274,7 @@ var SakuraGlade;
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You pretty much know the rest. I dropped you off at the Inn and went home.");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Alright. I collected some clues about the theft, would you be alright answering some questions about these?");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Of course, Sprout. I’ll try to tell you as much as I can.");
-            // [either open inventory and present items or go back]
+            await SakuraGlade.day2Inventory();
             SakuraGlade.dataForSave.day2TalkedTo.push(SakuraGlade.characters.nobu);
         }
         else {
@@ -2291,20 +2285,16 @@ var SakuraGlade;
             await SakuraGlade.ƒS.update(2);
             SakuraGlade.ƒS.Speech.show();
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "There you are again, Grasshopper. Busy as always. Find something new?");
-            // [either choose from inventory or go back]
+            await SakuraGlade.day2Inventory();
         }
-        // for testing 
+        SakuraGlade.currentCharacter = undefined;
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "That’s all the info I needed for now, thank you.");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Good luck, Sprout! I’ll wait here if you need me.");
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.nobu, 0, 2);
         await SakuraGlade.ƒS.update(1);
-        SakuraGlade.currentCharacter = SakuraGlade.characters.nobu;
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
-        // if back
-        // await ƒS.Speech.tell(characters.protagonist, "That’s all the info I needed for now, thank you.");
-        // await ƒS.Speech.tell(characters.nobu, "Good luck, Sprout! I’ll wait here if you need me.");
-        // hide nobu
-        // day2Locations();
     }
     SakuraGlade.Day2Nobu = Day2Nobu;
 })(SakuraGlade || (SakuraGlade = {}));

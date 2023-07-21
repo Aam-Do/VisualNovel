@@ -27,6 +27,8 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.protagonist, "<i>(Busy...?)</i>");
                     // update item description
                     items.blackOoze.description = updatedItemDescriptions.blackOoze;
+                    let targetElementDescription: HTMLElement = document.querySelector("#Black_Ooze>description");
+                    targetElementDescription.innerHTML = items.blackOoze.description;
                     dataForSave.itemsUpdated.push(items.blackOoze);
                 }
                 break;
@@ -302,6 +304,8 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.protagonist, "Thank you.");
                     // update item description
                     items.replica.description = updatedItemDescriptions.replica;
+                    let targetElementDescription: HTMLElement = document.querySelector("#Replica_of_the_Moon_Bead>description");
+                    targetElementDescription.innerHTML = items.replica.description;
                     dataForSave.itemsUpdated.push(items.replica);
                 }
                 break;
@@ -364,9 +368,11 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.fumiko, "I've been searching for this since... well, yesterday.");
                     await ƒS.Speech.tell(characters.protagonist, "How did you lose it at the Sacred Tree?");
                     await ƒS.Speech.tell(characters.fumiko, " I often pass the Tree, especially since I'm in charge of the decorations for the Spring Festival this year.");
-                    await ƒS.Speech.tell(characters.fumiko, "This might've dropped down during my patrol. I must've been too busy to notice it.");
+                    await ƒS.Speech.tell(characters.fumiko, "I must’ve not noticed it fall off…");
                     // update item description
                     items.brokenEarring.description = updatedItemDescriptions.brokenEarring;
+                    let targetElementDescription: HTMLElement = document.querySelector("Broken_Crystal_Earring>description");
+                    targetElementDescription.innerHTML = items.brokenEarring.description;
                     dataForSave.itemsUpdated.push(items.brokenEarring);
                 }
                 break;
@@ -428,7 +434,7 @@ namespace SakuraGlade {
                 break;
             case items.brokenEarring:
                 if (dataForSave.itemsUpdated.includes(items.brokenEarring)) {
-                    await ƒS.Speech.tell(characters.nobu, "Ohoh! What a precious piece of jewelry");
+                    await ƒS.Speech.tell(characters.nobu, "Ohoh! What a precious piece of jewelry!");
                     await ƒS.Speech.tell(characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
                     await ƒS.Speech.tell(characters.nobu, "I'm sorry, Grasshopper, I'm not one to pay attention to such things.");
                     await ƒS.Speech.tell(characters.nobu, "Maybe Fumiko can tell you something, she works at the jewelry shop.");
@@ -483,6 +489,8 @@ namespace SakuraGlade {
                     ƒS.Sound.play(sound.nobu, .4, true);
                     // update item description
                     items.medicalNotice.description = updatedItemDescriptions.medicalNotice;
+                    let targetElementDescription: HTMLElement = document.querySelector("#Medical_Notice>description");
+                    targetElementDescription.innerHTML = items.medicalNotice.description;
                     dataForSave.itemsUpdated.push(items.medicalNotice);
                 }
                 break;

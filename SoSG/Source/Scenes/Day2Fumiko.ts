@@ -35,7 +35,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.fumiko, "I’m afraid our walls are quite thick, and I’m a rather heavy sleeper.");
             await ƒS.Speech.tell(characters.protagonist, "<i>(I guess not then.)</i> I have some things I’d like to ask you about, may I?");
             await ƒS.Speech.tell(characters.fumiko, "Of course. Go ahead, Precious.");
-            // [either open inventory and present items or go back]
+            await day2Inventory();
             dataForSave.day2TalkedTo.push(characters.fumiko);
         } else {
             // await ƒS.Progress.delay(1);
@@ -45,21 +45,18 @@ namespace SakuraGlade {
             await ƒS.update(2);
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.fumiko, "Ah, you’re back, Precious. Is there something else you’d like to ask me about?");
-            // [either choose from inventory or go back]
+            await day2Inventory();
         }
-        // for testing 
+
+        currentCharacter = undefined;
+        await ƒS.Speech.tell(characters.protagonist, "That’s all for now, I might come back later.");
+        await ƒS.Speech.tell(characters.fumiko, "Surely. I’ll be here in the meantime.");
         await ƒS.Character.hide(characters.fumiko);
         ƒS.Sound.fade(sound.fumiko, 0, 2)
         await ƒS.update(1);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
 
-        currentCharacter = undefined;
 
-        // if back
-        // await ƒS.Speech.tell(characters.protagonist, "That’s all for now, I might come back later.");
-        // await ƒS.Speech.tell(characters.fumiko, "Surely. I’ll be here in the meantime.");
-        // hide fumiko
-        // day2Locations();
     }
 }

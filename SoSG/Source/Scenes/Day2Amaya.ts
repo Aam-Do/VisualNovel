@@ -11,10 +11,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.protagonist, "Well, I certainly did find some stuff.");
             await ƒS.Speech.tell(characters.amaya, "You did indeed?");
             await ƒS.Speech.tell(characters.amaya, "If you will show me, we can figure out what it tells us.");
-            // [open inventory and present at least one item - dialogue according to items then either go back or show more]
             await day2Inventory();
-            // ƒS.Sound.play(sound.item, .7);
-            // await Inventory.open();
             dataForSave.day2TalkedTo.push(characters.amaya);
         } else {
             ƒS.Sound.play(sound.amaya, .5, true);
@@ -24,12 +21,13 @@ namespace SakuraGlade {
             await ƒS.update(2);
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.amaya, "Back from sniffing around, Cub? Did you find anything interesting?");
-            // [either choose from inventory or go back]
+            await day2Inventory();
         }
-        
+
+        currentCharacter = undefined;
         await ƒS.Speech.tell(characters.protagonist, "That's all I have for now.");
         await ƒS.Speech.tell(characters.amaya, "If you find out anything new, you know where to find me.");
-        // for testing 
+
         await ƒS.Character.hide(characters.amaya);
         ƒS.Sound.fade(sound.amaya, 0, 2)
         await ƒS.update(1);
@@ -37,9 +35,5 @@ namespace SakuraGlade {
         ƒS.Speech.clear();
         ƒS.Speech.hide();
 
-        currentCharacter = undefined;
-
-        // if back
-        // hide amaya
     }
 }

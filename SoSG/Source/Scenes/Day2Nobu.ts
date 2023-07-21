@@ -27,7 +27,7 @@ namespace SakuraGlade {
             await ƒS.Speech.tell(characters.nobu, "You pretty much know the rest. I dropped you off at the Inn and went home.");
             await ƒS.Speech.tell(characters.protagonist, "Alright. I collected some clues about the theft, would you be alright answering some questions about these?");
             await ƒS.Speech.tell(characters.nobu, "Of course, Sprout. I’ll try to tell you as much as I can.");
-            // [either open inventory and present items or go back]
+            await day2Inventory();
             dataForSave.day2TalkedTo.push(characters.nobu);
         } else {
             // await ƒS.Progress.delay(1);
@@ -37,23 +37,18 @@ namespace SakuraGlade {
             await ƒS.update(2);
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.nobu, "There you are again, Grasshopper. Busy as always. Find something new?");
-            // [either choose from inventory or go back]
+            await day2Inventory();
         }
 
-        // for testing 
+        currentCharacter = undefined;
+        await ƒS.Speech.tell(characters.protagonist, "That’s all the info I needed for now, thank you.");
+        await ƒS.Speech.tell(characters.nobu, "Good luck, Sprout! I’ll wait here if you need me.");
         await ƒS.Character.hide(characters.nobu);
         ƒS.Sound.fade(sound.nobu, 0, 2)
         await ƒS.update(1);
 
-        currentCharacter = characters.nobu;
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();
-
-        // if back
-        // await ƒS.Speech.tell(characters.protagonist, "That’s all the info I needed for now, thank you.");
-        // await ƒS.Speech.tell(characters.nobu, "Good luck, Sprout! I’ll wait here if you need me.");
-        // hide nobu
-        // day2Locations();
     }
 }

@@ -69,7 +69,7 @@ namespace SakuraGlade {
             await ƒS.update(.1);
             await ƒS.Speech.tell(characters.kohana, "Do you have anything else to ask me...?");
             ƒS.Speech.setTickerDelays(40, 5000);
-            // [either open inventory and present items or go back]
+            await day2Inventory();
             dataForSave.day2TalkedTo.push(characters.kohana);
         } else {
             // await ƒS.Progress.delay(1);
@@ -81,23 +81,20 @@ namespace SakuraGlade {
             ƒS.Speech.setTickerDelays(60, 5000);
             await ƒS.Speech.tell(characters.kohana, "Do you have anything new to show me, Dreamer?");
             ƒS.Speech.setTickerDelays(40, 5000);
-            // [either choose from inventory or go back]
+            await day2Inventory();
         }
-        // for testing 
+        
+        currentCharacter = undefined;
+        await ƒS.Speech.tell(characters.protagonist, "I'll come back when I have more information.");
+        ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Speech.tell(characters.kohana, "... I'll be here...");
+        ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Character.hide(characters.kohana);
         ƒS.Sound.fade(sound.kohana, 0, 2)
         await ƒS.update(1);
 
-        currentCharacter = undefined;
 
         ƒS.Speech.clear();
         ƒS.Speech.hide();
-        // if back
-        // await ƒS.Speech.tell(characters.protagonist, "I'll come back when I have more information.");
-        // ƒS.Speech.setTickerDelays(60, 5000);
-        // await ƒS.Speech.tell(characters.kohana, "... I'll be here...");
-        // ƒS.Speech.setTickerDelays(40, 5000);
-        // hide kohana
-        // day2Locations();
     }
 }
