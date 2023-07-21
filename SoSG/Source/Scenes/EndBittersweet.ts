@@ -15,7 +15,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "I… didn’t have another choice. Please. Believe me.");
         await ƒS.Speech.tell(characters.fumiko, "I was going to give it back after the festival. Here, you can have it again.");
         Inventory.add(items.moonBead);
-        ƒS.Sound.play(sound.item, .7);
+        dataForSave.inventory.push(items.moonBead);
         await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(I was right! It was her!)</i> But… why?");
         await ƒS.Speech.tell(characters.fumiko, "My parents were going to seal my fate at the Spring Festival, marry me to some random snob and confine me in this picture perfect life forever!");

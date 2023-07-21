@@ -150,6 +150,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "You’ve shown me that there are more people here for me than I thought, and that I have the strength to be my own person. I’ll always remember that.");
         await ƒS.Speech.tell(characters.fumiko, "So, I wanted to give you something to remember me by as well. Here, take this");
         Inventory.add(items.crystalEarring);
+        dataForSave.inventory.push(items.crystalEarring);
         await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "Thank you…");
         await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(20, 100));

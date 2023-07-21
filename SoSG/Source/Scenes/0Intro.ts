@@ -3,8 +3,9 @@ namespace SakuraGlade {
     console.log("Intro Scene starting");
     // currentCharacter = characters.nobu;
     Inventory.add(items.phone);
+    dataForSave.inventory.push(items.phone);
     Inventory.add(items.idCard);
-    // await Inventory.open();
+    dataForSave.inventory.push(items.idCard);
 
     // cpms = characters per millisecond
     ƒS.Speech.setTickerDelays(40, 5000);

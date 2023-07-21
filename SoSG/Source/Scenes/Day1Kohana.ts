@@ -87,7 +87,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.kohana, "It had been replaced... with this. A replica. It's used for practicing.");
         //    show inventory!!
         Inventory.add(items.replica);
-        ƒS.Sound.play(sound.item, .7);
+        dataForSave.inventory.push(items.replica);
         await Inventory.open();
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "Oh... but then, couldn't it have been replaced days before?");
@@ -114,7 +114,7 @@ namespace SakuraGlade {
         ƒS.Sound.fade(sound.kohana, 0, 2)
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(She left. I need to get better at this. I know more now, but it all still makes her the number one suspect. Maybe I can find out more elsewhere.)</i>");
-        
+
         dataForSave.day1TalkedTo.push(characters.kohana);
     }
 }

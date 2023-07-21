@@ -188,6 +188,7 @@ declare namespace SakuraGlade {
         day2TalkedTo: any[];
         itemsUpdated: any[];
         pointsReceived: any[];
+        inventory: any[];
     };
     function hndItem(_event: CustomEvent): void;
 }

@@ -10,6 +10,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(What a night... I was lying awake thinking about who it could've been forever. I have so much to find out.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah, and service came by earlier and brought me a letter! Let's see what's inside.)</i>");
         Inventory.add(items.permit);
+        dataForSave.inventory.push(items.permit);
         await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well there we go! Now I can finally have a look around the Sacred Tree.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Let's backtrack...)</i>");

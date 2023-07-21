@@ -214,16 +214,14 @@ namespace SakuraGlade {
   };
 
   export let dataForSave = {
-    // save items
-    // save item description updates
-    // save points already gotten / items already shown
     nameProtagonist: "",
     genderProtagonist: "",
     investigationPoints: 0,
     day1TalkedTo: Array(),
     day2TalkedTo: Array(),
     itemsUpdated: Array(),
-    pointsReceived: Array()
+    pointsReceived: Array(),
+    inventory: Array()
   };
 
   for (let updatedItem of dataForSave.itemsUpdated) {
@@ -242,6 +240,7 @@ namespace SakuraGlade {
         break;
     }
   }
+
 
   export function hndItem(_event: CustomEvent): void {
     if (_event.type == "pointerdown") {
@@ -380,22 +379,29 @@ namespace SakuraGlade {
       await Inventory.open();
     });
 
+    console.log('it should now add items');
+    console.log(dataForSave.inventory);
+    for (let item of dataForSave.inventory) {
+      console.log('add items to inventory!');
+      Inventory.add(item);
+    }
+
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
-      // { scene: Start, name: "Start Scene" },
-      // { scene: Intro, name: "Intro Scene" },
-      // { scene: FairieForest, name: "Fairie Forest" },
-      // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-      // { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
+      { scene: Start, name: "Start Scene" },
+      { scene: Intro, name: "Intro Scene" },
+      { scene: FairieForest, name: "Fairie Forest" },
+      { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
+      { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
 
-      // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
-      // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
-      // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
-      // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
+      { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+      { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+      { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+      { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
 
-      // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+      { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
 
-      // { scene: Day2Morning, name: "Day 2 Morning" },
+      { scene: Day2Morning, name: "Day 2 Morning" },
       { scene: Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
 
       { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },
