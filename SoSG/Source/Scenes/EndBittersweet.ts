@@ -98,6 +98,12 @@ namespace SakuraGlade {
         ƒS.Sound.fade(sound.festival, 0, 5)
         ƒS.update(5);
         // disable inventory
+        Inventory.remove(items.medicalNotice);
+        Inventory.remove(items.permit);
+        Inventory.remove(items.moonBead);
+        Inventory.remove(items.replica);
+        Inventory.remove(items.brokenEarring);
+        Inventory.remove(items.blackOoze);
         await ƒS.Speech.tell(characters.protagonist, "You guys… Goodbye!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah… my vision is getting blurry. I guess this it it. Here we go again…)</i>");
         ƒS.Speech.clear();

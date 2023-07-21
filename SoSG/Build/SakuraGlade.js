@@ -1120,10 +1120,7 @@ var SakuraGlade;
                                 item = SakuraGlade.items[key];
                             }
                         }
-                        console.log(item);
                         Inventory.close();
-                        dialog.querySelector("button").classList.remove("hidden");
-                        console.log(itemId);
                         switch (SakuraGlade.currentCharacter) {
                             case SakuraGlade.characters.amaya:
                                 await SakuraGlade.AmayaReactToItem(item);
@@ -1173,6 +1170,15 @@ var SakuraGlade;
             let selected = document.querySelector('.selected');
             if (selected) {
                 selected.classList.remove('selected');
+            }
+        }
+        static remove(_item) {
+            let id = _item.name.replace(/ /g, "_");
+            //@ts-ignore
+            let item = Inventory.dialog.querySelector('#' + id);
+            if (item) {
+                //@ts-ignore
+                Inventory.dialog.querySelector("ul").removeChild(item);
             }
         }
     }
@@ -2524,6 +2530,12 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
         SakuraGlade.ƒS.update(5);
         // disable inventory
+        SakuraGlade.Inventory.remove(SakuraGlade.items.medicalNotice);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.permit);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.moonBead);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.replica);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.brokenEarring);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.blackOoze);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Wait… no… <i>(Oh… not this again…)</i>");
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
@@ -2641,6 +2653,12 @@ var SakuraGlade;
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.festival, 0, 5);
         SakuraGlade.ƒS.update(5);
         // disable inventory
+        SakuraGlade.Inventory.remove(SakuraGlade.items.medicalNotice);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.permit);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.moonBead);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.replica);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.brokenEarring);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.blackOoze);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "You guys… Goodbye!");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Ah… my vision is getting blurry. I guess this it it. Here we go again…)</i>");
         SakuraGlade.ƒS.Speech.clear();
@@ -2844,6 +2862,12 @@ var SakuraGlade;
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.festival, 0, 5);
         SakuraGlade.ƒS.update(5);
         // disable inventory
+        SakuraGlade.Inventory.remove(SakuraGlade.items.medicalNotice);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.permit);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.moonBead);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.replica);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.brokenEarring);
+        SakuraGlade.Inventory.remove(SakuraGlade.items.blackOoze);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "You guys… Goodbye!");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Ah… my vision is getting blurry. I guess this it it. Here we go again…)</i>");
         SakuraGlade.ƒS.Speech.clear();
@@ -2857,7 +2881,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(...)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I don’t remember what happened.)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Wait… there’s something in my hand. What’s that?)</i>");
-        // close up of crystal earring
+        await SakuraGlade.Inventory.open();
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(... so it wasn’t just a dream…?)</i>");
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();

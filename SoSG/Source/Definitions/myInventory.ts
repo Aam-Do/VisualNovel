@@ -43,10 +43,7 @@ namespace SakuraGlade {
                                 item = items[key];
                             }
                         }
-                        console.log(item);
                         Inventory.close();
-                        dialog.querySelector("button").classList.remove("hidden");
-                        console.log(itemId);
                         switch (currentCharacter) {
                             case characters.amaya:
                                 await AmayaReactToItem(item);
@@ -98,6 +95,16 @@ namespace SakuraGlade {
             let selected: HTMLLIElement = document.querySelector('.selected');
             if (selected) {
                 selected.classList.remove('selected');
+            }
+        }
+
+        public static remove(_item: ƒS.ItemDefinition): void {
+            let id: string = _item.name.replace(/ /g, "_");
+            //@ts-ignore
+            let item: HTMLLIElement = Inventory.dialog.querySelector('#' + id)
+            if (item) {
+                //@ts-ignore
+                Inventory.dialog.querySelector("ul").removeChild(item);
             }
         }
     }

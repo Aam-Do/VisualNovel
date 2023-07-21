@@ -210,6 +210,7 @@ declare namespace SakuraGlade {
     class Inventory extends ƒS.Inventory {
         static open(): Promise<string[]>;
         static close(): void;
+        static remove(_item: ƒS.ItemDefinition): void;
     }
 }
 declare namespace SakuraGlade {

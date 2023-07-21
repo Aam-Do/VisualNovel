@@ -183,6 +183,12 @@ namespace SakuraGlade {
         ƒS.Sound.fade(sound.festival, 0, 5)
         ƒS.update(5);
         // disable inventory
+        Inventory.remove(items.medicalNotice);
+        Inventory.remove(items.permit);
+        Inventory.remove(items.moonBead);
+        Inventory.remove(items.replica);
+        Inventory.remove(items.brokenEarring);
+        Inventory.remove(items.blackOoze);
         await ƒS.Speech.tell(characters.protagonist, "You guys… Goodbye!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah… my vision is getting blurry. I guess this it it. Here we go again…)</i>");
         ƒS.Speech.clear();
@@ -196,7 +202,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I don’t remember what happened.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Wait… there’s something in my hand. What’s that?)</i>");
-        // close up of crystal earring
+        await Inventory.open();
         await ƒS.Speech.tell(characters.protagonist, "<i>(... so it wasn’t just a dream…?)</i>");
         ƒS.Speech.clear();
         ƒS.Speech.hide();
