@@ -37,7 +37,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(They're not talking to me. There's a little girl everyone is surrounding...)</i>");
         await ƒS.Character.hide(characters.nobu);
         await ƒS.update(1);
-        await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(70, 100));
         await ƒS.update(1);
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell("???", "... n-no it wasn't! I promise...");
@@ -55,12 +55,18 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "I'm sorry, I know I shouldn't interfere since I'm not from here. But I can't just stand by and watch this! Look, there will be a solution to whatever is going on right now, but all this commotion will lead to nothing!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Woah. It seems like they're actually listening to me!)</i>");
         ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Character.hide(characters.kohana);
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.smiling, ƒS.positionPercent(70, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell("???", "...Thank you, Worldleaper.");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Oh, she's talking to me!)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Her voice is so quiet I almost didn't notice. What did she call me? Worldleaper?)</i>");
         await ƒS.Speech.tell(characters.protagonist, " O-of course! Uhm, my name is " + dataForSave.nameProtagonist + ". It's nice to meet you!");
         ƒS.Speech.setTickerDelays(60, 5000);
+        await ƒS.Character.hide(characters.kohana);
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.thinking, ƒS.positionPercent(70, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell("???", "Hmm... " + dataForSave.nameProtagonist + "...");
         ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.Speech.tell("???", "...");
@@ -68,11 +74,17 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(What is it?)</i>");
         ƒS.Speech.setTickerDelays(60, 5000);
         ƒS.Sound.play(sound.kohana, .5, true);
+        await ƒS.Character.hide(characters.kohana);
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.kohana, "My name is Kohana. The pleasure is	mine... is that how you say that? I get confused sometimes...");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah...)</i> Don't worry about it. Now, what is all this about?");
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Ah!");
+        await ƒS.Character.hide(characters.kohana);
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(70, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.kohana, "Well... it's about the Moon Bead. Did Nobu tell you about it? It's our village's sacred treasure, kept in the shrine at the Sacred Tree.");
         await ƒS.Speech.tell(characters.kohana, "It's been stolen in the night...");
         ƒS.Speech.setTickerDelays(40, 5000);

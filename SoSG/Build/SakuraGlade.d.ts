@@ -93,6 +93,10 @@ declare namespace SakuraGlade {
             origin: ƒ.ORIGIN2D;
             pose: {
                 neutral: string;
+                sad: string;
+                smiling: string;
+                surprised: string;
+                thinking: string;
             };
         };
         fumiko: {

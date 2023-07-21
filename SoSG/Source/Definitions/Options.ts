@@ -101,12 +101,12 @@ namespace SakuraGlade {
     export async function day2Inventory(): Promise<void> {
         let inv = await Inventory.open();
         console.log(inv);
-        switch (inv) {
-            case Array("present"):
+        switch (inv[0]) {
+            case "present":
                 console.log("it should technically open the inventory again");
                 await day2Inventory();
                 break;
-            case ["close"]:
+            case "close":
                 break;
         }
     }

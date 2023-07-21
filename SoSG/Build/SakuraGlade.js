@@ -114,9 +114,10 @@ var SakuraGlade;
             origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
                 neutral: "Images/Characters/Kohana_neutral.png",
-                // angry: "path",
-                // happy: "path",
-                // upset: "path"
+                sad: "Images/Characters/Kohana_sad.png",
+                smiling: "Images/Characters/Kohana_smiling.png",
+                surprised: "Images/Characters/Kohana_surprised.png",
+                thinking: "Images/Characters/Kohana_thinking.png"
             }
         },
         fumiko: {
@@ -364,13 +365,13 @@ var SakuraGlade;
             // { scene: Intro, name: "Intro Scene" },
             // { scene: FairieForest, name: "Fairie Forest" },
             // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-            // { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
-            // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
-            // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
-            // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
-            // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
-            // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
-            // { scene: Day2Morning, name: "Day 2 Morning" },
+            { scene: SakuraGlade.Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
+            { id: "Day1Locations", scene: SakuraGlade.day1Locations, name: "Day 1 Locations" },
+            { id: "Day1Kohana", scene: SakuraGlade.Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+            { id: "Day1Amaya", scene: SakuraGlade.Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+            { id: "Day1Nobu", scene: SakuraGlade.Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
+            { id: "Day1Fumiko", scene: SakuraGlade.Day1Fumiko, name: "Day 1 Fumiko" },
+            { scene: SakuraGlade.Day2Morning, name: "Day 2 Morning" },
             { scene: SakuraGlade.Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
             { id: "Day2Locations", scene: SakuraGlade.day2Locations, name: "Day 2 Locations" },
             { id: "Day2Amaya", scene: SakuraGlade.Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
@@ -497,12 +498,12 @@ var SakuraGlade;
     async function day2Inventory() {
         let inv = await SakuraGlade.Inventory.open();
         console.log(inv);
-        switch (inv) {
-            case Array("present"):
+        switch (inv[0]) {
+            case "present":
                 console.log("it should technically open the inventory again");
                 await day2Inventory();
                 break;
-            case ["close"]:
+            case "close":
                 break;
         }
     }
@@ -699,49 +700,100 @@ var SakuraGlade;
         switch (_item) {
             case SakuraGlade.items.phone:
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... what is this? A magic device?");
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "It's not doing anything...");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                 break;
             case SakuraGlade.items.idCard:
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "That's... a pretty card...");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 break;
             case SakuraGlade.items.permit:
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh... Onee-sama doesn't let just anyone to the Tree right now. She must trust you...");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 break;
             case SakuraGlade.items.blackOoze:
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "...that probably belongs to Onee-sama...");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                await SakuraGlade.ƒS.update(.1);
                 break;
             case SakuraGlade.items.brokenEarring:
                 if (SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.brokenEarring)) {
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... I'm sorry for her. She usually never breaks things...");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                 }
                 else {
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh... a radiant crystal. That is quite beautiful...");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "No... I don't think so. Although it reminds me of Fumiko.");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                 }
                 break;
             case SakuraGlade.items.medicalNotice:
                 if (SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.medicalNotice)) {
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... I hope the Moon God hears his prayers...");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                 }
                 else {
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I don't think I'm supposed to read that...");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                 }
                 break;
             case SakuraGlade.items.replica:
@@ -764,19 +816,31 @@ var SakuraGlade;
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "What did you do on the day of the incident?");
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I cleansed the Moon Bead in the morning... and went about my duties... cleansed the Moon Bead in the evening again, and went home. I practiced for the Moon Ritual.");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "With the replica?");
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh.");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... I then went to take a bath... After that I went to bed");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "When was that?");
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I finish my practice and take my bath at midnight... I go to bed at one.");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "You do this regularly?");
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh. Every day.");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Where do you keep the replica during that time?");
@@ -786,7 +850,13 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Someone who knew her routine would easily be able to wait for the replica to be unattended...)</i>");
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Did you check on it before going to bed?");
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "...no.");
+                    await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                    await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+                    await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I noticed it missing when I woke up. Later I found it at the shrine... you know the rest.");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(So the culprit could have stolen the replica from the temple to replace the Moon Bead at some point after midnight...)</i>");
@@ -1505,7 +1575,7 @@ var SakuraGlade;
         console.log("Day 1 Kohana starting");
         // await ƒS.Progress.delay(1);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.sakuraGladeDay);
-        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.kohana, .5, true);
         await SakuraGlade.ƒS.update(2);
         // await ƒS.Progress.delay(1);
@@ -1513,14 +1583,23 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(The villagers have dispersed, but Kohana is still here.)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Kohana?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "...you've returned, Dreamer...");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Would she stop calling me strange names...?)</i> ...Yes, Nobu asked me to investigate the theft to clear your name and find the Moon Bead.");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "That's... kind of you.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Ahem, well, I'll try my best. So, can you tell me again your name and occupation?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Kohana... I'm the village's priestess.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Priestess?");
@@ -1529,17 +1608,35 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(She's definitely not the talkative kind...)</i> How did you hear about the Moon Bead being stolen?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I discovered it.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "You were the first at the scene of the incident?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, " ...yes.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Well, of course, that doesn't look good for her.)</i> Why were you at the scene today?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Do you know about the Moon Ritual? It's my duty to perform at the festival with the Moon Bead and hold it into the full moon's light for the village's blessing... it is very spiritual...");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "If it is missing, we cannot have the festival... the village will not receive a blessing... I fear for our good fortune!");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Apologies... I got lost in thought.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I take the Bead for cleansing each morning and evening. Such is my duty.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "So you wanted to take it out of the shrine at the Sacred Tree to cleanse it?");
@@ -1548,10 +1645,16 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Come on, don't make me worm every answer out of you...)</i> And it was missing?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Well... not quite.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(What now?)</i>");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "It had been replaced... with this. A replica. It's used for practicing.");
         //    show inventory!!
         SakuraGlade.Inventory.add(SakuraGlade.items.replica);
@@ -1560,10 +1663,16 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Oh... but then, couldn't it have been replaced days before?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "No... I cleansed the Bead yesterday evening. It was still there then.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I see... <i>(That narrows it down to this night, but all of this isn't really telling me anything.)</i> What did you do the night of the incident?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... Sleeping...");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Surely, anyone would say that.)</i> Does anyone else have access to the Bead, other than you?");
@@ -1620,7 +1729,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(They're not talking to me. There's a little girl everyone is surrounding...)</i>");
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
         await SakuraGlade.ƒS.update(1);
-        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(70, 100));
         await SakuraGlade.ƒS.update(1);
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
         await SakuraGlade.ƒS.Speech.tell("???", "... n-no it wasn't! I promise...");
@@ -1638,12 +1747,18 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I'm sorry, I know I shouldn't interfere since I'm not from here. But I can't just stand by and watch this! Look, there will be a solution to whatever is going on right now, but all this commotion will lead to nothing!");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Woah. It seems like they're actually listening to me!)</i>");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell("???", "...Thank you, Worldleaper.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Oh, she's talking to me!)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Her voice is so quiet I almost didn't notice. What did she call me? Worldleaper?)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, " O-of course! Uhm, my name is " + SakuraGlade.dataForSave.nameProtagonist + ". It's nice to meet you!");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.thinking, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell("???", "Hmm... " + SakuraGlade.dataForSave.nameProtagonist + "...");
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.village, 0, 2);
         await SakuraGlade.ƒS.Speech.tell("???", "...");
@@ -1651,11 +1766,17 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(What is it?)</i>");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.kohana, .5, true);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "My name is Kohana. The pleasure is	mine... is that how you say that? I get confused sometimes...");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Ah...)</i> Don't worry about it. Now, what is all this about?");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Ah!");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Well... it's about the Moon Bead. Did Nobu tell you about it? It's our village's sacred treasure, kept in the shrine at the Sacred Tree.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "It's been stolen in the night...");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
@@ -2015,17 +2136,29 @@ var SakuraGlade;
             SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.kohana, .5, true);
             await SakuraGlade.ƒS.update(1);
             SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "...you've come to see me, Dreamer?");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Well, yes. I have a few more questions I'd like to ask you.");
             SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh.");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I'll take that as a yes...)</i> You seem very attached to the Spring Festival, but the villagers don't seem to put much faith in you...");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I've been wondering, why is that?");
             SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "They don't... understand.");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I'm not from here. I'm... weird, they say.");
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Onee-sama found me. I think she needed me... she raised me like her own.");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Onee-sama... she's said that name before.)</i> Who is your “Onee-sama”?");
@@ -2035,17 +2168,29 @@ var SakuraGlade;
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Amaya? That's... unexpected.)</i> What do you mean, she needed you?");
             SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh. I shouldn't talk about it...");
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Onee-sama lost her family. Like I lost mine. So the gods brought us each other...");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(So she's orphaned and Amaya adopted her... no wonder Amaya's quite protective of her.)</i>");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "I'm so sorry for you.");
             SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "...no. I don't remember it.");
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "I am happy I can be here now. Even if the village doesn't like me. I have a home.");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(That's sweet, but I still feel bad for her. I'll try to do even better with finding the Moon Bead now.)</i>");
             SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+            await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+            await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
+            await SakuraGlade.ƒS.update(.1);
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Do you have anything else to ask me...?");
             SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
             // [either open inventory and present items or go back]
@@ -2250,7 +2395,7 @@ var SakuraGlade;
         console.log("Day 3 Showdown starting");
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.sakuraGladeDay);
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.amaya, SakuraGlade.characters.amaya.pose.neutral, SakuraGlade.ƒS.positionPercent(20, 100));
-        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(55, 100));
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.fumiko, SakuraGlade.characters.fumiko.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.village, .5, true);
@@ -2275,6 +2420,9 @@ var SakuraGlade;
             case options.amaya:
                 // continue path here
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "It was Amaya. She stole the Moon Bead. She had access to the tree all night.");
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(35, 100));
+                await SakuraGlade.ƒS.update(.1);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "What?!");
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "…Onee-sama?");
@@ -2284,6 +2432,9 @@ var SakuraGlade;
             case options.kohana:
                 // continue path here
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "It was, after all, Kohana. She has the replica at all times, and since she’s close to Amaya, she convinced her to cover up her theft.");
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(35, 100));
+                await SakuraGlade.ƒS.update(.1);
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "That’s not true…");
                 SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
@@ -2293,6 +2444,9 @@ var SakuraGlade;
             case options.nobu:
                 // continue path here
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "It was Nobu. He snuck to the Tree at night pretending to pray, but in reality, it was all just a scheme!");
+                await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+                await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(35, 100));
+                await SakuraGlade.ƒS.update(.1);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "What are you saying, Sprout?");
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Do you ever think before speaking?");
                 SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
@@ -2333,6 +2487,9 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "How?");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I stole the replica when Kohana was bathing… I’m sorry, Kohana. I didn’t think they’d immediately suspect you.");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "…Mh.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Then I waited for Amaya to leave for her… break.");
@@ -2355,10 +2512,19 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
         await SakuraGlade.ƒS.update(1);
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "… It’s alright, Dreamer. We learn from our mistakes.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "...");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Now, it’s time…");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "...");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Goodbye, Worldleaper…");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
@@ -2393,6 +2559,9 @@ var SakuraGlade;
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.fumiko, .5, true);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "…Yes. It’s true.");
         // don't forget surprised reactions!
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I… didn’t have another choice. Please. Believe me.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I was going to give it back after the festival. Here, you can have it again.");
         SakuraGlade.Inventory.add(SakuraGlade.items.moonBead);
@@ -2404,7 +2573,13 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "But. I guess that’s all over now. It doesn’t matter anymore.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I’m sorry Kohana. I didn’t mean to cause any harm.");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "It’s… alright. You’ve been hurting…");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I understand that you were desperate, Fumiko. But stealing our sacred artifact… There must have been another way.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I know. It was… stupid. But I’ve made my peace. I’m ready for the consequences.");
@@ -2416,6 +2591,9 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.fumiko);
         await SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Great job, Sprout! I knew you would find out the truth behind it all!");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Now, let’s celebrate! You don’t want to miss this!");
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
@@ -2443,11 +2621,20 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You’ve done the village a great service, Sprout. Us all.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Even Fumiko, even though she needs her space right now, I know is grateful to you. Thank you.");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "… Thank you for helping me, Dreamer. You’ve made me feel… welcomed. It’s nice.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Now… You can probably feel it too… It’s time for you to say goodbye.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Wait…");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Goodbye, Worldleaper!");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You’re already leaving?");
@@ -2494,7 +2681,7 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.hide();
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.sakuraGladeDay);
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.amaya, SakuraGlade.characters.amaya.pose.neutral, SakuraGlade.ƒS.positionPercent(20, 100));
-        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(55, 100));
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.fumiko, SakuraGlade.characters.fumiko.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.village, .5, true);
@@ -2514,6 +2701,9 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Fumiko, would you come to me?");
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.fumiko, .5, true);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Yes. … I have something to tell you.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "What is the meaning of this…?");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Please listen to her. She entrusted herself to me yesterday. I’m sure you’ll all feel the same as me when she’s done explaining.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I’m listening. Go ahead.");
@@ -2523,6 +2713,9 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "As you were.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Thank you.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Well… To put it briefly, it was me. I stole the Moon Bead.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.surprised, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "What? Where is it?");
         // don't forget to update character expressions :)
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Please, let her finish. I have it. She gave it to me. Here.");
@@ -2531,10 +2724,19 @@ var SakuraGlade;
         SakuraGlade.extraItemInteraction = undefined;
         // select moon bead
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "She’s telling the truth. Now please continue, Fumiko.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Y-yes. I know it was wrong of me to do. I lied to a lot of people.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I stole the replica from you, Kohana. I’m truly sorry. I didn’t expect the reaction of the village to be so extreme. I never wanted to cause you any harm.");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh… it’s alright.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Well, I knew when the Tree would be unguarded. I accidentally noticed it one night, but I’ve never ever told anyone, Amaya. I couldn’t dream to.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I think you’re the best warden the village has ever had.");
@@ -2551,9 +2753,15 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "We all make mistakes in life. I think we’re all happy that you brought the Moon Bead back in time.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "I never knew… how much pain you were holding in.");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "…you deserve to be seen as a person. Everyone does.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Thank you everyone… Thank you, Kohana. I see you.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Nobody can be perfect. You’ve piled up all that anger and pain until it burst out. But you’ve mended your ways. You brought the Bead back.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I still understand if you can’t let me go freely, Amaya.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "I’ll see about that.");
@@ -2591,7 +2799,13 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "We wanted to take a moment to thank you, " + SakuraGlade.dataForSave.nameProtagonist + ". Without you, who knows if the festival could have taken place.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "And thank you for clearing Kohana’s name. We won’t forget this.");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.smiling, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "… thank you for helping me, Dreamer. You’ve made me feel… welcomed. It’s nice.");
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You’ve done the village a great service, Sprout. Us all.");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "I think Fumiko is waiting for you. She’s got a special thanks for you.");
@@ -2611,10 +2825,16 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(55, 100));
         await SakuraGlade.ƒS.update(1);
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Now… You can probably feel it too… It’s time for you to say goodbye.");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Wait…");
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(35, 100));
+        await SakuraGlade.ƒS.update(.1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Goodbye, Worldleaper!");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You’re already leaving?");

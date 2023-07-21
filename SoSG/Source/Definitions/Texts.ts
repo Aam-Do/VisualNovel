@@ -142,47 +142,98 @@ namespace SakuraGlade {
         switch (_item) {
             case items.phone:
                 ƒS.Speech.setTickerDelays(60, 5000);
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.kohana, "... what is this? A magic device?");
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.kohana, "It's not doing anything...");
                 ƒS.Speech.setTickerDelays(40, 5000);
                 break;
             case items.idCard:
                 ƒS.Speech.setTickerDelays(60, 5000);
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.thinking, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.kohana, "That's... a pretty card...");
                 ƒS.Speech.setTickerDelays(40, 5000);
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 break;
             case items.permit:
                 ƒS.Speech.setTickerDelays(60, 5000);
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.smiling, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.kohana, "Mh... Onee-sama doesn't let just anyone to the Tree right now. She must trust you...");
                 ƒS.Speech.setTickerDelays(40, 5000);
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 break;
             case items.blackOoze:
                 ƒS.Speech.setTickerDelays(60, 5000);
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.thinking, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.kohana, "...that probably belongs to Onee-sama...");
                 ƒS.Speech.setTickerDelays(40, 5000);
+                await ƒS.Character.hide(characters.kohana);
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                await ƒS.update(.1);
                 break;
             case items.brokenEarring:
                 if (dataForSave.itemsUpdated.includes(items.brokenEarring)) {
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "... I'm sorry for her. She usually never breaks things...");
                     ƒS.Speech.setTickerDelays(40, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                 } else {
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "Mh... a radiant crystal. That is quite beautiful...");
                     await ƒS.Speech.tell(characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.thinking, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "No... I don't think so. Although it reminds me of Fumiko.");
                     ƒS.Speech.setTickerDelays(40, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                 }
                 break;
             case items.medicalNotice:
                 if (dataForSave.itemsUpdated.includes(items.medicalNotice)) {
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "... I hope the Moon God hears his prayers...");
                     ƒS.Speech.setTickerDelays(40, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                 } else {
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.thinking, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "I don't think I'm supposed to read that...");
                     ƒS.Speech.setTickerDelays(40, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                 }
                 break;
             case items.replica:
@@ -204,19 +255,31 @@ namespace SakuraGlade {
                     ƒS.Speech.setTickerDelays(40, 5000);
                     await ƒS.Speech.tell(characters.protagonist, "What did you do on the day of the incident?");
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.thinking, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "I cleansed the Moon Bead in the morning... and went about my duties... cleansed the Moon Bead in the evening again, and went home. I practiced for the Moon Ritual.");
                     ƒS.Speech.setTickerDelays(40, 5000);
                     await ƒS.Speech.tell(characters.protagonist, "With the replica?");
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "Mh.");
                     await ƒS.Speech.tell(characters.kohana, "... I then went to take a bath... After that I went to bed");
                     ƒS.Speech.setTickerDelays(40, 5000);
                     await ƒS.Speech.tell(characters.protagonist, "When was that?");
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.thinking, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "I finish my practice and take my bath at midnight... I go to bed at one.");
                     ƒS.Speech.setTickerDelays(40, 5000);
                     await ƒS.Speech.tell(characters.protagonist, "You do this regularly?");
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "Mh. Every day.");
                     ƒS.Speech.setTickerDelays(40, 5000);
                     await ƒS.Speech.tell(characters.protagonist, "Where do you keep the replica during that time?");
@@ -226,7 +289,13 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.protagonist, "<i>(Someone who knew her routine would easily be able to wait for the replica to be unattended...)</i>");
                     await ƒS.Speech.tell(characters.protagonist, "Did you check on it before going to bed?");
                     ƒS.Speech.setTickerDelays(60, 5000);
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "...no.");
+                    await ƒS.Character.hide(characters.kohana);
+                    await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "I noticed it missing when I woke up. Later I found it at the shrine... you know the rest.");
                     ƒS.Speech.setTickerDelays(40, 5000);
                     await ƒS.Speech.tell(characters.protagonist, "<i>(So the culprit could have stolen the replica from the temple to replace the Moon Bead at some point after midnight...)</i>");
