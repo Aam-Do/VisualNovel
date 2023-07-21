@@ -364,13 +364,13 @@ var SakuraGlade;
             // { scene: Intro, name: "Intro Scene" },
             // { scene: FairieForest, name: "Fairie Forest" },
             // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-            { scene: SakuraGlade.Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
-            { id: "Day1Locations", scene: SakuraGlade.day1Locations, name: "Day 1 Locations" },
-            { id: "Day1Kohana", scene: SakuraGlade.Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
-            { id: "Day1Amaya", scene: SakuraGlade.Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
-            { id: "Day1Nobu", scene: SakuraGlade.Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
-            { id: "Day1Fumiko", scene: SakuraGlade.Day1Fumiko, name: "Day 1 Fumiko" },
-            { scene: SakuraGlade.Day2Morning, name: "Day 2 Morning" },
+            // { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
+            // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+            // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+            // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+            // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
+            // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+            // { scene: Day2Morning, name: "Day 2 Morning" },
             { scene: SakuraGlade.Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
             { id: "Day2Locations", scene: SakuraGlade.day2Locations, name: "Day 2 Locations" },
             { id: "Day2Amaya", scene: SakuraGlade.Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
@@ -494,6 +494,19 @@ var SakuraGlade;
         }
     }
     SakuraGlade.day2Locations = day2Locations;
+    async function day2Inventory() {
+        let inv = await SakuraGlade.Inventory.open();
+        console.log(inv);
+        switch (inv) {
+            case Array("present"):
+                console.log("it should technically open the inventory again");
+                await day2Inventory();
+                break;
+            case ["close"]:
+                break;
+        }
+    }
+    SakuraGlade.day2Inventory = day2Inventory;
 })(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
 (function (SakuraGlade) {
@@ -992,6 +1005,7 @@ var SakuraGlade;
                 dialog.close();
             }
             let present = document.querySelector('#present');
+            SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.item, .7);
             dialog.showModal();
             // if good ending final scene
             if (SakuraGlade.extraItemInteraction) {
@@ -1003,7 +1017,7 @@ var SakuraGlade;
                         Inventory.close();
                         dialog.querySelector("button").classList.remove("hidden");
                         //@ts-ignore
-                        _resolve(SakuraGlade.ƒS.Inventory.ƒused);
+                        _resolve([]);
                     };
                     present.addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
                 });
@@ -1043,14 +1057,14 @@ var SakuraGlade;
                                 break;
                         }
                         //@ts-ignore
-                        _resolve(SakuraGlade.ƒS.Inventory.ƒused);
+                        _resolve(['present']);
                     };
                     let hndClose = (_event) => {
                         dialog.querySelector("button").removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
                         present.removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndPresentClose);
                         Inventory.close();
                         //@ts-ignore
-                        _resolve(SakuraGlade.ƒS.Inventory.ƒused);
+                        _resolve(['close']);
                     };
                     dialog.querySelector("button").addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
                     present.addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndPresentClose);
@@ -1062,13 +1076,14 @@ var SakuraGlade;
                         dialog.querySelector("button").removeEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
                         Inventory.close();
                         //@ts-ignore
-                        _resolve(Inventory.ƒused);
+                        _resolve([]);
                     };
                     dialog.querySelector("button").addEventListener(SakuraGlade.ƒS.EVENT.POINTERDOWN, hndClose);
                 });
             }
         }
         static close() {
+            SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.item, .7);
             //@ts-ignore
             Inventory.dialog.close();
             let present = document.querySelector('#present');
@@ -1754,8 +1769,9 @@ var SakuraGlade;
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "You did indeed?");
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "If you will show me, we can figure out what it tells us.");
             // [open inventory and present at least one item - dialogue according to items then either go back or show more]
-            SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.item, .7);
-            await SakuraGlade.Inventory.open();
+            await SakuraGlade.day2Inventory();
+            // ƒS.Sound.play(sound.item, .7);
+            // await Inventory.open();
             SakuraGlade.dataForSave.day2TalkedTo.push(SakuraGlade.characters.amaya);
         }
         else {
@@ -1768,6 +1784,8 @@ var SakuraGlade;
             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Back from sniffing around, Cub? Did you find anything interesting?");
             // [either choose from inventory or go back]
         }
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "That's all I have for now.");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "If you find out anything new, you know where to find me.");
         // for testing 
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.amaya);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.amaya, 0, 2);
@@ -1776,8 +1794,6 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.hide();
         SakuraGlade.currentCharacter = undefined;
         // if back
-        // await ƒS.Speech.tell(characters.protagonist, "That's all I have for now.");
-        // await ƒS.Speech.tell(characters.amaya, "If you find out anything new, you know where to find me.");
         // hide amaya
     }
     SakuraGlade.Day2Amaya = Day2Amaya;

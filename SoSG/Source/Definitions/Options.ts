@@ -97,4 +97,17 @@ namespace SakuraGlade {
                 }
         }
     }
+
+    export async function day2Inventory(): Promise<void> {
+        let inv = await Inventory.open();
+        console.log(inv);
+        switch (inv) {
+            case Array("present"):
+                console.log("it should technically open the inventory again");
+                await day2Inventory();
+                break;
+            case ["close"]:
+                break;
+        }
+    }
 }

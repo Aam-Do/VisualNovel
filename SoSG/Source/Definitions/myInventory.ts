@@ -9,6 +9,7 @@ namespace SakuraGlade {
                 dialog.close();
             }
             let present: HTMLButtonElement = document.querySelector('#present');
+            ƒS.Sound.play(sound.item, .7);
             dialog.showModal();
 
             // if good ending final scene
@@ -22,7 +23,7 @@ namespace SakuraGlade {
                         Inventory.close();
                         dialog.querySelector("button").classList.remove("hidden");
                         //@ts-ignore
-                        _resolve(ƒS.Inventory.ƒused);
+                        _resolve([]);
                     };
                     present.addEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
                 });
@@ -61,14 +62,14 @@ namespace SakuraGlade {
                                 break;
                         }
                         //@ts-ignore
-                        _resolve(ƒS.Inventory.ƒused);
+                        _resolve(['present']);
                     };
                     let hndClose = (_event: Event) => {
                         dialog.querySelector("button").removeEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
                         present.removeEventListener(ƒS.EVENT.POINTERDOWN, hndPresentClose);
                         Inventory.close();
                         //@ts-ignore
-                        _resolve(ƒS.Inventory.ƒused);
+                        _resolve(['close']);
                     };
                     dialog.querySelector("button").addEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
                     present.addEventListener(ƒS.EVENT.POINTERDOWN, hndPresentClose);
@@ -80,7 +81,7 @@ namespace SakuraGlade {
                         dialog.querySelector("button").removeEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
                         Inventory.close();
                         //@ts-ignore
-                        _resolve(Inventory.ƒused);
+                        _resolve([]);
                     };
                     dialog.querySelector("button").addEventListener(ƒS.EVENT.POINTERDOWN, hndClose);
                 });
@@ -88,6 +89,7 @@ namespace SakuraGlade {
 
         }
         public static close(): void {
+            ƒS.Sound.play(sound.item, .7);
             //@ts-ignore
             Inventory.dialog.close();
 

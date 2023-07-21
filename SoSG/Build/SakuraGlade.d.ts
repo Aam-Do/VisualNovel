@@ -190,6 +190,7 @@ declare namespace SakuraGlade {
 declare namespace SakuraGlade {
     function day1Locations(): ƒS.SceneReturn;
     function day2Locations(): ƒS.SceneReturn;
+    function day2Inventory(): Promise<void>;
 }
 declare namespace SakuraGlade {
     function Start(): ƒS.SceneReturn;
