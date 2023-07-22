@@ -103,7 +103,7 @@ var SakuraGlade;
             name: "Nobu",
             origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                neutral: "Images/Characters/Nobu.png",
+                neutral: "Images/Characters/Nobu_neutral.png",
                 // angry: "path",
                 // happy: "path",
                 // upset: "path"
