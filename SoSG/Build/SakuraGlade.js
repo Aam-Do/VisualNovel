@@ -256,7 +256,7 @@ var SakuraGlade;
             }
             // if good ending final scene
             if (SakuraGlade.extraItemInteraction == SakuraGlade.items.moonBead) {
-                if (targetName == SakuraGlade.items.permit.name && targetElement.classList.contains('selected')) {
+                if (targetName == SakuraGlade.items.moonBead.name && targetElement.classList.contains('selected')) {
                     present.classList.remove('hidden');
                 }
                 else {
@@ -940,7 +940,7 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "I must’ve not noticed it fall off…");
                     // update item description
                     SakuraGlade.items.brokenEarring.description = SakuraGlade.updatedItemDescriptions.brokenEarring;
-                    let targetElementDescription = document.querySelector("Broken_Crystal_Earring>description");
+                    let targetElementDescription = document.querySelector("#Broken_Crystal_Earring>description");
                     targetElementDescription.innerHTML = SakuraGlade.items.brokenEarring.description;
                     SakuraGlade.dataForSave.itemsUpdated.push(SakuraGlade.items.brokenEarring);
                 }
@@ -1899,6 +1899,14 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function Day2Amaya() {
         console.log("Day 2 Amaya starting");
+        // for testing
+        SakuraGlade.Inventory.add(SakuraGlade.items.blackOoze);
+        SakuraGlade.Inventory.add(SakuraGlade.items.phone);
+        SakuraGlade.Inventory.add(SakuraGlade.items.idCard);
+        SakuraGlade.Inventory.add(SakuraGlade.items.permit);
+        SakuraGlade.Inventory.add(SakuraGlade.items.brokenEarring);
+        SakuraGlade.Inventory.add(SakuraGlade.items.replica);
+        SakuraGlade.Inventory.add(SakuraGlade.items.medicalNotice);
         SakuraGlade.currentCharacter = SakuraGlade.characters.amaya;
         if (!SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.amaya)) {
             await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.amaya, SakuraGlade.characters.amaya.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
@@ -1949,7 +1957,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.update(2);
         // depending on points
         if (SakuraGlade.dataForSave.investigationPoints >= 15) {
-            return "Day2FumikoBreakdown";
+            return "Day2Breakdown";
         }
         else {
             return "Day3Morning";
@@ -2026,7 +2034,7 @@ var SakuraGlade;
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.sad, .5, true);
         await SakuraGlade.ƒS.update(2);
         SakuraGlade.ƒS.Speech.show();
-        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>((Something woke me up... Is it morning yet? No, it’s still dark out.)</i>");
+        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Something woke me up... Is it morning yet? No, it’s still dark out.)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(There’s a strange noise outside, is that… crying?)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(…)</i>");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I should check it out.)</i>");
@@ -2528,7 +2536,7 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
-        SakuraGlade.ƒS.update(5);
+        await SakuraGlade.ƒS.update(5);
         // disable inventory
         SakuraGlade.Inventory.remove(SakuraGlade.items.medicalNotice);
         SakuraGlade.Inventory.remove(SakuraGlade.items.permit);
@@ -2550,6 +2558,8 @@ var SakuraGlade;
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.sad, 0, 2);
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
+        await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
+        await SakuraGlade.ƒS.update(2);
     }
     SakuraGlade.BadEnding = BadEnding;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -2651,7 +2661,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.crowd, 0, 3);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.festival, 0, 5);
-        SakuraGlade.ƒS.update(5);
+        await SakuraGlade.ƒS.update(5);
         // disable inventory
         SakuraGlade.Inventory.remove(SakuraGlade.items.medicalNotice);
         SakuraGlade.Inventory.remove(SakuraGlade.items.permit);
@@ -2674,6 +2684,8 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(But for some reason… I feel… warm. It’s nice…)</i>");
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
+        await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
+        await SakuraGlade.ƒS.update(2);
     }
     SakuraGlade.BittersweetEnding = BittersweetEnding;
 })(SakuraGlade || (SakuraGlade = {}));
@@ -2860,7 +2872,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.fumiko);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.crowd, 0, 3);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.festival, 0, 5);
-        SakuraGlade.ƒS.update(5);
+        await SakuraGlade.ƒS.update(5);
         // disable inventory
         SakuraGlade.Inventory.remove(SakuraGlade.items.medicalNotice);
         SakuraGlade.Inventory.remove(SakuraGlade.items.permit);
@@ -2885,6 +2897,8 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(... so it wasn’t just a dream…?)</i>");
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
+        await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.blackout);
+        await SakuraGlade.ƒS.update(2);
     }
     SakuraGlade.GoodEnding = GoodEnding;
 })(SakuraGlade || (SakuraGlade = {}));

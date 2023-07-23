@@ -1,6 +1,14 @@
 namespace SakuraGlade {
     export async function Day2Amaya(): ƒS.SceneReturn {
         console.log("Day 2 Amaya starting");
+        // for testing
+        Inventory.add(items.blackOoze);
+        Inventory.add(items.phone);
+        Inventory.add(items.idCard);
+        Inventory.add(items.permit);
+        Inventory.add(items.brokenEarring);
+        Inventory.add(items.replica);
+        Inventory.add(items.medicalNotice);
         currentCharacter = characters.amaya;
 
         if (!dataForSave.day2TalkedTo.includes(characters.amaya)) {

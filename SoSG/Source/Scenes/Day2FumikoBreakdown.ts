@@ -5,7 +5,7 @@ namespace SakuraGlade {
         ƒS.Sound.play(sound.sad, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
-        await ƒS.Speech.tell(characters.protagonist, "<i>((Something woke me up... Is it morning yet? No, it’s still dark out.)</i>");
+        await ƒS.Speech.tell(characters.protagonist, "<i>(Something woke me up... Is it morning yet? No, it’s still dark out.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(There’s a strange noise outside, is that… crying?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(…)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(I should check it out.)</i>");

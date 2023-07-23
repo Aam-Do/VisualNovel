@@ -96,7 +96,7 @@ namespace SakuraGlade {
         await ƒS.Location.show(locations.blackout);
         ƒS.Sound.fade(sound.crowd, 0, 3)
         ƒS.Sound.fade(sound.festival, 0, 5)
-        ƒS.update(5);
+        await ƒS.update(5);
         // disable inventory
         Inventory.remove(items.medicalNotice);
         Inventory.remove(items.permit);
@@ -119,5 +119,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(But for some reason… I feel… warm. It’s nice…)</i>");
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+        await ƒS.Location.show(locations.blackout);
+        await ƒS.update(2);
     }
 }

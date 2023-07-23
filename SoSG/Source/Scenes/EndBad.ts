@@ -66,7 +66,7 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Location.show(locations.blackout);
-        ƒS.update(5);
+        await ƒS.update(5);
         // disable inventory
         Inventory.remove(items.medicalNotice);
         Inventory.remove(items.permit);
@@ -88,5 +88,7 @@ namespace SakuraGlade {
         ƒS.Sound.fade(sound.sad, 0, 2);
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+        await ƒS.Location.show(locations.blackout);
+        await ƒS.update(2);
     }
 }

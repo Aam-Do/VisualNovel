@@ -371,7 +371,7 @@ namespace SakuraGlade {
                     await ƒS.Speech.tell(characters.fumiko, "I must’ve not noticed it fall off…");
                     // update item description
                     items.brokenEarring.description = updatedItemDescriptions.brokenEarring;
-                    let targetElementDescription: HTMLElement = document.querySelector("Broken_Crystal_Earring>description");
+                    let targetElementDescription: HTMLElement = document.querySelector("#Broken_Crystal_Earring>description");
                     targetElementDescription.innerHTML = items.brokenEarring.description;
                     dataForSave.itemsUpdated.push(items.brokenEarring);
                 }

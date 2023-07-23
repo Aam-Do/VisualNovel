@@ -270,7 +270,7 @@ namespace SakuraGlade {
 
       // if good ending final scene
       if (extraItemInteraction == items.moonBead) {
-        if (targetName == items.permit.name && targetElement.classList.contains('selected')) {
+        if (targetName == items.moonBead.name && targetElement.classList.contains('selected')) {
           present.classList.remove('hidden');
         } else {
           present.classList.add('hidden');

@@ -181,7 +181,7 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.fumiko);
         ƒS.Sound.fade(sound.crowd, 0, 3)
         ƒS.Sound.fade(sound.festival, 0, 5)
-        ƒS.update(5);
+        await ƒS.update(5);
         // disable inventory
         Inventory.remove(items.medicalNotice);
         Inventory.remove(items.permit);
@@ -206,5 +206,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(... so it wasn’t just a dream…?)</i>");
         ƒS.Speech.clear();
         ƒS.Speech.hide();
+        await ƒS.Location.show(locations.blackout);
+        await ƒS.update(2);
     }
 }
