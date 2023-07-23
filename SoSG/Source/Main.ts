@@ -98,9 +98,11 @@ namespace SakuraGlade {
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         neutral: "Images/Characters/Amaya_neutral.png",
-        // angry: "path",
-        // happy: "path",
-        // upset: "path"
+        sad: "Images/Characters/Amaya_sad.png",
+        smiling: "Images/Characters/Amaya_smiling.png",
+        surprised: "Images/Characters/Amaya_surprised.png",
+        thinking: "Images/Characters/Amaya_thinking.png",
+        upset: "Images/Characters/Amaya_upset.png"
       }
     },
     nobu: {

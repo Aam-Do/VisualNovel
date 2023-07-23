@@ -94,9 +94,11 @@ var SakuraGlade;
             origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
                 neutral: "Images/Characters/Amaya_neutral.png",
-                // angry: "path",
-                // happy: "path",
-                // upset: "path"
+                sad: "Images/Characters/Amaya_sad.png",
+                smiling: "Images/Characters/Amaya_smiling.png",
+                surprised: "Images/Characters/Amaya_surprised.png",
+                thinking: "Images/Characters/Amaya_thinking.png",
+                upset: "Images/Characters/Amaya_upset.png"
             }
         },
         nobu: {
@@ -2092,6 +2094,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Sure.");
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
         // animation
+        await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(50, 100));
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.kohana, 0, 2);
         await SakuraGlade.ƒS.update(1);
@@ -2214,14 +2217,6 @@ var SakuraGlade;
 (function (SakuraGlade) {
     async function Day2Amaya() {
         console.log("Day 2 Amaya starting");
-        // for testing
-        SakuraGlade.Inventory.add(SakuraGlade.items.blackOoze);
-        SakuraGlade.Inventory.add(SakuraGlade.items.phone);
-        SakuraGlade.Inventory.add(SakuraGlade.items.idCard);
-        SakuraGlade.Inventory.add(SakuraGlade.items.permit);
-        SakuraGlade.Inventory.add(SakuraGlade.items.brokenEarring);
-        SakuraGlade.Inventory.add(SakuraGlade.items.replica);
-        SakuraGlade.Inventory.add(SakuraGlade.items.medicalNotice);
         SakuraGlade.currentCharacter = SakuraGlade.characters.amaya;
         if (!SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.amaya)) {
             await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.amaya, SakuraGlade.characters.amaya.pose.neutral, SakuraGlade.ƒS.positionPercent(50, 100));

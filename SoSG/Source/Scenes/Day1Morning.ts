@@ -103,6 +103,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "Sure.");
         await ƒS.Character.hide(characters.kohana);
         // animation
+        await ƒS.Character.hide(characters.nobu);
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
         ƒS.Sound.fade(sound.kohana, 0, 2)
         await ƒS.update(1);
