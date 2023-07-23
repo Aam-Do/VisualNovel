@@ -268,7 +268,7 @@ namespace SakuraGlade {
                     await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(70, 100));
                     await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.kohana, "Mh.");
-                    await ƒS.Speech.tell(characters.kohana, "... I then went to take a bath... After that I went to bed");
+                    await ƒS.Speech.tell(characters.kohana, "... I then went to take a bath... After that I went to bed.");
                     ƒS.Speech.setTickerDelays(40, 5000);
                     await ƒS.Speech.tell(characters.protagonist, "When was that?");
                     ƒS.Speech.setTickerDelays(60, 5000);

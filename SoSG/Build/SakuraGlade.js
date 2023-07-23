@@ -833,7 +833,7 @@ var SakuraGlade;
                     await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.neutral, SakuraGlade.ƒS.positionPercent(70, 100));
                     await SakuraGlade.ƒS.update(.1);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh.");
-                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... I then went to take a bath... After that I went to bed");
+                    await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "... I then went to take a bath... After that I went to bed.");
                     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
                     await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "When was that?");
                     SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
