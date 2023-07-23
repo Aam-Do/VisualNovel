@@ -12,7 +12,7 @@ namespace SakuraGlade {
         // await ƒS.Progress.delay(1);
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(50, 100));
-        await ƒS.update(1);
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "... and here we are! Welcome to Sakura Glade.");
         await ƒS.Speech.tell(characters.nobu, "It's late already, so there's not a lot of people on the street anymore. You should see it tomorrow when it's bustling with folks and everyone's busy with the preparations for the Spring Festival!");
         await ƒS.Speech.tell(characters.nobu, "Ah, that's my favorite time of the year. You visit at the perfect time.");
@@ -64,11 +64,11 @@ namespace SakuraGlade {
                             await ƒS.Speech.tell(characters.nobu, "Isn't it just majestic? It looks even better in sunlight.");
                             await ƒS.Character.hide(characters.nobu);
                             await ƒS.Character.show(characters.nobu, characters.nobu.pose.thinking, ƒS.positionPercent(50, 100));
-                            await ƒS.update(1);
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.nobu, "We can go there tomorrow if you'd like. There's a shrine devoted to the Moon God, if we ask him in prayers maybe he can help you find your way back home...");
                             await ƒS.Character.hide(characters.nobu);
                             await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(50, 100));
-                            await ƒS.update(1);
+                            await ƒS.update(.1);
                             delete questions.sakuraGlade;
                             break;
                         case questions.festival:
@@ -76,15 +76,15 @@ namespace SakuraGlade {
                             await ƒS.Speech.tell(characters.protagonist, "What festival were you talking about earlier?");
                             await ƒS.Character.hide(characters.nobu);
                             await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(50, 100));
-                            await ƒS.update(1);
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.nobu, "Oh? You don't know about the Spring Festival?");
                             await ƒS.Character.hide(characters.nobu);
                             await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
-                            await ƒS.update(1);
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.nobu, "No, apologies. I got ahead of myself.");
                             await ƒS.Character.hide(characters.nobu);
                             await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(50, 100));
-                            await ƒS.update(1);
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.nobu, "In four days, we celebrate the Spring Festival in favor of our guardian deity, the Moon God. It's held every year on the day the Sacred Tree reaches full bloom.");
                             await ƒS.Speech.tell(characters.nobu, "The whole village gets together and starts decorating and preparing for it beginning tomorrow, and on the third day, we celebrate with the Moon Ritual and fireworks.");
                             await ƒS.Speech.tell(characters.protagonist, "The Moon Ritual?");

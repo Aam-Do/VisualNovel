@@ -29,6 +29,9 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "Well then, Cub. We’ve put our trust in you. So? Tell us. Who was the real culprit behind the theft of the Moon Bead?");
         await ƒS.Speech.tell(characters.protagonist, "Actually, we’ve got something to tell you.");
         ƒS.Sound.fade(sound.village, 0, 2)
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "We?");
         await ƒS.Speech.tell(characters.protagonist, "Fumiko, would you come to me?");
         ƒS.Sound.play(sound.fumiko, .5, true);
@@ -41,6 +44,9 @@ namespace SakuraGlade {
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "What is the meaning of this…?");
         await ƒS.Speech.tell(characters.protagonist, "Please listen to her. She entrusted herself to me yesterday. I’m sure you’ll all feel the same as me when she’s done explaining.");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "I’m listening. Go ahead.");
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Me too.");
@@ -53,6 +59,8 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "Well… To put it briefly, it was me. I stole the Moon Bead.");
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "What? Where is it?");
         // don't forget to update character expressions :)
@@ -99,8 +107,14 @@ namespace SakuraGlade {
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "So, I stand here, not asking for forgiveness, but understanding.");
         ƒS.Speech.clear();
-        // pause
+        await ƒS.Progress.delay(1);
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "We all make mistakes in life. I think we’re all happy that you brought the Moon Bead back in time.");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "I never knew… how much pain you were holding in.");
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Character.hide(characters.kohana);
@@ -131,7 +145,13 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(45, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "I’ll talk to them again. But this time, I know that I have friends that are on my side.");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.laughing, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "Now, now. Let’s cheer, folks!");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "It’s time we bring the good news to the people and start the festivities! The Moon Bead was found, the Spring Festival can commence!");
         await ƒS.Character.hide(characters.nobu);
         await ƒS.update(1);
@@ -154,7 +174,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(The Moon Ritual performed by Kohana was beautiful as well. I’m so glad I got to experience this!)</i>");
         await ƒS.Speech.tell(characters.nobu, "Grasshopper! You’ll miss the fireworks!");
         await ƒS.Speech.tell(characters.protagonist, "Coming!");
-        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(20, 100));
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(20, 100));
         await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(68, 100));
         await ƒS.update(1);
@@ -209,7 +229,13 @@ namespace SakuraGlade {
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.kohana, "Goodbye, Worldleaper!");
         ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "You’re already leaving?");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "I hope you get home safely, wherever that is, Sprout!");
         await ƒS.Speech.tell(characters.amaya, "Farewell, Cub.");
         await ƒS.Character.hide(characters.fumiko);

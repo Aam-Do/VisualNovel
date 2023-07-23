@@ -65,6 +65,9 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.amaya);
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.update(1);
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "I’m sorry, Sprout. I’m sure you tried.");
         await ƒS.Speech.tell(characters.protagonist, "I… <i>(In the end, I wasn’t able to help at all. I suppose sometimes that’s how it goes. At least the real culprit revealed herself…)</i>");
         await ƒS.Character.hide(characters.nobu);

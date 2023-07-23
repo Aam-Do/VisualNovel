@@ -35,6 +35,8 @@ namespace SakuraGlade {
                 await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
                 await ƒS.Character.hide(characters.fumiko);
                 await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(45, 100));
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
                 await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.amaya, "What?!");
                 ƒS.Speech.setTickerDelays(60, 5000);
@@ -49,6 +51,8 @@ namespace SakuraGlade {
                 await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
                 await ƒS.Character.hide(characters.fumiko);
                 await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(45, 100));
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
                 await ƒS.update(.1);
                 ƒS.Speech.setTickerDelays(60, 5000);
                 await ƒS.Speech.tell(characters.kohana, "That’s not true…");
@@ -63,6 +67,8 @@ namespace SakuraGlade {
                 await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
                 await ƒS.Character.hide(characters.fumiko);
                 await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(45, 100));
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
                 await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.nobu, "What are you saying, Sprout?");
                 await ƒS.Speech.tell(characters.amaya, "Do you ever think before speaking?");

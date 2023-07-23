@@ -14,6 +14,8 @@ namespace SakuraGlade {
         // don't forget surprised reactions!
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "I… didn’t have another choice. Please. Believe me.");
         await ƒS.Speech.tell(characters.fumiko, "I was going to give it back after the festival. Here, you can have it again.");
@@ -40,6 +42,9 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(62, 100));
         await ƒS.update(.1);
         ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "I understand that you were desperate, Fumiko. But stealing our sacred artifact… There must have been another way.");
         await ƒS.Speech.tell(characters.fumiko, "I know. It was… stupid. But I’ve made my peace. I’m ready for the consequences.");
         await ƒS.Speech.tell(characters.amaya, "You’ll be trialed by Sakura Glade law.");
@@ -52,9 +57,15 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.amaya);
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.update(1);
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "Great job, Sprout! I knew you would find out the truth behind it all!");
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.smiling, ƒS.positionPercent(62, 100));
+        await ƒS.update(.1);
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "Now, let’s celebrate! You don’t want to miss this!");
         await ƒS.Character.hide(characters.nobu);
@@ -74,7 +85,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(The Moon Ritual performed by Kohana was beautiful as well. I’m so glad I got to experience this!)</i>");
         await ƒS.Speech.tell(characters.nobu, "Grasshopper! You’ll miss the fireworks!");
         await ƒS.Speech.tell(characters.protagonist, "Coming!");
-        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(20, 100));
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
         await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(68, 100));
         await ƒS.update(1);
@@ -99,7 +110,13 @@ namespace SakuraGlade {
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.kohana, "Goodbye, Worldleaper!");
         ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "You’re already leaving?");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "I hope you get home safely, wherever that is, Sprout!");
         await ƒS.Speech.tell(characters.amaya, "Farewell, Cub.");
         await ƒS.Character.hide(characters.amaya);
