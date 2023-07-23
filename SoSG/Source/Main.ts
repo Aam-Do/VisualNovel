@@ -408,8 +408,8 @@ namespace SakuraGlade {
 
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
-      // { scene: Start, name: "Start Scene" },
-      // { scene: Intro, name: "Intro Scene" },
+      { scene: Start, name: "Start Scene" },
+      { scene: Intro, name: "Intro Scene" },
       { scene: FairieForest, name: "Fairie Forest" },
       { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
       { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },

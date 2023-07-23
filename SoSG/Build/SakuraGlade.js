@@ -387,8 +387,8 @@ var SakuraGlade;
         });
         // Scene Hierarchy 
         let scenes = [
-            // { scene: Start, name: "Start Scene" },
-            // { scene: Intro, name: "Intro Scene" },
+            { scene: SakuraGlade.Start, name: "Start Scene" },
+            { scene: SakuraGlade.Intro, name: "Intro Scene" },
             { scene: SakuraGlade.FairieForest, name: "Fairie Forest" },
             { scene: SakuraGlade.WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
             { scene: SakuraGlade.Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
