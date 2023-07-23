@@ -489,9 +489,22 @@ var SakuraGlade;
                 if (SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.kohana) && SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.amaya) && SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.fumiko) && SakuraGlade.dataForSave.day2TalkedTo.includes(SakuraGlade.characters.nobu)) {
                     // check if all relevant items updated
                     if (SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.blackOoze) && SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.medicalNotice) && SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.replica) && SakuraGlade.dataForSave.itemsUpdated.includes(SakuraGlade.items.brokenEarring)) {
-                        SakuraGlade.ƒS.Speech.clear();
-                        SakuraGlade.ƒS.Speech.hide();
-                        return "Day2Evening";
+                        await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.narrator, "Are you sure you wish to go back to the inn?");
+                        let options = {
+                            yes: "Yes, I've seen everything.",
+                            no: "Actually, I still wanted to check something"
+                        };
+                        let optionsElement = await SakuraGlade.ƒS.Menu.getInput(options, "choices");
+                        switch (optionsElement) {
+                            case options.yes:
+                                // continue path here
+                                SakuraGlade.ƒS.Speech.clear();
+                                SakuraGlade.ƒS.Speech.hide();
+                                return "Day2Evening";
+                            case options.no:
+                                // continue path here
+                                return "Day2Locations";
+                        }
                     }
                     else {
                         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I still have questions about the things I found, I shouldn’t head back yet...)</i>");

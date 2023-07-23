@@ -84,9 +84,24 @@ namespace SakuraGlade {
                 if (dataForSave.day2TalkedTo.includes(characters.kohana) && dataForSave.day2TalkedTo.includes(characters.amaya) && dataForSave.day2TalkedTo.includes(characters.fumiko) && dataForSave.day2TalkedTo.includes(characters.nobu)) {
                     // check if all relevant items updated
                     if (dataForSave.itemsUpdated.includes(items.blackOoze) && dataForSave.itemsUpdated.includes(items.medicalNotice) && dataForSave.itemsUpdated.includes(items.replica) && dataForSave.itemsUpdated.includes(items.brokenEarring)) {
-                        ƒS.Speech.clear();
-                        ƒS.Speech.hide();
-                        return "Day2Evening";
+                        await ƒS.Speech.tell(characters.narrator, "Are you sure you wish to go back to the inn?");
+
+                        let options = {
+                            yes: "Yes, I've seen everything.",
+                            no: "Actually, I still wanted to check something"
+                        }
+
+                        let optionsElement = await ƒS.Menu.getInput(options, "choices");
+                        switch (optionsElement) {
+                            case options.yes:
+                                // continue path here
+                                ƒS.Speech.clear();
+                                ƒS.Speech.hide();
+                                return "Day2Evening";
+                            case options.no:
+                                // continue path here
+                                return "Day2Locations";
+                        }
                     } else {
                         await ƒS.Speech.tell(characters.protagonist, "<i>(I still have questions about the things I found, I shouldn’t head back yet...)</i>");
                         return "Day2Locations";
