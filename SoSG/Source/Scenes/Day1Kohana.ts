@@ -89,6 +89,7 @@ namespace SakuraGlade {
         Inventory.add(items.replica);
         dataForSave.inventory.push(items.replica);
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.protagonist, "Oh... but then, couldn't it have been replaced days before?");
         ƒS.Speech.setTickerDelays(60, 5000);

@@ -30,6 +30,7 @@ namespace SakuraGlade {
         Inventory.add(items.medicalNotice);
         dataForSave.inventory.push(items.medicalNotice);
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm... who is Hina?)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This might actually become important. I should ask him about it when I see him again. For now, I better leave.)</i>");
         ƒS.Sound.fade(sound.village, 0, 2)

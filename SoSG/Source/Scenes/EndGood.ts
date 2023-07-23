@@ -78,6 +78,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "Please, let her finish. I have it. She gave it to me. Here.");
         extraItemInteraction = items.moonBead;
         // await Inventory.open();
+        await ƒS.Progress.delay(0);
         extraItemInteraction = undefined;
         // select moon bead
         await ƒS.Speech.tell(characters.protagonist, "She’s telling the truth. Now please continue, Fumiko.");
@@ -234,6 +235,7 @@ namespace SakuraGlade {
         Inventory.add(items.crystalEarring);
         dataForSave.inventory.push(items.crystalEarring);
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         await ƒS.Speech.tell(characters.protagonist, "Thank you…");
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(18, 100));
         // animation
@@ -300,6 +302,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(I don’t remember what happened.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Wait… there’s something in my hand. What’s that?)</i>");
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         await ƒS.Speech.tell(characters.protagonist, "<i>(... so it wasn’t just a dream…?)</i>");
         ƒS.Speech.clear();
         ƒS.Speech.hide();

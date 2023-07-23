@@ -27,6 +27,7 @@ namespace SakuraGlade {
         Inventory.add(items.moonBead);
         dataForSave.inventory.push(items.moonBead);
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         await ƒS.Speech.tell(characters.protagonist, "<i>(I was right! It was her!)</i> But… why?");
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.crying, ƒS.positionPercent(45, 100));

@@ -23,6 +23,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "Show it to me.");
         extraItemInteraction = items.permit;
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         // wait for player to present permit
         extraItemInteraction = undefined;
         await ƒS.Character.hide(characters.amaya);
@@ -66,6 +67,7 @@ namespace SakuraGlade {
         Inventory.add(items.blackOoze);
         dataForSave.inventory.push(items.blackOoze);
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, evidence is evidence. I'll keep it with me.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(This is the only thing I could find out of place. The rest of the area looks very well-kept and tidy. I guess that's it for my big hopes of finding useful stuff here.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Let's head back...)</i>");
@@ -75,6 +77,7 @@ namespace SakuraGlade {
         Inventory.add(items.brokenEarring);
         dataForSave.inventory.push(items.brokenEarring);
         await Inventory.open();
+        await ƒS.Progress.delay(0);
 
         await ƒS.Speech.tell(characters.protagonist, "<i>(Such a pretty little hanger. Someone definitely lost this here. This should prove insightful.)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Well, that wraps it up then, nothing left to find here.)</i>");

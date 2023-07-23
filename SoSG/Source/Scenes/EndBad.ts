@@ -33,6 +33,7 @@ namespace SakuraGlade {
         Inventory.add(items.moonBead);
         dataForSave.inventory.push(items.moonBead);
         await Inventory.open();
+        await ƒS.Progress.delay(0);
         await ƒS.Speech.tell(characters.protagonist, "How?");
         await ƒS.Speech.tell(characters.fumiko, "I stole the replica when Kohana was bathing… I’m sorry, Kohana. I didn’t think they’d immediately suspect you.");
         ƒS.Speech.setTickerDelays(60, 5000);
