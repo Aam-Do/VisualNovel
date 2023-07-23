@@ -120,6 +120,8 @@ canvas {
 
 scene {
   position: absolute;
+  width: 1600px;
+  height: 900px;
 }
 
 speech {
