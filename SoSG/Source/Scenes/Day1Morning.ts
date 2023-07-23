@@ -3,7 +3,7 @@ namespace SakuraGlade {
         console.log("Day 1 Morning starting");
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.innDay);
-        await ƒS.update(2);
+        await ƒS.update(transitions.eye.duration, transitions.eye.alpha, transitions.eye.edge);
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(I slept pretty good, the bed is more comfortable than I expected. But I woke up to a loud commotion outside in the town square. I wonder what's going on out there?)</i>");
@@ -11,7 +11,6 @@ namespace SakuraGlade {
         ƒS.Speech.clear();
         ƒS.Speech.hide();
         await ƒS.Location.show(locations.sakuraGladeDay);
-        // SHOW VILLAGERS
         ƒS.Sound.play(sound.village, .3, true);
         await ƒS.update(2);
         ƒS.Speech.show();
@@ -95,18 +94,20 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Mh, it seems so...");
         ƒS.Speech.setTickerDelays(40, 5000);
-        // animation !
-        await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(70, 100));
+        // animation 
+        await ƒS.Character.animate(characters.kohana, characters.kohana.pose.sad, middleToRight());
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(30, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "Sprout, can I talk to you for a moment?");
         await ƒS.Speech.tell(characters.protagonist, "Sure.");
         await ƒS.Character.hide(characters.kohana);
+        await ƒS.update(1);
         // animation
+        await ƒS.Character.animate(characters.nobu, characters.nobu.pose.sad, leftToMiddle());
         await ƒS.Character.hide(characters.nobu);
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+        await ƒS.update(.1);
         ƒS.Sound.fade(sound.kohana, 0, 2)
-        await ƒS.update(1);
         ƒS.Sound.play(sound.village, .5, true);
         await ƒS.Speech.tell(characters.nobu, "That was some real courage you had there!");
         await ƒS.Speech.tell(characters.nobu, "You have an aura, I can't explain it. But I feel it too. And the villagers listened to you as well!");

@@ -6,15 +6,36 @@ namespace SakuraGlade {
   // cpms = characters per millisecond
   ƒS.Speech.setTickerDelays(40, 5000);
 
-  // Preparation for needed media -> put into definitions
+  export let transitions = {
+    eye: {
+      duration: 1,
+      alpha: "Images/Transitions/eyes.jpg",
+      edge: .2
+    },
+    normal: {
+      duration: 1,
+      alpha: "Images/Transitions/transition.jpg",
+      edge: 0.1
+    }
+  };
 
-  // export let transition = {
-  //   puzzle: {
-  //     duration: 1,
-  //     alpha: "path",
-  //     edge: 1
-  //   }
-  // };
+  export function middleToRight(): ƒS.AnimationDefinition {
+    return {
+      start: { translation: ƒS.positionPercent(50, 100) },
+      end: { translation: ƒS.positionPercent(70, 100)},
+      duration: 1,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+  export function leftToMiddle(): ƒS.AnimationDefinition {
+    return {
+      start: { translation: ƒS.positionPercent(30, 100) },
+      end: { translation: ƒS.positionPercent(50, 100)},
+      duration: 1,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+
 
   export let sound = {
     // themes
@@ -296,7 +317,7 @@ namespace SakuraGlade {
   }
 
   function credits(): void {
-    ƒS.Text.print("<h2>Credits</h2><div class='credits-text'><li><span><b>Concept, Characterdesign, Script: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Character Sprites: </b></span><span>Amélie Dell'Oro (<i class='fa-brands fa-instagram'></i> @ivy_arts03)<br>GinGin<br>Anna Borisovich (<i class='fa-brands fa-instagram'></i> @_alluusion)</span></li><li><span><b>Item Sprites: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Backgrounds: </b></span><span>Amélie Dell'Oro<br>Midjourney</span></li><li><span><b>Music: </b></span></li><ul><li><span><b>In the Place Far Away, The Garden of Ajisai: </b></span><span>HarumachiMusic on Pixabay</span></li><li><span><b>Ongaku, Koto: </b></span><span>Monument_Music on Pixabay</span></li><li><span><b>Japan Origami: </b></span><span>FreeGroove on Pixabay</span></li><li><span><b>Among The Cherry Blossom: </b></span><span>kaazoom on Pixabay</span></li><li><span><b>The Shinning Moon Princess: </b></span><span>OB-LIX on Pixabay</span></li></ul><li><span><b>SFX: </b></span><span>FreeSound.org</span></li></div><span><b>Special thanks to GinGin and TimTim for their input, support and playtesting!</b></span>");
+    ƒS.Text.print("<h2>Credits</h2><div class='credits-text'><li><span><b>Concept, Characterdesign, Script: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Character Sprites: </b></span><span>Amélie Dell'Oro (<i class='fa-brands fa-instagram'></i> @ivy_arts03)<br>GinGin (<i class='fa-brands fa-instagram'></i> @anxi.art)<br>Anna Borisovich (<i class='fa-brands fa-instagram'></i> @_alluusion)</span></li><li><span><b>Item Sprites: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Backgrounds: </b></span><span>Amélie Dell'Oro<br>Midjourney</span></li><li><span><b>Music: </b></span></li><ul><li><span><b>In the Place Far Away, The Garden of Ajisai: </b></span><span>HarumachiMusic on Pixabay</span></li><li><span><b>Ongaku, Koto: </b></span><span>Monument_Music on Pixabay</span></li><li><span><b>Japan Origami: </b></span><span>FreeGroove on Pixabay</span></li><li><span><b>Among The Cherry Blossom: </b></span><span>kaazoom on Pixabay</span></li><li><span><b>The Shinning Moon Princess: </b></span><span>OB-LIX on Pixabay</span></li></ul><li><span><b>SFX: </b></span><span>FreeSound.org</span></li></div><span><b>Special thanks to GinGin and TimTim for their input, support and playtesting!</b></span>");
   }
 
   // Menu shortcuts
@@ -387,8 +408,8 @@ namespace SakuraGlade {
 
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
-      { scene: Start, name: "Start Scene" },
-      { scene: Intro, name: "Intro Scene" },
+      // { scene: Start, name: "Start Scene" },
+      // { scene: Intro, name: "Intro Scene" },
       { scene: FairieForest, name: "Fairie Forest" },
       { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
       { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },

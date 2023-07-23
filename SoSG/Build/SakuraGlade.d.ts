@@ -1,6 +1,20 @@
 declare namespace SakuraGlade {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
+    let transitions: {
+        eye: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        normal: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+    };
+    function middleToRight(): ƒS.AnimationDefinition;
+    function leftToMiddle(): ƒS.AnimationDefinition;
     let sound: {
         forest: string;
         village: string;

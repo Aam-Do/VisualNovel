@@ -12,7 +12,7 @@ namespace SakuraGlade {
     await ƒS.Progress.delay(1);
     ƒS.Sound.play(sound.forest, .5, true);
     await ƒS.Location.show(locations.forestHome);
-    await ƒS.update(1);
+    await ƒS.update(transitions.normal.duration, transitions.normal.alpha, transitions.normal.edge);
     await ƒS.Progress.delay(2);
     ƒS.Speech.show()
     await ƒS.Progress.delay(1);

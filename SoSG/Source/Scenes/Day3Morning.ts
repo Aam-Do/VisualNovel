@@ -4,7 +4,8 @@ namespace SakuraGlade {
 
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.innDay);
-        await ƒS.update(2);
+        await ƒS.update(transitions.eye.duration, transitions.eye.alpha, transitions.eye.edge);
+
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(It was hard to find rest last night…)</i>");

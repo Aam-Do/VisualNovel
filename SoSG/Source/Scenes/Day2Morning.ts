@@ -4,7 +4,8 @@ namespace SakuraGlade {
 
         // await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.innDay);
-        await ƒS.update(2);
+        await ƒS.update(transitions.eye.duration, transitions.eye.alpha, transitions.eye.edge);
+
         // await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(What a night... I was lying awake thinking about who it could've been forever. I have so much to find out.)</i>");

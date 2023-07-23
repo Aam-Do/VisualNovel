@@ -6,14 +6,36 @@ var SakuraGlade;
     console.log("Secrets of Sakura Glade starting");
     // cpms = characters per millisecond
     SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-    // Preparation for needed media -> put into definitions
-    // export let transition = {
-    //   puzzle: {
-    //     duration: 1,
-    //     alpha: "path",
-    //     edge: 1
-    //   }
-    // };
+    SakuraGlade.transitions = {
+        eye: {
+            duration: 1,
+            alpha: "Images/Transitions/eyes.jpg",
+            edge: .2
+        },
+        normal: {
+            duration: 1,
+            alpha: "Images/Transitions/transition.jpg",
+            edge: 0.1
+        }
+    };
+    function middleToRight() {
+        return {
+            start: { translation: SakuraGlade.ƒS.positionPercent(50, 100) },
+            end: { translation: SakuraGlade.ƒS.positionPercent(70, 100) },
+            duration: 1,
+            playmode: SakuraGlade.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    SakuraGlade.middleToRight = middleToRight;
+    function leftToMiddle() {
+        return {
+            start: { translation: SakuraGlade.ƒS.positionPercent(30, 100) },
+            end: { translation: SakuraGlade.ƒS.positionPercent(50, 100) },
+            duration: 1,
+            playmode: SakuraGlade.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    SakuraGlade.leftToMiddle = leftToMiddle;
     SakuraGlade.sound = {
         // themes
         forest: "Audio/fantasy-classical-themes.mp3",
@@ -282,7 +304,7 @@ var SakuraGlade;
     }
     SakuraGlade.hndItem = hndItem;
     function credits() {
-        SakuraGlade.ƒS.Text.print("<h2>Credits</h2><div class='credits-text'><li><span><b>Concept, Characterdesign, Script: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Character Sprites: </b></span><span>Amélie Dell'Oro (<i class='fa-brands fa-instagram'></i> @ivy_arts03)<br>GinGin<br>Anna Borisovich (<i class='fa-brands fa-instagram'></i> @_alluusion)</span></li><li><span><b>Item Sprites: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Backgrounds: </b></span><span>Amélie Dell'Oro<br>Midjourney</span></li><li><span><b>Music: </b></span></li><ul><li><span><b>In the Place Far Away, The Garden of Ajisai: </b></span><span>HarumachiMusic on Pixabay</span></li><li><span><b>Ongaku, Koto: </b></span><span>Monument_Music on Pixabay</span></li><li><span><b>Japan Origami: </b></span><span>FreeGroove on Pixabay</span></li><li><span><b>Among The Cherry Blossom: </b></span><span>kaazoom on Pixabay</span></li><li><span><b>The Shinning Moon Princess: </b></span><span>OB-LIX on Pixabay</span></li></ul><li><span><b>SFX: </b></span><span>FreeSound.org</span></li></div><span><b>Special thanks to GinGin and TimTim for their input, support and playtesting!</b></span>");
+        SakuraGlade.ƒS.Text.print("<h2>Credits</h2><div class='credits-text'><li><span><b>Concept, Characterdesign, Script: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Character Sprites: </b></span><span>Amélie Dell'Oro (<i class='fa-brands fa-instagram'></i> @ivy_arts03)<br>GinGin (<i class='fa-brands fa-instagram'></i> @anxi.art)<br>Anna Borisovich (<i class='fa-brands fa-instagram'></i> @_alluusion)</span></li><li><span><b>Item Sprites: </b></span><span>Amélie Dell'Oro</span></li><li><span><b>Backgrounds: </b></span><span>Amélie Dell'Oro<br>Midjourney</span></li><li><span><b>Music: </b></span></li><ul><li><span><b>In the Place Far Away, The Garden of Ajisai: </b></span><span>HarumachiMusic on Pixabay</span></li><li><span><b>Ongaku, Koto: </b></span><span>Monument_Music on Pixabay</span></li><li><span><b>Japan Origami: </b></span><span>FreeGroove on Pixabay</span></li><li><span><b>Among The Cherry Blossom: </b></span><span>kaazoom on Pixabay</span></li><li><span><b>The Shinning Moon Princess: </b></span><span>OB-LIX on Pixabay</span></li></ul><li><span><b>SFX: </b></span><span>FreeSound.org</span></li></div><span><b>Special thanks to GinGin and TimTim for their input, support and playtesting!</b></span>");
     }
     // Menu shortcuts
     let inGameMenuButtons = {
@@ -365,8 +387,8 @@ var SakuraGlade;
         });
         // Scene Hierarchy 
         let scenes = [
-            { scene: SakuraGlade.Start, name: "Start Scene" },
-            { scene: SakuraGlade.Intro, name: "Intro Scene" },
+            // { scene: Start, name: "Start Scene" },
+            // { scene: Intro, name: "Intro Scene" },
             { scene: SakuraGlade.FairieForest, name: "Fairie Forest" },
             { scene: SakuraGlade.WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
             { scene: SakuraGlade.Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
@@ -1574,7 +1596,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Someone is talking to me...)</i>");
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.fairieForest);
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.sad, SakuraGlade.ƒS.positionPercent(50, 100));
-        await SakuraGlade.ƒS.update(1);
+        await SakuraGlade.ƒS.update(SakuraGlade.transitions.eye.duration, SakuraGlade.transitions.eye.alpha, SakuraGlade.transitions.eye.edge);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(Where... am I?)</i>");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
@@ -1720,7 +1742,7 @@ var SakuraGlade;
         await SakuraGlade.ƒS.Progress.delay(1);
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.forest, .5, true);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.forestHome);
-        await SakuraGlade.ƒS.update(1);
+        await SakuraGlade.ƒS.update(SakuraGlade.transitions.normal.duration, SakuraGlade.transitions.normal.alpha, SakuraGlade.transitions.normal.edge);
         await SakuraGlade.ƒS.Progress.delay(2);
         SakuraGlade.ƒS.Speech.show();
         await SakuraGlade.ƒS.Progress.delay(1);
@@ -1796,7 +1818,7 @@ var SakuraGlade;
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.village, .5, true);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.sakuraGladeNight);
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(50, 100));
-        await SakuraGlade.ƒS.update(1);
+        await SakuraGlade.ƒS.update(SakuraGlade.transitions.normal.duration, SakuraGlade.transitions.normal.alpha, SakuraGlade.transitions.normal.edge);
         // await ƒS.Progress.delay(2);
         SakuraGlade.ƒS.Speech.show();
         // await ƒS.Progress.delay(1);
@@ -2223,7 +2245,7 @@ var SakuraGlade;
         console.log("Day 1 Morning starting");
         // await ƒS.Progress.delay(1);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.innDay);
-        await SakuraGlade.ƒS.update(2);
+        await SakuraGlade.ƒS.update(SakuraGlade.transitions.eye.duration, SakuraGlade.transitions.eye.alpha, SakuraGlade.transitions.eye.edge);
         // await ƒS.Progress.delay(1);
         SakuraGlade.ƒS.Speech.show();
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I slept pretty good, the bed is more comfortable than I expected. But I woke up to a loud commotion outside in the town square. I wonder what's going on out there?)</i>");
@@ -2231,7 +2253,6 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.clear();
         SakuraGlade.ƒS.Speech.hide();
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.sakuraGladeDay);
-        // SHOW VILLAGERS
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.village, .3, true);
         await SakuraGlade.ƒS.update(2);
         SakuraGlade.ƒS.Speech.show();
@@ -2315,18 +2336,20 @@ var SakuraGlade;
         SakuraGlade.ƒS.Speech.setTickerDelays(60, 5000);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.kohana, "Mh, it seems so...");
         SakuraGlade.ƒS.Speech.setTickerDelays(40, 5000);
-        // animation !
-        await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.ƒS.positionPercent(70, 100));
+        // animation 
+        await SakuraGlade.ƒS.Character.animate(SakuraGlade.characters.kohana, SakuraGlade.characters.kohana.pose.sad, SakuraGlade.middleToRight());
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.sad, SakuraGlade.ƒS.positionPercent(30, 100));
         await SakuraGlade.ƒS.update(1);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "Sprout, can I talk to you for a moment?");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Sure.");
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.kohana);
+        await SakuraGlade.ƒS.update(1);
         // animation
+        await SakuraGlade.ƒS.Character.animate(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.sad, SakuraGlade.leftToMiddle());
         await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.nobu);
         await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.nobu, SakuraGlade.characters.nobu.pose.neutral, SakuraGlade.ƒS.positionPercent(50, 100));
+        await SakuraGlade.ƒS.update(.1);
         SakuraGlade.ƒS.Sound.fade(SakuraGlade.sound.kohana, 0, 2);
-        await SakuraGlade.ƒS.update(1);
         SakuraGlade.ƒS.Sound.play(SakuraGlade.sound.village, .5, true);
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "That was some real courage you had there!");
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.nobu, "You have an aura, I can't explain it. But I feel it too. And the villagers listened to you as well!");
@@ -2878,7 +2901,7 @@ var SakuraGlade;
         console.log("Day 2 Morning starting");
         // await ƒS.Progress.delay(1);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.innDay);
-        await SakuraGlade.ƒS.update(2);
+        await SakuraGlade.ƒS.update(SakuraGlade.transitions.eye.duration, SakuraGlade.transitions.eye.alpha, SakuraGlade.transitions.eye.edge);
         // await ƒS.Progress.delay(1);
         SakuraGlade.ƒS.Speech.show();
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(What a night... I was lying awake thinking about who it could've been forever. I have so much to find out.)</i>");
@@ -3059,7 +3082,7 @@ var SakuraGlade;
         console.log("Day 3 Morning starting");
         // await ƒS.Progress.delay(1);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.innDay);
-        await SakuraGlade.ƒS.update(2);
+        await SakuraGlade.ƒS.update(SakuraGlade.transitions.eye.duration, SakuraGlade.transitions.eye.alpha, SakuraGlade.transitions.eye.edge);
         // await ƒS.Progress.delay(1);
         SakuraGlade.ƒS.Speech.show();
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(It was hard to find rest last night…)</i>");
@@ -3478,7 +3501,7 @@ var SakuraGlade;
         SakuraGlade.Inventory.add(SakuraGlade.items.moonBead);
         await SakuraGlade.ƒS.Progress.delay(1);
         await SakuraGlade.ƒS.Location.show(SakuraGlade.locations.innDay);
-        await SakuraGlade.ƒS.update(2);
+        await SakuraGlade.ƒS.update(SakuraGlade.transitions.eye.duration, SakuraGlade.transitions.eye.alpha, SakuraGlade.transitions.eye.edge);
         await SakuraGlade.ƒS.Progress.delay(1);
         SakuraGlade.ƒS.Speech.show();
         await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I fell asleep immediately the second I got back to my bed.)</i>");
