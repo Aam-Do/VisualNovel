@@ -4,26 +4,62 @@ namespace SakuraGlade {
     export async function AmayaReactToItem(_item: ƒS.ItemDefinition): Promise<void> {
         switch (_item) {
             case items.phone:
+                await ƒS.Character.hide(characters.amaya);
+                await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.amaya, "Is this a fairy device?");
+                await ƒS.Character.hide(characters.amaya);
+                await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.amaya, "If it's not going to help us find the culprit I don't know why you're showing me this.");
                 break;
             case items.idCard:
+                await ƒS.Character.hide(characters.amaya);
+                await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.amaya, "Interesting... What does this have to do with anything?");
                 break;
             case items.permit:
+                await ƒS.Character.hide(characters.amaya);
+                await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.amaya, "I gave this to you, so you should keep it. Don't lose it.");
+                await ƒS.Character.hide(characters.amaya);
+                await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 break;
             case items.blackOoze:
                 if (dataForSave.itemsUpdated.includes(items.blackOoze)) {
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "We've talked about this before, Cub. I probably lost this while patrolling.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                 } else {
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "Oh... where did you get that from?");
                     await ƒS.Speech.tell(characters.protagonist, "It was on the ground near the Sacred Tree. Do you know what it is?");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "Look, Cub, I'm not particularly proud of it, but as you can see my cap dissolves at the edges.");
                     await ƒS.Speech.tell(characters.amaya, "Sometimes a drop falls down. I try to clean up after myself, but eventually, I'll miss one. Don't worry. It's not unsanitary.");
                     await ƒS.Speech.tell(characters.protagonist, "I found it quite a bit away from the shrine, what were you doing over there?");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "I don't stand in one spot like a statue all night, Cub.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "This might've dropped down during my patrol. I must've been too busy to notice it.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.protagonist, "<i>(Busy...?)</i>");
                     // update item description
                     items.blackOoze.description = updatedItemDescriptions.blackOoze;
@@ -38,19 +74,43 @@ namespace SakuraGlade {
                         dataForSave.investigationPoints += 5;
                         dataForSave.pointsReceived.push(characters.amaya.name + items.brokenEarring.name);
                     }
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "So this belongs to Fumiko?");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "...");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "That is strange. I didn't see her around here that day... And it certainly didn't get here yesterday. I was guarding the area meticulously.");
                     await ƒS.Speech.tell(characters.protagonist, "Could she have lost it before the day of the incident?");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "That's unlikely... the place was cleaned just the day before.");
                     await ƒS.Speech.tell(characters.protagonist, "Hmm... thank you.");
                     await ƒS.Speech.tell(characters.protagonist, "<i>(This means Fumiko definitely lost it on the night of the incident...)</i>");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
 
                 } else {
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "That is a stunning earring. A shame that it's broken.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "Why are you showing me this, Cub?");
                     await ƒS.Speech.tell(characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
                     await ƒS.Speech.tell(characters.amaya, "Interesting...");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "I'm afraid I do not. But Fumiko's family runs the jewelry shop. Maybe she knows who bought it.");
                 }
                 break;
@@ -60,13 +120,25 @@ namespace SakuraGlade {
                         if (!dataForSave.pointsReceived.includes(characters.amaya.name + items.medicalNotice.name)) {
                             dataForSave.investigationPoints += 5;
                             dataForSave.pointsReceived.push(characters.amaya.name + items.medicalNotice.name);
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Nobu's daughter?");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "You wouldn't suspect he would be in so much secret pain, would you...");
                             await ƒS.Speech.tell(characters.protagonist, "I suppose he's good at looking at the bright things in life. However, this is not why I am showing you this.");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Do enlighten me.");
                             await ƒS.Speech.tell(characters.protagonist, "Well, Nobu claims to have been at the Tree the night of the incident at around half past one to speak a prayer. Yet you've claimed to not have noticed anyone.");
                             await ƒS.Speech.tell(characters.protagonist, "A stealthy thief, maybe not, but I'm sure Nobu was not trying to avoid anyone. He claims to not have seen you either.");
                             await ƒS.Speech.tell(characters.protagonist, "What were you doing at half past one?");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "I...");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(This might be it. Though I can't believe it... why would she steal it??)</i>");
                             await ƒS.Speech.tell(characters.amaya, "...");
@@ -74,51 +146,101 @@ namespace SakuraGlade {
                             await ƒS.Speech.tell(characters.amaya, "I'm only telling you because, well, I don't think I would've been able to keep it secret from you for long. It had to come out at some point.");
                             await ƒS.Speech.tell(characters.amaya, "...");
                             ƒS.Sound.fade(sound.amaya, 0, 2);
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "I might've not been on my post at that time.");
                             await ƒS.Speech.tell(characters.protagonist, "What were you doing then?");
                             ƒS.Sound.play(sound.sad, .5, true);
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "...");
                             await ƒS.Speech.tell(characters.amaya, "You know... I used to have a family.");
                             await ƒS.Speech.tell(characters.amaya, "A husband. A child on its way...");
                             await ƒS.Speech.tell(characters.amaya, "I lost it before it could see the light of day. I... It wasn't the same anymore after that.");
                             await ƒS.Speech.tell(characters.amaya, "I don't expect you to understand the pain I felt, Cub. I hope you cannot, in fact.");
                             await ƒS.Speech.tell(characters.amaya, "I guess it started around then, I would search for ways to forget...");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.smiling, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Then I found Kohana. She brought light into my life when everything seemed dark. I devoted myself to this job, all day, all night, so I wouldn't allow myself to feel.");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "But at night, when no one can see, it still haunts me. So I drown it. It became a habit. When I can't take it, I drink a bottle or two to feel okay again.");
                             await ƒS.Speech.tell(characters.amaya, "...");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Ah, why am I telling you all this? I guess I crave your sympathy. But it's alright. Now you know the truth.");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(She's right, I can't fathom the pain she must've gone through...)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "I'm incredibly sorry for you.");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Don't be. There's nothing you could do to change the past.");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(... At least this means it wasn't her...)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "Well, so...");
-                            await ƒS.Speech.tell(characters.amaya, "Don't be. There's nothing you could do to change the past.");
                             await ƒS.Speech.tell(characters.protagonist, "When did you leave your post?");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Around one am. I didn't check the specific time but I was back at my post shortly before two.");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(So there's about an hour span where the Tree was unguarded that night between one and two am. Nobu arrived at 1:30 am and got home shortly before 2 am. It's unlikely someone managed to sneak by before Amaya came back.)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(But there is still half an hour's gap before, which is when the theft must have happened!)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "Thank you for telling me this, Amaya. I can now definitely narrow down the timeframe of the theft.");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "I'm sorry I couldn't tell you this earlier. Please keep it quiet. My life depends on this job.");
                             await ƒS.Speech.tell(characters.protagonist, "Of course. I'm in no position to talk about what you just told me.");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.smiling, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Thank you, Cub.");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             ƒS.Sound.fade(sound.sad, 0, 2);
                             ƒS.Sound.play(sound.amaya, .5, true);
                         } else {
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "Please don't make me repeat myself...");
                             await ƒS.Speech.tell(characters.protagonist, "Could you just remind me when exactly you were absent from your post?");
+                            await ƒS.Character.hide(characters.amaya);
+                            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.amaya, "It must have been between one and shortly before two am.");
                             await ƒS.Speech.tell(characters.protagonist, "Thank you.");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(So there's about an hour span where the Tree was unguarded that night between one and two am. Nobu arrived at 1:30 am and got home shortly before 2 am. It's unlikely someone managed to sneak by before Amaya came back.)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(But there is still half an hour's gap before, which is when the theft must have happened!)</i>");
                         }
                     } else {
+                        await ƒS.Character.hide(characters.amaya);
+                        await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+                        await ƒS.update(.1);
                         await ƒS.Speech.tell(characters.amaya, "Nobu's daughter? I didn't know he had one.");
+                        await ƒS.Character.hide(characters.amaya);
+                        await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(50, 100));
+                        await ƒS.update(.1);
                         await ƒS.Speech.tell(characters.amaya, "How terrible...");
                         // more dialogue here would be nice if I have enough time
                     }
                 } else {
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "That appears to be sensitive information.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "You shouldn't go around showing it to strangers.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                 }
                 break;
             case items.replica:
@@ -127,15 +249,27 @@ namespace SakuraGlade {
                         dataForSave.investigationPoints += 5;
                         dataForSave.pointsReceived.push(characters.amaya.name + items.replica.name);
                     }
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "You think it was stolen from Kohana after midnight?");
                     await ƒS.Speech.tell(characters.amaya, "Hmm... The thief has some cunning to replace the original with it.");
                     await ƒS.Speech.tell(characters.protagonist, "What do you mean by that?");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "You can't tell the difference from afar, so I wouldn't notice anything amiss. It makes it impossible to determine when exactly the Moon Bead was stolen until Kohana would come to check on it.");
                     await ƒS.Speech.tell(characters.protagonist, "That seems quite clever.");
                     await ƒS.Speech.tell(characters.amaya, "Indeed.");
                 } else {
                     await ƒS.Speech.tell(characters.amaya, "The Priestess keeps the replica for practicing the rituals. If you have questions about it you should ask Kohana.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.amaya, "We should figure out when it was stolen from her... Let me know once you have more information on that.");
+                    await ƒS.Character.hide(characters.amaya);
+                    await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                 }
                 break;
         }

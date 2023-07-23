@@ -6,10 +6,19 @@ namespace SakuraGlade {
         if (!dataForSave.day2TalkedTo.includes(characters.amaya)) {
             await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
             await ƒS.update(1);
+            await ƒS.Character.hide(characters.amaya);
+            await ƒS.Character.show(characters.amaya, characters.amaya.pose.smiling, ƒS.positionPercent(50, 100));
+            await ƒS.update(.1);
             await ƒS.Speech.tell(characters.amaya, "I see you're back from your investigation, Cub. I hope it's proven to be insightful.");
             await ƒS.Speech.tell(characters.amaya, "Any new clues?");
             await ƒS.Speech.tell(characters.protagonist, "Well, I certainly did find some stuff.");
+            await ƒS.Character.hide(characters.amaya);
+            await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(50, 100));
+            await ƒS.update(.1);
             await ƒS.Speech.tell(characters.amaya, "You did indeed?");
+            await ƒS.Character.hide(characters.amaya);
+            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+            await ƒS.update(.1);
             await ƒS.Speech.tell(characters.amaya, "If you will show me, we can figure out what it tells us.");
             await day2Inventory();
             dataForSave.day2TalkedTo.push(characters.amaya);

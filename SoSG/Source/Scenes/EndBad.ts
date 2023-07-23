@@ -16,6 +16,9 @@ namespace SakuraGlade {
         }
         ƒS.Sound.play(sound.sad, .5, true);
         await ƒS.Speech.tell(characters.fumiko, "Just stop… " + pronouns + " wrong!");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "How would you know that, Fumiko?");
         await ƒS.Speech.tell(characters.fumiko, "I… I can’t sit by and watch while someone innocent has to take the blame for something that I did…");
         await ƒS.Speech.tell(characters.nobu, "Fumiko… what are you implying?");
@@ -39,7 +42,13 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.kohana, "…Mh.");
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.fumiko, "Then I waited for Amaya to leave for her… break.");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.surprised, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "You were watching me? You knew all this time?");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "It was the perfect opportunity.");
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(45, 100));
@@ -59,8 +68,14 @@ namespace SakuraGlade {
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "But it doesn’t matter now anyways. It’s all been decided. So take me away. Let Kohana go. It’s all my fault.");
         await ƒS.Speech.tell(characters.protagonist, "Fumiko…");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "Don’t bother. You’ve done enough. We’ll take care of the rest.");
         await ƒS.Speech.tell(characters.protagonist, "But... I-");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "Leave.");
         await ƒS.Character.hide(characters.amaya);
         await ƒS.Character.hide(characters.fumiko);

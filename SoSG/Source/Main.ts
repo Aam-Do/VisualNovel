@@ -387,37 +387,37 @@ namespace SakuraGlade {
 
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
-      { scene: Start, name: "Start Scene" },
-      { scene: Intro, name: "Intro Scene" },
-      { scene: FairieForest, name: "Fairie Forest" },
-      { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
-      { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
+      // { scene: Start, name: "Start Scene" },
+      // { scene: Intro, name: "Intro Scene" },
+      // { scene: FairieForest, name: "Fairie Forest" },
+      // { scene: WelcomeSakuraGlade, name: "Welcome to Sakura Glade" },
+      // { scene: Day1Morning, name: "Day 1 Morning", next: "Day1Locations" },
 
-      { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
-      { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
-      { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
-      { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
+      // { id: "Day1Locations", scene: day1Locations, name: "Day 1 Locations" },
+      // { id: "Day1Kohana", scene: Day1Kohana, name: "Day 1 Kohana", next: "Day1Locations" },
+      // { id: "Day1Amaya", scene: Day1Amaya, name: "Day 1 Amaya", next: "Day1Locations" },
+      // { id: "Day1Nobu", scene: Day1Nobu, name: "Day 1 Nobu", next: "Day1Locations" },
 
-      { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
+      // { id: "Day1Fumiko", scene: Day1Fumiko, name: "Day 1 Fumiko" },
 
-      { scene: Day2Morning, name: "Day 2 Morning" },
-      { scene: Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
+      // { scene: Day2Morning, name: "Day 2 Morning" },
+      // { scene: Day2SacredTree, name: "Day 2 Sacred Tree", next: "Day2Amaya" },
 
-      { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },
-      { id: "Day2Amaya", scene: Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
-      { id: "Day2Kohana", scene: Day2Kohana, name: "Day 2 Kohana", next: "Day2Locations" },
-      { id: "Day2Nobu", scene: Day2Nobu, name: "Day 2 Nobu", next: "Day2Locations" },
-      { id: "Day2Fumiko", scene: Day2Fumiko, name: "Fumiko", next: "Day2Locations" },
+      // { id: "Day2Locations", scene: day2Locations, name: "Day 2 Locations" },
+      // { id: "Day2Amaya", scene: Day2Amaya, name: "Day 2 Amaya", next: "Day2Locations" },
+      // { id: "Day2Kohana", scene: Day2Kohana, name: "Day 2 Kohana", next: "Day2Locations" },
+      // { id: "Day2Nobu", scene: Day2Nobu, name: "Day 2 Nobu", next: "Day2Locations" },
+      // { id: "Day2Fumiko", scene: Day2Fumiko, name: "Fumiko", next: "Day2Locations" },
 
-      { id: "Day2Evening", scene: Day2Evening, name: "Day 2 Evening", next: "Day3Morning" },
+      // { id: "Day2Evening", scene: Day2Evening, name: "Day 2 Evening", next: "Day3Morning" },
 
-      { id: "Day2Breakdown", scene: Day2Breakdown, name: "Day 2 Breakdown", next: "Day3Morning" },
+      // { id: "Day2Breakdown", scene: Day2Breakdown, name: "Day 2 Breakdown", next: "Day3Morning" },
 
-      { id: "Day3Morning", scene: Day3Morning, name: "Day 3 Morning", next: "Day3Showdown" },
-      { id: "Day3Showdown", scene: Day3Showdown, name: "Day 3 Showdown" },
+      // { id: "Day3Morning", scene: Day3Morning, name: "Day 3 Morning", next: "Day3Showdown" },
+      // { id: "Day3Showdown", scene: Day3Showdown, name: "Day 3 Showdown" },
 
-      { id: "BadEnding", scene: BadEnding, name: "Bad Ending", next: "EndScene" },
-      { id: "BittersweetEnding", scene: BittersweetEnding, name: "Bittersweet Ending", next: "EndScene" },
+      // { id: "BadEnding", scene: BadEnding, name: "Bad Ending", next: "EndScene" },
+      // { id: "BittersweetEnding", scene: BittersweetEnding, name: "Bittersweet Ending", next: "EndScene" },
       { id: "GoodEnding", scene: GoodEnding, name: "Good Ending", next: "EndScene" },
 
       // empty scene to stop the program

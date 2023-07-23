@@ -2,6 +2,8 @@ namespace SakuraGlade {
     export async function GoodEnding(): ƒS.SceneReturn {
         console.log("Good Ending starting");
 
+        Inventory.add(items.moonBead);
+
         await ƒS.Progress.delay(1);
         await ƒS.Location.show(locations.innDay);
         await ƒS.update(2);
@@ -15,7 +17,7 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(18, 100));
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(45, 100));
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(62, 100));
-        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(82, 100));
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(82, 100));
         ƒS.Sound.play(sound.village, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
@@ -26,6 +28,9 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "...Mh.");
         ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "Well then, Cub. We’ve put our trust in you. So? Tell us. Who was the real culprit behind the theft of the Moon Bead?");
         await ƒS.Speech.tell(characters.protagonist, "Actually, we’ve got something to tell you.");
         ƒS.Sound.fade(sound.village, 0, 2)
@@ -42,6 +47,9 @@ namespace SakuraGlade {
         await ƒS.Character.hide(characters.kohana);
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(62, 100));
         await ƒS.update(.1);
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.upset, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "What is the meaning of this…?");
         await ƒS.Speech.tell(characters.protagonist, "Please listen to her. She entrusted herself to me yesterday. I’m sure you’ll all feel the same as me when she’s done explaining.");
         await ƒS.Character.hide(characters.nobu);
@@ -51,6 +59,9 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Speech.tell(characters.kohana, "Me too.");
         ƒS.Speech.setTickerDelays(40, 5000);
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "As you were.");
         await ƒS.Speech.tell(characters.fumiko, "Thank you.");
         await ƒS.Character.hide(characters.fumiko);
@@ -89,6 +100,9 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.smiling, ƒS.positionPercent(45, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "I think you’re the best warden the village has ever had.");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.sad, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "Fumiko…");
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(45, 100));
@@ -134,8 +148,17 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(45, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "I still understand if you can’t let me go freely, Amaya.");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.thinking, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "I’ll see about that.");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "Maybe I’ll have you do community services, helping Nobu with gathering food and firewood in the forest. All those things that get your hands dirty.");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.smiling, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.crying, ƒS.positionPercent(45, 100));
         await ƒS.update(.1);
@@ -175,10 +198,13 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.nobu, "Grasshopper! You’ll miss the fireworks!");
         await ƒS.Speech.tell(characters.protagonist, "Coming!");
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(20, 100));
-        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.smiling, ƒS.positionPercent(50, 100));
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(68, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.amaya, "We wanted to take a moment to thank you, " + dataForSave.nameProtagonist + ". Without you, who knows if the festival could have taken place.");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "And thank you for clearing Kohana’s name. We won’t forget this.");
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Character.hide(characters.kohana);
@@ -237,6 +263,9 @@ namespace SakuraGlade {
         await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(18, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "I hope you get home safely, wherever that is, Sprout!");
+        await ƒS.Character.hide(characters.amaya);
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.smiling, ƒS.positionPercent(82, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.amaya, "Farewell, Cub.");
         await ƒS.Character.hide(characters.fumiko);
         await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.smiling, ƒS.positionPercent(45, 100));
