@@ -142,7 +142,13 @@ namespace SakuraGlade {
                 await ƒS.Speech.tell(characters.protagonist, "I… can’t promise before I know what it is. I’m sorry.");
                 await ƒS.Speech.tell(characters.protagonist, "I’m maybe not going to hate you, but, if it is what I think it is, you know you have to face the consequences of your actions.");
                 await ƒS.Speech.tell(characters.fumiko, "…");
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.crying, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.fumiko, "I know. I’m sorry. I guess I shouldn’t have hoped that you’d understand. I…");
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.fumiko, "I gotta go. I’ll be there, tomorrow. Do what you have to do.");
                 await ƒS.Character.hide(characters.fumiko);
                 await ƒS.update(1);

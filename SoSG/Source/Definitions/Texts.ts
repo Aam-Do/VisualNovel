@@ -536,34 +536,79 @@ namespace SakuraGlade {
     export async function NobuReactToItem(_item: ƒS.ItemDefinition): Promise<void> {
         switch (_item) {
             case items.phone:
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Oh such intricate design! What is it?");
                 await ƒS.Speech.tell(characters.nobu, "...");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "You know, I probably wouldn't understand even if you tried.");
                 break;
             case items.idCard:
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Oh, is that you? How did they draw you on that little card with so much detail?");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 break;
             case items.permit:
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Amaya authorized you to investigate the Sacred Tree?");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "That's great! I hope you're able to find lots of useful information there.");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 break;
             case items.blackOoze:
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.thinking, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Hmm this sort of looks like the ink from Amaya's cap. You should ask her about it.");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 break;
             case items.brokenEarring:
                 if (dataForSave.itemsUpdated.includes(items.brokenEarring)) {
+                    await ƒS.Character.hide(characters.nobu);
+                    await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(1);
                     await ƒS.Speech.tell(characters.nobu, "Ohoh! What a precious piece of jewelry!");
                     await ƒS.Speech.tell(characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
+                    await ƒS.Character.hide(characters.nobu);
+                    await ƒS.Character.show(characters.nobu, characters.nobu.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(1);
                     await ƒS.Speech.tell(characters.nobu, "I'm sorry, Grasshopper, I'm not one to pay attention to such things.");
+                    await ƒS.Character.hide(characters.nobu);
+                    await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(1);
                     await ƒS.Speech.tell(characters.nobu, "Maybe Fumiko can tell you something, she works at the jewelry shop.");
                 } else {
+                    await ƒS.Character.hide(characters.nobu);
+                    await ƒS.Character.show(characters.nobu, characters.nobu.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(1);
                     await ƒS.Speech.tell(characters.nobu, "Oh it belongs to Fumiko you say? It definitely fits her beauty!");
+                    await ƒS.Character.hide(characters.nobu);
+                    await ƒS.Character.show(characters.nobu, characters.nobu.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(1);
                     await ƒS.Speech.tell(characters.nobu, "I wonder what she was doing at the Sacred Tree, though...");
+                    await ƒS.Character.hide(characters.nobu);
+                    await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(1);
                 }
                 break;
             case items.medicalNotice:
                 if (dataForSave.itemsUpdated.includes(items.medicalNotice)) {
-                    await ƒS.Speech.tell(characters.nobu, "We've talked about this before, Cub. I probably lost this while patrolling.");
+                    await ƒS.Speech.tell(characters.nobu, "I told you everything I know already...");
                 } else {
                     await ƒS.Speech.tell(characters.nobu, "Wh.. where did you find this?");
                     await ƒS.Speech.tell(characters.protagonist, "I was searching for you yesterday and stumbled upon it.");

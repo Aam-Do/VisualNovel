@@ -32,6 +32,9 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.nobu, "I've been looking for you! I'm glad to see you're okay.");
         await ƒS.Speech.tell(characters.protagonist, "<i>(He seems different today... maybe I'm just imagining things...)</i>");
         await ƒS.Speech.tell(characters.protagonist, "I'm fine, thank you. But what is going on here? Why is everyone so upset?");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(50, 100));
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "Oh, it's terrible, Grasshopper-");
         await ƒS.Speech.tell("Villager 3", "You! It was you, wasn't it? Admit it!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(They're not talking to me. There's a little girl everyone is surrounding...)</i>");
@@ -94,7 +97,7 @@ namespace SakuraGlade {
         ƒS.Speech.setTickerDelays(40, 5000);
         // animation !
         await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(70, 100));
-        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(30, 100));
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(30, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "Sprout, can I talk to you for a moment?");
         await ƒS.Speech.tell(characters.protagonist, "Sure.");
@@ -106,13 +109,28 @@ namespace SakuraGlade {
         ƒS.Sound.play(sound.village, .5, true);
         await ƒS.Speech.tell(characters.nobu, "That was some real courage you had there!");
         await ƒS.Speech.tell(characters.nobu, "You have an aura, I can't explain it. But I feel it too. And the villagers listened to you as well!");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(50, 100));
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "They can be so cruel sometimes, jumping to conclusions like that. Kohana isn't very well-liked among them, she's... a little eccentric sometimes.");
         await ƒS.Speech.tell(characters.nobu, "But I've known her since she came here and I don't think she stole the Bead.");
         await ƒS.Speech.tell(characters.protagonist, "She definitely doesn't look like someone who'd steal something so important...");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "I'm glad you think so too!");
         await ƒS.Speech.tell(characters.nobu, "Well, Grasshopper, who was it if not her? They won't let her go until they've found the real culprit.");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(50, 100));
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "And oh, the festival! How will it be held without the Moon Bead? We need the blessing for the coming harvest...");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.thinking, ƒS.positionPercent(50, 100));
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "The village listens to you, and Kohana seems to enjoy your company as well. It might be a big ask since you just arrived here, but...");
+        await ƒS.Character.hide(characters.nobu);
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+        await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "Would you help investigate and find the true culprit?");
 
         let options = {
@@ -125,17 +143,32 @@ namespace SakuraGlade {
             case options.yes:
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "Of course!");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Thank you, Sprout! I knew you would say yes to a new adventure.");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Well then, I have to be somewhere now.");
                 await ƒS.Speech.tell(characters.nobu, "You should talk to Kohana some more. Return the Moon Bead before it's too late for the festival! Good luck, Grasshopper!");
                 break;
             case options.fine:
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "Do I really have to?");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.sad, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Oh well... I was hoping you'd be excited by a little adventure.");
                 await ƒS.Speech.tell(characters.nobu, "Please, Sprout. You've already managed to get the villagers to stop hunting her down, it would make an old man very happy if you could help Kohana a little more and find out who was behind this.");
                 await ƒS.Speech.tell(characters.protagonist, "... fine, I'll do it.");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.smiling, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Thank you! I know you can do it.");
+                await ƒS.Character.hide(characters.nobu);
+                await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(1);
                 await ƒS.Speech.tell(characters.nobu, "Well then, I have to go somewhere now.");
                 await ƒS.Speech.tell(characters.nobu, "Please talk to Kohana. Return the Moon Bead before it's too late for the festival! I'm counting on you, Grasshopper!");
                 break;
