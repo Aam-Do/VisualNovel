@@ -69,6 +69,7 @@ namespace SakuraGlade {
                 Inventory.add(items.moonBead);
                 dataForSave.inventory.push(items.moonBead);
                 await Inventory.open();
+                await ƒS.Progress.delay(0);
                 await ƒS.Speech.tell(characters.protagonist, "<i>(I can’t believe my eyes… it’s the real Moon Bead…!)</i> You…!?");
                 await ƒS.Speech.tell(characters.fumiko, "Yes. It was me. I know. I’m sorry. I shouldn’t have.");
                 await ƒS.Speech.tell(characters.fumiko, "And I shouldn’t have lied to you. I… I just didn’t know any better.");

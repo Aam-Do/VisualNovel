@@ -673,8 +673,8 @@ var FudgeStory;
             let urlSearch = location.search.substr(1);
             if (urlSearch) {
                 let json = JSON.parse(decodeURI(urlSearch));
-                await Progress.splash(json.sceneDescriptor.name);
                 Progress.restoreData(json.data);
+                await Progress.splash(json.sceneDescriptor.name);
                 FudgeStory.Speech.deserialize(json.speech);
                 await FudgeStory.Base.deserialize(json.base);
                 FudgeStory.Sound.deserialize(json.sound);

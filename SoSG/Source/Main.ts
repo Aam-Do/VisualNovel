@@ -383,13 +383,6 @@ namespace SakuraGlade {
       await Inventory.open();
     });
 
-    console.log('it should now add items');
-    console.log(dataForSave.inventory);
-    for (let item of dataForSave.inventory) {
-      console.log('add items to inventory!');
-      Inventory.add(item);
-    }
-
     // Scene Hierarchy 
     let scenes: ƒS.Scenes = [
       // { scene: Start, name: "Start Scene" },
@@ -435,5 +428,12 @@ namespace SakuraGlade {
 
     // start the sequence
     ƒS.Progress.go(scenes);
+
+    console.log('it should now add items');
+    console.log(dataForSave.inventory);
+    for (let item of dataForSave.inventory) {
+      console.log('add items to inventory!');
+      Inventory.add(item);
+    }
   }
 }

@@ -361,12 +361,6 @@ var SakuraGlade;
             console.log("Open Inventory");
             await SakuraGlade.Inventory.open();
         });
-        console.log('it should now add items');
-        console.log(SakuraGlade.dataForSave.inventory);
-        for (let item of SakuraGlade.dataForSave.inventory) {
-            console.log('add items to inventory!');
-            SakuraGlade.Inventory.add(item);
-        }
         // Scene Hierarchy 
         let scenes = [
             // { scene: Start, name: "Start Scene" },
@@ -400,6 +394,12 @@ var SakuraGlade;
         SakuraGlade.dataForSave = SakuraGlade.ƒS.Progress.setData(SakuraGlade.dataForSave, uiElement);
         // start the sequence
         SakuraGlade.ƒS.Progress.go(scenes);
+        console.log('it should now add items');
+        console.log(SakuraGlade.dataForSave.inventory);
+        for (let item of SakuraGlade.dataForSave.inventory) {
+            console.log('add items to inventory!');
+            SakuraGlade.Inventory.add(item);
+        }
     }
 })(SakuraGlade || (SakuraGlade = {}));
 var SakuraGlade;
@@ -2442,6 +2442,7 @@ var SakuraGlade;
                 SakuraGlade.Inventory.add(SakuraGlade.items.moonBead);
                 SakuraGlade.dataForSave.inventory.push(SakuraGlade.items.moonBead);
                 await SakuraGlade.Inventory.open();
+                await SakuraGlade.ƒS.Progress.delay(0);
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(I can’t believe my eyes… it’s the real Moon Bead…!)</i> You…!?");
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "Yes. It was me. I know. I’m sorry. I shouldn’t have.");
                 await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.fumiko, "And I shouldn’t have lied to you. I… I just didn’t know any better.");
