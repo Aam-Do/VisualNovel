@@ -93,7 +93,7 @@ var SakuraGlade;
             name: "Amaya",
             origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                neutral: "Images/Characters/Amaya.png",
+                neutral: "Images/Characters/Amaya_neutral.png",
                 // angry: "path",
                 // happy: "path",
                 // upset: "path"
@@ -124,7 +124,7 @@ var SakuraGlade;
             name: "Fumiko",
             origin: SakuraGlade.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                neutral: "Images/Characters/Fumiko.png",
+                neutral: "Images/Characters/Fumiko_neutral.png",
                 // angry: "path",
                 // happy: "path",
                 // upset: "path"
