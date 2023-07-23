@@ -186,7 +186,7 @@ namespace SakuraGlade {
                             await ƒS.Character.hide(characters.amaya);
                             await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
                             await ƒS.update(.1);
-                            await ƒS.Speech.tell(characters.amaya, "Around one am. I didn't check the specific time but I was back at my post shortly before two.");
+                            await ƒS.Speech.tell(characters.amaya, "Around one a.m. ... I didn't check the specific time but I was back at my post shortly before two.");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(So there's about an hour span where the Tree was unguarded that night between one and two am. Nobu arrived at 1:30 am and got home shortly before 2 am. It's unlikely someone managed to sneak by before Amaya came back.)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(But there is still half an hour's gap before, which is when the theft must have happened!)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "Thank you for telling me this, Amaya. I can now definitely narrow down the timeframe of the theft.");

@@ -784,7 +784,7 @@ var SakuraGlade;
                             await SakuraGlade.ƒS.Character.hide(SakuraGlade.characters.amaya);
                             await SakuraGlade.ƒS.Character.show(SakuraGlade.characters.amaya, SakuraGlade.characters.amaya.pose.neutral, SakuraGlade.ƒS.positionPercent(50, 100));
                             await SakuraGlade.ƒS.update(.1);
-                            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Around one am. I didn't check the specific time but I was back at my post shortly before two.");
+                            await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.amaya, "Around one a.m. ... I didn't check the specific time but I was back at my post shortly before two.");
                             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(So there's about an hour span where the Tree was unguarded that night between one and two am. Nobu arrived at 1:30 am and got home shortly before 2 am. It's unlikely someone managed to sneak by before Amaya came back.)</i>");
                             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "<i>(But there is still half an hour's gap before, which is when the theft must have happened!)</i>");
                             await SakuraGlade.ƒS.Speech.tell(SakuraGlade.characters.protagonist, "Thank you for telling me this, Amaya. I can now definitely narrow down the timeframe of the theft.");
