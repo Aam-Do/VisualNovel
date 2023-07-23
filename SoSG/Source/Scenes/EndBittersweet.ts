@@ -10,7 +10,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "…Yes. It’s true.");
         // don't forget surprised reactions!
         await ƒS.Character.hide(characters.kohana);
-        await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(35, 100));
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "I… didn’t have another choice. Please. Believe me.");
         await ƒS.Speech.tell(characters.fumiko, "I was going to give it back after the festival. Here, you can have it again.");
@@ -24,11 +24,11 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "I’m sorry Kohana. I didn’t mean to cause any harm.");
         ƒS.Speech.setTickerDelays(60, 5000);
         await ƒS.Character.hide(characters.kohana);
-        await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(35, 100));
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(62, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.kohana, "It’s… alright. You’ve been hurting…");
         await ƒS.Character.hide(characters.kohana);
-        await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(35, 100));
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.neutral, ƒS.positionPercent(62, 100));
         await ƒS.update(.1);
         ƒS.Speech.setTickerDelays(40, 5000);
         await ƒS.Speech.tell(characters.nobu, "I understand that you were desperate, Fumiko. But stealing our sacred artifact… There must have been another way.");
@@ -42,7 +42,7 @@ namespace SakuraGlade {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.nobu, "Great job, Sprout! I knew you would find out the truth behind it all!");
         await ƒS.Character.hide(characters.kohana);
-        await ƒS.Character.show(characters.kohana, characters.kohana.pose.smiling, ƒS.positionPercent(35, 100));
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.smiling, ƒS.positionPercent(62, 100));
         await ƒS.update(.1);
         await ƒS.Speech.tell(characters.nobu, "Now, let’s celebrate! You don’t want to miss this!");
         await ƒS.Character.hide(characters.nobu);

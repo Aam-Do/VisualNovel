@@ -3,10 +3,10 @@ namespace SakuraGlade {
         console.log("Day 3 Showdown starting");
 
         await ƒS.Location.show(locations.sakuraGladeDay);
-        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(20, 100));
-        await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(35, 100));
-        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(55, 100));
-        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(18, 100));
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(45, 100));
+        await ƒS.Character.show(characters.kohana, characters.kohana.pose.sad, ƒS.positionPercent(62, 100));
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(82, 100));
         ƒS.Sound.play(sound.village, .5, true);
         await ƒS.update(2);
         ƒS.Speech.show();
@@ -32,7 +32,7 @@ namespace SakuraGlade {
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "It was Amaya. She stole the Moon Bead. She had access to the tree all night.");
                 await ƒS.Character.hide(characters.kohana);
-                await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(35, 100));
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
                 await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.amaya, "What?!");
                 ƒS.Speech.setTickerDelays(60, 5000);
@@ -44,7 +44,7 @@ namespace SakuraGlade {
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "It was, after all, Kohana. She has the replica at all times, and since she’s close to Amaya, she convinced her to cover up her theft.");
                 await ƒS.Character.hide(characters.kohana);
-                await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(35, 100));
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
                 await ƒS.update(.1);
                 ƒS.Speech.setTickerDelays(60, 5000);
                 await ƒS.Speech.tell(characters.kohana, "That’s not true…");
@@ -56,7 +56,7 @@ namespace SakuraGlade {
                 // continue path here
                 await ƒS.Speech.tell(characters.protagonist, "It was Nobu. He snuck to the Tree at night pretending to pray, but in reality, it was all just a scheme!");
                 await ƒS.Character.hide(characters.kohana);
-                await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(35, 100));
+                await ƒS.Character.show(characters.kohana, characters.kohana.pose.surprised, ƒS.positionPercent(62, 100));
                 await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.nobu, "What are you saying, Sprout?");
                 await ƒS.Speech.tell(characters.amaya, "Do you ever think before speaking?");

@@ -14,7 +14,7 @@ namespace SakuraGlade {
         // shake/flash screen animation
         await ƒS.Speech.tell(characters.protagonist, "<i>(Someone bumped into me...?)</i>");
         ƒS.Sound.play(sound.fumiko, .5, true);
-        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell("???", "Ah! I'm so sorry!");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Wow, she is really pretty!)</i> No, don't apologize, I was lost in thought. I should've seen you coming.");

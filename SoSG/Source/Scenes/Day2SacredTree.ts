@@ -9,7 +9,7 @@ namespace SakuraGlade {
         await ƒS.Progress.delay(1);
         ƒS.Speech.show();
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ah... it's still just as beautiful as yesterday.)</i>");
-        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.amaya, "I see you're back, Cub.");
         await ƒS.Speech.tell(characters.amaya, "Have you received my permit?");

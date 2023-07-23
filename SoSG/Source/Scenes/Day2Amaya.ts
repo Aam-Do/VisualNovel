@@ -12,7 +12,7 @@ namespace SakuraGlade {
         currentCharacter = characters.amaya;
 
         if (!dataForSave.day2TalkedTo.includes(characters.amaya)) {
-            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
+            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
             await ƒS.update(1);
             await ƒS.Speech.tell(characters.amaya, "I see you're back from your investigation, Cub. I hope it's proven to be insightful.");
             await ƒS.Speech.tell(characters.amaya, "Any new clues?");
@@ -25,7 +25,7 @@ namespace SakuraGlade {
             ƒS.Sound.play(sound.amaya, .5, true);
             await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.sacredTree);
-            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
+            await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
             await ƒS.update(2);
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.amaya, "Back from sniffing around, Cub? Did you find anything interesting?");

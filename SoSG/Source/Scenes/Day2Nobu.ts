@@ -5,7 +5,7 @@ namespace SakuraGlade {
 
         if (!dataForSave.day2TalkedTo.includes(characters.nobu)) {
             await ƒS.Location.show(locations.nobuHome);
-            await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
+            await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
             ƒS.Sound.play(sound.nobu, .4, true);
             await ƒS.update(2);
             ƒS.Speech.show();
@@ -32,7 +32,7 @@ namespace SakuraGlade {
         } else {
             // await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.nobuHome);
-            await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
+            await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
             ƒS.Sound.play(sound.nobu, .4, true);
             await ƒS.update(2);
             ƒS.Speech.show();

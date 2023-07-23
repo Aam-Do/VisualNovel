@@ -5,7 +5,7 @@ namespace SakuraGlade {
         await ƒS.Progress.delay(1);
         ƒS.Sound.play(sound.village, .5, true);
         await ƒS.Location.show(locations.sakuraGladeNight);
-        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.Character.show(characters.nobu, characters.nobu.pose.neutral, ƒS.positionPercent(50, 100));
         await ƒS.update(1);
         // await ƒS.Progress.delay(2);
         ƒS.Speech.show();

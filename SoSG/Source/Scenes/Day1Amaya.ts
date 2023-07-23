@@ -12,7 +12,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell("???", "You can't go here.");
         await ƒS.Speech.tell(characters.protagonist, "What?");
         ƒS.Sound.play(sound.amaya, .5, true);
-        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.Character.show(characters.amaya, characters.amaya.pose.neutral, ƒS.positionPercent(50, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell("???", "A flightless fairy! Are your eyes broken as well? Can't you see this area is restricted at the moment?");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Ouch... she's scary. I admit, I didn't see the little rope around the area.)</i>");

@@ -19,7 +19,7 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.protagonist, "<i>(It’s coming from the bank of the small river... I see someone crouching there… that kimono seems familiar…)</i>");
         await ƒS.Speech.tell(characters.protagonist, "<i>(Fumiko? What is she doing so late out?)</i>");
         // shake/flash screen animation
-        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "… Fumiko? What’s wrong?");
         await ƒS.Speech.tell(characters.fumiko, "Who is there?");

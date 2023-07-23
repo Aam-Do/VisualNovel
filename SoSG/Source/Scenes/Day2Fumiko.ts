@@ -9,7 +9,7 @@ namespace SakuraGlade {
             ƒS.Speech.show();
             await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm… I was hoping to find Fumiko here somewhere, but it’s hard to make out anyone in this crowd…)</i>");
             await ƒS.Speech.tell(characters.protagonist, "<i>(Ah, there she is!)</i>");
-            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
             ƒS.Sound.play(sound.fumiko, .5, true);
             await ƒS.update(1);
             await ƒS.Speech.tell(characters.fumiko, "Ah, the wingless fairy from yesterday!");
@@ -40,7 +40,7 @@ namespace SakuraGlade {
         } else {
             // await ƒS.Progress.delay(1);
             await ƒS.Location.show(locations.sakuraGladeDay);
-            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(70, 100));
+            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
             ƒS.Sound.play(sound.fumiko, .5, true);
             await ƒS.update(2);
             ƒS.Speech.show();
