@@ -97,7 +97,7 @@ namespace SakuraGlade {
       name: "Amaya",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        neutral: "Images/Characters/Amaya.png",
+        neutral: "Images/Characters/Amaya_neutral.png",
         // angry: "path",
         // happy: "path",
         // upset: "path"
@@ -128,7 +128,7 @@ namespace SakuraGlade {
       name: "Fumiko",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        neutral: "Images/Characters/Fumiko.png",
+        neutral: "Images/Characters/Fumiko_neutral.png",
         // angry: "path",
         // happy: "path",
         // upset: "path"
