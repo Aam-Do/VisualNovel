@@ -4,6 +4,9 @@ namespace SakuraGlade {
 
         ƒS.Sound.fade(sound.village, 0, 2)
         await ƒS.Speech.tell(characters.fumiko, "Stop it!");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(45, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.protagonist, "<i>(Fumiko…?)</i>");
         let pronouns: string = "He is";
         if (dataForSave.genderProtagonist == "female") {
@@ -16,7 +19,13 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.amaya, "How would you know that, Fumiko?");
         await ƒS.Speech.tell(characters.fumiko, "I… I can’t sit by and watch while someone innocent has to take the blame for something that I did…");
         await ƒS.Speech.tell(characters.nobu, "Fumiko… what are you implying?");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.crying, ƒS.positionPercent(45, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "It was me! Okay? It was me... I stole the Moon Bead.");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(45, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "And I can prove it. I have it. Here, take it... I don’t want it anymore.");
         Inventory.add(items.moonBead);
         dataForSave.inventory.push(items.moonBead);
@@ -32,10 +41,22 @@ namespace SakuraGlade {
         await ƒS.Speech.tell(characters.fumiko, "Then I waited for Amaya to leave for her… break.");
         await ƒS.Speech.tell(characters.amaya, "You were watching me? You knew all this time?");
         await ƒS.Speech.tell(characters.fumiko, "It was the perfect opportunity.");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(45, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "But then Nobu came by, and I lost my earring. I couldn’t go back to get it anymore.");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(45, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "I guess I was meant to fail either way.");
         await ƒS.Speech.tell(characters.protagonist, "But why did you…? What do you have to gain from it?");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.crying, ƒS.positionPercent(45, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "You wouldn’t understand… I just, I didn’t have any choice. I thought my life would be over if the festival takes place.");
+        await ƒS.Character.hide(characters.fumiko);
+        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(45, 100));
+        await ƒS.update(.1);
         await ƒS.Speech.tell(characters.fumiko, "But it doesn’t matter now anyways. It’s all been decided. So take me away. Let Kohana go. It’s all my fault.");
         await ƒS.Speech.tell(characters.protagonist, "Fumiko…");
         await ƒS.Speech.tell(characters.amaya, "Don’t bother. You’ve done enough. We’ll take care of the rest.");

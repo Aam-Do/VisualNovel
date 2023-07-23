@@ -314,60 +314,127 @@ namespace SakuraGlade {
     export async function FumikoReactToItem(_item: ƒS.ItemDefinition): Promise<void> {
         switch (_item) {
             case items.phone:
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.fumiko, "Precious, I'm not sure what you're trying to show me here...");
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 break;
             case items.idCard:
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.smiling, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.fumiko, "What a precious portrait of you! What is all this information for?");
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 break;
             case items.permit:
                 await ƒS.Speech.tell(characters.fumiko, "The Sacred Tree isn't accessible to most of us right now, so good luck with your investigations!");
                 break;
             case items.blackOoze:
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.fumiko, "Please don't hold that too close to my face. And don't drop any on my kimono either!");
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 await ƒS.Speech.tell(characters.fumiko, "Inky Cap stains are impossible to wash out of silk...");
+                await ƒS.Character.hide(characters.fumiko);
+                await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                await ƒS.update(.1);
                 break;
             case items.brokenEarring:
                 if (dataForSave.itemsUpdated.includes(items.brokenEarring)) {
                     if (dataForSave.investigationPoints >= 20) {
                         if (!dataForSave.pointsReceived.includes(characters.fumiko.name + items.brokenEarring.name)) {
                             dataForSave.pointsReceived.push(characters.fumiko.name + items.brokenEarring.name);
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "I must've not noticed it fall off...");
                             await ƒS.Speech.tell(characters.fumiko, "Oh, Mom and Dad will surely be upset...");
                             await ƒS.Speech.tell(characters.protagonist, "What exactly were you doing at the Tree during the day of the incident?");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "Oh, probably just, running errands.");
                             await ƒS.Speech.tell(characters.protagonist, "You said earlier you went past it a couple of times because of the decorations.");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.smiling, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "That's what I meant.");
                             await ƒS.Speech.tell(characters.protagonist, "However, Amaya claims she didn't see you at the Tree all day.");
-                            await ƒS.Speech.tell(characters.fumiko, "That's what I meant.");
-                            await ƒS.Speech.tell(characters.protagonist, "You said earlier you went past it a couple of times because of the decorations.");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "Ah?");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "Well, she's not always right at the Tree. She has lunch breaks, too, you know.");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(That's strangely unspecific...)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "What were you doing at one am?");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "One am?");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "Well, I go to bed quite early, I need my beauty sleep.");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.protagonist, "<i>(Talking about unspecific answers...)</i>");
                             await ƒS.Speech.tell(characters.protagonist, "<i>(Amaya was drinking at the time, Nobu was praying, Kohana and Fumiko were sleeping... one of them has to be lying...)</i>");
                         } else {
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "I must've not noticed it fall off...");
                             await ƒS.Speech.tell(characters.fumiko, "Oh, Mom and Dad will surely be upset...");
                             await ƒS.Speech.tell(characters.protagonist, "What were you doing at one am?");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "One am?");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.fumiko, "Well, I go to bed quite early, I need my beauty sleep.");
+                            await ƒS.Character.hide(characters.fumiko);
+                            await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                            await ƒS.update(.1);
                             await ƒS.Speech.tell(characters.protagonist, "<i>(Amaya was drinking at the time, Nobu was praying, Kohana and Fumiko were sleeping... one of them has to be lying...)</i>");
                         }
                     } else {
+                        await ƒS.Character.hide(characters.fumiko);
+                        await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                        await ƒS.update(.1);
                         await ƒS.Speech.tell(characters.fumiko, "I must've not noticed it fall off...");
                         await ƒS.Speech.tell(characters.fumiko, "Oh, Mom and Dad will surely be upset...");
                         // more dialogue here would be nice if I have enough time
                     }
                 } else {
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "Oh my- where did you find that?");
                     await ƒS.Speech.tell(characters.protagonist, "I found it on the ground near the Sacred Tree. Do you know who it belongs to?");
                     await ƒS.Speech.tell(characters.fumiko, "Why yes, that's mine!");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "I've been searching for this since... well, yesterday.");
                     await ƒS.Speech.tell(characters.protagonist, "How did you lose it at the Sacred Tree?");
-                    await ƒS.Speech.tell(characters.fumiko, " I often pass the Tree, especially since I'm in charge of the decorations for the Spring Festival this year.");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
+                    await ƒS.Speech.tell(characters.fumiko, "I often pass the Tree, especially since I'm in charge of the decorations for the Spring Festival this year.");
                     await ƒS.Speech.tell(characters.fumiko, "I must’ve not noticed it fall off…");
                     // update item description
                     items.brokenEarring.description = updatedItemDescriptions.brokenEarring;
@@ -378,10 +445,25 @@ namespace SakuraGlade {
                 break;
             case items.medicalNotice:
                 if (dataForSave.itemsUpdated.includes(items.medicalNotice)) {
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "So that's why he was- ... so quiet the other day.");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "I'm really sorry for him.");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                 } else {
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "Oh dear, no one deserves such a terrible fate. Her family must be grieving...");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                 }
                 break;
             case items.replica:
@@ -390,27 +472,63 @@ namespace SakuraGlade {
                         dataForSave.investigationPoints += 5;
                         dataForSave.pointsReceived.push(characters.fumiko.name + items.replica.name);
                     }
-                    await ƒS.Speech.tell(characters.fumiko, "The Moon Bead is of ethereal beauty. Even the replica alone is gorgeous. ");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
+                    await ƒS.Speech.tell(characters.fumiko, "The Moon Bead is of ethereal beauty. Even the replica alone is gorgeous.");
                     await ƒS.Speech.tell(characters.protagonist, "Kohana holds on to this at the temple. Do you know of her daily routine?");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "Her routine? You mean her daily cleansing of the Moon Bead?");
                     await ƒS.Speech.tell(characters.fumiko, "Everyone knows it, it's a traditional duty of the Priestess.");
                     await ƒS.Speech.tell(characters.protagonist, "She claims to take a bath every night at midnight. Did you know of that?");
                     await ƒS.Speech.tell(characters.fumiko, "I suppose I don't visit the temple often, especially not at night.");
                     await ƒS.Speech.tell(characters.protagonist, "<i>(Hmm... I might as well ask a brick and I'd get more useful information. But I wonder, maybe I could find out her motive?)</i>");
                     await ƒS.Speech.tell(characters.protagonist, "So... as a jeweler, you handle gems and precious stones?");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "Of course. We only sell the most high-value jewelry.");
                     await ƒS.Speech.tell(characters.protagonist, "How much would the Moon Bead be worth?");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "Oh my! Surely you don't mean-!");
                     await ƒS.Speech.tell(characters.fumiko, "...");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "Well, theoretically, it's probably priceless.");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "But I could never imagine selling it! Besides, no one would buy it here, anyway.");
                     await ƒS.Speech.tell(characters.protagonist, "Are there other settlements that envy Sakura Glade for it?");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.thinking, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "... Hmm. I don't know.");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.sad, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "I'm not allowed to go outside the village. And we rarely get visitors.");
                     await ƒS.Speech.tell(characters.protagonist, "<i>(I think it's unlikely that she stole it in order to sell it.)</i>");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                 } else {
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.surprised, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "The Moon Bead is of ethereal beauty, no one knows what material it's made of. How it got its shape and how it got here is shrouded in mystery and myths...");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.smiling, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                     await ƒS.Speech.tell(characters.fumiko, "Even the replica alone is gorgeous, it is said an ancestor of my family made it. They were a true master of their craft.");
+                    await ƒS.Character.hide(characters.fumiko);
+                    await ƒS.Character.show(characters.fumiko, characters.fumiko.pose.neutral, ƒS.positionPercent(50, 100));
+                    await ƒS.update(.1);
                 }
                 break;
         }
